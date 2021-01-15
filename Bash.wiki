@@ -1,0 +1,328 @@
+--------------------------------------------------------------------------------
+= Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) =
+--------------------------------------------------------------------------------
+Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
+--------------------------------------------------------------------------------
+== Group and expand expressions ==
+                             |
+  Group commands - subshell  | ()
+                             | Grouping a (list of commands) in parentheses 
+                             | causes them to be executed as if they were a single
+                             | unit. When commands are pre grouped redirections 
+                             | can be applied to the entire command lits. for 
+                             | example, the output of all the commands in the list
+                             | can be redirected to a single stream
+                             |
+  Current shell - group comm | {}
+                             |
+  Command substitution       | $(command(s))
+                             |
+  parameter substitution     | ${parameter(s)}
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+== Top level directories ==
+  /bin/                      | Contains essential binaries used by normal users
+  /boot/                     | Contains files used in the boot process: kernel initramfs, bootloader
+  /dev/                      | Contains special files used to access devices
+  /etc/                      | Default location for software configuration files
+  /home/                     | Contains the home directories for normal users
+  /lib/                      | Contains system libraries
+  /lib64/                    | Contains 64bit system libraries
+  /media/                    | Removable devices such as USB and DVDs can be found here
+  /mnt/                      | Empty by default, can be used to mount other filesystems
+  /opt/                      | Directory where optional software can be installed
+  /proc/                     | Directory where information about proccesses is stored
+  /root/                     | The home directory of the root users
+  /run/                      | Contains variable data about run-time data. different each boot
+  /sbin/                     | Contains essential system binaris used by administrative users
+  /srv/                      | Director to place data to be served by the server
+  /sys/                      | Contains information about a the system, such as drivers and kernel features
+  /tmp/                      | Dir intended for temporary files, often cleared on reboot
+  /usr/                      | Contains non-essential files and binaries as read-only user data
+  /var/                      | Contains varialble files, such as logs
+--------------------------------------------------------------------------------
+== Understanding the Linux ==
+                             | Commands covered in is chapert are 
+Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo, 
+                             |   useradd, groupad, mkdir, and su
+--------------------------------------------------------------------------------
+== Advanced permissions ==
+                             | Other file attribtes include immutable undeletable, 
+                             | append only, and compress
+                             |
+                             | commands are:  lsattr and chattr
+--------------------------------------------------------------------------------
+== Special file permissions ==
+                             | SUID = 4, SGID = 2, Sticky bit = 1
+                             |      | Files                       | Directories
+                             |--------------------------------------------------
+                             | SUID | Files are executed with the | does nothing 
+                             |      | permissions of the owner,   |
+                             |      | regardless of which user    |
+                             |      | executes it.                |
+                             |--------------------------------------------------
+                             | SGID | Files are executed with the | Files that are created in this
+                             |      | permissions of the group,   | director get the same group as
+                             |      | regardless of which user    | The directory
+                             |      | executes it                 |
+                             |--------------------------------------------------
+                             |sticky| does nothing                | User can only delete their own
+                             |bit   |                             | files within this directory. see
+                             |      |                             | the /tmp/ director for its most
+                             |      |                             | famous use.
+--------------------------------------------------------------------------------
+== evaluating math, dealing with numbers ==
+                             | $(( numeric_variable + 1 ))
+--------------------------------------------------------------------------------
+== User input ==
+    Arguments and parameters | when executing a script interactively, an 
+                             | argument is any "word" entered after the name of 
+                             | script. eg.
+                             |   > bash ./script01.sh arg01 agr02 arg03
+                             |
+                             | the parameters which are used to reference 
+                             | these arguments within the script are $1, $2, $3
+                             | respectively
+                             |
+    Requesting user input    |
+      read                   | While during the execution of a script, user 
+                             | can be asked with the read command
+                             | 
+                             | read -p "text added as a prompt" var_assigned 
+                             | 
+      testing for default    | [[ -z ${test_var} ]]; then read -p "assign test_var" test_var
+--------------------------------------------------------------------------------
+== tests and return values ==
+  test                       | the test command is used to check file types and
+                             | compare values
+                             |
+                             | test -d /tmp/temp_dr  # use to check if file is dir
+                             |
+  test shorthand             | [[ -d /tmp/temp_dir ]] # [ ] can also be used 
+                             |
+  $?                         | immediately after any command is run from bash (spawed bash)
+                             | the spawed bash returns a success code for the run command
+                             | to its parent bash (parent shell), assigned to the
+                             | variable "$?" this variable can be used to make 
+                             | decisions for error handling and such
+                             |
+                             | [[ -d /tmp/temp_dir ]]
+                             | [[ $? -ne 0 ]]; then echo "the Previous command was unsuccessful"
+                             |
+  $#                         | this varialbe is used to give the value of the 
+                             | number of arguments given to a script
+                             |
+                             | [[ $# -ne 3 ]] || { echo "this script needs 3 arguments" }
+                             |
+                             |
+  Testing script             | When running a script you can give bash the "-x"
+    bash -x ./some_script    | Argument and it will output every line run with
+                             | all variables and expression substituted -- great
+                             | for bug trackng
+                             |
+--------------------------------------------------------------------------------
+== Regular expressions ==
+  grep                       |
+    -i                       | Allows us to search case-insensitifely
+    -v                       | Only prints line that are not matched, instead of matche
+                             |
+  grep regex are enclosed in |
+  ''                         | . - matches any one character (except a newline)
+                             | * - matches any number of repeats of the preceeding character
+                             | [] - used to narrow our substitution ot a certain
+                             |      character set
+                             |      [ao] - maches a or  o
+                             |      [a-z] - maches any character between a - z
+                             |
+  Line anchors               | ^ - used to match a pattern at the beginning of 
+                             |     a line
+                             | $ = used to match a pattern at the end of  a 
+                             |     line
+                             |
+  Limit to words             | -w
+                             |
+Character classes            |
+  [[:alnum:]]                | Matches lowercase and uppercase leters or digents  [a-z A-Z 0-9]
+                             |
+  [[:alpha:]]                | matches lowercase and uppercase letters            [a-z A-Z]]
+                             |
+  [[:digit:]]                | Matches digits                                     [0-9]
+                             |
+  [[:lower:]]                | Matches lowercase letters                          [a-z]
+  [[:upper:]]                | Matches uppercase letters                          [A-Z]
+  [[:blank:]]                | Matches spaces and tabls                           [\t]
+--------------------------------------------------------------------------------
+== Globbing ==
+    Match zero or more times | *
+                             |
+    Any character once       | ?
+                             |
+    Any of a group of        | [abcde]
+    one or a group of chars  |
+                             |
+--------------------------------------------------------------------------------
+== egrep ==
+  ?                          | matches a repeat of the previous character zero or more times
+  +                          | Matches a repeat of the previous character one or more times
+  {n}                        | Matches a repeat of the previous character exactly n times
+  {n,m}                      | Matches a repeat of the previous character between n and n times
+  {,n}                       | Matches a repeat of previous character n or fewer times
+  {n,}                       | Matches a repeat of the previous character n or more times
+  (xx|yy)                    | Alternation character, allows us to fine xx OR y in the search
+                             | pattern (great for patters with more than one character, 
+                             | otherwise, [xy] notion would suffice)
+--------------------------------------------------------------------------------
+== sed ==
+  Search and replace         | s/ (beginning of string)
+                             | sed 's/wicked/stupid/'
+                             | note: by default, sed only replace the first 
+                             | instance of each word for each line.
+                             | sed does not match only on whole words, but also
+                             | partial words.
+                             |
+  Global action              | /g (end of string)
+                             | set 's/wicked/stupid/g'
+                             |
+  Operation by line number   | 'n,n{option}'
+                             | sed '1,2s/wicked/stupid/g'
+                             |
+  In-place (chages the file) | -i / --in-place
+                             | sed -i 's/wicked/stupid/g' file.txt
+                             |
+  in-place change and backup | -i'file_extension' {pattern}
+                             | -i'.bak' 's/wicked/stupid/g' file.txt
+                             |
+  Line delete                | sed 'd' | '/word/1d'  --< deletes line where word appears
+                             |
+  Line print                 | sed '/ERROR/p' will print two lines if default
+                             | behavior is not surpressed (-n)
+                             |
+  quiet (surpresses default) | -n --quiet
+    print behavror           |
+                             |
+  Run multi script on one    | -e
+  stream                     |
+--------------------------------------------------------------------------------
+== Conditional Testing and Scripting Loops ==
+  While loop                 | while true; do
+                             | done
+                             |
+  Until loop                 | until [[ ${counter} -gt 9 ]]; do
+                             | done
+                             |
+  for in loop                | for word in ${words}; do
+                             | done
+                             |
+  for in range               | for counter in (1..10); do
+                             | done
+                             |
+                             | for letter in (a..z); do
+                             | done
+                             |
+                             | ((;;)); do  <-- infinite loop
+                             | done
+                             |
+  for (traditional) loop     | for ((counter=0; counter<=10; counter++)); do
+                             | done
+Globbing and the loop        |
+  looping through files in   | for file in $(ls /var/log/*.log); do
+  a directory with glob      | done
+                             |
+  Break                      | break (default) <-- break out current loop
+                             | break 1         <-- break out current loop
+                             | break 2         <-- break out current loop and enclosing loop
+                             |
+  Continue                   | skip current iteration of loop, continue to next
+--------------------------------------------------------------------------------
+== Using Pipes and Redirection ==
+  File descriptors           | 
+    standard input stream    | stdin (default binding) /dev/fd/0
+    standard output stream   | stdout (default )       /dev/fd/1
+    standard error stream    | stderr (default)        /dev/fd/2
+                             |
+                             |
+    redirect stdin           | < (<0)
+                             |
+    redirect stdout overwrite| >  (1>)  
+    redirect stdout append   | >>  (1>>)  
+    redirect stderr overwrite| 2>
+    redirect stderr append   | 2>>
+    redirect both            | (bash 3.x) 2>&1   
+                             | (bash 4.x ~>) &>
+                             |
+  Special devices            |
+                             | /dev/null    -> output send here dissappears
+                             | /dev/zero    -> outputs null characters (fallocate --length 1024 {filename} same)
+                             | /dev/random  -> only generates when there is enough "entropy"
+                             | /dev/urandom -> better for scripting
+                             |
+  Command substitution       | Evalutates a command or list of commands, its result can be used
+                             | as an argument for other commands 
+                             | $()
+                             |
+  Process substitution       | Evaluates a command or a list of commands, its result can be referenced
+                             | as a file to for other commands
+                             | <()
+                             |
+  Pipes                      | Connects the standard output of one command to the standard input of 
+                             | another
+                             | |
+                             |
+    redirect output & error  | |&
+                             |
+  Here docs                  | << {end identifier} --> cat << EOF
+    these are used to supply |
+    commands with multi      | {end identifier}
+    multi lines              |
+                             |
+    variables are interpola- | cat << 'EOF' --> variables are not interpolated
+    ted, but you can surpres-|
+    se this by quoting the   |
+    end identifier           |
+                             |
+  Here strings               | <<< # used to send a string to a command which normaly only takes
+                             |     input from stdin
+--------------------------------------------------------------------------------
+== Functions ==
+  Covered commands: top, free declare, case, rev, return
+  Function declarations      | function_name() {
+                             |   Indented-commands
+                             | }
+                             |
+                             | function function_name() {
+                             |   intended-commands
+                             | }
+                             |
+  Scope                      |
+    define local variables   | local function_variable = 'test'
+                             |
+  Case statement             | case ${color} in
+                             |   red)
+                             |     color_code='red'
+                             |   blue)
+                             |     color_code='blue'
+                             |   *()
+                             |     color_code='default'
+                             |
+                             |
+                             |
+                             |
+                             |
+  Scope                      |
+    define local variables   | local function_variable = 'test'
+                             |
+  Case statement             | case ${color} in
+                             |   red)
+                             |     color_code='red'
+                             |   blue)
+                             |     color_code='blue'
+                             |      *)
+                             |     color_code='default'
+--------------------------------------------------------------------------------
+== Scheduling and Logging ==
+  Commands: at, wall, atq, atrm, sendmail, crontab, alias
+                             |
