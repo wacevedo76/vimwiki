@@ -79,6 +79,7 @@ Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo,
                              | $(( numeric_variable + 1 ))
 --------------------------------------------------------------------------------
 == User input ==
+```
     Arguments and parameters | when executing a script interactively, an 
                              | argument is any "word" entered after the name of 
                              | script. eg.
@@ -94,7 +95,7 @@ Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo,
                              | 
                              | read -p "text added as a prompt" var_assigned 
                              | 
-      testing for default    | [[ -z ${test_var} ]]; then read -p "assign test_var" test_var
+      testing for default    | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
 --------------------------------------------------------------------------------
 == tests and return values ==
   test                       | the test command is used to check file types and
@@ -102,7 +103,7 @@ Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |
                              | test -d /tmp/temp_dr  # use to check if file is dir
                              |
-  test shorthand             | [[ -d /tmp/temp_dir ]] # [ ] can also be used 
+  test shorthand             | `[[ -d /tmp/temp_dir `]] # [ ] can also be used 
                              |
   $?                         | immediately after any command is run from bash (spawed bash)
                              | the spawed bash returns a success code for the run command
@@ -110,13 +111,13 @@ Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo,
                              | variable "$?" this variable can be used to make 
                              | decisions for error handling and such
                              |
-                             | [[ -d /tmp/temp_dir ]]
-                             | [[ $? -ne 0 ]]; then echo "the Previous command was unsuccessful"
+                             | `[[ -d /tmp/temp_dir `]]
+                             | `[[ $? -ne 0 `]]; then echo "the Previous command was unsuccessful"
                              |
   $#                         | this varialbe is used to give the value of the 
                              | number of arguments given to a script
                              |
-                             | [[ $# -ne 3 ]] || { echo "this script needs 3 arguments" }
+                             | `[[ $# -ne 3 `]] || { echo "this script needs 3 arguments" }
                              |
                              |
   Testing script             | When running a script you can give bash the "-x"
@@ -146,15 +147,15 @@ Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo,
   Limit to words             | -w
                              |
 Character classes            |
-  [[:alnum:]]                | Matches lowercase and uppercase leters or digents  [a-z A-Z 0-9]
+  `[[:alnum:`]]                | Matches lowercase and uppercase leters or digents  [a-z A-Z 0-9]
                              |
-  [[:alpha:]]                | matches lowercase and uppercase letters            [a-z A-Z]]
+  `[[:alpha:`]]                | matches lowercase and uppercase letters            [a-z A-Z`]]
                              |
-  [[:digit:]]                | Matches digits                                     [0-9]
+  `[[:digit:`]]                | Matches digits                                     [0-9]
                              |
-  [[:lower:]]                | Matches lowercase letters                          [a-z]
-  [[:upper:]]                | Matches uppercase letters                          [A-Z]
-  [[:blank:]]                | Matches spaces and tabls                           [\t]
+  `[[:lower:`]]                | Matches lowercase letters                          [a-z]
+  `[[:upper:`]]                | Matches uppercase letters                          [A-Z]
+  `[[:blank:`]]                | Matches spaces and tabls                           [\t]
 --------------------------------------------------------------------------------
 == Globbing ==
     Match zero or more times | *
@@ -211,7 +212,7 @@ Character classes            |
   While loop                 | while true; do
                              | done
                              |
-  Until loop                 | until [[ ${counter} -gt 9 ]]; do
+  Until loop                 | until `[[ ${counter} -gt 9 `]]; do
                              | done
                              |
   for in loop                | for word in ${words}; do
@@ -308,10 +309,6 @@ Globbing and the loop        |
                              |   *()
                              |     color_code='default'
                              |
-                             |
-                             |
-                             |
-                             |
   Scope                      |
     define local variables   | local function_variable = 'test'
                              |
@@ -325,4 +322,10 @@ Globbing and the loop        |
 --------------------------------------------------------------------------------
 == Scheduling and Logging ==
   Commands: at, wall, atq, atrm, sendmail, crontab, alias
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
