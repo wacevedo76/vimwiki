@@ -46,8 +46,8 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
   /var/                      | Contains varialble files, such as logs
 --------------------------------------------------------------------------------
 == Understanding the Linux ==
-                             | Commands covered in is chapert are 
-Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo, 
+ Permissions Scheme          | Commands covered in is chapert are 
+                             |   id, touch, chmod, umask, chown, chgrop, sudo, 
                              |   useradd, groupad, mkdir, and su
 --------------------------------------------------------------------------------
 == Advanced permissions ==
@@ -74,6 +74,12 @@ Permissions Scheme           |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |bit   |                             | files within this directory. see
                              |      |                             | the /tmp/ director for its most
                              |      |                             | famous use.
+--------------------------------------------------------------------------------
+== Process Control ==
+  Stop long running process  | ctrl-c
+                             |
+  Suspend long running procs | ctrl-z
+                             |
 --------------------------------------------------------------------------------
 == evaluating math, dealing with numbers ==
                              | $(( numeric_variable + 1 ))
