@@ -1,0 +1,48 @@
+--------------------------------------------------------------------------------
+Learn Vim Script the Hard way
+--------------------------------------------------------------------------------
+  Abbreviations              | {mode}abbrev {char sequence} <output>
+                             | :iabbrev adn and
+                             |
+  Buffer-Local Abbreviations | :iabbrev <buffer> --- %mdash;
+--------------------------------------------------------------------------------
+  Autocommand                |
+    Autocommand structure    | :autocmd BufNewFile * :write
+                             |          ^          ^ ^
+                             |          |          | |
+                             |          |          | The command to run
+                             |          |          |
+                             |          |          A "pattern" to filter the event
+                             |          |
+                             |          The "event" to watch for
+                             |
+    Bind single autocmd to   |
+    multiple events          | :autocmd BufWritePre,BufRead *.html :normal gg=G
+      Autocommand triggers   |
+      on both commands       |
+                             |
+      common idiom           | :autocmd BufNewFile,BufRead *.html setlocal nowrap
+                             | (This will turn line wrapping off whenever you'r
+                             | regardless of whether the file happens to already
+                             | exist, or not
+                             |
+    FileType Events          | :autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+      (:h autocmd-events)    | :autocmd FileType javascript nnoremap <buffer> <localleader>c I#<esc>
+--------------------------------------------------------------------------------
+  Pairing Autocommands and   | :autocmd FileType python :abbrev <buffer> iff if:<left>
+  Abbreviations              | :autocmd FileType javascript :abbrev <buffer> iff if ():<left>
+--------------------------------------------------------------------------------
+  Grouping autocmds          | :augroup testgroup
+                             | :    autocmd BuffWrite * :echom "Foo"
+                             | :    autocmd BuffWrite * :echom "Bar"
+                             | :augroup END
+                             |
+    autocommand that does not| :augroup testgroup
+    duplicate                | :    autocmd!          <--- negates the autocommand
+                             | :    autocmd BuffWrite * :echom "Cats"
+      (:h autocmd-groups)    | :augroup END 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
