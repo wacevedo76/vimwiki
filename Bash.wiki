@@ -85,7 +85,6 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
                              | $(( numeric_variable + 1 ))
 --------------------------------------------------------------------------------
 == User input ==
-```
     Arguments and parameters | when executing a script interactively, an 
                              | argument is any "word" entered after the name of 
                              | script. eg.
@@ -155,7 +154,7 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 Character classes            |
   `[[:alnum:`]]                | Matches lowercase and uppercase leters or digents  [a-z A-Z 0-9]
                              |
-  `[[:alpha:`]]                | matches lowercase and uppercase letters            [a-z A-Z`]]
+  `[[:alpha:`]]                | matches lowercase and uppercase letters            [a-z A-Z]
                              |
   `[[:digit:`]]                | Matches digits                                     [0-9]
                              |
@@ -192,7 +191,7 @@ Character classes            |
                              | partial words.
                              |
   Global action              | /g (end of string)
-                             | set 's/wicked/stupid/g'
+                             | sed 's/wicked/stupid/g'
                              |
   Operation by line number   | 'n,n{option}'
                              | sed '1,2s/wicked/stupid/g'

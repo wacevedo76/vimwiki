@@ -1,6 +1,11 @@
 --------------------------------------------------------------------------------
 Learn Vim Script the Hard way
 --------------------------------------------------------------------------------
+Commonly used Commands
+   Resize split height       |
+     Incr/decr by 1          | <c-w>+ / <c-w>-
+      Incr/decr by amount    | <c-w>10+ / <c-w>10-
+--------------------------------------------------------------------------------
   Abbreviations              | {mode}abbrev {char sequence} <output>
                              | :iabbrev adn and
                              |
