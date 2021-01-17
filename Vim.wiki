@@ -1,17 +1,18 @@
 --------------------------------------------------------------------------------
 Learn Vim Script the Hard way
 --------------------------------------------------------------------------------
-Commonly used Commands
+== Commonly used Commands ==
    Resize split height       |
      Incr/decr by 1          | <c-w>+ / <c-w>-
       Incr/decr by amount    | <c-w>10+ / <c-w>10-
 --------------------------------------------------------------------------------
-  Abbreviations              | {mode}abbrev {char sequence} <output>
+  Abbreviations
+                             | {mode}abbrev {char sequence} <output>
                              | :iabbrev adn and
                              |
   Buffer-Local Abbreviations | :iabbrev <buffer> --- %mdash;
 --------------------------------------------------------------------------------
-  Autocommand                |
+== Autocommands ==
     Autocommand structure    | :autocmd BufNewFile * :write
                              |          ^          ^ ^
                              |          |          | |
@@ -33,19 +34,39 @@ Commonly used Commands
                              |
     FileType Events          | :autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
       (:h autocmd-events)    | :autocmd FileType javascript nnoremap <buffer> <localleader>c I#<esc>
---------------------------------------------------------------------------------
+                             |
+    FileType Events          | :autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
   Pairing Autocommands and   | :autocmd FileType python :abbrev <buffer> iff if:<left>
   Abbreviations              | :autocmd FileType javascript :abbrev <buffer> iff if ():<left>
---------------------------------------------------------------------------------
-  Grouping autocmds          | :augroup testgroup
+---------------------------------------------------------------------------------
+== Grouping autocmds ==
+                             | :augroup testgroup
                              | :    autocmd BuffWrite * :echom "Foo"
                              | :    autocmd BuffWrite * :echom "Bar"
                              | :augroup END
                              |
-    autocommand that does not| :augroup testgroup
-    duplicate                | :    autocmd!          <--- negates the autocommand
+  autocommand that does not  | :augroup testgroup
+  duplicate                  | :    autocmd!          <--- negates the autocommand
                              | :    autocmd BuffWrite * :echom "Cats"
-      (:h autocmd-groups)    | :augroup END 
+    (:h autocmd-groups)      | :augroup END 
+--------------------------------------------------------------------------------
+== Operator-Pending Mappings ==
+                             | An operator is a command that waits for you to 
+                             | enter a movement command:
+                             | 
+                             | Keys  Operator  Movemnt 
+                             | ----  --------  ------------
+                             | dw    Delete    to next word
+                             | ci(   Change    Inside parens 
+                             | yt,   Yank      until comma
+                             | 
+  Moement mappings           | 
+    :onoremap                | :onoremap p i(
+    (Operator non recursive  |   :normal -> dp    ---> deletes all within ()
+    mapping)                 |   :normal -> cp    ---> changes all within ()
+                             | 
+                             | 
+                             | 
                              | 
                              | 
                              | 
