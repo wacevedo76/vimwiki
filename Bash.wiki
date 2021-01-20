@@ -327,10 +327,18 @@ Globbing and the loop        |
 --------------------------------------------------------------------------------
 == Scheduling and Logging ==
   Commands: at, wall, atq, atrm, sendmail, crontab, alias
+    Syntax for the crontab   | <timestamp> command
                              |
+    <timestamp>              | 1. Minute-of-the-hour
+                             | 2. Hour-of-the-day
+                             | 3. Day-of-the-week
+                             | 4. Month
+                             | 5. Day-of-the-week
                              |
+                             | In any of these values, we can substitute a number
+                             | for a wildcar, which indeicates all values
                              |
-                             |
-                             |
-                             |
+                             | Crontab syntax     Semantic meaning
+                             | 15 16 * * *        Every day at 16:15
+                             | 30 * * * *         ddJK:WQJ
                              |
