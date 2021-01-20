@@ -31,8 +31,8 @@ Bult-in Functions            |
 List functions
   list()                     | list('hello') -> ['h','e','l','l','o']
                              |
-                             |
-                             |
+  Search for an item in list | '<value>' in <list>  --> returns boolean
+                             | '<value>' not in <list>  --> returns boolean
 
 --------------------------------------------------------------------------------
 = General Notes =
