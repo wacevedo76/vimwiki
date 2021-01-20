@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------
+Python notes
+--------------------------------------------------------------------------------
+= Notes from Automate the Boring Stuff =
+--------------------------------------------------------------------------------
+Bult-in Functions            |
+    Modules                  |
+      import statement       | import <module>
+        must used full       | import random
+        mod name in fun call |
+                             |
+      import from statement  | from <module> import <function>
+        can now use bare     | from random import *
+        function call        |
+                             |
+  Terminating a function call| import sys 
+  early                      | sys.exit()
+--------------------------------------------------------------------------------
+== exception handling ==
+  try / except block         | try:
+                             |     <some block of code
+                             | except <some type of error>:
+                             |    <block of code which is run when error occurs>
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+List functions
+  list()                     | list('hello') -> ['h','e','l','l','o']
+                             |
+                             |
+                             |
+
+--------------------------------------------------------------------------------
+= General Notes =
+--------------------------------------------------------------------------------
+== General Class construction ==
+                             | class Employee:
+                             |    def __init__(self, name, age):
+                             |      self.name = name
+                             |      self.age = age
+                             |      self.hours_worked = 0
+                             |
+                             |    def add_hourse(self, hours):
+                             |      self.hours_worked += hours
+                             |
