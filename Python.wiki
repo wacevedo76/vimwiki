@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
-Python notes
+= Python notes =
 --------------------------------------------------------------------------------
-= Notes from Automate the Boring Stuff =
+== Notes from Automate the Boring Stuff ==
 --------------------------------------------------------------------------------
-Bult-in Functions            |
+=== Bult-in Function === 
     Modules                  |
       import statement       | import <module>
-        must used full       | import random
-        mod name in fun call |
+        must used full module| import random
+        name in function call|
                              |
       import from statement  | from <module> import <function>
         can now use bare     | from random import *
@@ -16,28 +16,47 @@ Bult-in Functions            |
   Terminating a function call| import sys 
   early                      | sys.exit()
 --------------------------------------------------------------------------------
-== exception handling ==
+=== exception handling ===
   try / except block         | try:
                              |     <some block of code
                              | except <some type of error>:
                              |    <block of code which is run when error occurs>
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | (Grab the exception from the error msg)
 --------------------------------------------------------------------------------
-List functions
+=== List functions ===
   list()                     | list('hello') -> ['h','e','l','l','o']
+                             |
+                             | list.index(<element>)
+                             | list.append(<element>)
+                             | list.remove(<element>)
+                             | list.sort() | (reverse=True), (key=str.lower)
+                             |
+                             | list.reverse()
                              |
   Search for an item in list | '<value>' in <list>  --> returns boolean
                              | '<value>' not in <list>  --> returns boolean
-
+                             |
+  enumerate()                | Enumerate will iterate over an iterable and return
+                             | two values on each iteration, the index of the 
+                             | item and the 
+                             |
+                             | for index, item in enumerate(supplies)
+                             |
+  random                     | import random
+                             | random.choice([])
+                             | random.shuffle([])
+                             |
+  copy                       | import copy
+    newList = list           |
+    does not make a new list | newList = copy.copy(originalList)
+    it only makes a reference| newList = copy.deepcopy(originalList)
+    to the original list     |     (use deepcopy if origianl list has lists)
+                             |
 --------------------------------------------------------------------------------
-= General Notes =
+== General Notes ==
 --------------------------------------------------------------------------------
-== General Class construction ==
+=== General Class construction ===
                              | class Employee:
                              |    def __init__(self, name, age):
                              |      self.name = name
