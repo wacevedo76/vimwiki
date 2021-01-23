@@ -78,6 +78,36 @@
     key which is called but  |
     does not already exist   |
                              |
+--------------------------------------------------------------------------------
+=== String Methods ===
+  join                       | ', '.join(['cats', 'rats','bats'])
+  split                      | 'test one two three'.split()
+                             |
+--------------------------------------------------------------------------------
+=== Reading and Writing files ===
+Modules: pathlib, os
+  Createing paths            | from pathlib import Path
+    pathlib module           | Path('spam', 'bacon', 'eggs')
+                             |    *nix --> spam/bacon/eggs
+                             |    Windows --> 'spam\\bacon\\eggs'
+                             |
+                             | myFiles = ['file01', 'file02', 'file03']
+                             | for file in myFiles:
+                             |     print(Path(r'C:\Users\A1', file'))
+                             |
+  Joining paths with /       | Path('spam') / Path('bacon', 'egs')
+                             |
+  Current working directory  | Path.cwd()
+                             |
+  Change working directory   | import os
+                             | os.chdir('/home/<use name>/documents')
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
