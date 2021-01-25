@@ -308,10 +308,11 @@ Globbing and the loop        |
                              |
   Case statement             | case ${color} in
                              |   red)
-                             |     color_code='red'
+                             |     <expressions>
+                             |     ;;
                              |   blue)
                              |     color_code='blue'
-                             |   *()
+                             |   *();;
                              |     color_code='default'
                              |
   Scope                      |
