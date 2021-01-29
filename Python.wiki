@@ -80,12 +80,15 @@
                              |
 --------------------------------------------------------------------------------
 === String Methods ===
+  convert to string          | str(value)
+                             |
   join                       | ', '.join(['cats', 'rats','bats'])
   split                      | 'test one two three'.split()
                              |
 --------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
+  pathlib Module             |
   Createing paths            | from pathlib import Path
     pathlib module           | Path('spam', 'bacon', 'eggs')
                              |    *nix --> spam/bacon/eggs
@@ -99,21 +102,59 @@ Modules: pathlib, os
                              |
   Current working directory  | Path.cwd()
                              |
+  Get path object of home    | Path.home()
+  directory                  |
+                             |
+  os Module                  |
   Change working directory   | import os
                              | os.chdir('/home/<use name>/documents')
                              |
+  Create new directory       | os.makedirs('/path/to/new/directory')
                              |
+  get list of files in a     | os.listdir(path)
+  directory                  |
                              |
+  Opening files              | fileHandler = open(<path to file>) --> default (read mode)
+                             | fileHandler = open(<path to file>, 'r') --> (read mode)
                              |
+                             | fileHandler = open(<path to file>, 'w') --> (write mode)
+                             | fileHandler = open(<path to file>, 'a') --> (append mode)
                              |
+  Reading content            |
+    Returns a single large   | fileContent = fileHandler.read()
+    string                   |
                              |
+    Returns a list of strings| fileContent = fileHandler.readlines()
                              |
+  Writing to files           | 
+    the fileHandler must've  | fileHandler.write(<text content)
+    already been opened in   |
+    write or append mode     |
                              |
+    closing fileHandler      | fileHandler.close()
+--------------------------------------------------------------------------------
+= Modern Python 3 Notes =
+--------------------------------------------------------------------------------
+  Data types
+    None (null)              | None  <-- (case sensitive) - (class 'NoneType')
+  String interpolation
+    format strings (f-string)| f'interpolated data --> {variable/expression}'
                              |
+    format method            | 'interpolated data --> {}'.format(<value>)
                              |
-                             |
+  Logical Operators
+    and                      |
+    or                       |
+    not                      |
 --------------------------------------------------------------------------------
 == General Notes ==
+--------------------------------------------------------------------------------
+  ord()                      | returns the numerical value of a letter
+                             | ord('a') --> 97
+                             |
+  chr()                      | returns the letter value of a number
+                             | char(97) --> 'a'
+  
 --------------------------------------------------------------------------------
 === General Class construction ===
                              | class Employee:
