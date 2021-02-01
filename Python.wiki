@@ -27,8 +27,16 @@
 === List functions ===
   list()                     | list('hello') -> ['h','e','l','l','o']
                              |
-                             | list.index(<element>)
-                             | list.append(<element>)
+                             | list.index(<element>) <-- can take a start index
+                             |                        as second argument
+                             | list.count(value) <-- returns the number of times
+                             |                    a value occurs in list
+                             | list.append(<element>) <-- adds 1 item to lists end
+                             | list.extend([<list>]) <-- adds multi items to end
+                             | list.insert(index, item)
+                             | list.clear() <--  removes ALL items from list
+                             | list.pop() <-- default, removes the last elemnt
+                             |                can add index as first argument
                              | list.remove(<element>)
                              | list.sort() | (reverse=True), (key=str.lower)
                              |
