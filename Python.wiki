@@ -96,7 +96,11 @@
 --------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
-  pathlib Module             |
+  pathlib Module             | returns a Path object
+                             |
+                             | the path module is primarily used to form paths 
+                             | that translate between windows and linux file systems
+                             |
   Createing paths            | from pathlib import Path
     pathlib module           | Path('spam', 'bacon', 'eggs')
                              |    *nix --> spam/bacon/eggs
@@ -113,7 +117,20 @@ Modules: pathlib, os
   Get path object of home    | Path.home()
   directory                  |
                              |
-  os Module                  |
+  Is the path absolute       | Path.cwd().is_absolute --> True
+                             | Path('spam/bacon/eggs').is_absolute --> False
+                             |
+  Get the parts of a path    | PathObject.drive
+                             | PathObject.anchor
+                             | PathObject.parent
+                             | PathObject.name
+                             | PathObject.stem
+                             | PathObject.suffix
+                             | 
+  Get                        | 
+                             | 
+os Module                    | returns a string
+                             |
   Change working directory   | import os
                              | os.chdir('/home/<use name>/documents')
                              |
@@ -121,6 +138,13 @@ Modules: pathlib, os
                              |
   get list of files in a     | os.listdir(path)
   directory                  |
+                             |
+  return the absolute path   | os.path.abspath(<path>)
+                             |
+  is the path Absolute?      | os.path.isabs(<path>)
+                             |
+  will return the relative   | os.path.relpath(<path>,<start>) 
+  path                       |
                              |
   Opening files              | fileHandler = open(<path to file>) --> default (read mode)
                              | fileHandler = open(<path to file>, 'r') --> (read mode)
@@ -140,6 +164,12 @@ Modules: pathlib, os
     write or append mode     |
                              |
     closing fileHandler      | fileHandler.close()
+                             |
+  Errors with writing to     |
+    PermissionError:         |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 = Modern Python 3 Notes =
 --------------------------------------------------------------------------------
