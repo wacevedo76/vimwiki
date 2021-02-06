@@ -13,15 +13,15 @@ OID - Object Identifier      | a numerical Identifier for some aspect of a
                              | * Range information
                              |
   How to locate 'sysUpTime'  | sysUpTime - .1.2.6.1.2.1.3
-  from RFC-1213 MIB?         | . iso
-                             |   . dod
-                             |     . internet
-                             |       . mgmt-2
-                             |         . mib-2
-                             |           . system
+  from RFC-1213 MIB?         | . iso                        1
+                             |   . dod                      2
+                             |     . internet               6
+                             |       . mgmt-2               1
+                             |         . mib-2              2
+                             |           . system           1  <--- most MIBs beging here
                              |             . sysDescr
                              |             . sysObjectID
-                             |             . < sysUpTime > <---- 
+                             |             . < sysUpTime >  3  <---- Thie is the 3rd obj
                              |             . sysContact
                              |             . SysName
                              |             . sysLocation
@@ -29,6 +29,12 @@ OID - Object Identifier      | a numerical Identifier for some aspect of a
                              |
 MIB - Managment Informaton   | a text file which is used to translate an OID 
       Base                   | into 'word' based OIDs
+                             |
+SMI - Structure of           | The format in which MIBs are written
+      Management Information | The 
+                             |
+                             |
+                             |
                              |
 Polliing                     | the Network monitor connects to a device 
                              | on port 161
