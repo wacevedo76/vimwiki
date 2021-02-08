@@ -8,6 +8,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
 == Programming ==
   * [[Bash]]
   * [[Python]]
+  * [[Awk]]
 
 == Tooling ==
   * [[Vim]]
