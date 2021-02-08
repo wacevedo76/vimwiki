@@ -12,11 +12,11 @@ OID - Object Identifier      | a numerical Identifier for some aspect of a
                              | * Level of access - read/write
                              | * Range information
                              |
-  How to locate 'sysUpTime'  | sysUpTime - .1.2.6.1.2.1.3
+  How to locate 'sysUpTime'  | sysUpTime - .1.3.6.1.2.1.3
   from RFC-1213 MIB?         | . iso                        1
-                             |   . dod                      2
+                             |   . dod                      3
                              |     . internet               6
-                             |       . mgmt-2               1
+                             |       . mgmt-2               1 (mgmt)
                              |         . mib-2              2
                              |           . system           1  <--- most MIBs beging here
                              |             . sysDescr
@@ -27,13 +27,28 @@ OID - Object Identifier      | a numerical Identifier for some aspect of a
                              |             . sysLocation
                              |             . sysServices
                              |
+                             |  .iso.org.dodl.internet.mgmt.mib-2.system.sysUpTime
+                             |
+  example                    | HOST-RESOURCES-MIB::hrMemorySize.0
+                             | The module HOST-RESOURCES-MIB contains a whole bunch of 
+                             | objects defined in a specific standard
+                             |
+                             | .iso.org.dod.internet.mgmt.mib-2.host.hrSystem.hrMemorySize.0
+                             | .1.3.6.1.2.1.25.2.2.0
+                             |
 MIB - Managment Informaton   | a text file which is used to translate an OID 
       Base                   | into 'word' based OIDs
                              |
 SMI - Structure of           | The format in which MIBs are written
-      Management Information | The 
+      Management Information | current version is SMI-2 (version 2) 
+                             | It's format requires defining exatly what data you're
+                             | presenting, and how it is presented.  SMI is a  
+                             | slightly tweaked subset of Abstract Syntax Notation
+                             | version 1 (ASN.1)
                              |
-                             |
+ASN - Abstract Syntax        | Phone, manufacturing, power, and other complex 
+   notation                  | interconnected systems use ASN.1, many use SMI-2
+                             | ASN is the syntax from which SMI is derived
                              |
                              |
 Polliing                     | the Network monitor connects to a device 
@@ -76,5 +91,43 @@ examples:
   Having some NMS feature: Zabbix, Nagios, Icinga
   Full featured NMSes: OpenNMS HP BTO?OpenView
 --------------------------------------------------------------------------------
+An MIB provides definitions for what the objects refer to. SNMP supports many 
+differt but interrelated MIBs. MIB names are generally in all caps, except when 
+the authors are trying to communicate something through the name. 
+  SNMPvs-MIB                 | General host information under SNMPv2c
+  MIB HOST-RESOURCES-MIB     | contains a bunch of stuff for servers and 
+                             | worksations, such as memory and processes and 
+                             | printer errors
+  IF-MIB                     | An MIB for network interfaces
+  IP-MIB                     | IP and ICMP traffic
+--------------------------------------------------------------------------------
+== Common OID Value Type Units == 
+Timeticks                    | on hundredth of a second. This is a 32-bit number
+                             | so its maximum value is a litter over 497 days
+                             | it is almost always used for timekeeping
                              |
+Interger / integer32         | a signed 32-bit number ranging from -2,147,483,648
+                             | to 2,147,483,647. Agenst use integer for all sorts 
+                             | of things
+                             |
+String                       | contains either binary or text data, most 
+                             | implementations and most MIs restring it to 255 
+                             | characters, while octet string includes binary
+                             |
+Object Identifier (OID)      | litterally another OID, an ojbect that points to 
+                             | another OID helps glue different parts of the MIB
+                             | tree together
+                             |
+IP Address                   | literal IPv4 adresses, used for networking, mostly 
+                             | used for routing and sockets
+                             |
+counter32 and counter64      | are 32-bit and 64-bit counters. Used to count 
+                             | something, such as the umber of packets sent or the
+                             | number of memory allocation failures. Loops back when
+                             | reaching its limit, SNMPv1 is based on SMI-1 and 
+                             | doesn't include counter64 
+                             |
+guage32                      | can increase and decrease. Agents use gauges for 
+                             | current levels of something, such as current network
+                             | utilization or the instantaneous swap space used
                              |
