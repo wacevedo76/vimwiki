@@ -16,7 +16,7 @@ OID - Object Identifier      | a numerical Identifier for some aspect of a
   from RFC-1213 MIB?         | . iso                        1
                              |   . dod                      3
                              |     . internet               6
-                             |       . mgmt-2               1 (mgmt)
+                             |       . mgmt-2               1
                              |         . mib-2              2
                              |           . system           1  <--- most MIBs beging here
                              |             . sysDescr
@@ -59,6 +59,27 @@ Notifying                    | Device sends OID related mesage to monitor
                              |
 traps, notifications or      | the OID messages send from the device
 informs                      | 
+                             |
+SNMP walk                    | a simple way to set up the collectio of information 
+                             | an SNMP enabled device. It will allow you to see 
+                             | all of the OID parameters available on your SNMP
+                             | device and ten set rules against the values
+                             |
+Object groups                | A mib might batch a bunch of related object together
+                             | as a group. Each group has its own object, but it's
+                             | purely organizational. you will never see that 
+                             | object in a walk. The groupd has no value. you can
+                             | query by the group name or OID, though
+                             |
+Tables                       | Some groups are very specifically formatted, for 
+                             | example
+                             |  IF-MIB::ifName.1 = STRING: ether1-home
+                             |  IF-MIB::ifName.2 = STRING: ether2-lab
+                             |  ...
+                             |  IF-MIB::ifName.10 = STRING: ether10
+                             |  IF-MIB::ifName.11 = STRING: bridge
+                             |  IF-MIB::ifInMulticastPkts.1 = Counter32: 0
+                             |  IF-MIB::ifInMulticastPkts.2 = Counter32: 0
 --------------------------------------------------------------------------------
 == System Components ==
 SNMP manager                 | Client software that issues SNMP requests. It's 
@@ -130,4 +151,5 @@ counter32 and counter64      | are 32-bit and 64-bit counters. Used to count
 guage32                      | can increase and decrease. Agents use gauges for 
                              | current levels of something, such as current network
                              | utilization or the instantaneous swap space used
+--------------------------------------------------------------------------------
                              |
