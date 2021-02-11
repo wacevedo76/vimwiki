@@ -192,7 +192,6 @@ os Module                    | returns a string
                              |
   chr()                      | returns the letter value of a number
                              | char(97) --> 'a'
-  
 --------------------------------------------------------------------------------
 === General Class construction ===
                              | class Employee:
@@ -203,4 +202,22 @@ os Module                    | returns a string
                              |
                              |    def add_hourse(self, hours):
                              |      self.hours_worked += hours
+                             |
+--------------------------------------------------------------------------------
+=== Creating a new virtual environment ===
+venv                         | python3 -m venv <new project>
+                             | venv will create a few new directories
+                             |   bin/ - python scripts and new executalbes by other 
+                             |          packages
+                             |   lib/ 
+                             |   inclued/
+                             |   New packages will be installed in:
+                             |     <new project>/lib/pythonx.y/site-packages/
+                             |
+  Activate new environment   | source <new project>/bin/activate
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
