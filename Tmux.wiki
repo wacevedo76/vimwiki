@@ -3,7 +3,9 @@
 --------------------------------------------------------------------------------
   Change working directory   | attach-session -t . -c /path/to/new/directory
                              |
-                             |
-                             |
+--------------------------------------------------------------------------------
+Copy and Past
+  set for vi control keys    | <C-b>:
+                             | set-window-option -g [[mode-keys]] vi
                              |
                              |
