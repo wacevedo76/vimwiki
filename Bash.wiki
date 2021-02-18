@@ -3,6 +3,20 @@
 --------------------------------------------------------------------------------
 Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 --------------------------------------------------------------------------------
+supper commands
+  Open an editor to run a    | ctrl+x+e
+  a command                  |
+                             |
+  Create a super fast ram    | mkdir -p /mnt/ram
+  disk                       | mount -t tmpfs tmpfs /mnt/ram -o size=<enter size>
+                             |
+  Tunnel with ssh (local port| ssh -L 3337:127.0.0.1:6379 root@emkc.org -N
+  3337 -> remote host's      |
+  127.0.0.1 on port 6397     |
+                             |
+  exit terminal but leave    | disown -a && exit
+  all processes running      |
+--------------------------------------------------------------------------------
 == Group and expand expressions ==
                              |
   Group commands - subshell  | ()
@@ -251,10 +265,10 @@ Globbing and the loop        |
     standard error stream    | stderr (default)        /dev/fd/2
                              |
                              |
-    redirect stdin           | < (<0)
+    redirect stdin           | <          (<0)
                              |
-    redirect stdout overwrite| >  (1>)  
-    redirect stdout append   | >>  (1>>)  
+    redirect stdout overwrite| >          (1>)
+    redirect stdout append   | >>         (1>>)
     redirect stderr overwrite| 2>
     redirect stderr append   | 2>>
     redirect both            | (bash 3.x) 2>&1   
