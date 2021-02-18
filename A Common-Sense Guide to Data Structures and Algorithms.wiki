@@ -1,0 +1,55 @@
+--------------------------------------------------------------------------------
+Notes to 'A Common-Sense Guide to Data Structures and Algorithms'
+          - Jay Wengrow
+--------------------------------------------------------------------------------
+The four ways most data      |  (RSID) Read, Search, Insert, Delete
+structures are used          | 
+                             | * Read: obtaining the value from a particular 
+                             |   location within a data structure 
+                             |
+                             | * Search: looking for a particular value within a 
+                             |   data structure
+                             |
+                             | * Insert: adding anther value to a particular 
+                             |   data structure
+                             |
+                             | * Delete: removing a value from a data structure
+                             |
+Algorithmic anylization      | 
+terms                        |
+                             |
+  Time Complexity            | the amount of steps an operation takes
+                             |
+                             |
+                             |
+Array                        | * a list of data elements
+                             | * elements are identifiable by their index, the 
+                             | * First element is identified by index 0, each 
+                             |   prceding element's index is incresed by 1
+                             |
+                             | Unsorted array: RSID time Comlexity
+                             |  * Read: O(1)
+                             |  * Search: (linear search) O(N)
+                             |  * Insert: 
+                             |      at the end (push) O(1)
+                             |      at the begining (unshift) o(N) + 1 (o(N)
+                             |          (insert at the beginning, shift all
+                             |          other elements)
+                             |  * Delete:
+                             |    * Best case: O(1) - (last elemment)
+                             |    * Worst case: O(N) - the deletion (1 step)
+                             |           shifting all other elements (N - 1)
+                             |
+Set                          | * A data structure that does not allow duplicate
+                             |   data to be contained with it
+                             |
+                             | Array Based set: RSID time complexity
+                             |  * Read: O(1) - same as array
+                             |  * Search: O(n)
+                             |  * Insert: (every insert requires a seach to 
+                             |            check for duplicate values)
+                             |    Best case: add to end O(N) + 1 (search and insert)
+                             |    Worst case: add to start O(N**2) + 1
+                             |    (search, shift N, insert)
+                             |  * Delete - same as array
+                             |
