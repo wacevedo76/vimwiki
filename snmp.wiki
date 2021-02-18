@@ -1,6 +1,12 @@
 --------------------------------------------------------------------------------
 = Simple Network Managment Protocol =
 --------------------------------------------------------------------------------
+== Other related terms ==
+TLS                          | Transport layer Security - Cryptographic protocols
+                             | designed to provide communications security over 
+                             | a computer network
+                             |
+--------------------------------------------------------------------------------
 == Terms ==
 OID - Object Identifier      | a numerical Identifier for some aspect of a 
                              | system which has been set to be monitored
@@ -38,6 +44,17 @@ OID - Object Identifier      | a numerical Identifier for some aspect of a
                              |
 MIB - Managment Informaton   | a text file which is used to translate an OID 
       Base                   | into 'word' based OIDs
+                             |
+                             | SNMP organizes infomation hierachically, arranging 
+                             | everythin by category and sub-category and so on.
+                             | The definition of this tree is called a Management
+                             | Information base or MIB. An idividual entry in the 
+                             | MIB is called an object. Most objects have a value
+                             | 
+                             | MIB  = Dashboard
+                             |
+                             |
+                             |
                              |
 SMI - Structure of           | The format in which MIBs are written
       Management Information | current version is SMI-2 (version 2) 
@@ -152,4 +169,6 @@ guage32                      | can increase and decrease. Agents use gauges for
                              | current levels of something, such as current network
                              | utilization or the instantaneous swap space used
 --------------------------------------------------------------------------------
-                             |
+Notes:
+  SNMP version 3 (SNMPv3) is the current protocol. It's extensible, encrypted, and
+  flexibe.
