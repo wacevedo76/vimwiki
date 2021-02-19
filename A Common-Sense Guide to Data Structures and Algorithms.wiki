@@ -2,6 +2,8 @@
 Notes to 'A Common-Sense Guide to Data Structures and Algorithms'
           - Jay Wengrow
 --------------------------------------------------------------------------------
+= Data Structures =
+--------------------------------------------------------------------------------
 The four ways most data      |  (RSID) Read, Search, Insert, Delete
 structures are used          | 
                              | * Read: obtaining the value from a particular 
@@ -52,4 +54,5 @@ Set                          | * A data structure that does not allow duplicate
                              |    Worst case: add to start O(N**2) + 1
                              |    (search, shift N, insert)
                              |  * Delete - same as array
+--------------------------------------------------------------------------------
                              |
