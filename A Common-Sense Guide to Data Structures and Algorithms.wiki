@@ -2,7 +2,7 @@
 Notes to 'A Common-Sense Guide to Data Structures and Algorithms'
           - Jay Wengrow
 --------------------------------------------------------------------------------
-= Data Structures =
+== Data Structures ==
 --------------------------------------------------------------------------------
 The four ways most data      |  (RSID) Read, Search, Insert, Delete
 structures are used          | 
@@ -55,4 +55,25 @@ Set                          | * A data structure that does not allow duplicate
                              |    (search, shift N, insert)
                              |  * Delete - same as array
 --------------------------------------------------------------------------------
+== Algorithms ==
+=== Search ===               |
+  Linear Search              | Search the elements of an array until a condition 
+                             | is meet or there are no more elements in the 
+                             | array. Time Complexity: O(N)
+                             |
+  Binary Search              | Time Complexity: O(log N) j
+                             |
+-----------------------------|
+=== Sort ===                 |
+  Bubble Sort                |  1. choose first item in array    <--------------------------
+                             |  2. compare chosen value with preceeding value   <---------
+                             |  3. if first chosen is larger than second, swap |   |
+                             |  4. select next value after preceeding chosen one
+                             |     repeat step 2 until there are no mor values in array
+                             |  5. Reapt from step one until there are no swaps
+                             |
+                             |  Time complexity: O(N**2)
+                             |
+                             |
+                             |
                              |
