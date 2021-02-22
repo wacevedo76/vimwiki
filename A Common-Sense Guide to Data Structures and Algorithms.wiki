@@ -65,9 +65,9 @@ Set                          | * A data structure that does not allow duplicate
                              |
 -----------------------------|
 === Sort ===                 |
-  Bubble Sort                |  1. choose first item in array    <--------------------------
-                             |  2. compare chosen value with preceeding value   <---------
-                             |  3. if first chosen is larger than second, swap |   |
+  Bubble Sort                |  1. choose first item in array
+                             |  2. compare chosen value with preceeding value
+                             |  3. if first chosen is larger than second, swap
                              |  4. select next value after preceeding chosen one
                              |     repeat step 2 until there are no mor values in array
                              |  5. Reapt from step one until there are no swaps
