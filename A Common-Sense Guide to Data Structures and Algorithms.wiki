@@ -72,7 +72,7 @@ Set                          | * A data structure that does not allow duplicate
                              |     repeat step 2 until there are no mor values in array
                              |  5. Reapt from step one until there are no swaps
                              |
-                             |  Time complexity: O(N**2)
+                             |  Time complexity: O(N**2) (two loops)
                              |
                              |
                              |
