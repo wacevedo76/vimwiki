@@ -74,6 +74,22 @@ Set                          | * A data structure that does not allow duplicate
                              |
                              |  Time complexity: O(N**2) (two loops)
                              |
+  Selection Sort             | 1. We check each cell of the arry from left to right
+                             | which values is the least. As we move from cell to
+                             | cell, we keep in a variabe the lowest value we've
+                             | encontered so for, If we encounter a cell that contains
+                             | a value that is even less than the one in our variable
+                             | , we replace it so that the variable now points to
+                             | the new index.
+                             |
+                             | 2. Once we've determined which indext contains the
+                             | lowest value, we swap that index with the value we
+                             | begain the passthrough with. This would be index
+                             | 0 in the first passthrough, index 1 in the second
+                             | passthrough, and so on ans so forth. In the next
+                             | diagram. We make the swap of the first passthrough.
+                             |
+                             | 3. Repeat steps 1 and 2 until all the data is sorted.
                              |
                              |
                              |
