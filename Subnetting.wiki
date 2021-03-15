@@ -11,13 +11,54 @@
                              |   Network.Host.Host.Host
                              |
                              |   example: 10.2.5.4
-                             |              Octet 1  Octet 2  Octet 3  Octet 4
-                             |              Network     Host     Hosta    Host
-                             |   Decimaal        10        2        5        4
+                             |             Octet 1  Octet 2  Octet 3  Octet 4
+                             |             Network  Host     Host     Host
+                             |   Decimaal  10.      2.       5.       4.
                              |   Binary    00001010.00000010.00000101.00000100
-                             |   Hex          0   A    0   2    0   5    0   4
+                             |   Hex       0   A    0   2    0   5    0   4
                              |
-                             | Class A addresses are number 1 to 126 in the 
-                             | first octet, the first bit in the octet mst be
-                             | 0
+                             | Class A addresses are number 1 to 126 in the first
+                             | octet, the first bit in the octet must be 0
+                             |
+                             |   Octet 1  Octet 2  Octet 3  Octet 4
+                             |   Network  Host     Host     Host
+                             |   00000001.xxxxxxxx.xxxxxxxx.xxxxxxxx
+                             | 
+                             | The last network number is 127, which cannot be
+                             | used because it is resered for troubleshooting
+                             | * 127.0.0.1 is used to ping the host computer
+                             | (loopback) 
+                             |             127.     0.       0.      1
+                             |             01111111.00000000.00000000.00000001
+                             |
+                             | Class A network, Netwok 10 for example
+                             |             Network  Host     Host     Host
+                             |   1st host: 10.      0.       0.              1
+                             |             00001010.00000000.00000000.00000001
+                             |  last host: 10.      255.     255.          254
+                             |             00001010.11111111.11111111.11111110
+                             |  Broadcast: 10.      255.     255.          255
+                             |             00001010.11111111.11111111.11111111
+                             |
+  Class B Addresses          | * begin at 128
+                             | * must have the first to binary values in the first
+                             |   octet 1 and 0
+                             | * uses the first two octets for the network address
+                             |             Octet 1  Octet 2  Octet 3  Octet 4
+                             |             Network  Network  Host     Host
+                             |   Decimaal  10000000.00000000.xxxxxxxx.xxxxxxxx
+                             |
+                             |             00000000.00000000.00000000.00000000
+                             |
+  Class C Addresses          | * The first network number is 192
+                             |             192
+                             |             11000000.00000000.00000000.00000000
+                             |
+                             | * The last is 233
+                             |             11011111.00000000.00000000.00000000
+                             |
+                             | The private (resered address are:
+                             |   10.x.x.x - Any IP addresse beginning with 10
+                             |   172.16.x.x - Any IP starting with 172.16 to 172.31 inclusive
+                             |   192.168.x.x - any IP address starting with 192.168
                              |
