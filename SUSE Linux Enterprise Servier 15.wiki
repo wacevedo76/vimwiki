@@ -1,0 +1,27 @@
+SUSE Enterprise Server 
+--------------------------------------------------------------------------------
+Understanding the Filesystem Hierarchy Standard
+--------------------------------------------------------------------------------
+  Pare of the LSB (Linux     | Whic directories must be located on the first  
+  Standard bas specifications| level and what they contain
+                             | 
+  Defines a two-layer        | * Directories in the top layer (off the root "/")
+  hierachy                   | * At the second layer under /usr (Unix System Resources)
+                             |   and /var
+                             | 
+  Design Factors             | * Compartmentalization
+                             | * Writablility
+                             | * Shareability
+  www.pathname.com/fhs/      | 
+                             | 
+  /                          | 
+  /bin                       | binaries and executables
+  /sbin                      | system binaries
+  /lib                       | 
+  /lib/modules               | dynamically loaded software
+  /lib64                     | 
+  /lib64/modules             | 
+  /etc                       | Systemwide configuration files
+  /user                      | /usr
+                             |  |
+                             | 

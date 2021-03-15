@@ -1,5 +1,4 @@
 --------------------------------------------------------------------------------
-Linux Sys Admin and Certification Training
+Networking notes
 --------------------------------------------------------------------------------
-
-* [[SUSE Linux Enterprise Servier 15]]
+  * [[Subnetting]]
