@@ -1,0 +1,23 @@
+--------------------------------------------------------------------------------
+= Subnetting =
+--------------------------------------------------------------------------------
+  Overview                   | With an ip address, you should be able to derive:
+                             |   - Subnet Address
+                             |   - 1st Host
+                             | 
+--------------------------------------------------------------------------------
+  Class A Addresses          | * Uses only the first octet to identify the netwok
+                             |   number, the remaining three for the host
+                             |   Network.Host.Host.Host
+                             |
+                             |   example: 10.2.5.4
+                             |              Octet 1  Octet 2  Octet 3  Octet 4
+                             |              Network     Host     Hosta    Host
+                             |   Decimaal        10        2        5        4
+                             |   Binary    00001010.00000010.00000101.00000100
+                             |   Hex          0   A    0   2    0   5    0   4
+                             |
+                             | Class A addresses are number 1 to 126 in the 
+                             | first octet, the first bit in the octet mst be
+                             | 0
+                             |
