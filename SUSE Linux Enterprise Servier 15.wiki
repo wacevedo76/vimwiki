@@ -71,6 +71,7 @@ Week two - Work with the command Line > Getting help at the cli
 --------------------------------------------------------------------------------
   Help Resources             |  <command> -h or <command> --help
                              |  Man [section] command
+                             |    * Find references: man -f keyword
                              |    * List for keywords: man -k keyword
                              |    * Display descriptions: whatis <command>
                              |  Info pages: info command
