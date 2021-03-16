@@ -14,14 +14,158 @@ Understanding the Filesystem Hierarchy Standard
                              | * Shareability
   www.pathname.com/fhs/      | 
                              | 
-  /                          | 
-  /bin                       | binaries and executables
-  /sbin                      | system binaries
-  /lib                       | 
-  /lib/modules               | dynamically loaded software
-  /lib64                     | 
-  /lib64/modules             | 
-  /etc                       | Systemwide configuration files
-  /user                      | /usr
-                             |  |
+--------------------------------------------------------------------------------
+Linux Filetypes              |  Normal files
+                             |    * ASCII text files
+                             |    * Executalbe files
+                             |    * Graphics fles
+                             |  Directories
+                             |    * Organize files on the disk
+                             |    * Cotain files and subdirectories
+                             |    * Implement the hierarchical file system
+                             |  Hard Links
+                             |    * Secondary file names for files on the disk
+                             |    * Multiple file names referencing a sing inode
+                             |    * Referenced files must reside in the same file system
+                             |  Symbolic Links
+                             |    * References to other files on the disk
+                             |    * The inode contains a reference to another file name
+                             |    * Referenced files can exist in the same file 
+                             |      sytem or in other file systems
+                             |    * A symbolic link can reference a non-existing
+                             |      file (broken link)
+                             |  Device Files
+                             |    * Represent hardware (except network cards)
+                             |    * Link between hardware devices and the kernel drivers
+                             |    * Kernel drivers read from and write to the device file
+                             |    * The kernel get the data to the actual hardware in the correct format
+                             |    * Types:
+                             |        * Block Devices
+                             |        * Character Devices
+                             |    * Created automatically by the OS (udev)
+                             |
+Linux Device Names for Hard  |  * 1st initialized hard drive = /dev/sda
+  Hard Drives                |  * 2nd initialized hard drive = /dev/sdb ... ect
+                             |  * Partition numbers are appended to the device name:
+                             |
+        Devce                                                 Name
+        First primary partition on first hard driver          /dev/sda1
+        Second primary partition or an extended partition on  /dev/sda2
+        first hard driver
+        First primary partition on the third hard drive       /dev/sdc1
+        First logical partition on  first hard drive          /dev/sda5
+        Second logical partition on first hard drive          /dev/sda6
+                             |
+Interprocess Communication   |  * Files used by processes to communicate with
+  File                       |    each other
+                             |  * Types:
+                             |    * Sockets (bi-directional communication)
+                             |    * Pipes/FIFOs (unidirectional communication)
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+Week two - Work with the command Line > Getting help at the cli
+--------------------------------------------------------------------------------
+  Help Resources             |  <command> -h or <command> --help
+                             |  Man [section] command
+                             |    * List for keywords: man -k keyword
+                             |    * Display descriptions: whatis <command>
+                             |  Info pages: info command
+                             |  * Software package documentation in
+                             |    - /usr/share/doc/packages
+                             |  * Release notes
+                             |    - /usr/share/doc/release-notes
                              | 
+  Shell Environment          |  A shell can be invoked in two different ways
+                             |    * Login Shell     - The user's environment is set
+                             |    * Non-login Shell - The shell inherits an existing
+                             |                        environment
+                             |
+  Profiles                   |  Global profiles
+                             |  /etc/profile
+                             |    /etc/profile.d/*.sh               <-- not touched when install and upgrad
+                             |    /etc/profile.local
+                             |
+                             |  /etc/bash.bashrc
+                             |    /etc/bash_completion.d/*.sh       <-- not touched when install and upgrad
+                             |    /etc/bash.bashrc.local
+                             |
+                             |  /etc/inputrc
+                             |    (bash -> libreadline.so)
+                             |
+                             |  User specific profiles:
+                             |    ~/.profile
+                             |    ~/.bashrc
+                             |    ~/.alias
+                             |
+                             |
+  Order of execution for     |  1) /etc/profile
+  login shells               |  2) /etc/profile.d/*.sh
+                             |  3) /etc/profile.local
+                             |  4) ~/.profile
+                             |  5) /etc/bash.bashrc
+                             |  6) /etc/bash_completion.d/*.sh
+                             |  7) /etc/bash.bashrc.local
+                             |  8) /etc/inputrc
+                             |  9) ~/.bashrc
+                             |  10) ~/.alias
+                             |
+  Order of execution for     |  1) /etc/bash.bashrc
+  non-login shells           |  2) /etc/bash_completion.d/*.sh
+                             |  3) /etc/bash.bashrc.local
+                             |  4) /etc/inputrc
+                             |  5) ~/.bashrc
+                             |  6) ~/.alias
+                             |
+  show current aliases       |  > alias
+                             |
+  Temp remove alias          |  > unalias
+                             |
+  execute a command from     | Ctrl+R
+  history                    |
+                             |
+Shell Expansions {wild cards)| * Any number or zero values
+                             |
+                             | ? Any one value
+                             |
+                             | {..} list of values
+                             |
+                             | [...] Range of values [1-9], [a-z]
+                             |
+                             | [!abc] None of these characters
+                             |
+                             | "..." Interpret all characters between the quotes
+                             |       as ASCII characters except: $  \ 
+                             |
+                             | '...' Interpret all characters between the quotes
+                             |       as ASCII characters
+                             |
+Variables                    |
+  set                        | Displays all shell variables and function
+                             |
+  env                        | Displays only environment variables
+                             | (i.e. variables with -x attribute set)
+                             |
+  $$ or ${...}                 | Reference a value stored in a variable
+                             |
+  `...`  or $(...)             | Execute command(s) and return the output as input
+                             | for another command
+  `$((...))` or `$[...]`         | Perform an Arithmetic operation on the contents of
+                             | variables and retun its results
+                             |
+  `$?`                         | "Return" or "exit" value of the previously executed
+                             | command
+                             |
+  `$0`                         | Name of the commandbeing executed
+  `$#`                         | Number of command arguments
+  `$*`                         | All command arguments
+  `$1, $2, ... $N`             | Value of the corresponding argument
+  `$$`                         | Process ID of the current shell
+                             |
+-------------------------------------------------------------------------------
+Notes - 
+  Package Manager: zypper
+  Install command: zypper in <package name>
