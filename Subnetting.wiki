@@ -1,12 +1,14 @@
 --------------------------------------------------------------------------------
 = Subnetting =
 --------------------------------------------------------------------------------
-  Overview                   | With an ip address, you should be able to derive:
+  == Overview ==
+                             | With an ip address, you should be able to derive:
                              |   - Subnet Address
                              |   - 1st Host
                              | 
 --------------------------------------------------------------------------------
-  Class A Addresses          | * Uses only the first octet to identify the netwok
+  == Class A Address ==
+                             | * Uses only the first octet to identify the netwok
                              |   number, the remaining three for the host
                              |   Network.Host.Host.Host
                              |
@@ -40,7 +42,8 @@
                              |  Broadcast: 10.      255.     255.          255
                              |             00001010.11111111.11111111.11111111
                              |
-  Class B Addresses          | * begin at 128
+  == Class B Address ==
+                             | * begin at 128
                              | * must have the first to binary values in the first
                              |   octet 1 and 0
                              | * uses the first two octets for the network address
@@ -50,7 +53,8 @@
                              |
                              |             00000000.00000000.00000000.00000000
                              |
-  Class C Addresses          | * The first network number is 192
+  == Class C Address ==
+                             | * The first network number is 192
                              |             192
                              |             11000000.00000000.00000000.00000000
                              |
@@ -62,3 +66,23 @@
                              |   172.16.x.x - Any IP starting with 172.16 to 172.31 inclusive
                              |   192.168.x.x - any IP address starting with 192.168
                              |
+--------------------------------------------------------------------------------
+  == Cheat Sheet making instructions ==
+    * Line 1: from right to left start by one and double eeach number till you
+      reach 128
+        128       64       32       16        8        4        2        1
+    * Line 2: Subtract 256 from each number in the first row
+        128       64       32       16        8        4        2        1
+        128      192      224      240       248      252      254      255
+    # Line 3: From /32, list CIDR notation
+        128       64       32       16        8        4        2        1
+        128      192      224      240       248      252      254      255
+        /25      /26      /27      /28       /29      /30      /31      /32
+--------------------------------------------------------------------------------
+
+                         === Subnetting Cheat Sheet ===
+
+ Group size:   128       64       32       16       8        4        2        1
+Subnet mask:   128      192      224      240      248      252      254      255
+   4th CIDR:   /25      /26      /27      /28      /29      /30      /31      /32
+   3rd CIDR:   /17      /18      /19      /20      /21      /22      /23      /24
