@@ -167,6 +167,69 @@ Variables                    |
   `$$`                         | Process ID of the current shell
                              |
 -------------------------------------------------------------------------------
+Common Shell Commands
+-------------------------------------------------------------------------------
+  View File Content          |
+    tac                      | Same as cat, but displays the files in reverse
+                             |
+    head                     | Displays the first lines of a file
+                             | to set the number of lines use the -n option
+                             |
+    Tails                    | Display the last lines of a file
+                             | To set the number lines use the -n option
+                             | To output append data use the -f option
+                             |
+  Backup-Oriented Shell      |
+  Commands                   |
+    tar                      | Create, expand or list archive files
+                             | * Use option c to create a archive
+                             | * use option f to specify the archive file name
+                             | * use option v for verbose mode
+                             | * use option x to extract an archive
+                             | * use option t to list the content of an archive
+                             | * use option z to (un-)compress the archive with gzip
+                             | * use the j to (un-)compress the archive with bzip
+                             |
+    cpio                     | Another archiving command
+                             |
+    gzip                     | Compress files using he gzip algorithm
+                             | Option -d same as gunzip
+                             |
+    gunzip                   | Expand files compressed with gzip
+                             |
+    bzip2                    | Compress files sing the bzip2 algorithm
+                             |
+    bunzip2                  | Expand files compressed with bzip
+                             |
+  Special File Copying       |
+  Commands                   |
+    rsync                    | Copy only deltas between two directories
+                             | * Locacl or via network
+                             | * Uses ssh as default transport
+                             | * Can talk to rsync daemon on the remote machine
+                             |
+    dd                       | Copies files block by block
+                             | * Used to create disk or partition images
+                             | * most important options:
+                             |   if=input_file
+                             |   of=output_file
+                             |   bs=block_size
+                             |
+  Search for files           |
+    find                     | Search for files or directories
+                             |  * Syntax: find path criterion [action]
+                             |
+    type                     | Shows the kind of command, eg:
+                             | * shell built-in
+                             | * external command
+                             | * alias
+                             | * function
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
 Notes - 
   Package Manager: zypper
   Install command: zypper in <package name>
