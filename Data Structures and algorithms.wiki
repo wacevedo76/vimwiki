@@ -1,2 +1,3 @@
 = Various notes =
   [[A Common-Sense Guide to Data Structures and Algorithms]]
+  [[Grokking Algorithms]]
