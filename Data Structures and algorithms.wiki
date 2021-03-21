@@ -1,2 +1,22 @@
-= Various notes =
+--------------------------------------------------------------------------------
+= Data Structures and Algorithms =
+--------------------------------------------------------------------------------
+  == Notes from books ==
+--------------------------------------------------------------------------------
   [[A Common-Sense Guide to Data Structures and Algorithms]]
+--------------------------------------------------------------------------------
+  == Notes ==
+
+  === Some common Big O run times ===
+  O(long n)                  | Also known as log time, Example: Binary Search
+                             | 
+  O(n)                       | Also known as linear time, Example: Simple Search
+                             | 
+  O(n * log n)               | Example: A fast sorting algorithm, like quicksort
+                             | 
+  O(n**2)                    | Example: A slown sorting algorithm, like 
+                             |          selection sort
+                             | 
+  O(n!)                      | Example: A really slow algorithm, like the 
+                             |          traveling saiesperson 
+ 
