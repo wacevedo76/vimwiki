@@ -116,7 +116,7 @@ supper commands
                              | 
       testing for default    | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
 --------------------------------------------------------------------------------
-Variables                    |
+== Variables ==
   set                        | Displays all shell variables and function
                              |
   env                        | Displays only environment variables
