@@ -116,6 +116,28 @@ supper commands
                              | 
       testing for default    | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
 --------------------------------------------------------------------------------
+Variables                    |
+  set                        | Displays all shell variables and function
+                             |
+  env                        | Displays only environment variables
+                             | (i.e. variables with -x attribute set)
+                             |
+  $$ or ${...}                 | Reference a value stored in a variable
+                             |
+  `...`  or $(...)             | Execute command(s) and return the output as input
+                             | for another command
+  `$((...))` or `$[...]`         | Perform an Arithmetic operation on the contents of
+                             | variables and retun its results
+                             |
+  `$?`                         | "Return" or "exit" value of the previously executed
+                             | command
+                             |
+  `$0`                         | Name of the commandbeing executed
+  `$#`                         | Number of command arguments
+  `$*`                         | All command arguments
+  `$1, $2, ... $N`             | Value of the corresponding argument
+  `$$`                         | Process ID of the current shell
+--------------------------------------------------------------------------------
 == tests and return values ==
   test                       | the test command is used to check file types and
                              | compare values
