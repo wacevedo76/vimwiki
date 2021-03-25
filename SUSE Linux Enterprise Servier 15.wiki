@@ -230,6 +230,51 @@ Common Shell Commands
                              |
                              |
                              |
+-------------------------------------------------------------------------------
+== Remote administration ==
+=== SSH ===
+  Read SSH host keys from    | ssh-keyscan
+  another system             |   -t  - Type of key
+                             |
+  SSH Server Configuration   | configuration file: /etc/ssh/sshd_config
+                             |
+    AllowUsers               | Allows SSH login only for users
+                             |
+    DenyUsers                | Denies SSH login to users listed
+                             |
+    ListenAddress            | Local addresses that sshd listens on.
+                             | Syntax: IP_address:port
+                             |
+    Port                     | Port number that sshd listens on. (default 22)
+                             | Multiple options of this type are permitted
+                             |
+    PasswordAuthentication   | Specifies whether password authentication is
+                             | allowed. To disable it, set this and UsePam to no
+                             |
+    UsePam                   | Enables the Pluggable Authentication module interface
+                             |
+  Client Configuration       |
+                             |
+    Create an SSH key Pair   | ssh-keygen
+                             |    -t type of key
+                             |
+    upload public key        | ssh-copy-id -i <location of key> username@host
+                             |    -i (location of key
+                             |
+  Use the SSH Agent          | eval $(ssh-agent -s)
+    Eliminate the need to    | ssh-add .ssh/id_dsa
+    type the passphrase upon |
+    each connection          |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+-------------------------------------------------------------------------------
 Notes - 
   Package Manager: zypper
   Install command: zypper in <package name>

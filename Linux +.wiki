@@ -6,22 +6,41 @@
                              |   /ect/sudoers file
 --------------------------------------------------------------------------------
 == Managing Users and Groups ==
+=== Users ===
   adding users               | useradd
                              |    -c (comment)
                              |    -e (expriration date) 2021/01/30
-                             |    -s default shell
-                             |    -d user sets teir own direcotry
+                             |    -s set default shell
+                             |    -d set home directory
                              |
   removing users             | userdel
                              |    -r removes all user files
                              |
+  Moddifying users           | usermod
+                             |    -c add comment
+                             |    -l change login name
                              |
+  set or change exp date     | chage [options] LOGIN
+  on user password           |    -l displays current password settings
                              |
+  location of default user   | /etc/skel/
+  settings (new user)        |
                              |
+                             | /etc/login.defs
                              |
+                             | /etc/defaul/
                              |
+                             | /etc/passwd
                              |
+  how to read the values     | username:!!(date):(pass min age):(pass max age):(days before warning)
+  on the shadow passwd       |
                              |
+  Change users defaul shell  | chsh
+                             |
+=== Groups ===
+  creating a group           | groupadd
+                             |
+  delete  a group            | groupdel
                              |
                              |
                              |
