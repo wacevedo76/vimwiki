@@ -18,7 +18,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
 == Systems ==
   * [[snmp]]
   * [[Linux SysAd]]
-  * [[Neworking]]
+  * [[Networking]]
 
 == CompSci ==
   * [[Data Structures and algorithms]]
