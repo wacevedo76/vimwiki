@@ -65,7 +65,7 @@
                              |   to a central device called a hub or a switch
 --------------------------------------------------------------------------------
 OSI / TCP models
-
+`
 |---------------|-------------------------|----------------|----------|
 | application   |                         |                |          |
 | ------------- | DHCP, DNS, FTP, HTTP,   |                |          |
@@ -83,6 +83,7 @@ OSI / TCP models
 | ------------- |                         | Network Access |    &     |
 | Physical      | Ethernet, fiber, wifi   |                |   Bits   |
 |_______________|_________________________|________________|__________|
+`
  
 The encapsulated structure of a TCP/IP packet
  
