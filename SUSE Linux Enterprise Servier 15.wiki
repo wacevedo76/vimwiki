@@ -265,9 +265,23 @@ Common Shell Commands
     Eliminate the need to    | ssh-add .ssh/id_dsa
     type the passphrase upon |
     each connection          |
+-------------------------------------------------------------------------------
+=== vnc ===
+  Configured using YaST      | -> Remote Management (VNC) option
                              |
+  Three options:             | * Allow Remote Management with Session Management
+                             | * Allow Remote Management without Session Management
+                             | * Do not allow Remot Administration
                              |
+                             | Firewall configuration option is available
                              |
+Remote Management Options    | One concurrent session only
+  Allow REmote management    |
+  wit hsession management    |
+                             |
+  One-time VNC sessions are  |
+  are started with the       |
+  xinetd daemon             |
                              |
                              |
                              |
