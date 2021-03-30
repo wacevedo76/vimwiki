@@ -67,6 +67,23 @@
                              |   192.168.x.x - any IP address starting with 192.168
                              |
 --------------------------------------------------------------------------------
+== Subnetting Basic Method ==
+=== Binary method ===
+    Rules
+    To get the Network/Subnet Address
+      - fill the host portion of an address with binary 0's
+    To get the broadcast Addess
+      - Fil the host portion of an address with binary 1's
+    To get the First Host
+      - Fill the host portion of an address with binray 0's except for the last 
+        bit
+    To get the Last Host
+      - Fill th host portion of an address with binary 1's except for the last 
+        bit which is set to binray 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
   == Cheat Sheet making instructions ==
     * Line 1: from right to left start by one and double eeach number till you
       reach 128

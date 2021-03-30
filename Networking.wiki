@@ -78,10 +78,10 @@ OSI / TCP models
 `|               | ICMP, IGMP              |                |          |`
 `| Network       | IP Add: IPv4, IPv6      | Internet       | Packets  |`
 `| ------------- | -------------------ARP- |----------------|----------|`
-`| Data Link     | MAC Address             |                |  Frames  :`
+`| Data Link     | MAC Address             |                |  Frames  |`
 `| ------------- |                         | Network Access |    &     |`
 `| Physical      | Ethernet, fiber, wifi   |                |   Bits   |`
-|_______________|_________________________|________________|__________|
+`|_______________|_________________________|________________|__________|`
 
 The encapsulated structure of a TCP/IP packet
 
