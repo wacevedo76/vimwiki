@@ -2,7 +2,21 @@
 = Docker Notes =
 --------------------------------------------------------------------------------
   Start a container          | # docker run <name of container>
-                             | 
+                             |
   list containers            | # docker ps
-                             | 
-                             | 
+                             |
+  stop a container           | docker stop <name-of-container>
+                             |
+  remove a container         | docker rm <name of container
+                             |
+  remove an image            | docker rmi <name of image>
+                             |
+  pull an img w/o running    | docker pull <name of image>
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |

@@ -281,7 +281,7 @@ Remote Management Options    | One concurrent session only
                              |
   One-time VNC sessions are  |
   are started with the       |
-  xinetd daemon             |
+  xinetd daemon              |
                              |
                              |
                              |

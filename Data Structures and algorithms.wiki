@@ -4,7 +4,6 @@
   == Notes from books ==
 --------------------------------------------------------------------------------
   [[A Common-Sense Guide to Data Structures and Algorithms]]
-<<<<<<< HEAD
 --------------------------------------------------------------------------------
   == Notes ==
 
@@ -20,7 +19,6 @@
                              | 
   O(n!)                      | Example: A really slow algorithm, like the 
                              |          traveling saiesperson 
+--------------------------------------------------------------------------------
  
-=======
   [[Grokking Algorithms]]
->>>>>>> 61daf6d887e523be57c30fae91d0f60db9431f90
