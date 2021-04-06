@@ -9,9 +9,11 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[Bash]]
   * [[Python]]
   * [[Awk]]
+  * [[c]]
 
 == Tooling ==
   * [[Vim]]
+  * [[sed]]
   * [[Tmux]]
   * [[Docker]]
 
