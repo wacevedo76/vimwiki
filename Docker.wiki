@@ -1,22 +1,29 @@
 --------------------------------------------------------------------------------
 = Docker Notes =
 --------------------------------------------------------------------------------
-  Start a container          | # docker run <name of container>
+  Start a container          | docker run <name of container>
+  (runs in attached mode)    |   (if image is not on system, it will be downloaded)
                              |
-  list containers            | # docker ps
+  list running containers    | docker ps
                              |
-  stop a container           | docker stop <name-of-container>
+  list all containers        | docker ps -a
+                             |
+  stop a container           | docker stop <container name / id>
                              |
   remove a container         | docker rm <name of container
                              |
+  list images on host        | docker images
+                             |
   remove an image            | docker rmi <name of image>
+                             |   (containers and dependent containers rom this 
+                             |    image must be stopped)
                              |
   pull an img w/o running    | docker pull <name of image>
                              |
+  execut a command           | docer exec <container name> <command> <arguments
                              |
-                             |
-                             |
-                             |
+  start a container in the   | docker -d container
+  background (detached mode) |
                              |
                              |
                              |
