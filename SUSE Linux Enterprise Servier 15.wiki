@@ -1,6 +1,6 @@
 SUSE Enterprise Server 
 --------------------------------------------------------------------------------
-Understanding the Filesystem Hierarchy Standard
+= Understanding the Filesystem Hierarchy Standard =
 --------------------------------------------------------------------------------
   Pare of the LSB (Linux     | Whic directories must be located on the first  
   Standard bas specifications| level and what they contain
@@ -67,7 +67,7 @@ Interprocess Communication   |  * Files used by processes to communicate with
                              |
                              |
 --------------------------------------------------------------------------------
-Week two - Work with the command Line > Getting help at the cli
+= Week two - Work with the command Line > Getting help at the cli =
 --------------------------------------------------------------------------------
   Help Resources             |  <command> -h or <command> --help
                              |  Man [section] command
@@ -167,7 +167,7 @@ Variables                    |
   `$$`                         | Process ID of the current shell
                              |
 -------------------------------------------------------------------------------
-Common Shell Commands
+== Common Shell Commands ==
 -------------------------------------------------------------------------------
   View File Content          |
     tac                      | Same as cat, but displays the files in reverse
@@ -267,6 +267,19 @@ Common Shell Commands
     each connection          |
 -------------------------------------------------------------------------------
 === vnc ===
+  Remote management          | * SLE Provides management useing Virtual Network
+                             |   Computing (VNC)
+                             |
+                             | * VN enables manaement via a graphical desktop
+                             |
+                             | * VNC is
+                             |     - Platform independent
+                             |     - Opwn source
+                             |
+                             | * VNC consists ot two components
+                             |   * Server
+                             |   * client
+                             |
   Configured using YaST      | -> Remote Management (VNC) option
                              |
   Three options:             | * Allow Remote Management with Session Management
@@ -275,9 +288,97 @@ Common Shell Commands
                              |
                              | Firewall configuration option is available
                              |
-Remote Management Options    | One concurrent session only
-  Allow REmote management    |
-  wit hsession management    |
+  Remote Management Options  | * Allow remote manage with Session Management
+                             |   * Enables multiple concurrent sessions
+                             |   * Access available to multople clients simultaneously
+                             |   * All applications started in this session run
+                             |     regardless of client connections until the 
+                             |     session is terminated
+                             |
+                             | * Allow Remote Management without Session Management
+                             |   * Once concurrent session only
+                             |
+  Configure a One Time VNC   | * One-time VNC sessions are started via the xinetd daemon
+    Session                  | * A configuration fie is located at /etc/xinetd.d/vnc
+                             | * By default it offers:
+                             |   * Three fore VNC view (vnc1 to vnc3)
+                             |   * Three serving a Java applet (vnchttpd1 to vnchttp3)
+                             |   * By default only vnc1 and vnchttpd1 are active
+                             |
+                             | * To activate a configuration:
+                             |   ( Comment the line disable = yes with a # character
+                             |   in the first column
+                             |
+                             | * To configure the Xvnc server:
+                             |   * see Xvnc --help
+                             |
+                             | * use any VNC Client
+                             |   * Default port TCP 5901
+                             | * Java enabled web browser
+                             |   * `http://<ip or fqdn or host>:5801`
+-------------------------------------------------------------------------------
+= Week Three =
+-------------------------------------------------------------------------------
+== Define and List SLE12 boot Process ==
+
+BIOS/UEFI
+`|------------------|`
+`|    BIOS/UEFI     |`
+`-------------------`
+`         |`
+  `|------------------|`
+  `|   Stage 1 - MBR  |`
+`  |------------------`
+    Bootloader
+  `|------------------|`
+  `|   Stage 2 -      |`
+`  ``|------------------``
+         |
+  `|------------------|`
+  `|   Kernel         |`
+  `|`  initramfs       |
+`  |------------------|`
+`  |Hardware (udev)   |`
+`  |__________________|`
+`         |`
+`  |-----------------------------------------|`
+`  |            |---------------------------||`
+`  |            |  systemclt default        ||`
+`  |            |---------------------------||`
+`  |            |     /etc/systemd/system/  ||`
+`  |            |     default.target        ||`
+`  |            |---------------------------||`
+`  |                           |             |`
+`  |            |---------------------------||`
+`  |            |   /usr/lib/systemd/system/||`
+`  |            |      *.target             ||`
+`  |            |---------------------------||`
+`  |                  Default target         |`
+`  |            |---------------------------||`
+`  |            |systemctl start *.service  ||`
+
+
+initramfs
+                             | * cpio Archinve
+                             | * Loaded by the kernel intor Ram disk
+                             | * Minimal Linux Evironment 
+                             | * udev provides the iniramfs with the needed devices
+                             |   * mkinitrd creates an initramfs
+                             |   * mkinitrd -R creates an init executable
+-------------------------------------------------------------------------------
+== Define and Explain UEFI, Secure Boot, and Trusted Execution ==
+-------------------------------------------------------------------------------
+  Advantages of UEFI         | * Advantages of UEFI CPU-independent architecture
+                             |   and drivers
+                             | * Flexible pre-OS environment with network capabilities
+                             | * Compatibility Support Module (CSM)
+                             | * PC-BIOS-like emulation
+                             | * Can user secure boot     `|BIOS > Any os Loader Code <- ? Malware ? _> OS start>`
+                             |                           ` |UEFI > Verified OS Loader > OS start > os verified`
+                             |
+-------------------------------------------------------------------------------
+== Understand the GRUB2 Book loader ==
+                             |
                              |
   One-time VNC sessions are  |
   are started with the       |
@@ -288,6 +389,24 @@ Remote Management Options    | One concurrent session only
                              |
                              |
                              |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------------------------------
 Notes - 
   Package Manager: zypper
