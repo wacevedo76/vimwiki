@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------
 = Docker Notes =
 --------------------------------------------------------------------------------
+== Basic commmands ==
   Start a container          | docker run <name of container>
   (runs in attached mode)    |   (if image is not on system, it will be downloaded)
                              |
@@ -25,5 +26,103 @@
   start a container in the   | docker -d container
   background (detached mode) |
                              |
+  attach to a detached       | docker attach <name or id of running container>
+  container                  |
                              |
+  run a docker tag to run    | docker run <tag>
+  a specific version of a    | docker run redis:4.0
+  docker container           |
+                             |
+  map standared input to     | docker run -i <container>/<app>
+  docker container           |
+  (interactive mode)         |
+                             |
+  Allocate (attach) sudo     | docker run -it <container>/<app>
+  terminal to container      |
+                             |
+--------------------------------------------------------------------------------
+== Port Mapping ==
+  * the docker host in given an Ip address
+  * the docker container may have been given and internal Ip address relative to
+    it's host container (Internal IP)
+`       -------------------------------------------`
+`       |              | 80 |                     |`
+`       |              ------                     |`
+`       |                 |                       |`
+`       |        _________|                       |`
+`       |        |                                |`
+`       ||--------------------|                   |`
+`       ||  | 5000 |          |  Docker Host      |`
+`       ||  --------          |  IP: 192.168.1.5  |`
+`       ||                    |                   |`
+`       ||  IP: 172.17.0.2    |                   |`
+`       ||                    |                   |`
+`       ||  Web APP           |                   |`
+`       || (Docker container) |                   |`
+`       ||--------------------|                   |`
+`       |-----------------------------------------|`
+
+--------------------------------------------------------------------------------
+  Port mapping               | docker run -p 80:5000 <container>/<app>
+  (forward traffic to a port |   (now the app can be accessed on 192.168.1.5:80
+   of from the container to  |
+   the Docker Host)          |
+                             |
+--------------------------------------------------------------------------------
+
+`       ----------------------------------------------------------------------|`
+`       |              | 80 |                 | 8000 |        | 8001 |        |`
+`       |              ------                 --------        --------        |`
+`       |                 |       IP: 192.168.1.5   |               |         |`
+`       |        _________|                         |               |         |`
+`       |        |                                  |               |         |`
+`       ||--------------------|  |--------------------| |--------------------||`
+`       ||  | 5000 |          |  |  | 5000 |          | |  | 5000 |          ||`
+`       ||  --------          |  |  --------          | |  --------          ||`
+`       ||                    |  |                    | |                    ||`
+`       ||  IP: 172.17.0.2    |  |  IP: 172.17.0.3    | |  IP: 172.17.0.4    ||`
+`       ||                    |  |                    | |                    ||`
+`       ||  Web APP           |  |  Web APP           | |  Web APP           ||`
+`       || (Docker container) |  | (Docker container) | | (Docker container) ||`
+`       ||--------------------|  |--------------------| |--------------------||`
+`       |                                                                     |`
+`       ||--------------------| |--------------------|                        |`
+`       ||  | 3306 |          | |  | 3306 |          |                        |`
+`       ||  --------          | |  --------          |                        |`
+`       ||                    | |                    |      Docker Host       |`
+`       ||  IP: 172.17.0.2    | |  IP: 172.17.0.2    |      IP: 192.168.1.5   |`
+`       ||                    | |                    |                        |`
+`       ||  MySQL             | |  MySQL             |                        |`
+`       || (Docker container) | | (Docker container) |                        |`
+`       ||--------------------| |--------------------|                        |`
+`       |    |                      |                                         |`
+`       | --------               -------                                      |`
+`       | | 3306 |               | 8306|                                      |`
+`       |---------------------------------------------------------------------|`
+
+--------------------------------------------------------------------------------
+  multiple instances of a    | docker run -p 80:5000 <container>/Webapp
+  container within a host    | docker run -p 8000:5000 <container>/Webapp
+  can be mapped to different | docker run -p 8001:5000 <container>/Webapp
+  ports                      | docker run -p 3306:3306 mysql
+                             | docker run -p 8306:3306 mysql
+--------------------------------------------------------------------------------
+== Volume mapping ==
+  Once a container is stopped| `|--------------------|`
+  all data changes within    | `|                    |`
+  the container are lost     | `|  DATA              |       |--------------|`
+  to persist the changes, a  | `|  /var/lib/mysql <--|-------| /opt/datadir` |
+  volume can be mapped to the| `|                    |       |--------------|`
+  file structur of the       | `|  MySQL             |`
+  container from outside the | `| (Docker container) |`
+  container                  | `|--------------------|`
+                             |
+  volume mapping             | docker run -v /opt/datadir:/var/lib/mysql mysql
+                             |
+  inspect a container        | docker inspect blissful_hopper
+  (returns all the details   |
+  of a container in json)    |
+                             |
+  view the logs of a detached| docker log <container name>
+  container                  |
                              |
