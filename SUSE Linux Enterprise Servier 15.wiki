@@ -511,9 +511,39 @@ initramfs
                              |     * other units based on rules in /usr/lib/udev/rules.d/ that contain
                              |       rules that contain TAG+=systemd entries
                              |
+  Manage Services            |              command
+                             | systemd      systemctl <command> <service>.service
+                             | System V     rc<service> <command>
                              |
+                             | Systemd Command        Description                     System V
+                             | start                  Start service                   start
+                             | stop                   Stop service                    stop
+                             | restart                Restart service                 restart
+                             | reload                 Reload configuration without    reload
+                             |                        Interupting operation
+                             | reload-or-restart      Reload service if it is         n/a
+                             |                        Supported, otherwise restart
+                             |                        It
+                             | reload-or-try-restart  Reload service if it is         n/a
+                             |                        supported, otherwise restart
+                             |                        it if it is running
+                             | status                 List status information         status
+                             | is-active              List short status information   status
                              |
+  Enabling/Disabling         | * systemctl <command> <service>.service
+    Services                 |
+                             | systemd      Description                                 System V
+                             | enable       Enable service                              inserv
+                             | disable      Disable service                             inserv -r
+                             | is-enabled   Check if service is enabled                 chkconfig
+                             | reenable     Disable service and enable it afterwards    n/a
+                             | mask         After "disabling" a service, it can still   n/a
+                             |              be started manually, after masking it 
+                             |              cannot
+                             | umask        A service that hs a been masked can only    n/a
+                             |              be used again after it has been unmasked
                              |
+  (continue at 19:56)        |
                              |
                              |
                              |
