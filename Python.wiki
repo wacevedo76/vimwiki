@@ -249,7 +249,7 @@ venv                         | python3 -m venv <new project>
   Installing enviornment     | pip install -r requirements.txt 
   with pip                   |
                              |
-                             |
-                             |
+-----------------------------|
+                             | virtualenv <name>
                              |
                              |

@@ -389,24 +389,88 @@ initramfs
                              |
                              |
                              |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-------------------------------------------------------------------------------
+== Define and Describe systemd ==
+  What is systemd            | * systemd is a system and session manager for Linux,
+                             |   compatible with System V and LSB init scripts
+                             |
+                             | * systemd
+                             |   * Aggressive parallelization capabilities
+                             |   * on-demand daemon activation
+                             |   * keeps track of processes using Linux Kernal 
+                             |     Controls Groups (cgroups)
+                             |   * can auto-restart failing daemons
+                             |   * Logging not only of syslog messages from services,
+                             |     but also messages services displayed on stdout
+                             |   * Well documented in manual pages
+                             |
+  systemd Basics             | * Always process ID 1
+                             |   * All other programs are either startded directly by
+                             |     systemd or by one of its child processes
+                             |   * Started directly by the Kernel
+                             |   * Resists signal 9
+                             |   * Replacement for System V init daemon
+                             |     * Fully compatible with System V init
+                             |
+  Unit File                  | * A unit configuration file encodes information about
+                             |   a service, a socket, a device, etc.
+                             | * A manual page for each type, such as
+                             |   * man systemd.service, explains the specifics of the 
+                             |     respective type
+                             |   * Service unit file can replace the /etc/init.d/ scripts
+                             |
+                             | * File name extension defines Unit type
+                             | * Location: /usr/lib/systemd/system/   <-- applying service packs can overwrite
+                             |             /etc/systemd/system        <-- apply changes here 
+                             |                                            files do not run if they do not exist here.
+                             |
+                             |    Unit             Filename
+                             |    Service          <service>.service
+                             |    Target           <target>.target
+                             |    Sockets          <socket>.socket
+                             |    Path             <path>.path
+                             |    Timer            <timer>.timer
+                             |    Mountpoint       <mount>.mount
+                             |    Automount Point  <automount>.automount
+                             |    Swap             <swap>.swap
+                             |    Device           <device>.device
+                             |    Scope/Slice      <scope>.scope
+                             |
+  Unit File Structure        | * Sections:
+                             |   * [Unit]
+                             |   * [Service]|[Target]|...
+                             |   * [Install]
+                             |
+  Unit File: [Unit]          | Option           Description
+                             | Description      Description
+                             | After            Start of the unit is delayed 
+                             |                  until all listed units have started up
+                             | Before           Invers of After
+                             | Requires         The units listed here are activated as well
+                             | Conflicts        Unit is in conflict with the listed units
+                             |
+  Unit File Sections:        | Option           Description
+    [Service]                | Type             Process start-up type
+                             |                  Available types: simple, forking, onshot, dbus, notify, idle
+                             | EnvironmentFile  File to read environment variables from
+                             | ExecStart        Command line(absolute path, with arguments) that is
+                             |                  execute when theis sevice is tarted
+                             | ExecStartPre,    Additional commands that are executed before or after the     
+                             | ExecStartPost    command in Execstart
+                             | ExecReload       Commands to trigger a configuration reload in the service
+                             | ExecStop         Commands to execute to stop the service
+                             | KillMode         How processes of this service shall be killed.
+                             |                  Available modes: control-group, process, none
+                             | Restart          Configures whether the main service process shall be 
+                             |                  restarted when it exits.
+                             |                  Available options: no, one-success, on-failure, on-abort, or
+                             |                  always
+                             |
+  Unit File Sections:        |
+    se                       |
+                             |
+                             |
+                             |
 -------------------------------------------------------------------------------
 Notes - 
   Package Manager: zypper
