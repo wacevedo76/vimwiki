@@ -2,7 +2,7 @@ SUSE Enterprise Server
 --------------------------------------------------------------------------------
 = Understanding the Filesystem Hierarchy Standard =
 --------------------------------------------------------------------------------
-  Pare of the LSB (Linux     | Whic directories must be located on the first  
+  Part of the LSB (Linux     | Whic directories must be located on the first  
   Standard bas specifications| level and what they contain
                              | 
   Defines a two-layer        | * Directories in the top layer (off the root "/")
@@ -160,7 +160,7 @@ Variables                    |
   `$?`                         | "Return" or "exit" value of the previously executed
                              | command
                              |
-  `$0`                         | Name of the commandbeing executed
+  `$0`                         | Name of the command being executed
   `$#`                         | Number of command arguments
   `$*`                         | All command arguments
   `$1, $2, ... $N`             | Value of the corresponding argument
@@ -466,8 +466,54 @@ initramfs
                              |                  Available options: no, one-success, on-failure, on-abort, or
                              |                  always
                              |
-  Unit File Sections:        |
-    se                       |
+  Unit File Sections:        | * Applies to [Service], [Socket], [Mount],[Swap] 
+    Secure Services          |   sections /unit types
+                             |   * Limit networ access (namespace)
+                             |     - PrivateNetwork=yes
+                             |
+                             |   * Private /tmp
+                             |     - PrivateTmp=yes
+                             |   * Restrict access to directories
+                             |     - InaccessibleDirectories=/home
+                             |     - ReadOnlyDirectories=/var
+                             |   * Restrict capabilities
+                             |     - CapabilitiesBoundingSet=CAP_CHOWN CAP_KILL
+                             |     - CapabilitiesBoundingSet=-Cap_PTRACE (all but this one)
+                             |
+                             |   * Set user, group, and root directory
+                             |     - User=
+                             |     - Group=
+                             |     - RootDirectory=
+                             |   * Device access restriction (whitelist)
+                             |     - DeviceAllow=/dev/nul rw
+                             |   * Resource restriction
+                             |     - LimitNPROC=1
+                             |     - LimitFSIZE=0
+                             |
+  Unit File Sections:        | Option         Description
+    [Install]                | WantedBy       A symbolic link is created in the .wants/ or
+                             | RequiredBy     .requires/ directory of each of the listed units
+                             |                wehn this unit is installed by systemctl enable
+                             |
+                             | Alias          A space-seperated list of additional names this
+                             |                unit shall be installed under.
+                             | Also           Additiona units to install/deinstall when this unit
+                             |                is installed/deinstalled
+                             |
+  systemctl                  | * Systemctl is the command to interact with systemd
+                             | * without options,it displays the various units active on the
+                             |   system, with -a also the inactive units
+                             | * by default less is used a pager
+                             | * Some units are not defined in files in
+                             |   /usr/lib/systemd/system/, they are created automatically,
+                             |   such as:
+                             |     * various .mount units based on entries in /etc/fstab
+                             |     * other units based on rules in /usr/lib/udev/rules.d/ that contain
+                             |       rules that contain TAG+=systemd entries
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
