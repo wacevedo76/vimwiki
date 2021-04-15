@@ -1,6 +1,11 @@
 --------------------------------------------------------------------------------
 Learn Vim Script the Hard way
 --------------------------------------------------------------------------------
+Working with vim on windows
+-- interact with system clipboard
+    set clipboard+=unnamedplus
+--------------------------------------------------------------------------------
+
 == Commonly used Commands ==
    Resize split height       |
      Incr/decr by 1          | <c-w>+ / <c-w>-

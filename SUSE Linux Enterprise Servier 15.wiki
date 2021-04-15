@@ -426,7 +426,7 @@ initramfs
                              |
                              |    Unit             Filename
                              |    Service          <service>.service
-                             |    Target           <target>.target
+                             |    Targe           <target>.target
                              |    Sockets          <socket>.socket
                              |    Path             <path>.path
                              |    Timer            <timer>.timer
