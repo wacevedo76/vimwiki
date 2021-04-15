@@ -341,23 +341,33 @@ BIOS/UEFI
 `  |Hardware (udev)   |`
 `  |__________________|`
 `         |`
-`  |-----------------------------------------|`
-`  |            |---------------------------||`
-`  |            |  systemclt default        ||`
-`  |            |---------------------------||`
-`  |            |     /etc/systemd/system/  ||`
-`  |            |     default.target        ||`
-`  |            |---------------------------||`
-`  |                           |             |`
-`  |            |---------------------------||`
-`  |            |   /usr/lib/systemd/system/||`
-`  |            |      *.target             ||`
-`  |            |---------------------------||`
-`  |                  Default target         |`
-`  |            |---------------------------||`
-`  |            |systemctl start *.service  ||`
-
-
+`  |--------------------------------|`
+`  |   |---------------------------||`
+`  |   |  systemclt default        ||`
+`  |   |---------------------------||`
+`  |   |     /etc/systemd/system/  ||`
+`  |   |     default.target        ||`
+`  |   |---------------------------||`
+`  |                  |             |`
+`  |   |---------------------------||`
+`  |   |   /usr/lib/systemd/system/||`
+`  |   |      *.target             ||`
+`  |   |---------------------------||`
+`  |         Default target         |`
+`  |   |---------------------------||`
+`  |   |systemctl start *.service  ||`
+`  |   ---------------------------- |`
+`  |   |              |GUI (xdm)   ||`
+`  |   ---------------------------- |`
+`  |   |---------------------------||`
+`  |   |/usr/lib/systemd/system/   ||`
+`  |   |  getty@.service           ||`
+`  |   |---------------------------||`
+`  |                 |              |`
+`  |   |---------------------------||`
+`  |   |   Virtual terminalsa      ||`
+`  |   ---------------------------- |`
+`  ----------------------------------`
 initramfs
                              | * cpio Archinve
                              | * Loaded by the kernel intor Ram disk
@@ -377,6 +387,42 @@ initramfs
                              |                           ` |UEFI > Verified OS Loader > OS start > os verified`
                              |
 -------------------------------------------------------------------------------
+  Difference between GRUB    | * Different configuration files
+  Legacy and GRUB2           | * More file systems are supported (e.g., Btrfs)
+                             | * Read files on LVM or RAID devices
+                             | * User interface can be:
+                             |   * translated
+                             |   * altered with themes
+                             | * Load modules to support additional features(e.g., file systems)
+                             | * Search for tand generate boot entries for other kernels and
+                             |   operating systems automatically
+                             |
+  Configuration File         | File                         Description
+  Structure                  | /boot/grub2/grub.cfg         Configuration of the GRUB2 menu items
+                             | /boot/grub2/custom.cfg       Add custom items to the boot menu
+                             | /etc/default/grub            User setting of GRUB2, additional environmenta
+                             |                              settings
+                             | /etc/grub./*                 Integrated into the main configuration file
+                             | /etc/sysconfig/bootloader    Boot loader independent settings needed by YaST
+                             |                              and new kernels
+                             | /boot/grub2/x86_64-efi,      Architecture-specific options
+                             | /boot/grub2/power-ieee12
+                             | /boot/grub2/s390x
+-------------------------------------------------------------------------------
+  Grube 2 General Options    | Component            Description
+                             | GRUB_DEFAULT         Sets the boot menu entry that is booted by
+                             |                      defaut. Its value can be a numeric value,
+                             |                      the complete name of a menu entry, or saved
+                             | GRUB_DEFAULT=2       boot the third (counted from zero) boot 
+                             |                      menu entry
+                             | GRUB_DEFAULT="2>0"   boots the first submenu of the third top-
+                             |                      level menu enty
+                             | GRUB_DEFAULT="menu1" 
+                             |
+                             |
+                             |
+                             |
+
 == Understand the GRUB2 Book loader ==
                              |
                              |
@@ -426,7 +472,7 @@ initramfs
                              |
                              |    Unit             Filename
                              |    Service          <service>.service
-                             |    Target           <target>.target
+                             |    Targe           <target>.target
                              |    Sockets          <socket>.socket
                              |    Path             <path>.path
                              |    Timer            <timer>.timer
