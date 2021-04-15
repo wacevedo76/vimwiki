@@ -543,11 +543,60 @@ initramfs
                              | umask        A service that hs a been masked can only    n/a
                              |              be used again after it has been unmasked
                              |
-  (continue at 19:56)        |
+    Target Units             | * Targets are synchronization points, similare to runlevels, but
+                             |   more fine-grained
+                             | * Targets group service and other units
+                             | * some target untis are the equivalent to runlevels
+                             |   * multi-user.target - runlevel 3
+                             |   * graphical.target - runlevel 5
+                             | * Switching:
+                             |   * systemctl isolate multi-user.target
+                             |
+                             | Target Unit                  Description                               System V
+                             | default.target               Booted by default                         n/a
+                             |
+                             | graphical.target             System with network, multi-user suppport  Runlevel 5
+                             | (runlevel5.target)           and a displaymanager
+                             |
+                             | multi-user.target            Multi-user system with network            Runlevel 3
+                             | (runlevel2.target,
+                             | runlevel3.target)
+                             |
+                             | n/a                          Local multi-user system without network   Runlevel 2
+                             |
+                             | mail-transfer-agent.target   All services necessary for sending and    n/a
+                             |                              receiving mails
+                             |
+                             | resuce.target                Single user system without network        Runlevel 1
+                             | (runlevel6.target)                                                     Runlevel s
+                             |
+                             | emergency.target             Emergency shell on the console
+                             |
+                             | reboot.target                Reboot the system                         Runlevel 6
+                             | (runlevel6.target)
+                             |
+                             | halt.target                  Shut down the system                      Runlevel 0
+                             | (runlevel0.target,
+                             | poweroff.target)
+                             |
+  Change Targets             | Change the current target/runlevel:
+                             |   systemctl isolate <target>.target
+                             | Change to the default target/runlevel:
+                             |   systemctl default
+                             | Get the current target/runlevel:
+                             |   systemctl list-units --type=target
+                             | Persistently change the default runlevel:
+                             |   systemctl set-default --force <target>.target
+                             | Change the default runlevel for the current oot process:
+                             |   systemd.unit=<target>.target
+                             | Show a target's/runlevels' dependencies:
+                             |   systemctl show -p "Requires" <target>.target
+                             |   systemctl show -p "Wants" <target>.target
+                             |
                              |
                              |
                              |
 -------------------------------------------------------------------------------
 Notes - 
   Package Manager: zypper
-  Install command: zypper in <package name>
+  Install command: zypper in <package name> 

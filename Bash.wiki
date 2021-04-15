@@ -17,6 +17,11 @@ supper commands
   exit terminal but leave    | disown -a && exit
   all processes running      |
 --------------------------------------------------------------------------------
+commands to grokk
+  find                       | find <search path> -name "*name-of-files*"
+                             |   -iname  -> case insensitive
+                             |
+--------------------------------------------------------------------------------
 == Group and expand expressions ==
                              |
   Group commands - subshell  | ()
@@ -169,7 +174,7 @@ supper commands
 --------------------------------------------------------------------------------
 == Regular expressions ==
   grep                       |
-    -i                       | Allows us to search case-insensitifely
+    -i                       | Allows us to search case-insensitively
     -v                       | Only prints line that are not matched, instead of matche
                              |
   grep regex are enclosed in |
@@ -379,3 +384,5 @@ Globbing and the loop        |
                              | 15 16 * * *        Every day at 16:15
                              | 30 * * * *         ddJK:WQJ
                              |
+--------------------------------------------------------------------------------
+
