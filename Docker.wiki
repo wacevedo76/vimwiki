@@ -28,8 +28,10 @@
                              |
   attach to a detached       | docker attach <name or id of running container>
   container                  |
+--------------------------------------------------------------------------------
+== Docker Run ==
                              |
-  run a docker tag to run    | docker run <tag>
+  run a docker tag to run    | docker run:<tag>
   a specific version of a    | docker run redis:4.0
   docker container           |
                              |
@@ -123,6 +125,6 @@
   (returns all the details   |
   of a container in json)    |
                              |
-  view the logs of a detached| docker log <container name>
+  view the logs of a detached| docker logs <container name>
   container                  |
                              |
