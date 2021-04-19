@@ -668,9 +668,61 @@ initramfs
                              | 17     CHLD    Child exited
                              | 18     CONT    Continued
                              | 19     STOP    Stopped (signal)
+-------------------------------------------------------------------------------
+== Understanding User Management == 
+  User and Group ID          |
+    UID                      | * 0: root
+                             | * 1 - 99: System
+                             | * 100 - 499: System accounts
+                             | * 1000 and above: Normal (unprivileged) accounts
+    GID                      | * 0: root
+                             | * 1 - 99: System Groups
+                             | * 100 - 499: Dynamically allocated System Groups
+                             | * 100 and above: Normal groups
                              |
+  Display User Information   |
+    whoami                   | returns username
                              |
+    id <username>            | returns uid, gid, groups
                              |
+    groups <username>        | returns list of 
+                             |
+    finger                   | returns username, full name, home directory
+                             | default shell, last longin date time and location
+                             | mail and plan status
+                             |
+  User and Group Database    | * Users and Passwords
+  Files                      |   /etc/passwd
+                             |   /etc/shadow
+                             |
+                             | * Groups
+                             |   /etc/group
+                             |
+  /etc/passwd                | geeko:x:1000:1000:Geeko chameleon:/home/geeko:/bin/bash
+                             | ` |    |   |     |       |              |          | `
+                             |` Login |   |     |       |              |          |`
+                             |` password  |     |       |              |          |                                              `
+                             |`           |     |       |              |          |`
+                             |` user Id --      |       |              |          |`
+                             | `primary gid------       |              |          |`
+                             | `Comments----------------               |          |` 
+                             | `Home Directory-------------------------           |`
+                             |` Default shell--------------------------------------`
+                             |
+  CLI User Management        |
+    useradd                  | create users
+    usermod                  | modify existing users
+    userdel                  | delete users
+                             |
+    groupadd                 | create groups
+    groupmod                 | modify existing groups
+    groupdel                 | delete groups
+                             |
+    passwd                   | Set/Modify users passwords
+    gpasswd                  | Set/Modify groups password
+                             |
+  File Permissions and       |
+  Ownership                  |
                              |
                              |
                              |
