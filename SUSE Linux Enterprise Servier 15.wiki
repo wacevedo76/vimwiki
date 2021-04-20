@@ -726,6 +726,70 @@ initramfs
                              |
                              |
                              |
+-------------------------------------------------------------------------------
+== Understanding ACLs ==
+  Use ACLs                   | * To use ACLs you need to be familar with:
+                             |   * How ACLs work
+                             |   * ACL Terminology
+                             |   * ACL Types
+                             |   * How ACLs and Permission Bits map to each other
+                             |   * Using ACL Command Line Tools
+                             |   * Configuring a Directory with an Access ACL
+                             |   * Using Additional setfacl Options
+                             |   * ACL Check Algorithm
+                             |   * How Applications Handle ACLs
+                             |
+  How ACLs work              | * ACLs provide an extension of the three traditional
+                             |   Sets of permisssions:
+                             |   * Read (r)
+                             |   * Write (w)
+                             |   * Execute (x)
+                             |
+                             | * Applied to:
+                             |   * Owner
+                             |   * Group
+                             |   * Others
+                             |
+                             | * ACLs allow you to assign permissions to individual users
+                             |   or groups even if they are not the owner or a member of 
+                             |   the owning group.
+                             |
+  ACL Types                  | * Two basic classes of ACLs:
+                             |   * Minimal ACLs (for practical purposes: same as
+                             |     POSIX permissions)
+                             |
+                             |   * Extended ACL
+                             |
+                             | * ACLs extend the classic Linux file permissions:
+                             |   * Named user
+                             |   * Named groups
+                             |   * Mask
+                             |
+  ACL Terminology            | * Important ACL terms include:
+                             |   * user classes
+                             |     - Owner class
+                             |     - Group class
+                             |     - Other class
+                             |   * Access ACL
+                             |   * Default ACL
+                             |   * ACL entry
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
 
 -------------------------------------------------------------------------------
 Notes - 
