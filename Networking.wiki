@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 == Wired and Wireless Network Topologies ==
 --------------------------------------------------------------------------------
-  === Topology ===
+=== Topology ===
   Topology                   | Physical: The actual layout of the computer 
                              |   cables and other network devices
                              | Logical: The way in which the network appears 
@@ -27,7 +27,7 @@
                              |   grounded.
                              | * A hub or switch is not needed in this installation
 --------------------------------------------------------------------------------
-      Advantages                            Disadvantages
+  Advantages / Disadvantages
   compared to other topologies, a bus  |  Network disruption might occure when
   is cheap and easy to implement.      |  added or removed
                                        |
@@ -39,7 +39,7 @@
   Does not requre any specialized      | Difficult to troubleshoot
   network equipment.                   |
 --------------------------------------------------------------------------------
-  ==== Ring ====
+==== Ring ====
                              | * Logical ring; The data travels in a circular 
                              |   form from one computer to another on the network.
                              |   (It is not a physical ring topology)
@@ -60,11 +60,11 @@
   Ring network are moderately easy to  |  a single break in the cable can disrupt
   install                              |  the entire network.
 --------------------------------------------------------------------------------
-  ==== Star ====
+==== Star ====
                              | * All computers and other network devices connect
                              |   to a central device called a hub or a switch
 --------------------------------------------------------------------------------
-OSI / TCP models
+=== OSI / TCP models ===
 
   `|--------------|-----------------------|----------------|----------|`
   `| application  |                       |                |          |`
@@ -84,7 +84,7 @@ OSI / TCP models
   `| Physical     |Ethernet, fiber, wifi  |                | Bits     |`
   `| _____________|_______________________|________________|__________|`
 
-The encapsulated structure of a TCP/IP packet
+=== The encapsulated structure of a TCP/IP packet ===
 
   `|----------------------------------|`
   `|      layer 2 information         |`
@@ -107,5 +107,4 @@ The encapsulated structure of a TCP/IP packet
   `|__________________________________|`
 
 -------------------------------------------------------------------------------
-  == [[Subnetting]] ==
-  
+== [[Subnetting]] ==
