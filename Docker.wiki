@@ -58,12 +58,46 @@
                              |
   run a docker container     | docker start -ai <container id>
                              | -a   attach stnd i/o and forward signals to the container  
-                           | -i   attach the containers input
+                             | -i   attach the containers input
+--------------------------------------------------------------------------------
+== Creating Docker images == 
+  Basic work flow to create  | * Docker file
+  a docker image             | --> Docker client
+                             |   --> Docker Server
+                             |     --> USABLE IMAGE!
+                             |
+  Create a Dockerfile        |  `------------------------`
+                             | ` | Specify a base image` |
+                             |  `------------------------`
+                             |  `-------------------------------`
+                             |  `|     Run some commands to    |`
+                             |  `| install additional programs |` 
+                             |  `-------------------------------`
+                             |  `-------------------------------`
+                             |  `| Specify a command to run on |`
+                             |  `|   container startup         |`
+                             |  `-------------------------------`
                              |
                              |
                              |
+  Generic Dockerfile         |  Generic Dockerfile 
+                             |  ------------------------------------------------
+                             | 1 # Use an exiting docker image as a base
+                             | 2 FROM alpine
+                             | 3
+                             | 4 # Download and install a dependency
+                             | 5 Run apk add --update redis
+                             | 6
+                             | 7 # Tell the image what to do when it starts
+                             | 8 CMD ["redis-server"]
+                             |  ------------------------------------------------
+  Command to build image     | docker build .
                              |
+                             | docker build -t <dockerID>/<repo>:<version> <build dir>
+  Tagging an image           | docker build -t wacevedo76/redis:latest .
                              |
+  Create an image from a     | docker commit -c <default_Command> <container id>
+  container                  | docker commit -c 'CMD ["redis-server"]' 8a3855
 --------------------------------------------------------------------------------
 == Port Mapping ==
   * the docker host in given an Ip address
