@@ -42,5 +42,17 @@
                              |
   delete  a group            | groupdel
                              |
+  modify a group             | groupmod
+                             |    - n modify the name
+                             |    - groupmod -n <newname> <old name>
+                             |
+  Add user to group          | gpasswd -a <user name> <group>
+                             |
+  remove user from group     | gpasswd -d <user name> <group>
+                             |
+  Check group membership     | id <user name>
+                             |
+  Assign group administrator | gpasswd -A <user name> <group>
+                             |
                              |
                              |
