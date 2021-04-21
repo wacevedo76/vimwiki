@@ -711,6 +711,7 @@ initramfs
                              |
   CLI User Management        |
     useradd                  | create users
+    adduser                  | interactively create users
     usermod                  | modify existing users
     userdel                  | delete users
                              |

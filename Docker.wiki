@@ -10,6 +10,10 @@
   list all containers        | docker ps -a
                              |
   stop a container           | docker stop <container name / id>
+                             |   Sends a SIGTERM command
+                             |
+  kill a container           | docker kill <container name / id>
+                             |   Sends a SIGKill command
                              |
   remove a container         | docker rm <name of container
                              |
@@ -19,9 +23,19 @@
                              |   (containers and dependent containers rom this 
                              |    image must be stopped)
                              |
+  Remove all containers      | docker system prune
+                             |   - this will remove:
+                             |     * all stopped containers
+                             |     * all networks not used by at lease on container
+                             |     * all dangling images
+                             |     * all build cache
+                             |
   pull an img w/o running    | docker pull <name of image>
                              |
-  execut a command           | docer exec <container name> <command> <arguments
+  execut a command           | docer exec <container name> <command> <arguments>
+                             |
+  run a second command on    | docker exec -it <container id> <command>
+  an existing container      | example: docker exec -it <id of redis container> redis-cli
                              |
   start a container in the   | docker -d container
   background (detached mode) |
@@ -41,6 +55,14 @@
                              |
   Allocate (attach) sudo     | docker run -it <container>/<app>
   terminal to container      |
+                             |
+  run a docker container     | docker start -ai <container id>
+                             | -a   attach stnd i/o and forward signals to the container  
+                           | -i   attach the containers input
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 == Port Mapping ==
@@ -125,6 +147,6 @@
   (returns all the details   |
   of a container in json)    |
                              |
-  view the logs of a detached| docker logs <container name>
+  view the logs of a detached| docker logs <container id>
   container                  |
                              |
