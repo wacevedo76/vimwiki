@@ -735,6 +735,7 @@ initramfs
                              |   * How ACLs and Permission Bits map to each other
                              |   * Using ACL Command Line Tools
                              |   * Configuring a Directory with an Access ACL
+                             |   * Configureing ad Directory with a Default ACL
                              |   * Using Additional setfacl Options
                              |   * ACL Check Algorithm
                              |   * How Applications Handle ACLs
@@ -774,15 +775,37 @@ initramfs
                              |   * Default ACL
                              |   * ACL entry
                              |
+  ACLs and Permisison Bits   | The following hsows the mapping of minial ACLs
                              |
+                             |         owner     user::rw-        <----->     rw-     owner class
+                             | owning groups    group:;r--        <----->     r--     group class
+                             |         other    other::--         <----->     ---     other class
                              |
+  all possible ACL Types     | TYPE           Text Form
+                             | owner          user::rwx
+                             | named user     user:name:rwx
+                             | owning group   grous::rwx
+                             | named group    group:name:rwx
+                             | mask           mask::rwx
+                             | other          other::rwx
                              |
+  Effective Permissions      | In the following example, effective permissions for the user
+                             | jane are shown:
                              |
+                             | Entry Type       Text Form         Permissions
+                             | Named user       user:jane:r-x     r-x
+                             | mask             mask::rw-         rw
+                             |          Effective permissions: r--
                              |
+                             |         owner     user::rw-        <----->     rw-     owner class
+                             |    named user user:jane:rw-        <---->      
+                             | 
+                             | owning groups    group:;r--        <----->     r--     group class
+                             |         other    other::--         <----->     ---     other class
                              |
+  Get ACL                    | getfacl <file>
                              |
-                             |
-                             |
+  Set ACL                    | setfacl <file>
                              |
                              |
                              |
