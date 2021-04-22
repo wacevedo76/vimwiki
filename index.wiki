@@ -24,3 +24,6 @@ __        ___ _ _ _                      __     ___                   _ _    _
 
 == CompSci ==
   * [[Data Structures and algorithms]]
+
+== Misc ==
+  * [[Quotes]]
