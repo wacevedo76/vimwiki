@@ -411,7 +411,7 @@ initramfs
 -------------------------------------------------------------------------------
   Grube 2 General Options    | Component            Description
                              | GRUB_DEFAULT         Sets the boot menu entry that is booted by
-                             |                      defaut. Its value can be a numeric value,
+                             |                      default. Its value can be a numeric value,
                              |                      the complete name of a menu entry, or saved
                              | GRUB_DEFAULT=2       boot the third (counted from zero) boot 
                              |                      menu entry
@@ -750,7 +750,7 @@ initramfs
                              |   * How Applications Handle ACLs
                              |
   How ACLs work              | * ACLs provide an extension of the three traditional
-                             |   Sets of permisssions:
+                             |   Sets of permissions:
                              |   * Read (r)
                              |   * Write (w)
                              |   * Execute (x)
@@ -792,9 +792,9 @@ initramfs
                              |
   all possible ACL Types     | TYPE           Text Form
                              | owner          user::rwx
-                             | named user     user:name:rwx
+                             | named user     user:<name>:rwx
                              | owning group   grous::rwx
-                             | named group    group:name:rwx
+                             | named group    group:<name>:rwx
                              | mask           mask::rwx
                              | other          other::rwx
                              |
@@ -806,15 +806,167 @@ initramfs
                              | mask             mask::rw-         rw
                              |          Effective permissions: r--
                              |
-                             |         owner     user::rw-        <----->     rw-     owner class
-                             |    named user user:jane:rw-        <---->      
+                             |         owner        user::rw-  <----->     rw-  owner class
+                             |    named user    user:jane:rw-  <----->
                              | 
-                             | owning groups    group:;r--        <----->     r--     group class
-                             |         other    other::--         <----->     ---     other class
+                             | owning groups       group:;r--  <----->     r--  group class
+                             |         other       other::--   <----->     ---  other class
                              |
-  Get ACL                    | getfacl <file>
                              |
-  Set ACL                    | setfacl <file>
+  Set ACL                    | setfacl [options][ACL-Entries] <file>
+                             |   Option     Description
+                             |   -m         Add or modify an ACL entry
+                             |   -x         Remove an ACL entry
+                             |   -d         Set a default ACL
+                             |   -b         Remove all extended ACL entries
+                             |   -M         restore ACLs that have been removed from a file
+                             |
+  GET ACL                    | getfacl [options][ACL-Entries] <file>
+                             |   Option     Description
+                             |   -a         Display the file access control list
+                             |   -d         Display the default access control list
+                             |   -R         List the ACLs of all files and directories recursively
+                             |
+  Define Extended ACLs:      | * Named user:
+  Examples                   |   * setfacl -m u:tux:rx my_file
+                             |
+                             | * Named groups:
+                             |   * setfacl -m g:accounting:rw my_file
+                             |
+                             | * Mask:
+                             |   * setfacl -m m::rx
+                             |
+  Configure a Directory with | * Default ACLs for a directory define the access permissions
+  Default ACLs               |   objects in the directory inherit when they are created:
+                             |   * A subdirectory inherits the default ACL of the parent directory
+                             |     as default ACLs and as its own access ACLs
+                             |   * A file inherits the default ACL as its own access ACL
+                             |
+  Directory Default ACL      | * Add default ACLs to the existing mydir directory:
+  Example                    |   * setfacl -d -m group:jungle:r-x mydir
+                             |
+  How Applications Handle    | * udev uses ACLs to allow users logged in to the graphical
+  ACLs                       |   user interface to access devices, such as DVD drives
+                             |
+                             | * Some applications lack ACL Support
+                             |   * Star Archiver is a backup application with full preservation
+                             |     of ACLs, others may or may not preserve them
+-------------------------------------------------------------------------------
+== Understanding Privilege Delegation ==
+  Identity switching commands| su - Switch user
+                             |   * The "-" give use login shell and users default environment
+                             |   * Execute a single command as root user, use the -c option
+                             |     * e.g., su -c "grep geeko /et/shadow"
+                             |
+  Switching primary group    | newgrp, sg
+                             |
+  Configure sudo             | * Configuration file: /etc/sudoers
+                             |
+  General sytax (sudo)       |   <user/%group> <host> = <command1>[, <command2> ...]
+                             |
+                             | * User Example:
+                             |   geeko ALL = /sbin/shutdown
+                             |   geeko All = NOPASSWD: /sbin/shutdown
+                             |
+                             | * Group Example:
+                             |   %admins = /sbin/shutdown
+                             |
+  sudo Aliases               | * User Alias:
+                             |   User_Alias <ALIAS> = <user1>, [, <user2>, ...]
+                             |   User_Alias POWERUSRS = tux, geeko
+                             |
+                             | * Command Alias:
+                             |   Cmnd_Alias <ALIAS> = <command1>[, <command2>,...]
+                             |   Cmnd_Alias KPROCS = /bin/kill, /usr/bin/killall
+                             |
+                             | * Host Alias:
+                             |   Host_Alias <ALIAS> = <host1>[, <host2>, ...]
+                             |   Host_Alias HOSTS = da1
+                             |
+                             | * Run as Alias
+                             |   Runas_Alias <ALIAS> = <user1>[, <user2>,...]
+                             |   Runas_Alias RUNASUSERS = tux, geeko
+                             |
+  Configure sudo Aliases     | * Syntax:
+                             |   <User_alias> <Host_Alias> = (<user>) <Cmnd_Alias>
+                             | * Example:
+                             |   POWERUSERS HOSTS = (root) KPROCS 
+                             |
+                             |   User_Alias POWERUSRS = tux, geeko
+                             |   Cmnd_Alias KPROCS = /bin/kill, /usr/bin/killall
+                      ---->  |   Host_Alias HOSTS = da1
+                             |   POWERUSRS HOSTS = (root) KPROCS
+                             |
+  Introduction to Polkit     | * Application framework
+                             | * Negotiator between the unpriviledged user session and 
+                             |   the privileged system context
+                             | * Does not grant root permissions to an entire session,
+                             |   but only to the action in question
+                             | * Specifically targets applications in rich desktop
+                             |   environments but also applies at the command line
+                             | * Does not rely on special kernel features
+                             |
+    Privilege Delegation     | TRADITIONAL METHODS
+                             |   * SUID/SGID
+                             |     * No authentication required
+                             |     * Entire application runs with privilege
+                             |   * su
+                             |     * Root password required to authenticat
+                             |     * Entire shell and all its child processes run with privilege
+                             |   * sudo
+                             |     * User's password required to authenticate
+                             |     * Entire applicaton runs with privilege
+                             |
+                             | PRIVILEGE DELEGATION
+                             |   * PolKit
+                             |     * User's password required to authenticat (at login time)
+                             |     * Only certain, requested actions of application run 
+                             |       with privilege
+                             |
+                             | Supported Appllications
+                             |   * Pulseaudio
+                             |   * Cups
+                             |   * GNOME
+                             |   * libvirt
+                             |   * Polkit
+                             |   * PackageKit
+                             |   * System
+                             |   * YaST
+                             |
+    PolKit Authorization     | ( The entities that the Mechanism wors with:
+                             |   * Subject      - The "who" requesting the action
+                             |   * Object       - The "what" that is being acted upon
+                             |   * Action       - The "how" (what is requested to be done)
+                             |
+    List Registered Actions  | pkaction
+                             |
+    Authorization Types      | * Possible answers PolKit provides as to whether a 
+                             |   process is entitled for a priviledged operation are:
+                             |     * yes
+                             |     * no
+                             |     * authentication needed
+                             | * Privileges
+                             |     * Implicit (Default)
+                             |       * Athentication
+                             |       * One Shot Authentication
+                             |       * Keep Session Authentication
+                             |       * Keep Indefinitely Authentication
+                             |     * Explicit
+                             |
+    Display Privileges       | pkaction -v -a org.freedesktop.login1.hibernate
+                             |
+    Default Privileges       | * For most desktop systems:
+                             |   /etc/polkit-default-privs.standard
+                             | * For machines administrated centrally (default)
+                             |   /etc/polkit-default-privs.restrictive
+                             | * For your own custom set of privileges:
+                             |   /etc/polkit-default-privs.local
+                             |
+                             | Change default:
+                             | 
+                             |
+                             |
+                             |
                              |
                              |
                              |
