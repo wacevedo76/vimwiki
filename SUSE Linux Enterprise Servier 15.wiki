@@ -709,6 +709,13 @@ initramfs
                              | `Home Directory-------------------------           |`
                              |` Default shell--------------------------------------`
                              |
+  /etc/group                 |  `           video:x:33:geeko,tux`
+                             |  `             |   |  |      |`
+                             |  ` group Name--    |  |      |`
+                             |  ` Group password--   |      |`
+                             |  ` Group ID-----------       |`
+                             |  ` Secondary members---------`
+                             |
   CLI User Management        |
     useradd                  | create users
     adduser                  | interactively create users
@@ -721,6 +728,7 @@ initramfs
                              |
     passwd                   | Set/Modify users passwords
     gpasswd                  | Set/Modify groups password
+    
                              |
   File Permissions and       |
   Ownership                  |
