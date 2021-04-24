@@ -315,7 +315,7 @@ Variables                    |
                              | * use any VNC Client
                              |   * Default port TCP 5901
                              | * Java enabled web browser
-                             |   * `http://<ip or fqdn or host>:5801`
+                             |   * http://<ip or fqdn or host>:5801
 -------------------------------------------------------------------------------
 = Week Three =
 -------------------------------------------------------------------------------
@@ -543,7 +543,7 @@ initramfs
                              |
                              | Alias          A space-seperated list of additional names this
                              |                unit shall be installed under.
-                             | Also           Additiona units to install/deinstall when this unit
+                             | Also           Additional units to install/deinstall when this unit
                              |                is installed/deinstalled
                              |
   systemctl                  | * Systemctl is the command to interact with systemd
@@ -963,7 +963,100 @@ initramfs
                              |   /etc/polkit-default-privs.local
                              |
                              | Change default:
-                             | 
+--------------------------------------------------------------------------------
+== Understand Compiling Software from source ==
+  Compile From Source Code   | * Lnux Source Code Build tools
+                             | * Works well for a single
+--------------------------------------------------------------------------------
+== Understand Management of RPM Packages ==
+  RPM Basics                 | * RPM Database
+                             |   * works in the background of the Package Mananger
+                             |   * Contains a list of all information on all installed RPM Packages.
+                             |   * keeps track of all files that are changed and created when a user
+                             |     installs a program
+                             | * RPM Package Manager
+                             |   * Utility that handles insalling and unistalling RPM packages
+                             | * RPM Package
+                             |   * Software packaged for easy installation into the system
+                             |
+  RPm Package Components     | * Information Header 
+                             |   * CPIO Archive 
+                             |   * GPG Signature
+                             |   * Installation Scripts
+                             |
+                             |  `Rpm package naming: zypper-1.11.8-1.1.x86_64.rpm`
+                             |  `                       |      |    |     |`
+                             |  `Software Name-----------      |    |     |`
+                             |  `Software Version---------------    |     |`
+                             |  `Release Number----------------------     |`
+                             |  `Architecture------------------------------`
+                             |
+                             |
+  Install RPM Packages       | * Command: rpm -i <package>.rpm
+                             | * Additional Options:
+                             |   * -v (verbose) for more information
+                             |   * - (hash) for a progress bar
+                             | * In case of dependency conflicts or file problems:
+                             |   * --nodeps to ignore dependencies
+                             |   * --force to overwrite existing files
+                             |
+  Update RPM Packages        | * Update: rpm -U <package>.rpm
+                             |   * works even if no previous version is installed
+                             | * Freshen: rpm -f <package>.rpm
+                             |   * works only if a previous version is installed
+                             |
+  Uninstall RPM Packages     | * Command: rpm -e <package>
+                             | * Additional options:
+                             |   * --nodeps to ignore dependencies
+                             |
+  Query RPM Database and     | Option         Description
+  Packages                   | -q             Query RPM databask
+                             | -p             Inspect not installed RPM archives
+    Common query options     | -a             List all installed packages
+                             | -i             List package information
+                             | -l             Display file list
+                             | -f <file>      find out which package the file belongs to
+                             |                Must specify the full path
+                             | -d             List only documentation files(implies -l)
+                             | -c             List only configuration files (implies-l)
+                             | --dump         Display a file list with complete details
+                             |                used with -l, -c or -d
+                             | --provides     List features of the package that another
+                             |                package can request with --requires
+                             | --requires, -R List capabilities the package requires
+                             | --scripts      list installation scripts
+                             |                Pre-install, post-install and un-install
+                             | --changelog    Display detailed list of information about a
+                             |                Specific package
+                             |                Updates, ocnfiguration, modifications, etc.
+                             |
+  RPM Package Verification   | * Verify that the package has not changed since it was 
+                             |   created
+                             |   * rpm --checksig <package>.rpm
+                             |
+                             | * Verify integrity of files installed by an RPM package
+                             |   * rpm -V <package>
+                             |
+                             | Characer   Description
+                             | S          list package information
+                             | M          Mode has changed
+                             | 5          Size is different
+                             | D          Device major/minor numbers are different
+                             | L          Readlink (symbolic link) path mismatch
+                             | U          User ownership differs
+                             | G          Group ownership differes
+                             | T          mtime differes
+                             | P          Capabilities differ
+-------------------------------------------------------------------------------
+== Understanding Software Management with Libzypp ==
+  What is Libzypp            | * Libzip is a wrapper around the rpm system
+                             |
+  what are softeware repo?   | * Directories that contain RPM software packages and meta-data
+                             |   files
+                             | * Can be accessed by RPM meta-managers
+                             | * Can be accessed from different media and local file systems
+                             |
+                             |
                              |
                              |
                              |
