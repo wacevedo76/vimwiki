@@ -1056,16 +1056,160 @@ initramfs
                              | * Can be accessed by RPM meta-managers
                              | * Can be accessed from different media and local file systems
                              |
+  The 4 "P"s of Libzypp      | * Packages
+                             |   * RPM packages (including patch/delta RPMs)
+                             |   * Contain files to be installed in file system
+                             | * Patterns
+                             |   * Reference 1 or more packages
+                             |   * Typically install all packages needed for a certain server 'role'
+                             | * Products
+                             |   * Contain 1 or more patterns
+                             |   * Associated with a product with its own support and maintenance
+                             |     such as an Extension / Add-on
+                             | * Patches
+                             |   * Reference 1 or more update packages
+                             |     (packages provided as both full and patch/delta RPMs
+-------------------------------------------------------------------------------
+== Understanding Networt Manaement with SLE ==
+  ping                       | -c count
+                             | -I interface
+                             | -i seconds
+                             | -f     
                              |
+  Network Related            | * Network interface configuration files:
+  Configuration files        |   * /etc/sysconfig/network
+                             | * Name Resolution
+                             |   * Systems's hostname: /etc/hostname
+                             |   * Name resolution locally: /etc/hosts
+                             |   * DNS Servers: /etc/resolve.conf
+                             |   * Order of name resolution services: /etc/nsswitch.conf
                              |
+  SUSE sysconfig Network     | * Sytax: <command> <interface>
+  Commands                   | * Bring a configured network interface up:
+                             |   * ifup eth0
+                             | * Bring a configured network interface down:
+                             |   * ifdown eth0
+                             | * Renew DHCP IP Address
+                             |   * ifrenew eth0
+                             | * Display information about a configured network inteface
+                             |   * ifstatus eth0
                              |
+  Address Configuration      | * Syntax
+                             |   * ip [address|add"a] <task> <arguments>
+                             | * Display IP Address configuration:
+                             |   * ip addr show
+                             | * Add an IP address to an interface:
+                             |   * ip addr add 10.0.0.10/24 brd + dev eth0
+                             | * Remove an IP address from an interface:
+                             |   * ip addre del 10.0.0,10/24 dev eth0
                              |
+  Route Configuration        | * Syntax: ip [route|r] <task> <arguments>
+                             | * Display routing table
+                             |   * ip route show
+                             | * Add a route to the local network
+                             |   * ip route add 172.17.0.0/16 dev eth0
+                             | * Add a route to a different network:
+                             |   * ip route add 192.168.1.0/24 via 172.17.1.1
+                             | * add a default route:
+                             |   * ip route add default via 172.17.2.2
+                             | * Delete a route
+                             |   * ip route delete 192.168.1.0/24 dev eth0
                              |
+  Link Configuration         | * Syntax: ip [link|l] <task> <arguments>
+                             | * Display link level configuration
+                             |   * ip link show
+                             | * Bring an interface up:
+                             |   * ip link set eth0 up
+                             | * Bring an interface down:
+                             |   * ip link set eth0 down
+                             | * Change the MAC address of an interface:
+                             |   * ip link set eth0 addr 00:11:22:AA:BB:CC
+                             | * Rename a network interface:
+                             |   * ip link set eth0 name penth0
                              |
+  Ethernet Configuration     | * Syntax: ethtool <options> <interface>
+                             | * Display configuration of an interface
+                             |   * ethtool eth0
+                             | * Change link speed of an interface:
+                             |   * ethtool -s speed 1000 eth0
+                             | * Disable link auto-negotioantion on an interface
+                             |   * ethtool autoneg=off eth0
+                             | * Force full duplex on an interface:
+                             |   * ethtool duplex full eth0
+  
+  Bridge Configuration       | * Syntax: brctl <action> <arguments>
+                             | * Display currently configured bridges:
+                             |   * brctl show
+                             | * Create a new bridge:
+                             |   * brctl addbr br1
+                             | * Add an interface t oa bridge:
+                             |   * brctl addif br1 eth1
+                             | * Remove and interface from a bridge:
+                             |   * brctl delif br1 eth1
+                             | * Remove an existing bridge:
+                             |   * brctl delbr br1
                              |
+
+  Configure Network Interface
+
+                                `---------------`
+                                `|   Server1    |                 -------------`
+                                `|              |                 |           |`
+    Basic Network Interface     `|           eth0-----------------|   LAN     |`
+                                `|              |                 |           |`
+                                `|           eth1                 |           |`
+                                `|              |                 -------------`
+                                `----------------`
+
+
+                                `---------------`
+                                `|   Server1    |                 -------------`
+                                `|              |                 |           |`
+    Bonded Network Interface    `|           eth0-----------------|   LAN     |`
+                                `|      bond0   |                 |           |`
+                                `|           eth1-----------------|           |`
+                                `|              |                 -------------`
+                                `----------------`
+
+
+                                `---------------`
+                                `|   Server1    |                 -------------`
+                                `|    vlan100   |                 |           |`
+    VLAN Network Interface      `|           eth0-----------------|   LAN     |`
+                                `|    vlan101   |                 |           |`
+                                `|           eth1                 |           |`
+                                `|              |                 -------------`
+                                `----------------`
+
+
+                                `---------------`
+                                `|   Server1    |                 -------------`
+                                `|              |                 |           |`
+    Network Bridge              `|         0|eth0-----------------|   LAN     |`
+                                `|         r|   |                 |           |`
+                                `|         b|eth1                 |           |`
+                                `|              |                 -------------`
+                                `----------------`
+  
+  Basic Network Inteface:    | * in /etc/sysconfig/network
+    Config File              | * Typically named ifcfg-ethX (X for the interface number)
                              |
-                             |
-                             |
+
+                  `BOOTPROTO='static'`                  `BOOTPROTO='static'`
+                  `IPADDR1='10.0.0.1'`                  `IPADDR1='10.0.0.1/24'`
+                  `NETMASK='255.255.255.0'`             `IPADDR2='10.1.0.1/16'`
+                  `IPADDR2='10.1.0.1'`                  `STARTMODE='AUTO'`
+                  `NETMASK2='255.255.0.0'`              `USERCONTROL='no'`
+                  `STARTMODE='AUTO'`                    `MTU=''`
+                  `USERCONTROL='no'`
+                  `ETHTOOL_OPTIONS=''`
+                  `MTU=''`
+
+  Persistent Network         | * /etc/udev/rules.d/70-persistent-net.rules
+  Interface Names            |
+                             | `SUBSYSTEM=="net", ACTION=="add", DRIVES=="?*",`
+                             | `ATTR{ADDRESS}=="00:15:c5:55:0c:a8", ATTR{type}=="1"`
+                             | `Kernel=="eth*", NAME="eth0"`
                              |
 
 -------------------------------------------------------------------------------
