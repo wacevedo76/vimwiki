@@ -1159,6 +1159,10 @@ initramfs
                                 `|           eth1                 |           |`
                                 `|              |                 -------------`
                                 `----------------`
+                             | * Associated with physical network devices such as Ethernet and wireless
+                             | * network interfaces are persistently named using udev.
+                             | * Can have more than one IP address bout to it without needing to create
+                             |   alias interfaces (i.e. eth0:1, etho0:2, ...)
 
 
                                 `---------------`
@@ -1169,6 +1173,9 @@ initramfs
                                 `|           eth1-----------------|           |`
                                 `|              |                 -------------`
                                 `----------------`
+                             | * Virtual network interface comprised of 1 or more physical network devices
+                             | * Used for fault tolerance and / or link aggregation
+                             | * The bonding driver can bon the interfaces using different methods called modes
 
 
                                 `---------------`
@@ -1179,7 +1186,8 @@ initramfs
                                 `|           eth1                 |           |`
                                 `|              |                 -------------`
                                 `----------------`
-
+                             | * Virtual network interface that tags all packets that pass through it with 802.11q tagging
+                             | * VLAN interfaces are configured on and communicate throug ha physical network interfaces
 
                                 `---------------`
                                 `|   Server1    |                 -------------`
@@ -1189,9 +1197,13 @@ initramfs
                                 `|         b|eth1                 |           |`
                                 `|              |                 -------------`
                                 `----------------`
-  
+                             | * Virtual network interface that allows multiple ntwork 
+                             |   interfaces to communicate in a single broadcaset domain
+                             | * All interfaces attached to the bridge function as switch ports
+                             | * The SUSE sysconfig tools allow you to define bridges in the same manner
+
   Basic Network Inteface:    | * in /etc/sysconfig/network
-    Config File              | * Typically named ifcfg-ethX (X for the interface number)
+    Config File              | * Typically named ifcfg-ethX (X for the interface name)
                              |
 
                   `BOOTPROTO='static'`                  `BOOTPROTO='static'`
@@ -1209,8 +1221,91 @@ initramfs
                              | `SUBSYSTEM=="net", ACTION=="add", DRIVES=="?*",`
                              | `ATTR{ADDRESS}=="00:15:c5:55:0c:a8", ATTR{type}=="1"`
                              | `Kernel=="eth*", NAME="eth0"`
+-------------------------------------------------------------------------------
+== Understand firewalld ==
+  firewalld                  | * SLE 15 introduced firewalld as the new software firewall.
+                             |   This also caused necessary changes to installatin and
+                             |   system management wit YaST and AutoYaST.
                              |
-
+                             | yest firewalld provides a command-line interface
+                             | (firewalld-cmd) and a graphical interface(firewall-config)
+                             | for configuration
+                             |   * YaST CLI and GUI for SuSEFirewall2 had been largely removed in
+                             |     SLE 15.0
+                             |     > A new GUI for YaST (yast2-firewall) has since been created and 
+                             |       now used instead of firewall-config
+                             |
+                             | AutoYaST: AutoYaST profiles based on SuSEFirewall2 do not fit with
+                             | the firewalld configuration
+                             |   * A new AutoyaST schema for configuring firewalld was needed 
+                             |
+  firewalld                  | An importand concept of firewalld is the distinction between two
+                             | separete configurations, the runtime and the permanent
+                             | configurations.
+                             |   * Runtime - represents the currently active rules.
+                             |     * Allows for temporary rules that can be discarded after firewalld is
+                             |       restarted
+                             |     * Allows for experimentation with nre rulls while being about to revert.
+                             |   * permanent - represents the the saved rules that will be applied when
+                             |     restarting firewalld
+                             |
+  firewalld-cmd              | Firewall-cmd is the command-line tool for manipulating firewalld
+                             |   * Defaults to the runtime configuration
+                             |   * Can add --permanent to apply to permanent configuration
+                             |     * Won't take affect until firewalld is reloaded / restarted
+                             |
+                             |   * Can push all runtime rules to permanent with -runtime-to-permanent
+                             |
+                             |   * firewalld-cmd --reload and systemctl reload firewalld will revert to
+                             |     the permanent configurationk
+                             |
+                             | You can list all network interfaces currently assigned to zone:
+                             | * root # firewall-cmd --zone=public --list-interfaces
+                             |
+                             | you can add an interface to a zond*, or change its zone:
+                             | * root # firewall-cmd --zone=internal --add-interface=eth0
+                             | * root # firewall-cmd --zone=internal --change-interface=eth0
+-------------------------------------------------------------------------------
+== Recogize Traditional Linux File Systems ==
+  Supported Filesystems      | * Ext2
+                             | * Ext3 (default in SLE11)
+                             | * Ext4
+                             | * XFS (default in SLE 12 for data partitions)
+                             | * Reiser FS (default in SLE10)
+                             | * Btrfs (default in SLE10 for / )
+                             | * JFS (existing volumes only)
+                             | * NTFS-3G (only in SLED)
+                             | * VFAT
+                             |
+  File System Health Tools   | df           Reports file system disk space usage
+                             | du           Estimate file space usage
+                             | lsof         List Open files
+                             | fuser        Displays the PIDs of processes using the specified files
+                             | fsck         Check and optionally repair Linux file systems
+                             | e2fsck
+                             | xfs_check
+                             | resize2fs    ext2/ext3/ext4 file systems
+-------------------------------------------------------------------------------
+== Configure Logical Volume Management ==
+                             |
+  Create LVM Physical Volumes| * Syntax: pvcreate /dev/<device>
+                             | * Partitions can be used directly
+                             |
+                             | To use a complete disk, delet partition table in MBR:
+                             |   * dd if=/dev/zero of=/dev/<device> bs=512 count=1
+                             |
+  View LVM Physical Volume   | pvscan             Detect physical volumes and volume group
+  Info                       |                    membership
+                             | pvs                View attributes of physical volumes
+                             | pvdisplay          View attributes of physical volumes
+                             | pvhange [-ay|-an]  Activate/Deactivate physical volumes
+                             |
+  Create and Activate LVM    | vgcreate     Create a volume group
+  Volume Groups              | vgscan       Discover and list volume groups
+                             | vgchange     Activate/Deactivate a volume group
+                             |
+                             |
+                             |
 -------------------------------------------------------------------------------
 Notes - 
   Package Manager: zypper
