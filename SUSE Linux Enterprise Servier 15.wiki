@@ -716,7 +716,7 @@ initramfs
                              |  ` Group ID-----------       |`
                              |  ` Secondary members---------`
                              |
-  CLI User Management        |
+  C User Management          |
     useradd                  | create users
     adduser                  | interactively create users
     usermod                  | modify existing users
@@ -728,7 +728,6 @@ initramfs
                              |
     passwd                   | Set/Modify users passwords
     gpasswd                  | Set/Modify groups password
-    
                              |
   File Permissions and       |
   Ownership                  |
