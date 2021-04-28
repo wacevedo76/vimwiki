@@ -54,5 +54,25 @@
                              |
   Assign group administrator | gpasswd -A <user name> <group>
                              |
+--------------------------------------------------------------------------------
+== File Access & Permission ==
+  change file permissions    | chmod
+                             |
+  umask                      | /etc/profile 0 default location for umask
+                             |
+  chown                      | change the user and group of a file
+--------------------------------------------------------------------------------
+  ACL                        | setfacl -m O::
+                             | getfacl
+--------------------------------------------------------------------------------
+Disk Partitinns and File System
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
