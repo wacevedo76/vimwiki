@@ -1286,6 +1286,36 @@ initramfs
                              | xfs_check
                              | resize2fs    ext2/ext3/ext4 file systems
 -------------------------------------------------------------------------------
+== Section 11 - Storage Administration ==
+  Linux IO Stack
+    File System Mount Layer       FHS (Files & Directories)
+    File System Layer             Cluster Files System  |  Traditional Files Systems  |  Btrfs
+    Block Device layer            Block Device Files
+    Logical storage Layer             Device-maper     MD
+                                  MPIO | DM-RAID| LVM
+
+  Local Disks                |
+    Tools to configure MBR   | - YaST
+    and GPT                  | - fdisk
+                             | - parted
+                             |
+  Mount Options for mount    | Option             Description                                          Mount  fstab
+  and /etc/fstab             | remount            File system can be mounted more than once              X      X
+                             | rw, ro             Files ystem is writeable or read-only                  X      X
+                             | sync, async        Synchronous or asynchronous input and output           X      X
+                             | atime, noatime     Access time of a files is updated or not               X      X
+                             | nodev, dev         Device files from being interpreted as such or not     X      X
+                             | noexec, exec       Prohibit the execution of programs or not              X      X
+                             | nosuid, suid       Ignore SUID and SGID bits or not                       X      X
+                             | auto, noauto       Mount files system automatically or not                       X
+                             | user, nouser       Allow user to mout files system or not                        X
+                             | defaults           rw, suid, dev, exec, auto ,nousr, async                       X
+                             |
+  Currently Mounted File     | * Command:         - mount
+  Systems                    | * Files:           - /etc/mtab
+                             |                    - /proc/mounts
+                             |
+
 == Configure Logical Volume Management ==
                              |
   Create LVM Physical Volumes| * Syntax: pvcreate /dev/<device>

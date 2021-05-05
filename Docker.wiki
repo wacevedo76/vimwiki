@@ -212,10 +212,28 @@
           `|           ----------------------------------|`
           `|           |Map port 8081 to 8081            |`
           `-----------------------------------------------`
-                             |
+
+                    Example file
+
+            `|  version: '3'              |`
+            `|  services:                 |`
+            `|    redis-server:           |`
+            `|      image: 'redis'        |`
+            `|    node-app:               |`
+            `|      restart: on-failure   |`
+            `|      build: .              |`
+            `|      ports:                |`
+            `|        - "4001:8081"       |`
+
   Syntax keywords            |
     version                  | the version of docker-compose which is being used
     services                 | the type of container being used
+    restart                  | within each service, you can specify a restart policy
+                             | there are 4 options
+                             |  * "no" (yaml files recognize no as a boolean value and "no" as a string value)
+                             |  * always
+                             |  * on-failure
+                             |  * unless-stopped
                              |
   **NOTE**                   | when multiple containers are spun up with docker
                              | compose, these containers are able to communitcte 
@@ -237,10 +255,10 @@
   rebuild and docker-compose | * docker-compose up --build
                              |   (synonymous with docker build, then docker run)
                              |
+  Launch docker compose      | docker-compose up -d
+  in background              |
                              |
-                             |
-                             |
-                             |
+  Stop containers            | docker-compose down
                              |
                              |
                              |
