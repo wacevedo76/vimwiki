@@ -7,13 +7,28 @@ To stop the tutorial         | C-x k
 Move forward one screen      | C-v
 Move backward one screen     | M-v
 Clear screen and redisplay   | C-l
-all the text                 |
+all the text (low mid hi)    |
                              |
+move forward 1 char          | C-f
+move back 1 char             | C-b
+Move forward 1 word          | M-f
+Move bakcward 1 word         | M-b
                              |
+Move to start of line        | C-a
+Move to end of line          | C-e
+Move to start of sentence    | M-a
+Move to end of sentence      | M-e
                              |
+Move to the end of a         | M->
+document                     |
+Move to the beginning of a   | M-<
+document                     |
                              |
+Move to next line            | C-n
+Move to previous line        | C-p
                              |
-                             |
+Del the char immediately     | <DEL>
+ before cursor               |
                              |
                              |
                              |

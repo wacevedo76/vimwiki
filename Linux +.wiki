@@ -66,7 +66,20 @@
                              | getfacl
 --------------------------------------------------------------------------------
 Disk Partitinns and File System
+  Logical Volumes            |
+--------------------------------------------------------------------------------
+== Boot Process & Kernel ==
+=== Configureing the Linux Kernel ===
+  location of modules        | /usr/lib/modules /lib/modules
                              |
+  Command to list modules    | lsmod
+                             |
+  Install module             | insmod
+                             |
+  remove mod                 | rmmod
+                             |
+  have system detect         | modprobe
+    hardware                 |
                              |
                              |
                              |
