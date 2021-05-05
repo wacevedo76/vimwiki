@@ -1,0 +1,44 @@
+--------------------------------------------------------------------------------
+End the Emacs session        | C-x C-c
+to quit partially entered    |
+  command                    | C-g
+To stop the tutorial         | C-x k
+                             |
+Move forward one screen      | C-v
+Move backward one screen     | M-v
+Clear screen and redisplay   | C-l
+all the text                 |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
