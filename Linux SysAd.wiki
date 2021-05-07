@@ -2,5 +2,6 @@
 Linux Sys Admin and Certification Training
 --------------------------------------------------------------------------------
 
+* [[Atos Linux Administration]]
 * [[Linux +]]
 * [[SUSE Linux Enterprise Servier 15]]
