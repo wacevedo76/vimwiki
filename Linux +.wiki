@@ -68,6 +68,36 @@
 Disk Partitinns and File System
   Logical Volumes            |
 --------------------------------------------------------------------------------
+== Locating & Manipulating Files ==
+
+  find                       | find / -name kemit.txt 2>/dev/null
+  (redirect errors)          |
+                             |
+    based on permisions      | find /usr/bin -perm +rwx
+                             |
+  locate (searches the       | locate
+  mlocate database)          |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
 == Boot Process & Kernel ==
 === Configureing the Linux Kernel ===
   location of modules        | /usr/lib/modules /lib/modules
