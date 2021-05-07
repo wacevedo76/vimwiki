@@ -1,81 +1,121 @@
 --------------------------------------------------------------------------------
 Linux Administration
 --------------------------------------------------------------------------------
-Introduction to linux & the command line
+= Introduction to linux & the command line =
                              |
 --------------------------------------------------------------------------------
-Mange Users & Groups
+= Mange Users & Groups =
                              |
 --------------------------------------------------------------------------------
-Files access & Permissions
+= Files access & Permissions =
                              |
 --------------------------------------------------------------------------------
-Disk Partitions & File Systems
+= Disk Partitions & File Systems =
                              |
 --------------------------------------------------------------------------------
-Logical Volumes and & Filesystem Hierarchy
+= Logical Volumes and & Filesystem Hierarchy =
                              |
 --------------------------------------------------------------------------------
-Using vi/vim to edit
+= Using vi/vim to edit =
                              |
 --------------------------------------------------------------------------------
-Locating & manipulating File
+= Locating & manipulating File =
                              |
 --------------------------------------------------------------------------------
-Searching & Manipulating File Contents
+= Searching & Manipulating File Contents =
                              |
 --------------------------------------------------------------------------------
-Boot Process & Kernel
+= Boot Process & Kernel =
                              |
 --------------------------------------------------------------------------------
-Graphical user Interfaces
+= Graphical user Interfaces =
                              |
 --------------------------------------------------------------------------------
-Managing Services
+= Managing Services =
                              |
 --------------------------------------------------------------------------------
-Troubleshooting Services
+= Troubleshooting Services =
                              |
 --------------------------------------------------------------------------------
-Managing & Configuring Hardware
+= Managing & Configuring Hardware =
                              |
 --------------------------------------------------------------------------------
-TCP / IP & Networking
+= TCP / IP & Networking =
+  find ip address command    | ip addr
+                             |
+  address classes            | Class A - 255.0.0.0     - /8  - 16,777,214 Hosts
+                             | Class B - 255.255.0.0   - /16 - 65,534 Hosts
+                             | Class C - 255.255.255.0 - /24 - 254 Hosts
+                             |
+  Private class addresses    | Class A - 10.x.x.x    - /8
+                             | Class B - 172.16.x.x  - 172.31.x.xx /16
+                             | Class C - 192.168.x.x - /24
+                             |
+  TCP IP stack               |
+                             |
+      Application            | HTTP  |  FTP  |  SMTP  |  TFTP  |  SNMP
+      Transport              |               TCP  |  UDP
+      Internet               |                   IP
+      Media Acess            |    802.3 Ethernet  | 802.11 Wireless
+                             |
+  Interesting tools          | nslookup
+                             | ss | netstat
+                             |
+  Configuration tools        | ifconfig
+                             | route
+                             |
+                             | ip addr
+                             | ip route
+                             |
+                             | dhclient  - gets new addres
+                             | dhclient -r 
+                             |
+                             | systemctl restart network (systemd)
+                             | service network restart   (old init system)
+                             |
+  Common places to find      | /etc/sysconfig  (centOS, Redhad, Fedora)
+  network configuration      |               /network-scripts/
+  files                      |
+                             | /etc/network (ubuntu)
+                             | /etc/netplan
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
-Troubleshooting Network Connections
+= Troubleshooting Network Connections =
                              |
 --------------------------------------------------------------------------------
-Installing and Managing Software
+= Installing and Managing Software =
                              |
 --------------------------------------------------------------------------------
-Installing Sofeware from Source Code
+= Installing Sofeware from Source Code =
                              |
 --------------------------------------------------------------------------------
-Security Best Practices
+= Security Best Practices =
                              |
 --------------------------------------------------------------------------------
-SELinux && AppArmor
+= SELinux && AppArmor =
                              |
 --------------------------------------------------------------------------------
-Network Firewall & Traffic Filtering
+= Network Firewall & Traffic Filtering =
                              |
 --------------------------------------------------------------------------------
-Backup and Restore
+= Backup and Restore =
                              |
 --------------------------------------------------------------------------------
-Bourne-again Shell & Scripting
+= Bourne-again Shell & Scripting =
                              |
 --------------------------------------------------------------------------------
-Scheduling Tasks
+= Scheduling Tasks =
                              |
 --------------------------------------------------------------------------------
-Git Version Control
+= Git Version Control =
                              |
 --------------------------------------------------------------------------------
-Installing CentOS
+= Installing CentOS =
                              |
 --------------------------------------------------------------------------------
-Installing Ubuntu
+= Installing Ubuntu =
                              |
 --------------------------------------------------------------------------------
