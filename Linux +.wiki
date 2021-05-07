@@ -81,11 +81,30 @@ Disk Partitinns and File System
   have system detect         | modprobe
     hardware                 |
                              |
+  location of module files   |
+  on myny Linux files sys    | /etc/modprobe.d/
                              |
+  list parameters being      | sysctl -a 
+  passed to the kernel       |
                              |
+Describing the boot process 
+            `-----------------------------------`
+            `|            Bios UEFI             |`
+            `-----------------------------------`
                              |
+            `-----------------------------------`
+            `|            MBR / GPT             |`
+            `-----------------------------------`
                              |
+            `-----------------------------------`
+            `|              GRUB2               |`
+            `-----------------------------------`
                              |
+            `-----------------------------------`
+            `|        initrd / Kernel           |`
+            `-----------------------------------`
                              |
-                             |
+            `-----------------------------------`
+            `|       systemd process            |`
+            `-----------------------------------`
                              |
