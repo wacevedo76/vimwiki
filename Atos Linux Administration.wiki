@@ -26,6 +26,44 @@ Linux Administration
                              |
 --------------------------------------------------------------------------------
 = Boot Process & Kernel =
+== Configureing the Linux Kernel ==
+  location of modules        | /usr/lib/modules /lib/modules
+                             |
+  Command to list modules    | lsmod
+                             |
+  Install module             | insmod
+                             |
+  remove mod                 | rmmod
+                             |
+  have system detect         | modprobe
+    hardware                 |
+                             |
+  location of module files   |
+  on myny Linux files sys    | /etc/modprobe.d/
+                             |
+  list parameters being      | sysctl -a 
+  passed to the kernel       |
+                             |
+Describing the boot process 
+            `-----------------------------------`
+            `|            Bios UEFI             |`
+            `-----------------------------------`
+                             |
+            `-----------------------------------`
+            `|            MBR / GPT             |`
+            `-----------------------------------`
+                             |
+            `-----------------------------------`
+            `|              GRUB2               |`
+            `-----------------------------------`
+                             |
+            `-----------------------------------`
+            `|        initrd / Kernel           |`
+            `-----------------------------------`
+                             |
+            `-----------------------------------`
+            `|       systemd process            |`
+            `-----------------------------------`
                              |
 --------------------------------------------------------------------------------
 = Graphical user Interfaces =
