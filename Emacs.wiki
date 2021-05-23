@@ -1,4 +1,29 @@
 --------------------------------------------------------------------------------
+= Emacs Notes =
+--------------------------------------------------------------------------------
+Control command              | C-x
+                             |
+Increase font                | C-x C-+
+Decrease font                | C-x C--
+                             |
+Find file                    | C-x C-f
+                             |
+Save file                    | C-x C-s
+                             |
+Customize theme              | M-x customize-themes
+                             |
+Help                         | C-h i
+                             |
+view all keybinding          | c-h b
+                             |
+move to frame                | C-x o
+                             |
+open a shell                 | M-x shell
+                             |
+                             |
+                             |
+                             |
+                             |
 End the Emacs session        | C-x C-c
 to quit partially entered    |
   command                    | C-g
