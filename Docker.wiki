@@ -2,8 +2,11 @@
 = Docker Notes =
 --------------------------------------------------------------------------------
 == Basic commmands ==
-  Start a container          | docker run <name of container>
+  Start a container          | docker run <image name>
   (runs in attached mode)    |   (if image is not on system, it will be downloaded)
+                             |
+  Starts a container /       | docker run <image name> command
+  override default command   |
                              |
   list running containers    | docker ps
                              |
@@ -260,6 +263,7 @@
                              |
   Stop containers            | docker-compose down
                              |
+Docker Volumes
                              |
                              |
                              |
