@@ -18,7 +18,7 @@
   kill a container           | docker kill <container name / id>
                              |   Sends a SIGKill command
                              |
-  remove a container         | docker rm <name of container
+  remove a container         | docker rm <name of container>
                              |
   list images on host        | docker images
                              |
@@ -63,7 +63,7 @@
                              | -a   attach stnd i/o and forward signals to the container  
                              | -i   attach the containers input
 --------------------------------------------------------------------------------
-== Creating Docker images == 
+== Creating Docker images / Dockerfile == 
   Basic work flow to create  | * Docker file
   a docker image             | --> Docker client
                              |   --> Docker Server
@@ -86,13 +86,13 @@
   Generic Dockerfile         |  Generic Dockerfile 
                              |  ------------------------------------------------
                              | 1 # Use an exiting docker image as a base
-                             | 2 FROM alpine
+    --> add base image       | 2 FROM alpine
                              | 3
                              | 4 # Download and install a dependency
-                             | 5 Run apk add --update redis
-                             | 6
+    --> adding packages      | 5 Run apk add --update redis
+      (based on image repo)  | 6
                              | 7 # Tell the image what to do when it starts
-                             | 8 CMD ["redis-server"]
+    --> default command      | 8 CMD ["redis-server"]
                              |  ------------------------------------------------
   Command to build image     | docker build .
                              |
@@ -169,6 +169,14 @@
   can be mapped to different | docker run -p 8001:5000 <container>/Webapp
   ports                      | docker run -p 3306:3306 mysql
                              | docker run -p 8306:3306 mysql
+--------------------------------------------------------------------------------
+== Specify a Working Directory ==
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 == Volume mapping ==
   Once a container is stopped| `|--------------------|`
