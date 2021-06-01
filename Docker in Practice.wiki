@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-Docker in practice
+Docker in practice  stoped at page 18 (docker layering)
 --------------------------------------------------------------------------------
 == Key Docker Commands ==
   docker build               | Build a Docker image
@@ -34,6 +34,38 @@
    should listen on port     |
   * Specifies which command  |  CMD ["npm","start"]
     will be run on startup   |
+                             |
+== Building a Docker image ==
+  docker build .             | docker build <path to Dokerfile file>
+                             |
+== Tagging the docker image from image ID ==
+  docker tag 66c7eikd todoapp| docker tag <image id> <tag>
+                             |
+== Running a Docker container ==
+  docker run -i -t -p 8000:8000 --name example1 todoapp
+                             |
+                             | The Docker run subcommand starts the
+                             | container, -p maps the contaier's port
+                             | 800 to the port 800 on the host machine,
+                             | --name gives the container a unique name,
+                             | and the last argument is the image
+                             |
+  terminate the process and  | Ctrl-c
+  the container              |
+                             |
+  Command to see containers  | docker ps -a
+  that have been started     |
+  and removed, with ID/status|
+                             |
+  docker diff shows you what | docker diff <unique name>
+  files have been affected   |
+  since the image was        |
+  instantiated as a container|
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |

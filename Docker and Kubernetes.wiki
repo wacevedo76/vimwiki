@@ -40,7 +40,7 @@
   run a second command on    | docker exec -it <container id> <command>
   an existing container      | example: docker exec -it <id of redis container> redis-cli
                              |
-  start a container in the   | docker -d container
+  start a container in the   | docker run -d container
   background (detached mode) |
                              |
   attach to a detached       | docker attach <name or id of running container>
