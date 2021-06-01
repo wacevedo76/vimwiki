@@ -1,0 +1,57 @@
+--------------------------------------------------------------------------------
+Docker in practice
+--------------------------------------------------------------------------------
+== Key Docker Commands ==
+  docker build               | Build a Docker image
+  docker run                 | Run a Docker image as a container
+  docker commit              | Commit a Docker container as an image
+  docker tag                 | Tag a Docker imager
+                             |
+== Options for create Docker images ==
+  Docker commands / "by hand"| Fire up a container with docker run and input the
+   (proofs of concepts)      | commands to create your image on the command
+                             | line. Create a new image with docker commit
+                             |
+  Dockerfile                 | Build from a known base image, and specify the
+                             | build with a limited set of simple commands
+                             |
+  Dockerfile and             | Same as Dockerfile, but you hand over control of
+  configuration management   | the build to a more sophisticated CM tool
+  (CM) tool                  |
+                             |
+  Scratch image and import a | From an empty image, import a TAR file with the
+  set of files               | required files
+                             |
+== Writing a Dockerfile ==
+  * Define a base image      | FROM node
+  * Declare the maintainer   |   LABLE maintainer ian.miell@gmail.com
+  * Clones the todo code     |   RUN git clone -q https://github.com/docker-in-practice/todo.git
+  * Moves to the new cloned  |   WORKDIR todo
+    directory                |
+  * Runs the npm install cmd |   RUN npm install > /dev/null
+  *Specifies that containers |   EXPOSE 8000
+   from the built image      |
+   should listen on port     |
+  * Specifies which command  |  CMD ["npm","start"]
+    will be run on startup   |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
