@@ -4,89 +4,97 @@
 == Often used ==
 display-line-numbers-mode
 --------------------------------------------------------------------------------
-Control command              | C-x
+  Character extend <char>    | C-x
+  Named command extend       | M-x
+    <long name>              |
                              |
-Increase font                | C-x C-+
-Decrease font                | C-x C--
+  Increase font              | C-x C-+
+  Decrease font              | C-x C--
                              |
-Find file                    | C-x C-f
+  Find file                  | C-x C-f
                              |
-Save file                    | C-x C-s
+  Save file                  | C-x C-s
                              |
-Customize theme              | M-x customize-themes
+  Customize theme            | M-x customize-themes
                              |
-Help                         | C-h i
+  Help                       | C-h i
                              |
-view all keybinding          | C-h b
+  view all keybinding        | C-h b
                              |
-move to frame                | C-x o
+  move to frame              | C-x o
                              |
-open a shell                 | M-x shell
+  open a shell               | M-x shell
                              |
-go to specific line number   | M-g M-g <number>
+  go to specific line number | M-g M-g <number>
                              |
 End the Emacs session        | C-x C-c
 to quit partially entered    |
   command                    | C-g
 To stop the tutorial         | C-x k
                              |
-Move forward one screen      | C-v
-Move backward one screen     | M-v
-Clear screen and redisplay   | C-l
-all the text (low mid hi)    |
+  End the Emacs session      | C-x C-c
+  to quit partially entered  |
+    command                  | C-g
+  To stop the tutorial       | C-x k
                              |
-move forward 1 char          | C-f
-move back 1 char             | C-b
-Move forward 1 word          | M-f
-Move bakcward 1 word         | M-b
+  Move forward one screen    | C-v
+  Move backward one screen   | M-v
+  Clear screen and redisplay | C-l
+  all the text (low mid hi)  |
                              |
-Move to start of line        | C-a
-Move to end of line          | C-e
-Move to start of sentence    | M-a
-Move to end of sentence      | M-e
+  move forward 1 char        | C-f
+  move back 1 char           | C-b
+  Move forward 1 word        | M-f
+  Move bakcward 1 word       | M-b
                              |
-Move to the end of a         | M->
-document                     |
-Move to the beginning of a   | M-<
-document                     |
+  Move to start of line      | C-a
+  Move to end of line        | C-e
+  Move to start of sentence  | M-a
+  Move to end of sentence    | M-e
                              |
-Move to next line            | C-n
-Move to previous line        | C-p
+  Move to the end of a       | M->
+  document                   |
+  Move to the beginning of a | M-<
+  document                   |
                              |
-Del the char immediately     | <DEL>
- before cursor               |
+  Move to next line          | C-n
+  Move to previous line      | C-p
                              |
-Del char after cursor        | C-d
+  Del the char immediately   | <DEL>
+   before cursor             |
                              |
-Kill word before cursor      | M-<del>
+  Del char after cursor      | C-d
                              |
-Kill word after cursor       | M-d 
+  Kill word before cursor    | M-<del>
                              |
-Kill from cursor to end of   | C-k
-line                         |
+  Kill word after cursor     | M-d 
                              |
-Kill to the end of current   | M-k
-sentence                     |
+  Kill from cursor to end of | C-k
+  line                       |
                              |
-Highlight text               | C-<SPC>
+  Kill to the end of current | M-k
+  sentence                   |
                              |
-delete hightlighted words    | C-w
+  Highlight text             | C-<SPC>
                              |
-Kill entire line             | C-k
-yank the text back           | C-y
+  delete hightlighted words  | C-w
                              |
-undo command                 | C-/  or  C-_
+  Kill entire line           | C-k
+  yank the text back         | C-y
                              |
-List Buffers                 | C-x C-b
+  undo command               | C-/  or  C-_
                              |
-Save file                    | C-x C-s
-Save some buffers            |
-List Buffers                 | C-x C-b
-Switch buffer                | C-x b
-quit Emacs                   | C-x C-c
+  List Buffers               | C-x C-b
                              |
+  Save file                  | C-x C-s
+  Save some buffers          |
+  List Buffers               | C-x C-b
+  Switch buffer              | C-x b
+  quit Emacs                 | C-x C-c
                              |
-                             |
+=== Multiple Windows ===
+  Split windws (vertically)  | C-x 2
+  Move between windows       | C-o
                              |
                              |
                              |
