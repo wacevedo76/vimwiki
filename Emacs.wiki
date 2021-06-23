@@ -93,7 +93,8 @@ To stop the tutorial         | C-x k
   quit Emacs                 | C-x C-c
                              |
 === Multiple Windows ===
-  Split windws (vertically)  | C-x 2
+  Split windws (horizontal)  | C-x 2
+  Split windws (vertical)    | C-x 3
   Move between windows       | C-o
                              |
                              |
