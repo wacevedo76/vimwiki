@@ -4,6 +4,7 @@
   == Notes from books ==
 --------------------------------------------------------------------------------
   [[A Common-Sense Guide to Data Structures and Algorithms]]
+  [[Grokking Algorithms]]
 --------------------------------------------------------------------------------
   == Notes ==
 
@@ -20,5 +21,16 @@
   O(n!)                      | Example: A really slow algorithm, like the 
                              |          traveling saiesperson 
 --------------------------------------------------------------------------------
- 
-  [[Grokking Algorithms]]
+  == Tree Terminology ==
+  Here is an example of a [[Tree]] node in python
+  Root                       | Top node without parent
+  Edge                       | A link between parent and child
+  Leaf                       | A node which does not have children
+  Sibling                    | Children of the same parent
+  Ancestor                   | parent, grandparent, greatgrandparent... of a node
+  Depth of node              | a length of the path from root to node
+  Heigh of node              | a length of the path from the node to the deepest node
+  Depth of tree              | depth of root node
+  Height of tree             | Height of root node
+                             | 
+                             | 
