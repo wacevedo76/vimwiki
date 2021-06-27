@@ -21,7 +21,8 @@
   O(n!)                      | Example: A really slow algorithm, like the 
                              |          traveling saiesperson 
 --------------------------------------------------------------------------------
-  == Tree Terminology ==
+  == Trees ==
+  === Tree Terminology ===
   Here is an example of a [[Tree]] node in python
   Root                       | Top node without parent
   Edge                       | A link between parent and child
@@ -32,5 +33,30 @@
   Heigh of node              | a length of the path from the node to the deepest node
   Depth of tree              | depth of root node
   Height of tree             | Height of root node
+--------------------------------------------------------------------------------
+  === Types of trees === 
+  Here is an example of a [[Binary Tree]] as a python list
+  
+  * Full Binary Tree         | A tree whose nodes have 0 or two children.
+  * Perfect Binary Tree      | A tree where all non Leaf nodes have two.
+                             | Children and are at the samed depth.
+  * Complete Binary Tree     | A tree where all levels are complete (nodes have.
+                             | two children) except the last level, the last 
+                             | level has all keys as leftwise as possible.
+  * Balanced Binary Tree     | All Leaf nodes are the at the same distance from
+                             | the Rood node (not any father than any other).
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
                              | 
                              | 
