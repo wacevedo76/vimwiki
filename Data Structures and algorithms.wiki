@@ -45,18 +45,35 @@
                              | level has all keys as leftwise as possible.
   * Balanced Binary Tree     | All Leaf nodes are the at the same distance from
                              | the Rood node (not any father than any other).
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
+--------------------------------------------------------------------------------
+  === Operations which can be performed on a Binary Tree ===
+  * Creation of Tree
+  * Insertion of a node
+  * Deletion of a node
+  * Travers all nodes
+  * Deletion of tree
+  Here is an example of A [[Binary Tree Node]] in Python utilizing linked list pattern
+--------------------------------------------------------------------------------
+  === Traversal of Binary Tree ===
+  Depth first search
+  -  Preorder traversal
+  -  In order traversal
+  -  Post order traversal
+  Breadth first seach
+  - Level order traversal
+  Here is a list and description of [[Traversals]]
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
