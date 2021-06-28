@@ -1,4 +1,3 @@
-# 
 # `               +--+`
 # `               |N1|`
 # `               +--+`
@@ -43,7 +42,7 @@ def postOrderTraversal(rootNode):
         return
     postOrderTraversal(rootNode.leftChild)
     postOrderTraversal(rootNode.rightChild)
-    print(RootNode.data)
+    print(rootNode.data)
 
 # --- Test Tree
 
