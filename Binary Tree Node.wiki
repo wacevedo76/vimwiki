@@ -38,6 +38,12 @@ def inOrderTraversal(rootNode):
     print(rootNode.data)
     inOrderTraversal(rootNode.rightChild)
 
+def postOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    postOrderTraversal(rootNode.leftChild)
+    postOrderTraversal(rootNode.rightChild)
+    print(RootNode.data)
 
 # --- Test Tree
 
@@ -65,12 +71,18 @@ rootNode.rightChild = N3
 
 # ------ Examples
 
-print('Example of Preorder Traveral')
+print('Example of Preorder Traversal')
 preOrderTraversal(rootNode)
 # * N1 -> N2 -> N4 -> N8 -> N9 -> N5 -> N3 -> N6 -> N7
 print('---------------------------\n')
 
-print('Example of Inorder Traveral')
+print('Example of Inorder Traversal')
 inOrderTraversal(rootNode)
 # * N8 -> N4 -> N9 -> N2 -> N5 -> N1 -> N6 -> N3 -> N7
+print('---------------------------\n')
+
+
+print('Example of Postorder Traversal')
+postOrderTraversal(rootNode)
+# * N8 -> N9 -> N4 -> N5 -> N2 -> N6 -> N7 -> N3 -> N1
 print('---------------------------\n')
