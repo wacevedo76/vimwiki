@@ -78,30 +78,10 @@ Disk Partitinns and File System
   locate (searches the       | locate
   mlocate database)          |
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
 --------------------------------------------------------------------------------
 == Boot Process & Kernel ==
-
-
-
+                             |
+--------------------------------------------------------------------------------
 
 Introduction to Linux & the Command Line
 Managing Users and Groups
@@ -109,11 +89,6 @@ File Access and Permissions
 Disk Partitions & File Systems
 Logical Volumes and Fielsystem Hierachy
 Using vi/vim to Edit files
-
-
-
-
-
 
 === Configureing the Linux Kernel ===
   location of modules        | /usr/lib/modules /lib/modules
@@ -153,4 +128,33 @@ Describing the boot process
             `-----------------------------------`
             `|       systemd process            |`
             `-----------------------------------`
+                             |
+--------------------------------------------------------------------------------
+== Managing Services ==
+  == Configuring Services with systemd ==
+  Unit file location         | /lib/systemd/system
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
