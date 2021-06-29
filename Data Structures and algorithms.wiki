@@ -21,6 +21,39 @@
   O(n!)                      | Example: A really slow algorithm, like the 
                              |          traveling saiesperson 
 --------------------------------------------------------------------------------
+  == Queue ==
+  === Standard Queue operations ===
+  [[Queue]] implemented as a Python array
+  [[Queue2]] implemented as a linked list in Python
+  - Create Queue
+  - Enqueue
+  - Dequeue
+  - Peek
+  - isEmpty
+  - isFull
+  - deleteQueue
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+                             | 
+--------------------------------------------------------------------------------
   == Trees ==
   === Tree Terminology ===
   Here is an example of a [[Tree]] node in python
