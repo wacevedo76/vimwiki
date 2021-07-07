@@ -21,6 +21,17 @@
   O(n!)                      | Example: A really slow algorithm, like the 
                              |          traveling saiesperson 
 --------------------------------------------------------------------------------
+  == Recursion ==
+  === When to use recursion ===
+  - When we can easily breakdown a problem into similar subproblems
+  - When we are fine with extra overhead (both in tim and space) that comes with it
+  - When a quick working solution is preferable to an efficient one.
+  - When traversing a tree
+  - When memoization is used in recursion
+
+  === How to write a recursive method in three steps ===
+  :TODO 
+--------------------------------------------------------------------------------
   == Queue ==
   === Standard Queue operations ===
   [[Queue]] implemented as a Python array
