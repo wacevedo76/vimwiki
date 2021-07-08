@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------
-Go(lang) Notes
+= Go(lang) Notes =
 -----------------------------------------------------------------------
-History and features
+== History and features ==
   It is a compiled, statically typesd language in the tradition of Algo
   and C, with garbage collection, limited structual typing, memory 
   safty features and CSP-syle concurrent programming features added.
@@ -38,4 +38,63 @@ History and features
     * support for pointer arithmetic
     * Support for assertions
     * Support for generic programming
-                             | 
+-----------------------------------------------------------------------
+== Go CLI ==
+  go build                   | Compiles a bunch of go source code files
+                             |
+  go run                     | Compiles and executes one or two files
+                             |
+  go fmt                     | Formats all the code in each file  in the 
+                             | current directori
+                             |
+  go intall                  | Compiles and "installs" a package.
+                             |
+  go get                     | Downloads the raw source code of somone 
+                             | elses package
+                             |
+  go test                    | Runs any tests associated with the current
+                             | project
+-----------------------------------------------------------------------
+== Go Packages ==
+  There are two types of     | Exacutable (package)
+  packages in any given go   | - Generates a file that we can run
+  project                    |
+                             | Reusable (package)
+                             | - Code used as 'helpers'. good place to put
+                             |   reusable logic (code dependencise/libraries).
+-----------------------------------------------------------------------
+(Go Packages) :Summary
+  A package declaration can be included at the top of any Golang source
+  code Doing so will define the type of packages the source code in 
+  questions compiles as. Unless the package name given to the the soure
+  code is "Main", the package will compile as a Reusable package.  NOTE:
+  if the package "main" is used, indicating that the source code is meant
+  to be used to produce and executable file, a "main" function must exist
+  in the source code. 
+  
+  ASSUMTIONS: The "main" package is an entry point for the project
+-----------------------------------------------------------------------
+== Go Basic Types ==
+  bool                       |
+  string                     |
+  int                        |
+  float64                    |
+                             |
+  Variable declaration       | var card string = "Ace of Spades"
+  Var declareation shortcut  | cart := "Ace of spades"  <-- only used in var declaration
+    The ":=" operator allows |
+    the Go compiler to       |
+    infer its type based     |
+    on the value supplied in |
+    the var declaration      |
+-----------------------------------------------------------------------
+== Function Return types == 
+  When defining a function   | func newCard() string {    <-- define type after parameters
+  you must define the type   |
+  the function returns       | {
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
