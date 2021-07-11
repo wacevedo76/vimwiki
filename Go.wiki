@@ -39,6 +39,13 @@
     * Support for assertions
     * Support for generic programming
 -----------------------------------------------------------------------
+== Random notes ==
+  Go is not and object oriented language.
+  Instead of object you make custom types and assign
+  functions with recievers that git custom types specific 
+  functionality, in essence, functions that belong to instances 
+  of custom types
+-----------------------------------------------------------------------
 == Go CLI ==
   go build                   | Compiles a bunch of go source code files
                              |
@@ -47,7 +54,7 @@
   go fmt                     | Formats all the code in each file  in the 
                              | current directori
                              |
-  go intall                  | Compiles and "installs" a package.
+  go install                 | Compiles and "installs" a package.
                              |
   go get                     | Downloads the raw source code of somone 
                              | elses package
@@ -92,6 +99,78 @@
   When defining a function   | func newCard() string {    <-- define type after parameters
   you must define the type   |
   the function returns       | {
+-----------------------------------------------------------------------
+== Arrays ==
+  There are two types of     |
+  arrays:                    |
+    * Array                  | Fixed length list of things
+    * Slice                  | An array that can grow or shrink
+                             |
+  Arrays and Slices must be  |
+  defined with a data type   |
+  (they can not hold mixed   |
+    data types)              |
+                             |
+  Define:                    |
+    * Slice                  | cards := []string{'2 spades', newCard(), newCard()}
+                             |     (notice that "string" is sigular)
+                             |
+      Append to slice        | cards = append(cards, "6 Spades")
+                             |         append( -slice/array- , -object being added- )
+                             |      (NOTE: the append does not changes the original object
+                             |       but returns a new copy of the object with modifications.
+                             |       No side effect, just return value.)
+                             |
+  Iterating over slices      | for i(ndex), card :- range cards {
+                             |   fmt.Println(card)
+                             | }
+                             |
+  Throw away variables       | for i, card :- range cards {
+  Iterating over slices      | for _, card :- range cards { <-- throw away variable
+    In a loop, or anywhere   |
+    a variable is declared   |
+    and immediately thrown   |
+    away, you can usd "_"    |
+                             | NOTE: the reason ':=' is used is because through every 
+                             |       iteration of the loop, the previous value is thrown
+                             |       away, requiring a new varialble to be declared.
+-----------------------------------------------------------------------
+== Types ==
+  Type declaration           | type (name) (derived type)
+                             | type deck []string
+   To make a customer type   |
+   The new type "inherits"   |
+   all the functionality of  |
+   the slice of string       |
+-----------------------------------------------------------------------
+== Receiver functions ==
+  reciever function declar.  | func (d deck) print() {
+                             | func ( -argument representing given "type"- -given type-) -name of function()- {
+  Any variable with the      |
+  defined type will recieve  | in the Receiver function declaration, d 
+  acces to the definded      | represents the argument which can be 
+  "print" function           | used and manipulated within the code
+                             | block
+  Receiver functions set up  |
+  "methods" on custom        | this "argument" is called d because 
+  variable / types that are  | , by convention, the arguement is 
+  created                    | usually the first or first two letters
+                             | of the defined / passed in type (deck
+                             | in this situation)
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
