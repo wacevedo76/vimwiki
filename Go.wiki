@@ -127,11 +127,11 @@
                              |
   Throw away variables       | for i, card :- range cards {
   Iterating over slices      | for _, card :- range cards { <-- throw away variable
-    In a loop, or anywhere   |
-    a variable is declared   |
-    and immediately thrown   |
-    away, you can usd "_"    |
-                             | NOTE: the reason ':=' is used is because through every 
+  In a loop, or anywhere     |
+  a variable is declared     |
+  and immediately thrown     |
+  and not used in the code   |
+  away, you can usd "_"      | NOTE: the reason ':=' is used is because through every 
                              |       iteration of the loop, the previous value is thrown
                              |       away, requiring a new varialble to be declared.
 -----------------------------------------------------------------------
@@ -157,16 +157,18 @@
   created                    | usually the first or first two letters
                              | of the defined / passed in type (deck
                              | in this situation)
+-----------------------------------------------------------------------
+== Slice Range syntax ==
+  Return a "slice" of a      | slice[ -startIndexIncluding- : -upToNotIncluding ]
+  slice                      |
                              |
+  If starting from the first | slice[: -upToNotIncluding-]
+  leave the first index ref  |
+  off                        |
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  If starting from the last  | slice[-startIndexIncluding-:]
+  leave the last index ref   | 
+  off                        |
                              |
                              |
                              |
