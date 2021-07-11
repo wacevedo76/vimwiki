@@ -45,6 +45,7 @@
   functions with recievers that git custom types specific 
   functionality, in essence, functions that belong to instances 
   of custom types
+
 -----------------------------------------------------------------------
 == Go CLI ==
   go build                   | Compiles a bunch of go source code files
@@ -146,6 +147,11 @@
 == Receiver functions ==
   reciever function declar.  | func (d deck) print() {
                              | func ( -argument representing given "type"- -given type-) -name of function()- {
+                             |   (the first parenthisis aregument is
+                             |   makes this a receiver function)
+                             |   * func          thisFunction() string {  <-- regular function which returns string
+                             |   * func (t type) thisFucntion() string {  <-- receiver function
+                             |
   Any variable with the      |
   defined type will recieve  | in the Receiver function declaration, d 
   acces to the definded      | represents the argument which can be 
@@ -169,13 +175,19 @@
   If starting from the last  | slice[-startIndexIncluding-:]
   leave the last index ref   | 
   off                        |
+-----------------------------------------------------------------------
+== Return/assign Multiple values ==
+  After the receiver/param   | func deal(d deck, handSize in) (deck, deck) {
+  definition, this function  |   return d[:handSize], d[handSize:]
+  defines, in parenthisis,   | }
+  that the deck.deal function|
+  will return two items      |
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  Here, multiple assignment  | hand, remainingDeck := deal(cards, 5)
+  works because the function |
+  returns multipe values     |
+-----------------------------------------------------------------------
+== Type Conversion ==
+  converting a slice of      | []byte("Hi there!")
+  strings into a single      |
+  string                     |
