@@ -188,6 +188,7 @@
   returns multipe values     |
 -----------------------------------------------------------------------
 == Type Conversion ==
-  converting a slice of      | []byte("Hi there!")
-  strings into a single      |
-  string                     |
+  converting a slice of      | []string(-slice of strings-) --> from the "strings" package
+  strings into a single      | []byte("Hi there!")
+  string                     | 
+  
