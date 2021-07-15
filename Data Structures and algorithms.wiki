@@ -88,7 +88,7 @@
                              | two children) except the last level, the last 
                              | level has all keys as leftwise as possible.
   * Balanced Binary Tree     | All Leaf nodes are the at the same distance from
-                             | the Rood node (not any father than any other).
+                             | the Root node (not any father than any other).
 --------------------------------------------------------------------------------
   === Operations which can be performed on a Binary Tree ===
   * Creation of Tree
