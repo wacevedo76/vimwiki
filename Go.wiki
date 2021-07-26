@@ -40,6 +40,8 @@
     * Support for generic programming
 -----------------------------------------------------------------------
 == Random notes ==
+  Golang's documentation can be found at https://pkg.go.dev/std
+
   Go is not and object oriented language.
   Instead of object you make custom types and assign
   functions with recievers that git custom types specific 
@@ -52,8 +54,8 @@
                              |
   go run                     | Compiles and executes one or two files
                              |
-  go fmt                     | Formats all the code in each file  in the 
-                             | current directori
+  go fmt                     | Formats all the code in each file in the 
+                             | current directory
                              |
   go install                 | Compiles and "installs" a package.
                              |
@@ -71,9 +73,22 @@
                              | - Code used as 'helpers'. good place to put
                              |   reusable logic (code dependencise/libraries).
 -----------------------------------------------------------------------
+== Common packages ==
+  io/ioutils                 |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+-----------------------------------------------------------------------
 (Go Packages) :Summary
   A package declaration can be included at the top of any Golang source
-  code Doing so will define the type of packages the source code in 
+  code. Doing so will define the type of packages the source code in 
   questions compiles as. Unless the package name given to the the soure
   code is "Main", the package will compile as a Reusable package.  NOTE:
   if the package "main" is used, indicating that the source code is meant
@@ -122,7 +137,7 @@
                              |       but returns a new copy of the object with modifications.
                              |       No side effect, just return value.)
                              |
-  Iterating over slices      | for i(ndex), card :- range cards {
+  Iterating over slices      | for i(ndex), card := range cards {
                              |   fmt.Println(card)
                              | }
                              |
