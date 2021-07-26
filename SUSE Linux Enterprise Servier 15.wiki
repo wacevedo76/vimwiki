@@ -387,6 +387,19 @@ initramfs
                              |                           ` |UEFI > Verified OS Loader > OS start > os verified`
                              |
 -------------------------------------------------------------------------------
+  Secure Boot                |
+  * PK                       | Platform Key
+  * KEK                      | Key Exchange Key
+  * MOK                      | Machine Owner Key
+                             |
+  Secure Boot (Process)      |    where? | Stage                                       | Next step
+                             |  FIRMWARE | PK -> KEK db -> (to OS)
+                             |
+                             |        OS | KEK -> (Shim)  <--> Boot Var -> (MOK List)  |-> (to SUSE Pub)
+                             |           | SUSE Pub (Verify and load)                  |-> (to MOK -> GRUB2)
+                             |           | MOK -> GRUB2 (Verify and boot)              |-> (to MOK -> Kernel)
+                             |           | MOK -> Kernel
+-------------------------------------------------------------------------------
   Difference between GRUB    | * Different configuration files
   Legacy and GRUB2           | * More file systems are supported (e.g., Btrfs)
                              | * Read files on LVM or RAID devices
@@ -409,21 +422,66 @@ initramfs
                              | /boot/grub2/power-ieee12
                              | /boot/grub2/s390x
 -------------------------------------------------------------------------------
-  Grube 2 General Options    | Component            Description
-                             | GRUB_DEFAULT         Sets the boot menu entry that is booted by
-                             |                      default. Its value can be a numeric value,
-                             |                      the complete name of a menu entry, or saved
-                             | GRUB_DEFAULT=2       boot the third (counted from zero) boot 
-                             |                      menu entry
-                             | GRUB_DEFAULT="2>0"   boots the first submenu of the third top-
-                             |                      level menu enty
-                             | GRUB_DEFAULT="menu1" 
+== Understand the GRUB2 Boot loader ==
+  Grube 2 General Options    | 
+    Component                | Description
+    GRUB_DEFAULT             | Sets the boot menu entry that is booted by
+                             | default. Its value can be a numeric value,
+                             | the complete name of a menu entry, or saved
                              |
+    GRUB_DEFAULT=2           | boot the third (counted from zero) boot 
+                             | menu entry
                              |
+    GRUB_DEFAULT="2>0"       | boots the first submenu of the third top-
+                             | level menu enty
                              |
+    GRUB_DEFAULT="menu1"     | Boots the menu entry with the title "menu1"
                              |
-
-== Understand the GRUB2 Book loader ==
+    GRUB_DEFAULT=saved       | Boots the entry specified by the grub2-reboot or
+                             | grub2-set-default commands. While grub2-reboot sets
+                             | the default boot entry for the next reboot only,
+                             | grub2-set-default sets the default boot entry
+                             | until changed
+                             |
+    GRUB_HIDDEN_TIMEOUT      | Waits the specified number of seconds for the user
+                             | to press a key. During the period no menu is shown
+                             | unless the user presses a key.
+-------------------------------------------------------------------------------
+  /etc/default/grub - OS OPTIONS
+    OPTION                   |        * DESCRIPTION
+    GRUB_CMDLINE_LINUX       |        * Entries are added at the end of the boot entries 
+                             |        * for normal and recovery mode
+                             |
+    GRUB_CMDLINE_LINUX_DEFAULT        * Entries are added in the normal mode only
+                             |
+    GRUB_CMDLINE_LINUX_RECOVERY       * Entries are added in the recovery mode only
+                             |
+    GRUB_CMDLINE_LINUX_XEN_REPLACE    * Replace GRUB_*_LINUX entries for all Xen boot entries
+                             |
+    GRUB_CMDLINE_LINUX_XEN_REPLACE_DEFAULT  * Replaces entries of GRUB_*_LINUX_DEFAULT
+                             |
+    GRUB_CMDLINE_XEN         |        * Entries for the Xen guest kernel only
+                             |
+    GRUB_CMDLINE_XEN_DEFAULT |        * Xen entries are added in the normal mode only
+                             |
+    GRUB_HIDDEN_TIMEOUT_QUIET|        * If false is specified, a countdown timer is displayed
+                             |          on a black screen when the GRUB_HIDDEN_TIMEOUT is active
+                             |
+    GRUB_TIMEOUT             |        * Time period in seconds the boot menu is displayed 
+                             |          before automatically booting the default boot entry
+                             |          If you press a key, the timout is canceld and GRUB2 
+                             |          waits for you to make a selection manually
+                             |
+    GRUB_TIMOUT=-1           |        * will cause the menu to be displayed until you select 
+                             |          the boot entry manually
+                             |
+    GRUB_DISABLE_OS_PROBER   |        * If this option is set to true, automatic searching for 
+                             |          other operating systems is disabled. Only the kernal 
+                             |          images in /boot/ and the options fro m you onw scripts 
+                             |          in /ec/grub.d/ are detected
+                             |
+    SUSE_BTRFS_SNAPSHOT_BOOTING       * If this option is set to true, GRUB 2 can boot directly 
+                             |          into Snapper snapshots
                              |
                              |
   One-time VNC sessions are  |
