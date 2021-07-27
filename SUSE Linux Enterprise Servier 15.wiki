@@ -1,21 +1,90 @@
 SUSE Enterprise Server 
 --------------------------------------------------------------------------------
+= Understand YaST =
+--------------------------------------------------------------------------------
+  * Local system configuration tool
+    * Acronym: Yet Another System Tool
+    * User Interfaces:
+    ** Command line non-interactive
+    ** Comand line interactive
+    ** Graphical
+    ** Non-graphical (ncurses)
+    * Two versions, started with different commands
+      Command           Terminal in X           Command Line
+      yast              ncurses                 ncurses
+      yast2             Graphical               ncurses
+                              |
+== Command line commands ==
+    list of modules           | yast -l | yast --list
+    start module              | yast <module> | yast2 <module>
+                              |
+== YaST control Center - Modules ==
+  * YaST modules are written in Ruby and provide specific tools
+    for administering the various components of a SUSE Linux Enterprise computer.
+    Some Examples:
+      - Online Update
+      - Software Management
+      - Network Settings
+      - NTP Configuration
+      - Samba Server
+      - User and Group Management
+--------------------------------------------------------------------------------
 = Understanding the Filesystem Hierarchy Standard =
 --------------------------------------------------------------------------------
-  Part of the LSB (Linux     | Whic directories must be located on the first  
-  Standard bas specifications| level and what they contain
-                             | 
-  Defines a two-layer        | * Directories in the top layer (off the root "/")
-  hierachy                   | * At the second layer under /usr (Unix System Resources)
-                             |   and /var
-                             | 
-  Design Factors             | * Compartmentalization
-                             | * Writablility
-                             | * Shareability
-  www.pathname.com/fhs/      | 
-                             | 
+== Filesystem Hierarchy Standard (FHS) ==
+  * Part of the LSB (Linux Standard base) specifications
+  * Which directories must be located on the first level and what they contain
+  * Defines a two-layer hierachy 
+  * Directories in the top layer (off the root "/")
+  * At the second layer under /usr and /var
+  * Design Factors
+  * Compartmentalization
+  * Writablility
+  * Shareability
+  * Details: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+  ** This of the FHS as "what goes where and why"
 --------------------------------------------------------------------------------
-Linux Filetypes              |  Normal files
+== The Linux File System Structure ==
+  The Root directory "/"
+  * Refers to the highest layer of the file system tree. This root partion is 
+    mounted first at system boot. All programs that are run at system startup 
+    must be in hte partition
+
+  * The following directories must be in the root partition:
+    - /bin        - User binaries
+    - /dev        - Device files
+    - /etc        - Configuration files
+    - /lib        - Libraries
+    - /sbin       - System binaries
+
+  * Essential binaries for all users (/bin)
+  * Containes executables required when no other file systems are mounted. For
+    example, programs required for system booting, working with files and
+    configuration
+    
+    /bin/bash     - The bash shell
+    /bin/cat      - Display file contents
+    /bin/cp       - Copy files
+    /bin/dd       - Copy files byte-wise
+    /bin/gzip     - Compresses files
+    /bin/mount    - Mount file systems
+    /bin/rm       - Delete files
+    /bin/vi       - Edit files
+  
+  * System Binraires (/sbin)
+  * Contains programs important for system administration. Typically are intended
+    to be run by the root user and therefore it is not in the regular users path.
+    
+  * Some important files:
+    /sbin/yast    - Administration tool
+    /sbin/fdisk   - Modifies partitions
+    /sbin/fsck    - File system check
+    /sbin/mkfs    - Creates file systems
+    /sbin/shutdown - Shutd down the system
+  
+--------------------------------------------------------------------------------
+= Linux Filetypes =
+                             |  Normal files
                              |    * ASCII text files
                              |    * Executalbe files
                              |    * Graphics fles
@@ -487,12 +556,32 @@ initramfs
   One-time VNC sessions are  |
   are started with the       |
   xinetd daemon              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+-------------------------------------------------------------------------------
+== GRUB2 Commands ==
+  grub2-mkconfig             | Generates a new /boot/grub2/grub.cfg (option -o)
+  grub2-mkrescue             | Creates a bootable rescure image
+  grub2-script-check         | Checks the given file for syntax errors
+  grub2-once                 | Set the default boot entry for the next boot
+-------------------------------------------------------------------------------
+== Set a Boot Password ==
+  * If set, the boot password is required on every boot!
+  * Procedure
+    - Encrypt the password using  -> grup2-mkpasswd-pbkdf2
+      > in /etc/grub.d/40_custom
+  * Paste the resulting string in:
+    - password_pbkdf2 <superuser> <pw_string>
+      set superusers="root"
+      password_pbkdf2 root <pw_string>
+    set superusers command
+      > Run -> grub2-mkconfig
+      
+                              |
+                              |
+                              |
+                              |
+                              |
+                              |
+                              |
 -------------------------------------------------------------------------------
 == Define and Describe systemd ==
   What is systemd            | * systemd is a system and session manager for Linux,
@@ -1152,7 +1241,7 @@ initramfs
                              |   * ifstatus eth0
                              |
   Address Configuration      | * Syntax
-                             |   * ip [address|add"a] <task> <arguments>
+                             |   * ip [address|add|a] <task> <arguments>
                              | * Display IP Address configuration:
                              |   * ip addr show
                              | * Add an IP address to an interface:
