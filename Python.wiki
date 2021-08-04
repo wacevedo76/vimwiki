@@ -21,7 +21,8 @@
 --------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
-  pathlib Module             | returns a Path object
+ pathlib Module                                         
+                             | returns a Path object
                              |
                              | the path module is primarily used to form paths 
                              | that translate between windows and linux file systems
@@ -127,15 +128,7 @@ os Module                    | returns a string
                              | char(97) --> 'a'
 --------------------------------------------------------------------------------
 === General Class construction ===
-                             | class Employee:
-                             |    def __init__(self, name, age):
-                             |      self.name = name
-                             |      self.age = age
-                             |      self.hours_worked = 0
-                             |
-                             |    def add_hourse(self, hours):
-                             |      self.hours_worked += hours
-                             |
+  [[programmingConcepts/oop]]
 --------------------------------------------------------------------------------
 === Creating a new virtual environment ===
   [[programmingConcepts/virtual_environment]]
