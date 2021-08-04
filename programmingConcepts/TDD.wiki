@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------
+= TDD =
+--------------------------------------------------------------------------------
+== Python's Unittest module ==
+--------------------------------------------------------------------------------
+From Python's documentation - Unittest module basic parts
+import unittest
+
+class TestStringMethods(unittest.TestCase):     <-- Class definition 
+                                                    inherits from unittest.Testcase
+    def setUp(self):                            <-- Define setup code
+        self.widget = Widget('The widget')
+
+    def test_upper(self):
+        self.assertEqual('foo'.upper(), 'FOO')  <-- standard assert for Equality
+
+    def test_isupper(self):
+        self.assertTrue('FOO'.isupper())        <-- assert for Boolean (True)
+        self.assertFalse('Foo'.isupper())       <-- assert for Boolean (False)
+
+    def test_split(self):
+        s = 'hello world'
+        self.assertEqual(s.split(), ['hello', 'world'])
+        # check that s.split fails when the separator is not a string
+        with self.assertRaises(TypeError):      <-- assert for thrown error
+            s.split(2)
+
+    def tearDown(self):                       <-- Define code to clean up setup code
+        self.widget.dispose()
+
+if __name__ == '__main__':
+    unittest.main()
