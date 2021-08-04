@@ -1,99 +1,23 @@
 --------------------------------------------------------------------------------
 = Python notes =
-  * [[AtBS]]
 --------------------------------------------------------------------------------
 == Notes from Automate the Boring Stuff ==
---------------------------------------------------------------------------------
-=== Bult-in Function === 
-    Modules                  |
-      import statement       | import <module>
-        must used full module| import random
-        name in function call|
-                             |
-      import from statement  | from <module> import <function>
-        can now use bare     | from random import *
-        function call        |
-                             |
-  Terminating a function call| import sys 
-  early                      | sys.exit()
---------------------------------------------------------------------------------
-=== exception handling ===
-  try / except block         | try:
-                             |     <some block of code
-                             | except <some type of error>:
-                             |    <block of code which is run when error occurs>
-                             |
-                             | (Grab the exception from the error msg)
---------------------------------------------------------------------------------
-=== List functions ===
-  list()                     | list('hello') -> ['h','e','l','l','o']
-                             |
-                             | list.index(<element>) <-- can take a start index
-                             |                        as second argument
-                             | list.count(value) <-- returns the number of times
-                             |                    a value occurs in list
-                             | list.append(<element>) <-- adds 1 item to lists end
-                             | list.extend([<list>]) <-- adds multi items to end
-                             | list.insert(index, item)
-                             | list.clear() <--  removes ALL items from list
-                             | list.pop() <-- default, removes the last elemnt
-                             |                can add index as first argument
-                             | list.remove(<element>)
-                             | list.sort() | (reverse=True), (key=str.lower)
-                             |
-                             | list.reverse()
-                             |
-  Search for an item in list | '<value>' in <list>  --> returns boolean
-                             | '<value>' not in <list>  --> returns boolean
-                             |
-  enumerate()                | Enumerate will iterate over an iterable and return
-                             | two values on each iteration, the index of the 
-                             | item and the 
-                             |
-                             | for index, item in enumerate(supplies)
-                             |
-  random                     | import random
-                             | random.choice([])
-                             | random.shuffle([])
-                             |
-  copy                       | import copy
-    newList = list           |
-    does not make a new list | newList = copy.copy(originalList)
-    it only makes a reference| newList = copy.deepcopy(originalList)
-    to the original list     |     (use deepcopy if origianl list has lists)
-                             |
---------------------------------------------------------------------------------
-=== Dictionary Methods ===
-  Keys, values, items        | {}.keys()
-  These return types, while  | {}.values()
-  not actually arrays, can   | {}.items
-  be used in loops           |
-                             |
-                             | for k in spam.keys()
-                             | for i in spam.items() --> ('key', 'value')
-                             | for k, v in spam.itmes()
-                             |
-  Checking whether a key or  | 'name' in spam.keys()
-  value exists in dictionary | 'william' in spam.values()
-  returns boolean value      |
-                             |
-  Get()                      | picnicItems = {'apples': 5, 'cups': 2}
-    Checks to see if a key   | picnicItems.get('cups'; 0)   --> returns the number of cups or 0
-    exists, returns the      |
-    value or an fallback     |
-                             |
-  Setdefault                 | spame.setdefault('color', 'black')
-    Sets a default value for |
-    key which is called but  |
-    does not already exist   |
-                             |
+  * [[AtBS]]
 --------------------------------------------------------------------------------
 === String Methods ===
-  convert to string          | str(value)
-                             |
-  join                       | ', '.join(['cats', 'rats','bats'])
-  split                      | 'test one two three'.split()
-                             |
+  [[programmingConcepts/strings]]
+--------------------------------------------------------------------------------
+=== List functions ===
+  [[programmingConcepts/lists]]
+--------------------------------------------------------------------------------
+=== Dictionary Methods ===
+  [[programmingConcepts/hash-dict]]
+--------------------------------------------------------------------------------
+=== Bult-in Function === 
+  [[programmingConcepts/Modules]]
+--------------------------------------------------------------------------------
+=== exception handling ===
+  [[programmingConcepts/Error_handling]]
 --------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
@@ -184,7 +108,7 @@ os Module                    | returns a string
 --------------------------------------------------------------------------------
   Data types
     None (null)              | None  <-- (case sensitive) - (class 'NoneType')
-  String interpolation
+  [[String]] interpolation
     format strings (f-string)| f'interpolated data --> {variable/expression}'
                              |
     format method            | 'interpolated data --> {}'.format(<value>)
@@ -214,43 +138,5 @@ os Module                    | returns a string
                              |
 --------------------------------------------------------------------------------
 === Creating a new virtual environment ===
-venv                         | python3 -m venv <new project>
-                             | venv will create a few new directories
-                             |   bin/ - python scripts and new executalbes by other 
-                             |          packages
-                             |   lib/ 
-                             |   inclued/
-                             |   New packages will be installed in:
-                             |     <new project>/lib/pythonx.y/site-packages/
-                             |
-  Activate new environment   | source <new project>/bin/activate
-                             |
-  Deactivate new environment | deactivate
-                             |
-  requirements.txt           | virtual environments are not portable, so it is 
-                             | common practice to provied a requirements file
-                             | which facilitates recreating the same environment 
-                             | within different developent environments/machines
-                             | an example file would look lik this
-                             |     # lines followed by hast (#) are treated as comments
-                             |
-                             |     # Strict version names are bes tfor reproducibility
-                             |     eventlet==0.17.4
-                             |     graceflu--0.1.1
-                             |
-                             |     # for project that are well tested with different
-                             |     # dependency version the relative version specifiers
-                             |     # are acceptable too
-                             |     falcon>=0.3.0,<0.5.0
-                             |    
-                             |     # packages withoutversion should be avoided unless
-                             |     # latest release is always requred/desired
-                             |     pytz
-                             |
-  Installing enviornment     | pip install -r requirements.txt 
-  with pip                   |
-                             |
------------------------------|
-                             | virtualenv <name>
-                             |
+  [[programmingConcepts/virtual_environment]]
                              |

@@ -1,0 +1,13 @@
+--------------------------------------------------------------------------------
+= Strings =
+--------------------------------------------------------------------------------
+== Strings and String functions in Python ==
+  convert to string          | str(value)
+                             |
+  join                       | ', '.join(['cats', 'rats','bats'])
+  split                      | 'test one two three'.split()
+  Split string to list of    | [char for char in 'string']
+  characters                 |
+                             |
+                             |
+--------------------------------------------------------------------------------
