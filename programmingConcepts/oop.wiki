@@ -1,0 +1,13 @@
+--------------------------------------------------------------------------------
+= Object Oriented Programming =
+--------------------------------------------------------------------------------
+== OOP in Python ==
+                             | class Employee(inherited-class):   <- Class definition with inherited class
+                             |    def __init__(self, name, age):  <- Constructor / initializer method definition
+                             |      self.name = name                 (must always have 'self as a parameter'
+                             |      self.age = age                    as the method must be applied to the created instance)
+                             |      self.hours_worked = 0
+                             |
+                             |    def add_hourse(self, hours):
+                             |      self.hours_worked += hours
+                             |
