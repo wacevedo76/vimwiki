@@ -23,7 +23,7 @@ venv                         | python3 -m venv <new roject>
                              | an example file would look lik this
                              |     # lines followed by hast (#) are treated as comments
                              |
-                             |     # Strict version names are bes tfor reproducibility
+                             |     # Strict version names are best for reproducibility
                              |     eventlet==0.17.4
                              |     graceflu--0.1.1
                              |
