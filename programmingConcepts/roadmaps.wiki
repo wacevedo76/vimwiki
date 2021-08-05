@@ -1,0 +1,31 @@
+Python
+  1. Python coding skills
+     Basic Skills
+       a) Variables, numbers, strings, lists
+       b) Dictionary, tubple
+       c) if, for control blocks
+       d) Functions
+       e) Read, write files
+       f) Modules
+     Intermediate Skills
+       a) Exception handling
+       b) Classes, Objects
+       c) Inheritance 
+       d) Iterators
+       e) Generators
+       f) List/dict comprehensions
+       g) Sets, command line argparse
+     Advanced Skills
+       a) Multithreading
+       b) Multiprocessing
+       c) Multiprocessing lock & pool
+       d) Unit tests (pytest)
+       e) Decorators
+       f) Context Managers
+  2.   Data structures and algorithms
+  3. Debuggin skills
+  4. Using libraries wisely
+  5. Coding best practices & PEP8
+  6. Opensource contribution
+  7. Master the art of asking for help
+  8. Projects

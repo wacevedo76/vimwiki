@@ -21,6 +21,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[programmingConcepts/oop|Object Oriented Programming]]
   * [[programmingConcepts/virtual_environment|Virtual Environment]]
   * [[programmingConcepts/TDD|Test Driven Developement]]
+  * [[programmingConcepts/roadmaps|Road maps]]
 
 == Tooling ==
   * [[Vim]]
@@ -32,7 +33,11 @@ __        ___ _ _ _                      __     ___                   _ _    _
 
 == Systems ==
   * [[snmp]]
+
+== Administration ==
   * [[Linux SysAd]]
+
+== Networking ==
   * [[Networking]]
 
 == CompSci ==
