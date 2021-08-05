@@ -39,5 +39,38 @@ venv                         | python3 -m venv <new roject>
   Installing enviornment     | pip install -r requirements.txt 
   with pip                   |
                              |
------------------------------|
-                             | virtualenv <name>
+  list packages/modules      | pip list
+  installed in virtual env   |
+                             |
+  export packages for        | pip freeze > requirements.txt
+  specific environment       |
+                             |
+  command to deactivate      | deactivate
+  virtual environment        |
+                             |
+  install dependencies/      | pip3 -r requirements.txt
+  requierments from          |
+  requirements.txt file      |
+                             |
+  By convention, you create  | mkdir my_project
+  your vitual env _within_   | python3 -m venv my_project/venv
+  your project folder; never | source my_project/venv/bin/activate
+  place your project files   |
+  in your virtual env dir    |
+                             |
+  virtual environments should|
+  not be commited to git repo|
+  just the requirements.txt  |
+                             |
+  if you want your local     | python -m venv venv --system-site-packages
+  packages available within  |
+  your project               |
+                             |
+  list only packages locally | pip list --local
+  installed in the package   |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
