@@ -18,6 +18,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[programmingConcepts/Error_handling|Error Handling]]
   * [[programmingConcepts/Modules|Modules]]
   * [[programmingConcepts/re|Regular Expressions]]
+  * [[programmingConcepts/parsing-storing|Parsing and Storing]]
   * [[programmingConcepts/oop|Object Oriented Programming]]
   * [[programmingConcepts/virtual_environment|Virtual Environment]]
   * [[programmingConcepts/TDD|Test Driven Developement]]
