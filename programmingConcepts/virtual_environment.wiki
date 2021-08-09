@@ -68,9 +68,20 @@ venv                         | python3 -m venv <new roject>
                              |
   list only packages locally | pip list --local
   installed in the package   |
+--------------------------------------------------------------------------------
+== virtualenvwrapper ==
+  Install virtualenvwrapper  | A virtual env wrapper; Store all project dependencies 
+                             | in one location and activate the environment anywhere using
+                             | workon <name of project>
                              |
+  Installation               | On Winodws
+                             |   pip install virtualenvwrapper
+                             | On Linux / macOS
+                             |   pip install --user virtualenvwrapper
                              |
+                             | (add "source virtualenvwrapper.sh" into your .SHELLrc file (~/.zshrc | ~/.bashrc))
                              |
+  Initialize new project     | mkvirtualenv --python=python3.9 <name of project>
                              |
-                             |
+  activate project           | workon <name of project>
                              |

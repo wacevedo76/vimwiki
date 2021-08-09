@@ -11,6 +11,9 @@ class TestStringMethods(unittest.TestCase):     <-- Class definition
     def setUp(self):                            <-- Define setup code
         self.widget = Widget('The widget')
 
+    def tearDown(self):                       <-- Define code to clean up setup code
+        self.widget.dispose()
+
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')  <-- standard assert for Equality
 
@@ -25,8 +28,8 @@ class TestStringMethods(unittest.TestCase):     <-- Class definition
         with self.assertRaises(TypeError):      <-- assert for thrown error
             s.split(2)
 
-    def tearDown(self):                       <-- Define code to clean up setup code
-        self.widget.dispose()
+    def test_fail(self):
+        self.fail('Finish the test!')           <-- will force a test fail
 
 if __name__ == '__main__':
     unittest.main()
