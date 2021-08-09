@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 Linux Sys Admin and Certification Training
 --------------------------------------------------------------------------------
-
+* [[arch_linux|Arch Linux Commands]]
 * [[Atos Linux Administration]]
 * [[Linux +]]
 * [[SUSE Linux Enterprise Servier 15]]
