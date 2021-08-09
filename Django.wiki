@@ -1,0 +1,15 @@
+--------------------------------------------------------------------------------
+Django (Python MVC Webapp framework)
+--------------------------------------------------------------------------------
+  start Django project       | django-admin.py startproject <name of project>
+  Start server               | python manage.py runserver
+  Runnng unit tests          | python manage.py test
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
