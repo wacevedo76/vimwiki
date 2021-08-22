@@ -31,12 +31,12 @@
   * [[programmingConcepts/roadmaps|Road maps]]
 
 == Tooling ==
-  * [[Vim]]
-  * [[Emacs]]
+  * [[vim]]
+  * [[emacs]]
   * [[sed]]
-  * [[Tmux]]
-  * [[Docker]]
-  * [[Selenium]]
+  * [[Tmux|tmux]]
+  * [[docker]]
+  * [[selenium]]
 
 == Systems ==
   * [[snmp]]

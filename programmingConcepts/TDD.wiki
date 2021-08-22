@@ -1,6 +1,34 @@
 --------------------------------------------------------------------------------
 = TDD =
 --------------------------------------------------------------------------------
+== Usefult TDD Concepts ==
+  User Story
+    A description of how the application will work from the point of view of the
+    user.
+    Used to structure a function test.
+  Expected failure
+    When a test fails in the way that we expected it to.
+--------------------------------------------------------------------------------
+== Unit Testing Best Practices ==
+  * Unit tests should only test for one thing
+--------------------------------------------------------------------------------
+== Functional Tests vs Unit Tests ==
+--------------------------------------------------------------------------------
+=== Terminology ===
+  Functional Test == Acceptace Test == End-to-End Test
+    - Test terms are relatively equivalent as they refer to testing the whole 
+      application from the user's perspective; the test doesn't know anythin about
+      the internals of the system under the test
+  Unit Test - define how we want the code to behave.
+--------------------------------------------------------------------------------
+=== Overall TDD Process ===
+1. Write a test
+2. Run the test -> does it pass?
+  YES -> Does it need refactoring?
+    YES -> Write minimal code
+    NO -> Write a (new) test
+  NO -> Write minimal code
+--------------------------------------------------------------------------------
 == Python's Unittest module ==
 --------------------------------------------------------------------------------
 From Python's documentation - Unittest module basic parts
@@ -33,3 +61,18 @@ class TestStringMethods(unittest.TestCase):     <-- Class definition
 
 if __name__ == '__main__':
     unittest.main()
+--------------------------------------------------------------------------------
+=== Unittest Module Notes: ===
+  1. Tests are organized into classes, which inherit from unittest.TestCase
+  2. The main body of the test is in a method call "test_upper". Any method whose
+     name starts with 'test' is a test method, and will be run by the test runner
+  3. 'setUp' and 'tearDown' are special methods which get run before and after 
+     each test. 
+  4. We use 'self.assertIn' is one of many help functions to make assertions
+     'assertEqual', 'assertTrue', 'asertFalse' are some other common assertions
+  5. self.fail just fails not mater what, producting the error message given
+  6. if __name__ == '__main__' clause -> used to check if the script has been
+     executed or just imported by another script. When unittest.main() is called
+     it launches the unittest test runner, which automatically finds test classes
+     and methods in the file  and runs them.
+--------------------------------------------------------------------------------
