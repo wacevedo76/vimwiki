@@ -1,27 +1,48 @@
 --------------------------------------------------------------------------------
 = TDD =
 --------------------------------------------------------------------------------
-== Usefult TDD Concepts ==
+=== Usefult TDD Concepts ===
   User Story
     A description of how the application will work from the point of view of the
     user.
     Used to structure a function test.
+
   Expected failure
     When a test fails in the way that we expected it to.
---------------------------------------------------------------------------------
-== Unit Testing Best Practices ==
-  * Unit tests should only test for one thing
+
+  Regression
+    When new code breaks some aspect of the application which used to work.
+
+  Unexpected failure
+    When a test fails in a way we weren't expecting. This either means that we've
+    made a mistake in our tests, or that the tests have helped us find a regression,
+    and we need to fix something in our code
+
+  Red/Green/Refactor
+    Another way of describing the TDD process. Write a test and see it fail (Red),
+    write some code to get it to pass (Green), then Refactor to improve the
+    implementation
+
+  Triangulation
+    Adding a test case with a new specific example for some existing code, to 
+    justify generalizing the implementation (which may be  a "cheat" until that point.)
+
+  Three strikes and refactor
+    A rule of thumb for when to remove duplication from code. When two pieces of
+    code look very similar, it often pays to wait until you see a third use case,
+    so that you're more sure about what part of the code really is the common, 
+    re-usable part to refactor out.
+
+  The scratchpad to-do list
+    A place to write down things that occur to us as we're coding, so that we can
+    finish up what we're doing and come back to them later.
 --------------------------------------------------------------------------------
 == Functional Tests vs Unit Tests ==
 --------------------------------------------------------------------------------
-=== Terminology ===
-  Functional Test == Acceptace Test == End-to-End Test
-    - Test terms are relatively equivalent as they refer to testing the whole 
-      application from the user's perspective; the test doesn't know anythin about
-      the internals of the system under the test
+Overall TDD Process
+  Functional Test - Desscribing the new functionality from the user's poine of view
   Unit Test - define how we want the code to behave.
 --------------------------------------------------------------------------------
-=== Overall TDD Process ===
 1. Write a test
 2. Run the test -> does it pass?
   YES -> Does it need refactoring?
@@ -62,7 +83,7 @@ class TestStringMethods(unittest.TestCase):     <-- Class definition
 if __name__ == '__main__':
     unittest.main()
 --------------------------------------------------------------------------------
-=== Unittest Module Notes: ===
+=== unittest module Notes: ===
   1. Tests are organized into classes, which inherit from unittest.TestCase
   2. The main body of the test is in a method call "test_upper". Any method whose
      name starts with 'test' is a test method, and will be run by the test runner
