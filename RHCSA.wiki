@@ -11,8 +11,8 @@
 === Installation Logs ===
 [[certs/rhcsa/installation-logs|Installation Logs]]
 === Virtual console Screens (during installation) ===
-[[certs/rhcsa/installation-virtual-console-screens|Virtual Console Screens]
+[[certs/rhcsa/installation-virtual-console-screens|Virtual Console Screens]]
 
 [[certs/rhcsa/review-questions|Review Questions]]
                              |
-                             
+

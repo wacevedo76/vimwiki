@@ -2,8 +2,8 @@
 == Virtual Consoles (during installation) ==
 --------------------------------------------------------------------------------
   Console 1                  | (Ctrl-Alt-F1) This is the main screen. Before
-                             | Anaconda begins, you will select a language to use 
-                             | during installation, and then it will switch the 
+                             | Anaconda begins, you will select a language to use
+                             | during installation, and then it will switch the
                              | Default console to the sixth screen (Console 6)
                              |
   Console 2                  | (Ctrl-Alt-F2) This screen displays the shell
@@ -17,7 +17,7 @@
   Console 4                  | (Ctrl-Alt-F4) This screen shows storage messages
                              | and records them in /tmp/storage.log.
                              |
-  Console 5                  | (Ctrl-Alt-F5) This screen displays program 
+  Console 5                  | (Ctrl-Alt-F5) This screen displays program
                              | messages and logs them to /tmp/program.log.
                              |
   Console 6                  | (Ctrl-Alt-F6) This is the default graphical

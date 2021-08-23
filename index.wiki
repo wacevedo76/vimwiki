@@ -6,6 +6,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
 
 == Certification Training ==
   * [[RHCSA]]
+  * [[SUSE Linux Enterprise Servier 15]]
 
 == Programming ==
   * [[Bash]]
@@ -29,6 +30,9 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[programmingConcepts/virtual_environment|Virtual Environment]]
   * [[programmingConcepts/TDD|Test Driven Developement]]
   * [[programmingConcepts/roadmaps|Road maps]]
+
+== Linux General Concepts ==
+  * [[linuxGeneralConcepts/fhs|File System Hierarchy]]
 
 == Tooling ==
   * [[vim]]

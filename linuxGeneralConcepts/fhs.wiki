@@ -1,0 +1,43 @@
+--------------------------------------------------------------------------------
+= File System Hierarchy (FSH) =
+--------------------------------------------------------------------------------
+== Top-Level directories ==
+These directories hold either:
+* Static data
+** commands, configuration files, library routines, kernel files, device files, etc
+* Dynamic (or variable) information
+** log files, status files, temporary files, etc
+--------------------------------------------------------------------------------
+== File System Categories ==
+These can be categorized in three basic groups:
+* Disk-based
+** File systems created on physical media (hdd / usb flash drives)
+* Network-based
+** File systems that are shared over the network for remote access
+* Memory-based
+** Files systems which are virtual; they are created automatically at system
+   startup and destroyed when the system goes down.
+
+=== The Root File System (/), Disk-Based ===
+Contains:
+* /etc: The etcetera (or extended text configuration) directory holds system
+  Configuration files
+  Common subdirectories:
+    * systemd
+    * sysconfig
+    * lvm
+    * skel
+* /root: root suers default home directory
+* /mnt: temporary file system mount points
+
+=== The Boot File System (/boot), Disk-Based ===
+Contains:
+* Linux kernel
+* boot support files
+* boot configuration files
+
+=== The Home Directory (/home) ===
+Contains user default home directories
+
+=== The Optional Directory (/opt) ===
+
