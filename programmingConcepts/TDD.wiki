@@ -24,18 +24,36 @@
     implementation
 
   Triangulation
-    Adding a test case with a new specific example for some existing code, to 
+    Adding a test case with a new specific example for some existing code, to
     justify generalizing the implementation (which may be  a "cheat" until that point.)
 
   Three strikes and refactor
     A rule of thumb for when to remove duplication from code. When two pieces of
     code look very similar, it often pays to wait until you see a third use case,
-    so that you're more sure about what part of the code really is the common, 
+    so that you're more sure about what part of the code really is the common,
     re-usable part to refactor out.
 
   The scratchpad to-do list
     A place to write down things that occur to us as we're coding, so that we can
     finish up what we're doing and come back to them later.
+
+  Ensuring test isolation and managing global state
+    Different tests shouldn't affect one another. This means we need to reset any
+    permanent state at the end of each test. Django's test runner helps us do this
+    by creating a test database, which it wipes clean in between each test.
+
+  Avoid "voodoo" sleeps
+    Whenever we need to wait for something to lad, it's always tempting to throw
+    in a quick-and-dirty time.sleep. But the problem is that the length of time we
+    wait is always a bit of a shot in the dark, either too short and vulnerable to
+    spurious failures, or tool ong and it'll slow down our test runs. Prefer a
+    retry loop that polls our app and moves on as soon as possible
+
+  Don't rely on Selenium's implicit waits
+    Selenium does theoretically do some "implicit" waits, but the implementation
+    varies between browser,s and at the time of writing was highly unreliable in
+    the Selenium 3 Firefox driver. "Explicit is better than implicit", as the Zen
+    of Python says, so prefer explicit waits
 --------------------------------------------------------------------------------
 == Functional Tests vs Unit Tests ==
 --------------------------------------------------------------------------------
@@ -55,7 +73,7 @@ Overall TDD Process
 From Python's documentation - Unittest module basic parts
 import unittest
 
-class TestStringMethods(unittest.TestCase):     <-- Class definition 
+class TestStringMethods(unittest.TestCase):     <-- Class definition
                                                     inherits from unittest.Testcase
     def setUp(self):                            <-- Define setup code
         self.widget = Widget('The widget')
@@ -87,8 +105,8 @@ if __name__ == '__main__':
   1. Tests are organized into classes, which inherit from unittest.TestCase
   2. The main body of the test is in a method call "test_upper". Any method whose
      name starts with 'test' is a test method, and will be run by the test runner
-  3. 'setUp' and 'tearDown' are special methods which get run before and after 
-     each test. 
+  3. 'setUp' and 'tearDown' are special methods which get run before and after
+     each test.
   4. We use 'self.assertIn' is one of many help functions to make assertions
      'assertEqual', 'assertTrue', 'asertFalse' are some other common assertions
   5. self.fail just fails not mater what, producting the error message given

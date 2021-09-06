@@ -25,10 +25,10 @@ commands to grokk
 == Group and expand expressions ==
                              |
   Group commands - subshell  | ()
-                             | Grouping a (list of commands) in parentheses 
+                             | Grouping a (list of commands) in parentheses
                              | causes them to be executed as if they were a single
-                             | unit. When commands are pre grouped redirections 
-                             | can be applied to the entire command lits. for 
+                             | unit. When commands are pre grouped redirections
+                             | can be applied to the entire command lits. for
                              | example, the output of all the commands in the list
                              | can be redirected to a single stream
                              |
@@ -65,12 +65,12 @@ commands to grokk
   /var/                      | Contains varialble files, such as logs
 --------------------------------------------------------------------------------
 == Understanding the Linux ==
- Permissions Scheme          | Commands covered in is chapert are 
-                             |   id, touch, chmod, umask, chown, chgrop, sudo, 
+ Permissions Scheme          | Commands covered in is chapert are
+                             |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |   useradd, groupad, mkdir, and su
 --------------------------------------------------------------------------------
 == Advanced permissions ==
-                             | Other file attribtes include immutable undeletable, 
+                             | Other file attribtes include immutable undeletable,
                              | append only, and compress
                              |
                              | commands are:  lsattr and chattr
@@ -79,7 +79,7 @@ commands to grokk
                              | SUID = 4, SGID = 2, Sticky bit = 1
                              |      | Files                       | Directories
                              |--------------------------------------------------
-                             | SUID | Files are executed with the | does nothing 
+                             | SUID | Files are executed with the | does nothing
                              |      | permissions of the owner,   |
                              |      | regardless of which user    |
                              |      | executes it.                |
@@ -104,21 +104,21 @@ commands to grokk
                              | $(( numeric_variable + 1 ))
 --------------------------------------------------------------------------------
 == User input ==
-    Arguments and parameters | when executing a script interactively, an 
-                             | argument is any "word" entered after the name of 
+    Arguments and parameters | when executing a script interactively, an
+                             | argument is any "word" entered after the name of
                              | script. eg.
                              |   > bash ./script01.sh arg01 agr02 arg03
                              |
-                             | the parameters which are used to reference 
+                             | the parameters which are used to reference
                              | these arguments within the script are $1, $2, $3
                              | respectively
                              |
     Requesting user input    |
-      read                   | While during the execution of a script, user 
+      read                   | While during the execution of a script, user
                              | can be asked with the read command
-                             | 
-                             | read -p "text added as a prompt" var_assigned 
-                             | 
+                             |
+                             | read -p "text added as a prompt" var_assigned
+                             |
       testing for default    | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
 --------------------------------------------------------------------------------
 == Variables ==
@@ -137,7 +137,7 @@ commands to grokk
   `$?`                         | "Return" or "exit" value of the previously executed
                              | command
                              |
-  `$0`                         | Name of the commandbeing executed
+  `$0`                         | Name of the command being executed
   `$#`                         | Number of command arguments
   `$*`                         | All command arguments
   `$1, $2, ... $N`             | Value of the corresponding argument
@@ -149,18 +149,18 @@ commands to grokk
                              |
                              | test -d /tmp/temp_dr  # use to check if file is dir
                              |
-  test shorthand             | `[[ -d /tmp/temp_dir `]] # [ ] can also be used 
+  test shorthand             | `[[ -d /tmp/temp_dir `]] # [ ] can also be used
                              |
   $?                         | immediately after any command is run from bash (spawed bash)
                              | the spawed bash returns a success code for the run command
                              | to its parent bash (parent shell), assigned to the
-                             | variable "$?" this variable can be used to make 
+                             | variable "$?" this variable can be used to make
                              | decisions for error handling and such
                              |
                              | `[[ -d /tmp/temp_dir `]]
                              | `[[ $? -ne 0 `]]; then echo "the Previous command was unsuccessful"
                              |
-  $#                         | this varialbe is used to give the value of the 
+  $#                         | this varialbe is used to give the value of the
                              | number of arguments given to a script
                              |
                              | `[[ $# -ne 3 `]] || { echo "this script needs 3 arguments" }
@@ -192,13 +192,13 @@ commands to grokk
   {,n}                       | Matches a repeat of previous character n or fewer times
   {n,}                       | Matches a repeat of the previous character n or more times
   (xx|yy)                    | Alternation character, allows us to fine xx OR y in the search
-                             | pattern (great for patters with more than one character, 
+                             | pattern (great for patters with more than one character,
                              | otherwise, [xy] notion would suffice)
 --------------------------------------------------------------------------------
 == sed ==
   Search and replace         | s/ (beginning of string)
                              | sed 's/wicked/stupid/'
-                             | note: by default, sed only replace the first 
+                             | note: by default, sed only replace the first
                              | instance of each word for each line.
                              | sed does not match only on whole words, but also
                              | partial words.
@@ -258,7 +258,7 @@ Globbing and the loop        |
   Continue                   | skip current iteration of loop, continue to next
 --------------------------------------------------------------------------------
 == Using Pipes and Redirection ==
-  File descriptors           | 
+  File descriptors           |
     standard input stream    | stdin (default binding) /dev/fd/0
     standard output stream   | stdout (default )       /dev/fd/1
     standard error stream    | stderr (default)        /dev/fd/2
@@ -270,7 +270,7 @@ Globbing and the loop        |
     redirect stdout append   | >>         (1>>)
     redirect stderr overwrite| 2>
     redirect stderr append   | 2>>
-    redirect both            | (bash 3.x) 2>&1   
+    redirect both            | (bash 3.x) 2>&1
                              | (bash 4.x ~>) &>
                              |
   Special devices            |
@@ -280,14 +280,14 @@ Globbing and the loop        |
                              | /dev/urandom -> better for scripting
                              |
   Command substitution       | Evalutates a command or list of commands, its result can be used
-                             | as an argument for other commands 
+                             | as an argument for other commands
                              | $()
                              |
   Process substitution       | Evaluates a command or a list of commands, its result can be referenced
                              | as a file to for other commands
                              | <()
                              |
-  Pipes                      | Connects the standard output of one command to the standard input of 
+  Pipes                      | Connects the standard output of one command to the standard input of
                              | another
                              | |
                              |

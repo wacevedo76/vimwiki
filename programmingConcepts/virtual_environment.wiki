@@ -5,9 +5,9 @@
 --------------------------------------------------------------------------------
 venv                         | python3 -m venv <new roject>
                              | venv will create a few new directories
-                             |   bin/ - python scripts and new executalbes by other 
+                             |   bin/ - python scripts and new executalbes by other
                              |          packages
-                             |   lib/ 
+                             |   lib/
                              |   inclued/
                              |   New packages will be installed in:
                              |     <new project>/lib/pythonx.y/site-packages/
@@ -16,9 +16,9 @@ venv                         | python3 -m venv <new roject>
                              |
   Deactivate new environment | deactivate
                              |
-  requirements.txt           | virtual environments are not portable, so it is 
+  requirements.txt           | virtual environments are not portable, so it is
                              | common practice to provied a requirements file
-                             | which facilitates recreating the same environment 
+                             | which facilitates recreating the same environment
                              | within different developent environments/machines
                              | an example file would look lik this
                              |     # lines followed by hast (#) are treated as comments
@@ -31,12 +31,12 @@ venv                         | python3 -m venv <new roject>
                              |     # dependency version the relative version specifiers
                              |     # are acceptable too
                              |     falcon>=0.3.0,<0.5.0
-                             |    
+                             |
                              |     # packages withoutversion should be avoided unless
                              |     # latest release is always requred/desired
                              |     pytz
                              |
-  Installing enviornment     | pip install -r requirements.txt 
+  Installing enviornment     | pip install -r requirements.txt
   with pip                   |
                              |
   list packages/modules      | pip list
@@ -70,7 +70,7 @@ venv                         | python3 -m venv <new roject>
   installed in the package   |
 --------------------------------------------------------------------------------
 == virtualenvwrapper ==
-  Install virtualenvwrapper  | A virtual env wrapper; Store all project dependencies 
+  Install virtualenvwrapper  | A virtual env wrapper; Store all project dependencies
                              | in one location and activate the environment anywhere using
                              | workon <name of project>
                              |
@@ -84,4 +84,20 @@ venv                         | python3 -m venv <new roject>
   Initialize new project     | mkvirtualenv --python=python3.9 <name of project>
                              |
   activate project           | workon <name of project>
+                             |
+--------------------------------------------------------------------------------
+== pipenv ==
+  Install pipenv             |  pip install pipenv
+    (when installed it takes |
+    the name of the parent   |
+    directory as its virtenv |
+    environment name)        |
+                             |
+  Start the virtual env      |  pipenv shell
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |

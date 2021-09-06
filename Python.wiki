@@ -13,18 +13,20 @@
 === Dictionary Methods ===
   [[programmingConcepts/hash-dict]]
 --------------------------------------------------------------------------------
-=== Bult-in Function === 
+=== Bult-in Function ===
   [[programmingConcepts/Modules]]
 --------------------------------------------------------------------------------
 === exception handling ===
   [[programmingConcepts/Error_handling]]
 --------------------------------------------------------------------------------
+== Setting up your environment ==
+--------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
- pathlib Module                                         
+ pathlib Module
                              | returns a Path object
                              |
-                             | the path module is primarily used to form paths 
+                             | the path module is primarily used to form paths
                              | that translate between windows and linux file systems
                              |
   Createing paths            | from pathlib import Path
@@ -52,9 +54,9 @@ Modules: pathlib, os
                              | PathObject.name
                              | PathObject.stem
                              | PathObject.suffix
-                             | 
-  Get                        | 
-                             | 
+                             |
+  Get                        |
+                             |
 os Module                    | returns a string
                              |
   Change working directory   | import os
@@ -69,7 +71,7 @@ os Module                    | returns a string
                              |
   is the path Absolute?      | os.path.isabs(<path>)
                              |
-  will return the relative   | os.path.relpath(<path>,<start>) 
+  will return the relative   | os.path.relpath(<path>,<start>)
   path                       |
                              |
   Opening files              | fileHandler = open(<path to file>) --> default (read mode)
@@ -84,7 +86,7 @@ os Module                    | returns a string
                              |
     Returns a list of strings| fileContent = fileHandler.readlines()
                              |
-  Writing to files           | 
+  Writing to files           |
     the fileHandler must've  | fileHandler.write(<text content)
     already been opened in   |
     write or append mode     |
