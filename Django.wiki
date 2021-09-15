@@ -135,7 +135,7 @@
                              |
                              |
                              |
-                             |
+
                              |
                              |
   any app dir may have a     | return render(request, <html template>, 'context', MAPPING)
@@ -163,6 +163,59 @@
                              | in the utls.py url definition - Name
                              |   i.e.  {% url '<name>' <any variable data> %}
                              |         {% url 'project' project.id %}
+--------------------------------------------------------------------------------
+== Queries ==
+  you must import a model    | fomr .models import ModelName
+  before making queries      |
+                             |
+  standard query             | respons_variable = ModelName.ModelObjectsAttribute.Method()
+                             | i.e.    queryset = Project.objects.all()
+  other methods              | get one object based on attr      .get()
+                             | filter based on criteria          .filter()
+                             | exclude based on criteria         .exclude()
+                             |
+  all() - Retrives all objs  | queryset = ModelName.objects.all()
+                             |
+  get() - Retrives a single  | queryItem = ModelName.objects.get(attribute='value')
+    obj base on matched attr |
+                             |
+  Filter() - Returns all     | queryset = ModelName.object.filter(attribute='value')
+    itmes from table that ma |                            .filter(attribute__startswith='value')
+                             |                            .filter(attribute__contains='value')
+                             |                            .filter(attribute__icontains='value')
+                             |                            .filter(attribute__gt='value')
+                             |                            .filter(attribute__gte='value')
+                             |                            .filter(attribute__lt='value')
+                             |                            .filter(attribute__lte='value')
+                             |
+  exclute() - Excludes any   | queryset = ModelName.object.exclude(attribute='value')
+                             |
+  order_by - Order a queryset| queryset = ModelName.object.filter(attribute='value').order_by('value1', 'value2')
+                             |
+                             |
+  reverse order by           | queryset = ModelName.object.filter(attribute='value').order_by('-value', '-value2')
+                             |
+  create() - Create an inst- | item = ModelName.objects.create(attribute='value')
+    ance of a model          |
+                             |
+  save() - Save changes made | item = ModelName.objects.get(attribute='value')
+    to a particular object   | item.title = "New Value"
+                             | item.save()
+                             |
+  delete() - Deletes a       | item = ModelName.objects.last()
+    particular item          | item.delete
+                             |
+  Query Models Children      | item = ModelName.object.first()
+                             | item.childmodel_set.all()
+                             |
+  Query ManyToMany Fields    | item = ModelName.object.first()
+                             | item.relationshipname.all()
+                             |
+  Add ManyToMany Field       | item = ModelName.object.first()
+                             | otheritem = OtherModule.ojects.create(attribute='value')
+                             | item.relationshipname.add(otheritem)
+                             |
+                             |
                              |
                              |
                              |
