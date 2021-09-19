@@ -21,6 +21,9 @@
                              |
                              |
 --------------------------------------------------------------------------------
+== Commonly used packages ==
+pillow - Image processor
+--------------------------------------------------------------------------------
 == settings.py ==
 * settings.py is the main configuration file for the entire Django project
 * THEORY: the way files and functions are referenced here are by "dot notation"
