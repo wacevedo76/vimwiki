@@ -56,3 +56,4 @@ __        ___ _ _ _                      __     ___                   _ _    _
 
 == Misc ==
   * [[Quotes]]
+  * [[bujo|Bullet Journal]]
