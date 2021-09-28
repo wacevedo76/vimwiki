@@ -43,10 +43,10 @@
     by creating a test database, which it wipes clean in between each test.
 
   Avoid "voodoo" sleeps
-    Whenever we need to wait for something to lad, it's always tempting to throw
+    Whenever we need to wait for something to load, it's always tempting to throw
     in a quick-and-dirty time.sleep. But the problem is that the length of time we
     wait is always a bit of a shot in the dark, either too short and vulnerable to
-    spurious failures, or tool ong and it'll slow down our test runs. Prefer a
+    spurious failures, or too long and it'll slow down our test runs. Prefer a
     retry loop that polls our app and moves on as soon as possible
 
   Don't rely on Selenium's implicit waits
@@ -101,7 +101,7 @@ class TestStringMethods(unittest.TestCase):     <-- Class definition
 if __name__ == '__main__':
     unittest.main()
 --------------------------------------------------------------------------------
-=== Test Fixtures ===
+=== Python Test Fixtures ===
 import unittest
 
 def setUpModule():
@@ -170,11 +170,11 @@ FAIL: test_case02 (__main__.TestClass06)
      name starts with 'test' is a test method, and will be run by the test runner
   3. 'setUp' and 'tearDown' are special methods which get run before and after
      each test.
-  4. We use 'self.assertIn' is one of many help functions to make assertions
+  4. 'self.assertIn' is one of many help functions to make assertions.
      'assertEqual', 'assertTrue', 'asertFalse' are some other common assertions
-  5. self.fail just fails not mater what, producting the error message given
+  5. self.fail just fails no mater what, producting the error message given
   6. if __name__ == '__main__' clause -> used to check if the script has been
      executed or just imported by another script. When unittest.main() is called
      it launches the unittest test runner, which automatically finds test classes
-     and methods in the file  and runs them.
+     and methods in the file and runs them.
 --------------------------------------------------------------------------------

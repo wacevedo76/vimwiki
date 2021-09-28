@@ -5,7 +5,7 @@ Working with vim on windows
 -- interact with system clipboard
     set clipboard+=unnamedplus
 --------------------------------------------------------------------------------
-Various tips
+== Various tips ==
   ga                         | find the ASCI number for the character on cursor
   g<                         | redisplay previous command output
   g#                         | repeat previous replace command
@@ -16,7 +16,7 @@ Various tips
   gqq                        | format the entire document
   gq(number)(movement)       |
                              |
-  gu                         | uncapitalize 
+  gu                         | uncapitalize
   gU                         | capitalize
                              |
   gf                         | while on text object, if file, go to file
@@ -27,7 +27,38 @@ Various tips
   J                          | join lines (with spaces)
   gJ                         | join lines (without spaces)
 --------------------------------------------------------------------------------
-
+== Useful movements ==
+  Normal-Mode
+    Scroll buffer one line at| Normal-mode  <C-e> / <C-y>
+                             |
+  Insert-Mode                |
+    Command prefix when in   | <C-x>
+    Insert-mode              |
+                             |
+    a time                   | Insert-mode  <C-x> <C-e> / <C-x> <C-y>
+                             |
+    Complete filepath under  | Insert-mode <C-x> <C-f>
+    the cursor               |
+                             |
+    Complete with the        | <C-x> <C-v>
+    command line history     |
+                             |
+  Command-Line-Mode          |
+    Command prefix when in   | <C-r>
+    Command-Line-Mode        |
+                             |
+    Copy the filename under  | <C-r> <C-f>
+    the buffer's cursor      |
+                             |
+    Copy the word under the  | <C-r> <C-w>
+    buffer's cursor          |
+                             |
+    Copy the line under the  | <C-r> <C-l>
+    buffer's cursor          |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
 == Commonly used Commands ==
    Resize split height       |
      Incr/decr by 1          | <c-w>+ / <c-w>-
@@ -75,28 +106,28 @@ Various tips
   autocommand that does not  | :augroup testgroup
   duplicate                  | :    autocmd!          <--- negates the autocommand
                              | :    autocmd BuffWrite * :echom "Cats"
-    (:h autocmd-groups)      | :augroup END 
+    (:h autocmd-groups)      | :augroup END
 --------------------------------------------------------------------------------
 == Operator-Pending Mappings ==
-                             | An operator is a command that waits for you to 
+                             | An operator is a command that waits for you to
                              | enter a movement command:
-                             | 
-                             | Keys  Operator  Movemnt 
+                             |
+                             | Keys  Operator  Movemnt
                              | ----  --------  ------------
                              | dw    Delete    to next word
-                             | ci(   Change    Inside parens 
+                             | ci(   Change    Inside parens
                              | yt,   Yank      until comma
-                             | 
-  Moement mappings           | 
+                             |
+  Moement mappings           |
     :onoremap                | :onoremap p i(
     (Operator non recursive  |   :normal -> dp    ---> deletes all within ()
     mapping)                 |   :normal -> cp    ---> changes all within ()
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             | 
-                             
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+
