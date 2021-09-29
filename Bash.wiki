@@ -21,6 +21,9 @@ commands to grokk
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
                              |
+  cut                        | cut --delimiter=" " --fields=1
+                             |
+                             |
 --------------------------------------------------------------------------------
 == Group and expand expressions ==
                              |

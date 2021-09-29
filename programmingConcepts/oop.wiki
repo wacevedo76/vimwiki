@@ -1,6 +1,30 @@
 --------------------------------------------------------------------------------
 = Object Oriented Programming =
 --------------------------------------------------------------------------------
+== Terms ==
+  Object-oriented Analysis   | The process of looking at a proble, system, or task
+                             | and identifying the objects and interactions
+                             | between those objects. The analysis stage is all
+                             | about what needs to be done
+                             | Analysis Stage -> requierments (description of system)
+                             |
+  Object-oriented Design     | The process of converting such requirements into
+                             | an implementation specification
+                             | the designer:
+                             |     names the objects
+                             |     defines the behaviors on other objects
+                             | The design stage is all about tranforming what should
+                             | be done into how is should be done
+                             |
+                             | Design Stage -> implementation specification
+                             |
+  Object-oriented programming| The proces of converting a design into a working
+                             | program that does what the procuct owner originally
+                             | requested
+                             |
+  An Object                  | A collection of data with associated behaviors
+                             |
+--------------------------------------------------------------------------------
 == OOP in Python ==
                              | class Employee(inherited-class):   <- Class definition with inherited class
                              |    def __init__(self, name, age):  <- Constructor / initializer method definition
