@@ -39,7 +39,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[emacs]]
   * [[sed]]
   * [[Tmux|tmux]]
-  * [[docker]]
+  * [[Docker]]
   * [[selenium]]
 
 == Systems ==
