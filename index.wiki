@@ -35,7 +35,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[linuxGeneralConcepts/fhs|File System Hierarchy]]
 
 == Tooling ==
-  * [[vim]]
+  * [[Vim]]
   * [[emacs]]
   * [[sed]]
   * [[Tmux|tmux]]

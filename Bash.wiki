@@ -17,6 +17,32 @@ supper commands
   exit terminal but leave    | disown -a && exit
   all processes running      |
 --------------------------------------------------------------------------------
+== Variables ==
+  set                        | Displays all shell variables and function
+                             |
+  env                        | Displays only environment variables
+                             | (i.e. variables with -x attribute set)
+                             |
+  $$ or ${...}                 | Reference a value stored in a variable
+                             |
+  `...`  or $(...)             | Execute command(s) and return the output as input
+                             | for another command
+  `$((...))` or `$[...]`         | Perform an Arithmetic operation on the contents of
+                             | variables and retun its results
+                             |
+  `$?`                         | "Return" or "exit" value of the previously executed
+                             | command
+                             |
+  `$0`                         | Name of the command being executed
+  `$#`                         | Number of command arguments
+  `$*`                         | All command arguments
+  `$1, $2, ... $N`             | Value of the corresponding argument
+  `$$`                         | Process ID of the current shell
+                             |
+Interactively (from cli)     |
+  !:0, !:1, !:2, etc         | returns portions of the previous command
+                             |
+--------------------------------------------------------------------------------
 commands to grokk
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
@@ -107,7 +133,7 @@ commands to grokk
                              | $(( numeric_variable + 1 ))
 --------------------------------------------------------------------------------
 == User input ==
-    Arguments and parameters | when executing a script interactively, an
+  Arguments and parameters   | when executing a script interactively, an
                              | argument is any "word" entered after the name of
                              | script. eg.
                              |   > bash ./script01.sh arg01 agr02 arg03
@@ -116,35 +142,16 @@ commands to grokk
                              | these arguments within the script are $1, $2, $3
                              | respectively
                              |
-    Requesting user input    |
-      read                   | While during the execution of a script, user
+  Requesting user input      | read
+  read                       | While during the execution of a script, user
                              | can be asked with the read command
                              |
                              | read -p "text added as a prompt" var_assigned
                              |
-      testing for default    | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
---------------------------------------------------------------------------------
-== Variables ==
-  set                        | Displays all shell variables and function
+  defaule variable set with| $REPLY
+  read                       |
                              |
-  env                        | Displays only environment variables
-                             | (i.e. variables with -x attribute set)
-                             |
-  $$ or ${...}                 | Reference a value stored in a variable
-                             |
-  `...`  or $(...)             | Execute command(s) and return the output as input
-                             | for another command
-  `$((...))` or `$[...]`         | Perform an Arithmetic operation on the contents of
-                             | variables and retun its results
-                             |
-  `$?`                         | "Return" or "exit" value of the previously executed
-                             | command
-                             |
-  `$0`                         | Name of the command being executed
-  `$#`                         | Number of command arguments
-  `$*`                         | All command arguments
-  `$1, $2, ... $N`             | Value of the corresponding argument
-  `$$`                         | Process ID of the current shell
+  testing for default        | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
 --------------------------------------------------------------------------------
 == tests and return values ==
   test                       | the test command is used to check file types and

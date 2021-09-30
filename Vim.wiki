@@ -35,7 +35,8 @@ Working with vim on windows
     Command prefix when in   | <C-x>
     Insert-mode              |
                              |
-    a time                   | Insert-mode  <C-x> <C-e> / <C-x> <C-y>
+    Scroll buffer one line   | Insert-mode  <C-x> <C-e> / <C-x> <C-y>
+    at a time (insert-mode)  |
                              |
     Complete filepath under  | Insert-mode <C-x> <C-f>
     the cursor               |
@@ -71,14 +72,14 @@ Working with vim on windows
   Buffer-Local Abbreviations | :iabbrev <buffer> --- %mdash;
 --------------------------------------------------------------------------------
 == Autocommands ==
-    Autocommand structure    | :autocmd BufNewFile * :write
-                             |          ^          ^ ^
-                             |          |          | |
-                             |          |          | The command to run
-                             |          |          |
-                             |          |          A "pattern" to filter the event
-                             |          |
-                             |          The "event" to watch for
+    Autocommand structure    |` :autocmd BufNewFile * :write`
+                             |`          ^          ^ ^`
+                             | `         |          | |`
+                             |`          |          | The command to run`
+                             | `         |          |`
+                             |`          |          A "pattern" to filter the event`
+                             | `         |`
+                             |`          The "event" to watch for`
                              |
     Bind single autocmd to   |
     multiple events          | :autocmd BufWritePre,BufRead *.html :normal gg=G
@@ -123,11 +124,3 @@ Working with vim on windows
     (Operator non recursive  |   :normal -> dp    ---> deletes all within ()
     mapping)                 |   :normal -> cp    ---> changes all within ()
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-
