@@ -4,12 +4,12 @@
 == Wired and Wireless Network Topologies ==
 --------------------------------------------------------------------------------
 === Topology ===
-  Topology                   | Physical: The actual layout of the computer 
+  Topology                   | Physical: The actual layout of the computer
                              |   cables and other network devices
-                             | Logical: The way in which the network appears 
+                             | Logical: The way in which the network appears
                              |   to the devices that use it
                              |
-                             | Common topologies 
+                             | Common topologies
                              |   * Bus
                              |   * Ring
                              |   * Star
@@ -17,13 +17,13 @@
                              |   * Wireless
                              |
   ==== Bus ====
-                             | * Uses a trunk or backbone to connect all the 
+                             | * Uses a trunk or backbone to connect all the
                              |   computers on the network
-                             | * Systems connect to this backbone using T 
+                             | * Systems connect to this backbone using T
                              |   connectors or taps (vampire tap)
-                             | * To avoid signal reflection, a physical bus 
+                             | * To avoid signal reflection, a physical bus
                              |   topology requires that each end of the physical
-                             |   bus be terminated, with on end also being 
+                             |   bus be terminated, with on end also being
                              |   grounded.
                              | * A hub or switch is not needed in this installation
 --------------------------------------------------------------------------------
@@ -31,8 +31,8 @@
   compared to other topologies, a bus  |  Network disruption might occure when
   is cheap and easy to implement.      |  added or removed
                                        |
-  Requires less cable than other       | Because all systems on the network 
-  topologies                           | connect to a single backbone, a break 
+  Requires less cable than other       | Because all systems on the network
+  topologies                           | connect to a single backbone, a break
                                        | in the cable prevents all systems from
                                        | accessing the network.
                                        |
@@ -40,7 +40,7 @@
   network equipment.                   |
 --------------------------------------------------------------------------------
 ==== Ring ====
-                             | * Logical ring; The data travels in a circular 
+                             | * Logical ring; The data travels in a circular
                              |   form from one computer to another on the network.
                              |   (It is not a physical ring topology)
                              | * A Hub or Switch is not needed
@@ -48,7 +48,7 @@
      (Multistation access    |   In a token ring network, a multistation access unit
         Unit - MSAU)         |   (MSAU) is equivalent to a hub / switch.
                              | * To create a complet ring, the Ring-in port (RI)
-                             |   on each MSAU is connecte to the the rign-out 
+                             |   on each MSAU is connecte to the the rign-out
                              |   (RO) port on another MSAU. The last MSAU in the
                              |   ring is then connected to the first to complete
                              |   the ring.
@@ -64,48 +64,7 @@
                              | * All computers and other network devices connect
                              |   to a central device called a hub or a switch
 --------------------------------------------------------------------------------
-=== OSI / TCP models ===
-
-  `|--------------|-----------------------|----------------|----------|`
-  `| application  |                       |                |          |`
-  `| -------------| DHCP, DNS, FTP, HTTP, |                |          |`
-  `| presentation | POP, SMTP, SSH, etc.. | Application    | Data     |`
-  `| -------------|                       |                |          |`
-  `| sessions     |                       |                |          |`
-  `|--------------|-----------------------|----------------|----------|`
-  `|              |                       |                |          |`
-  `| transport    | TCP               UDP | Transport      | Segments |`
-  `|--------------|-----------------------|----------------|----------|`
-  `|              |ICMP, IGMP             |                |          |`
-  `| Network      |IP Add: IPv4, IPv6     | Internet       | Packets  |`
-  `| -------------|-------------------ARP-|----------------|----------|`
-  `| Data Link    |MAC Address            |                | Frames   |`
-  `| -------------|                       | Network Access | &        |`
-  `| Physical     |Ethernet, fiber, wifi  |                | Bits     |`
-  `| _____________|_______________________|________________|__________|`
-
-=== The encapsulated structure of a TCP/IP packet ===
-
-  `|----------------------------------|`
-  `|      layer 2 information         |`
-  `|      (MAC address)               |`
-  `|  |----------------------------|  |`
-  `|  |     Layer 3 information    |  |`
-  `|  |     (IP address            |  |`
-  `|  |   |---------------------|  |  |`
-  `|  |   |    TCP header       |  |  |`
-  `| F| D |---------------------|  |  |`
-  `| r| t | S                   |  |  |`
-  `| a| a | e      Data         |  |  |`
-  `| m| g | g                   |  |  |`
-  `| e| r | m                   |  |  |`
-  `|  | a | e                   |  |  |`
-  `|  | m | n                   |  |  |`
-  `|  |   | t                   |  |  |`
-  `|  |   |_____________________|  |  |`
-  `|  |____________________________|  |`
-  `|__________________________________|`
-
+[[networking/osi|OSI Model]]
 -------------------------------------------------------------------------------
 == [[Subnetting]] ==
 

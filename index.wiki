@@ -38,7 +38,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
   * [[sed]]
   * [[Tmux|tmux]]
   * [[Docker]]
-  * [[selenium]]
+  * [[Selenium]]
 
 == Systems ==
   * [[snmp]]
