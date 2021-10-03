@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
 = Subnetting =
 --------------------------------------------------------------------------------
-  == Overview ==
+== Overview ==
                              | With an ip address, you should be able to derive:
                              |   - Subnet Address
                              |   - 1st Host
-                             | 
+                             |
 --------------------------------------------------------------------------------
-  == Class A Address ==
+== Class A Address ==
                              | * Uses only the first octet to identify the netwok
                              |   number, the remaining three for the host
                              |   Network.Host.Host.Host
@@ -25,11 +25,11 @@
                              |   Octet 1  Octet 2  Octet 3  Octet 4
                              |   Network  Host     Host     Host
                              |   00000001.xxxxxxxx.xxxxxxxx.xxxxxxxx
-                             | 
+                             |
                              | The last network number is 127, which cannot be
                              | used because it is resered for troubleshooting
                              | * 127.0.0.1 is used to ping the host computer
-                             | (loopback) 
+                             | (loopback)
                              |             127.     0.       0.      1
                              |             01111111.00000000.00000000.00000001
                              |
@@ -42,7 +42,7 @@
                              |  Broadcast: 10.      255.     255.          255
                              |             00001010.11111111.11111111.11111111
                              |
-  == Class B Address ==
+== Class B Address ==
                              | * begin at 128
                              | * must have the first to binary values in the first
                              |   octet 1 and 0
@@ -53,7 +53,7 @@
                              |
                              |             00000000.00000000.00000000.00000000
                              |
-  == Class C Address ==
+== Class C Address ==
                              | * The first network number is 192
                              |             192
                              |             11000000.00000000.00000000.00000000
@@ -72,18 +72,15 @@
     Rules
     To get the Network/Subnet Address
       - fill the host portion of an address with binary 0's
-    To get the broadcast Addess
+    To get the broadcast Address
       - Fil the host portion of an address with binary 1's
     To get the First Host
-      - Fill the host portion of an address with binray 0's except for the last 
+      - Fill the host portion of an address with binray 0's except for the last
         bit
     To get the Last Host
-      - Fill th host portion of an address with binary 1's except for the last 
+      - Fill th host portion of an address with binary 1's except for the last
         bit which is set to binray 0
 --------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
-
   == Cheat Sheet making instructions ==
     * Line 1: from right to left start by one and double eeach number till you
       reach 128
