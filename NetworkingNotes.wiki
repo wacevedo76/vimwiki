@@ -64,9 +64,6 @@
                              | * All computers and other network devices connect
                              |   to a central device called a hub or a switch
 --------------------------------------------------------------------------------
-[[networking/osi|OSI Model]]
+== [[networking/osi|OSI Model]] ==
 -------------------------------------------------------------------------------
 == [[Subnetting]] ==
-
-
-/home/a809593/code/wacevedo76/vimwiki

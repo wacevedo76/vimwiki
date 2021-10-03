@@ -34,7 +34,7 @@ __        ___ _ _ _                      __     ___                   _ _    _
 
 == Tooling ==
   * [[Vim]]
-  * [[emacs]]
+  * [[Emacs]]
   * [[sed]]
   * [[Tmux|tmux]]
   * [[Docker]]

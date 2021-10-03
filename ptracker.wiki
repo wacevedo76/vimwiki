@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 Progress Tracker
 --------------------------------------------------------------------------------
-[[MasteringPythonNetworking|Mastering Python Networking]]
-                             |
+[[MasteringPythonNetworking|Mastering Python Networking]] - 5%
+ Left off at                 | Chapter 1:The Internet Protocol
 
