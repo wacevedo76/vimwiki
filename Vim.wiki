@@ -57,8 +57,6 @@ Working with vim on windows
     Copy the line under the  | <C-r> <C-l>
     buffer's cursor          |
                              |
-                             |
-                             |
 --------------------------------------------------------------------------------
 == Commonly used Commands ==
    Resize split height       |

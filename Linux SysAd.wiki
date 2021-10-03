@@ -6,3 +6,4 @@ Linux Sys Admin and Certification Training
 * [[Linux +]]
 * [[SUSE Linux Enterprise Servier 15]]
 * [[RHCSA]]
+* [[linuxbootcamp|Linux Bootcamp]]
