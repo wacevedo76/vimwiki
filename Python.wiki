@@ -1,27 +1,28 @@
 --------------------------------------------------------------------------------
-= Python notes =
+Python notes
 --------------------------------------------------------------------------------
-== Notes from Automate the Boring Stuff ==
-  * [[AtBS]]
+Books
+[[MasteringPythonNetworking|Mastering Python Networking]]
+[[AtBS|Automate the Boring Stuff]]
 --------------------------------------------------------------------------------
-=== String Methods ===
+= String Methods =
   [[programmingConcepts/strings]]
 --------------------------------------------------------------------------------
-=== List functions ===
+= List functions =
   [[programmingConcepts/lists]]
 --------------------------------------------------------------------------------
-=== Dictionary Methods ===
+= Dictionary Methods =
   [[programmingConcepts/hash-dict]]
 --------------------------------------------------------------------------------
-=== Bult-in Function ===
+= Bult-in Function =
   [[programmingConcepts/Modules]]
 --------------------------------------------------------------------------------
-=== exception handling ===
+= exception handling =
   [[programmingConcepts/Error_handling]]
 --------------------------------------------------------------------------------
-== Setting up your environment ==
+Setting up your environment
 --------------------------------------------------------------------------------
-=== Reading and Writing files ===
+= Reading and Writing files =
 Modules: pathlib, os
  pathlib Module
                              | returns a Path object
@@ -99,7 +100,7 @@ os Module                    | returns a string
                              |
                              |
 --------------------------------------------------------------------------------
-== Working with Excel Spreadsheets ==
+= Working with Excel Spreadsheets =
 --------------------------------------------------------------------------------
   needed 3rd party module    | openpyxl
                              |
@@ -121,7 +122,7 @@ os Module                    | returns a string
     or                       |
     not                      |
 --------------------------------------------------------------------------------
-== General Notes ==
+= General Notes =
 --------------------------------------------------------------------------------
   ord()                      | returns the numerical value of a letter
                              | ord('a') --> 97
@@ -129,9 +130,9 @@ os Module                    | returns a string
   chr()                      | returns the letter value of a number
                              | char(97) --> 'a'
 --------------------------------------------------------------------------------
-=== General Class construction ===
+= General Class construction =
   [[programmingConcepts/oop]]
 --------------------------------------------------------------------------------
-=== Creating a new virtual environment ===
+= Creating a new virtual environment =
   [[programmingConcepts/virtual_environment]]
                              |
