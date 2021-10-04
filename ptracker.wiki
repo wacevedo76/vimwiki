@@ -1,6 +1,5 @@
 --------------------------------------------------------------------------------
 Progress Tracker
 --------------------------------------------------------------------------------
-[[MasteringPythonNetworking|Mastering Python Networking]] - 5%
- Left off at                 | Chapter 1:The Internet Protocol
-
+Python Programming Blueprints                                      completed: 6%
+  left off: Fetching data from the weather website
