@@ -18,6 +18,23 @@ These can be categorized in three basic groups:
 ** Files systems which are virtual; they are created automatically at system
    startup and destroyed when the system goes down.
 
+--------------------------------------------------------------------------------
+File System overview
+  /root               Superuser's home directory
+  /boot               Kernel image
+  /etc                System configuration files
+  /mnt                Beneral Purpose mount point
+  /proc               View of internal kernal data
+  /sys                Kernel's view of the hardware
+  /dev                Special device files
+  /bin                Binaries
+  /sbin               Binaries
+  /lib                Libraries
+  /usr                More binaries
+  /usr/bin
+  /usr/lib
+
+
 === The Root File System (/), Disk-Based ===
 Contains:
 * /etc: The etcetera (or extended text configuration) directory holds system

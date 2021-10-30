@@ -34,8 +34,8 @@
 --------------------------------------------------------------------------------
   == Queue ==
   === Standard Queue operations ===
-  [[Queue]] implemented as a Python array
-  [[Queue2]] implemented as a linked list in Python
+  [[dataStructuresandAlgorithms/Queue|Queue]] implemented as a Python array
+  [[dataStructuresandAlgorithms/Queue2|Queue2]] implemented as a linked list in Python
   - Create Queue
   - Enqueue
   - Dequeue
@@ -47,7 +47,7 @@
 --------------------------------------------------------------------------------
   == Trees ==
   === Tree Terminology ===
-  Here is an example of a [[Tree]] node in python
+  Here is an example of a [[dataStructuresandAlgorithms/Tree|Tree]] node in python
   Root                       | Top node without parent
   Edge                       | A link between parent and child
   Leaf                       | A node which does not have children
@@ -59,7 +59,7 @@
   Height of tree             | Height of root node
 --------------------------------------------------------------------------------
   === Types of trees ===
-  Here is an example of a [[Binary Tree]] as a python list
+  Here is an example of a [[dataStructuresandAlgorithms/Binary_Tree|Binary Tree]] as a python list
 
   * Full Binary Tree         | A tree whose nodes have 0 or two children.
   * Perfect Binary Tree      | A tree where all non Leaf nodes have two.
@@ -76,7 +76,7 @@
   * Deletion of a node
   * Travers all nodes
   * Deletion of tree
-  Here is an example of A [[Binary Tree Node]] in Python utilizing linked list pattern
+  Here is an example of A [[dataStructuresandAlgorithms/Binary_Tree_Node|Binary Tree Node]] in Python utilizing linked list pattern
 --------------------------------------------------------------------------------
   === Traversal of Binary Tree ===
   Depth first search
@@ -85,19 +85,5 @@
   -  Post order traversal
   Breadth first seach
   - Level order traversal
-  Here is a list and description of [[Traversals]]
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  Here is a list and description of [[dataStructuresandAlgorithms/Traversals|Traversals]]
                              |

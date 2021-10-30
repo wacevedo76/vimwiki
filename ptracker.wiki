@@ -3,3 +3,6 @@ Progress Tracker
 --------------------------------------------------------------------------------
 Python Programming Blueprints                                      completed: 6%
   left off: Fetching data from the weather website
+
+Python Object-Orented Programming                                  completed: 3%
+  Left off: Chapter 1 - Object-Oriented Design: Behaviors are actions
