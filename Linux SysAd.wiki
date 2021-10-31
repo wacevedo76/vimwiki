@@ -7,3 +7,4 @@ Linux Sys Admin and Certification Training
 * [[SUSE Linux Enterprise Servier 15]]
 * [[RHCSA]]
 * [[linuxbootcamp|Linux Bootcamp]]
+* [[linuxGeneralConcepts/commonCommands|Common Commands]]

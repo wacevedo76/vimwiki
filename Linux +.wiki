@@ -19,6 +19,7 @@
   Moddifying users           | usermod
                              |    -c add comment
                              |    -l change login name
+                             |    -a append user to group (only use with -G flag)
                              |
   set or change exp date     | chage [options] LOGIN
   on user password           |    -l displays current password settings
@@ -105,10 +106,10 @@ Using vi/vim to Edit files
   location of module files   |
   on myny Linux files sys    | /etc/modprobe.d/
                              |
-  list parameters being      | sysctl -a 
+  list parameters being      | sysctl -a
   passed to the kernel       |
                              |
-Describing the boot process 
+Describing the boot process
             `-----------------------------------`
             `|            Bios UEFI             |`
             `-----------------------------------`

@@ -24,3 +24,9 @@ Text Processing
   grep                       | -A5 (5 lines after) -B5 (5 lines before)
                              | -R (Recursive)
                              |
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  lid (redhad)               | -g <group name> - list all users in a group
+                             [[|]]
+
