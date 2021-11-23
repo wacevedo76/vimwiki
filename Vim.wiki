@@ -5,6 +5,10 @@ Working with vim on windows
 -- interact with system clipboard
     set clipboard+=unnamedplus
 --------------------------------------------------------------------------------
+== Useful help pages ==
+key-notation                 |
+                             |
+--------------------------------------------------------------------------------
 == Various tips ==
   ga                         | find the ASCI number for the character on cursor
   g<                         | redisplay previous command output
@@ -56,6 +60,12 @@ Working with vim on windows
                              |
     Copy the line under the  | <C-r> <C-l>
     buffer's cursor          |
+                             |
+--------------------------------------------------------------------------------
+== Useful settings ==
+textwidth                    | set width of line
+  gq                         | reformat line based on textwidth
+                             |
                              |
 --------------------------------------------------------------------------------
 == Commonly used Commands ==

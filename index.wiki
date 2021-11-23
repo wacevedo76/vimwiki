@@ -12,6 +12,7 @@
   * [[Awk]]
   * [[c]]
   * [[Go]]
+  * [[Ruby]]
 
 == Frameworks ==
   * [[Django]]
@@ -39,12 +40,14 @@
   * [[Tmux|tmux]]
   * [[Docker]]
   * [[Selenium]]
+  * [[Nagios|Nagios Core]]
 
 == Systems ==
   * [[snmp]]
 
 == Administration ==
   * [[Linux SysAd]]
+  * [[Windows]]
 
 == Networking ==
   * [[Networking]]
