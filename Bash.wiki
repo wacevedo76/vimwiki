@@ -3,6 +3,13 @@
 --------------------------------------------------------------------------------
 Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 --------------------------------------------------------------------------------
+Interesting commands (move to appropriate sections when comfortable)
+  return name of parent dir  | `(basename $(dirname $$PWD)`
+                             |
+  run a command periodically | watch
+  to watch changes           |
+                             |
+--------------------------------------------------------------------------------
 supper commands
   Open an editor to run a    | ctrl+x+e
   a command                  |
