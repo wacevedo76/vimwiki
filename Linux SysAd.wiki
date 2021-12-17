@@ -1,10 +1,12 @@
 --------------------------------------------------------------------------------
 Linux Sys Admin and Certification Training
 --------------------------------------------------------------------------------
-* [[arch_linux|Arch Linux Commands]]
+* [[arch_linux|Arch Linux Commands]
+* [[debian_linux|Debina Linux common settings]]
 * [[Atos Linux Administration]]
 * [[Linux +]]
 * [[SUSE Linux Enterprise Servier 15]]
 * [[RHCSA]]
 * [[linuxbootcamp|Linux Bootcamp]]
 * [[linuxGeneralConcepts/commonCommands|Common Commands]]
+*

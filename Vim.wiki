@@ -10,6 +10,7 @@ key-notation                 |
                              |
 --------------------------------------------------------------------------------
 == Various tips ==
+  move to specific position  | 30|
   ga                         | find the ASCI number for the character on cursor
   g<                         | redisplay previous command output
   g#                         | repeat previous replace command
