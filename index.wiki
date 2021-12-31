@@ -44,6 +44,7 @@
 
 == Systems ==
   * [[snmp]]
+  * [[proxmox]]
 
 == Administration ==
   * [[Linux SysAd]]
@@ -56,5 +57,6 @@
   * [[Data Structures and algorithms]]
 
 == Misc ==
+  * DevOps
   * [[Quotes]]
   * [[bujo|Bullet Journal]]
