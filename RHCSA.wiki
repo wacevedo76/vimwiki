@@ -14,14 +14,53 @@
 [[certs/rhcsa/installation-virtual-console-screens|Virtual Console Screens]]
 
 [[certs/rhcsa/review-questions|Review Questions]]
+--------------------------------------------------------------------------------
+** Man
+Manpage types                | 1   Executable programs or shell commands
+                             | 2   System calls (functions provided by the kernel)
+                             | 3   Library calls (functions within program libraries)
+                             | 4   Special files (usually found in /dev)
+                             | 5   File formats and conventions, e.g. /etc/passwd
+                             | 6   Games
+                             | 7   Miscellaneous (including  macro  packages  and  conventions),  e.g. man(7), groff(7)
+                             | 8   System administration commands (usually only for root)
+                             | 9   Kernel routines [Non standard]
+                             |
+search mandb based on keyword| man -k | apropos
+rebuild mandb                | mandb
                              |
 --------------------------------------------------------------------------------
+** Finding Files
+Search for binaries in PATH  | which
+Search from local db         | locate -> updatedb
+General search               | find
+                             | find / -name fstab  -> search by name (can use globbing)
+                             | find / -type f -size +100M -> search all files larger than 100M
+                             | find / -user student -> search all files owned by student
+                             |
+--------------------------------------------------------------------------------
+Globbing
+Glob any number of chars     | *
+Glob 1 of any char           | ?
+Glob 1 of a list of chars    | [hm] -> either h or m
+Exclued 1 of a list of chars | [!hm] -> any char except h or m
+Glob 1 of a range of numbers | [0-9] -> any number between 0 and 9
                              |
                              |
                              |
                              |
                              |
                              |
+--------------------------------------------------------------------------------
+** RPM
+Install package              | rpm -i telnet.rpm
+remove package               | rpm -e telent.rpm
+query package                | rpm -q telnet.rpm
+                             |
+*** NOTE - rpm does not resolve dependencies
+YUM - package manager which uses rpms
+Install package              | yum install ansible
+View YUM Repos               | yum repolist
                              |
                              |
                              |
