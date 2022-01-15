@@ -6,3 +6,9 @@ Python Programming Blueprints                                      completed: 6%
 
 Python Object-Orented Programming                                  completed: 3%
   Left off: Chapter 1 - Object-Oriented Design: Behaviors are actions
+
+RHCSA - Training and exam preparation guide (EX200)
+  Left off: page 101
+
+Full-Stack React, TypeScript, and Node
+  Left off: page 61
