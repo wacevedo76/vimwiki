@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 * Docker and Kubernetes
 --------------------------------------------------------------------------------
+Detach from within a container
+  cntr+p cntr+q
 ** Manipulating Containers with Docker Client
 Creating and Running a       | Syntax: Reference the - Try to create and - Name of image to use
 Container from an immage     |         Docker Client   run a container     for this container

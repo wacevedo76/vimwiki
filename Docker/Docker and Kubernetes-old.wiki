@@ -2,51 +2,19 @@
 = Docker Notes =
 --------------------------------------------------------------------------------
 == Basic commmands ==
-  Start a container          | docker run <image name>
-  (runs in attached mode)    |   (if image is not on system, it will be downloaded)
-                             |
-  Starts a container /       | docker run <image name> command
-  override default command   |
-                             |
   list running containers    | docker ps
                              |
   list all containers        | docker ps -a
                              |
-  stop a container           | docker stop <container name / id>
-                             |   Sends a SIGTERM command
+Docker Run - User to create and run container
+  Start a container          | docker run <image name>
+  (runs in attached mode)    |   (if image is not on system, it will be downloaded)
                              |
-  kill a container           | docker kill <container name / id>
-                             |   Sends a SIGKill command
+  Start a container          | docker run --name <given name> <image name>
+  assigning name             |
                              |
-  remove a container         | docker rm <name of container>
-                             |
-  list images on host        | docker images
-                             |
-  remove an image            | docker rmi <name of image>
-                             |   (containers and dependent containers rom this 
-                             |    image must be stopped)
-                             |
-  Remove all containers      | docker system prune
-                             |   - this will remove:
-                             |     * all stopped containers
-                             |     * all networks not used by at lease on container
-                             |     * all dangling images
-                             |     * all build cache
-                             |
-  pull an img w/o running    | docker pull <name of image>
-                             |
-  execut a command           | docer exec <container name> <command> <arguments>
-                             |
-  run a second command on    | docker exec -it <container id> <command>
-  an existing container      | example: docker exec -it <id of redis container> redis-cli
-                             |
-  start a container in the   | docker run -d container
-  background (detached mode) |
-                             |
-  attach to a detached       | docker attach <name or id of running container>
-  container                  |
---------------------------------------------------------------------------------
-== Docker Run ==
+  Starts a container /       | docker run <image name> command
+  override default command   |
                              |
   run a docker tag to run    | docker run:<tag>
   a specific version of a    | docker run redis:4.0
@@ -60,10 +28,45 @@
   terminal to container      |
                              |
   run a docker container     | docker start -ai <container id>
-                             | -a   attach stnd i/o and forward signals to the container  
+                             | -a   attach stnd i/o and forward signals to the container
                              | -i   attach the containers input
+                             |
+  stop a container           | docker stop <container name / id>
+                             |   Sends a SIGTERM command
+                             |
+  kill a container           | docker kill <container name / id>
+                             |   Sends a SIGKill command
+                             |
+  remove a container         | docker rm <name of container>
+                             |
+  list images on host        | docker images
+                             |
+  remove an image            | docker rmi <name of image>
+                             |   (containers and dependent containers rom this
+                             |    image must be stopped)
+                             |
+  Remove all containers      | docker system prune
+                             |   - this will remove:
+                             |     * all stopped containers
+                             |     * all networks not used by at lease on container
+                             |     * all dangling images
+                             |     * all build cache
+                             |
+  pull an img w/o running    | docker pull <name of image>
+                             |
+  execut a command inside    | docer exec <container name> <command> <arguments>
+  a running container        |
+                             |
+  run a second command on    | docker exec -it <container id> <command>
+  an existing container      | example: docker exec -it <id of redis container> redis-cli
+                             |
+  start a container in the   | docker run -d container
+  background (detached mode) |
+                             |
+  attach to a detached       | docker attach <name or id of running container>
+  container                  |
 --------------------------------------------------------------------------------
-== Creating Docker images / Dockerfile == 
+== Creating Docker images / Dockerfile ==
   Basic work flow to create  | * Docker file
   a docker image             | --> Docker client
                              |   --> Docker Server
@@ -74,7 +77,7 @@
                              |  `------------------------`
                              |  `-------------------------------`
                              |  `|     Run some commands to    |`
-                             |  `| install additional programs |` 
+                             |  `| install additional programs |`
                              |  `-------------------------------`
                              |  `-------------------------------`
                              |  `| Specify a command to run on |`
@@ -83,7 +86,7 @@
                              |
                              |
                              |
-  Generic Dockerfile         |  Generic Dockerfile 
+  Generic Dockerfile         |  Generic Dockerfile
                              |  ------------------------------------------------
                              | 1 # Use an exiting docker image as a base
     --> add base image       | 2 FROM alpine
@@ -199,9 +202,9 @@
 --------------------------------------------------------------------------------
 == Docker compose ==
   What is Docker Compose     | * Separate CLI that gets installed along with docker
-                             | * used to start up multile Docker containers 
+                             | * used to start up multile Docker containers
                              |   at the same time
-                             | * Automates some of the long-winded argumets we 
+                             | * Automates some of the long-winded argumets we
                              |   were passing to 'docker run'
                              |
   docker-compose file        | docker-compose.yml
@@ -247,11 +250,11 @@
                              |  * unless-stopped
                              |
   **NOTE**                   | when multiple containers are spun up with docker
-                             | compose, these containers are able to communitcte 
-                             | amongst one another freely; no explicit network 
+                             | compose, these containers are able to communitcte
+                             | amongst one another freely; no explicit network
                              | connection need to be established between them
                              |
-                             | the names of the containers which are defined 
+                             | the names of the containers which are defined
                              | in the docker-compose.yml file are automatically
                              | set as the container's host name, which facilitates
                              | the network connections between containers; Containers
