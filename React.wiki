@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------------
+= React notes =
+--------------------------------------------------------------------------------
+create-react-app basic file structure
+  src                        | The dir where all written source code is put
+                             |
+  public                     | The dir where all static files are placed
+                             |
+  node_modules               | The dir that contains the project dependencies
+                             |
+  package.json               | Records of project dependencies and configures the project
+                             |
+  package-lock.json or       | Records the exact version of the packages that we installed
+  yarn.lock                  |
+--------------------------------------------------------------------------------
+Import statements
+  anatomy of the import      | import <variable> from <name of the file>
+                             | import React from 'react';
+                             | import ReactDOM from 'react-dom';
+                             |
+                             | (the variable can be named anything, but conventions
+                             |  are usually followed)
+--------------------------------------------------------------------------------
+Components
+  A component is a           | function or a class that produces html to show users (using jsx)
+                             | and handles feedback from the user (using event handlers)
+  JSX inline styles
+                             | `<div style={{ backgroundColor: 'red', color: 'white' }}></div>`
+                             | the two curly braces represents:
+                             |   * the outer curly braces is a reference to a JavaScript variable with JSX
+                             |   * the inner curly braces is a frefrence ot a JavaScript object 
+                             | for css properties that contain a hyphen, remove
+                             |   the hypen and capitalize the next word
+                             | the value for the css property is wrapped in 
+                             |   single-quotes
+                             | CSS Property definitions are separated with a comma
+                             | not a semi-colon
+ Giving tags a class
+                             | <lable for="name" className="label">enter e-mail</lable>
+                             | "Class" is a keyword in JSX, therefore, to give a tag a 
+                             | class, give it the "className" attribute
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
