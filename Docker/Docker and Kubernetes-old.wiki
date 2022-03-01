@@ -25,7 +25,7 @@ Docker Run - User to create and run container
   (interactive mode)         |
                              |
   Allocate (attach) sudo     | docker run -it <container>/<app>
-  terminal to container      |
+  terminal to container      | docker run -it alpine sh
                              |
   run a docker container     | docker start -ai <container id>
                              | -a   attach stnd i/o and forward signals to the container
@@ -99,8 +99,18 @@ Docker Run - User to create and run container
                              |  ------------------------------------------------
   Command to build image     | docker build .
                              |
-                             | docker build -t <dockerID>/<repo>:<version> <build dir>
-  Tagging an image           | docker build -t wacevedo76/redis:latest .
+  Tagging an image           | docker build -t <dockerID>/<repo>:<version> <build dir>
+  (giving image a name)      | docker build -t wacevedo76/redis:latest .
+                             |   - technically, the version number (..:<version>) is the tag
+                             |   (when modifying the Dockerfile, if you use the
+                             |   same tag - it overrights the previous image
+                             |
+  Copying Files from project | COPY (file relative to build context) (path inside container)
+  Directory to container     | COPY ./ ./
+                             |
+                             |
+                             |
+                             |
                              |
   Create an image from a     | docker commit -c <default_Command> <container id>
   container                  | docker commit -c 'CMD ["redis-server"]' 8a3855
