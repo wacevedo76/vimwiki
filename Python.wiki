@@ -5,12 +5,7 @@ Books
 [[AtBS|Automate the Boring Stuff]]
 --------------------------------------------------------------------------------
 == Common Modules ==
-Python Networking
-  * Pexpect
-  * Paramiko
-  * Netmiko
-  * NAPALM
-  * Nornir
+[[common_modules]]
 --------------------------------------------------------------------------------
 == Python built-in Types ==
   [[programmingConcepts/builtins|Built-ins]]
@@ -56,78 +51,10 @@ all the modules you need on install and run:
 --------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
- pathlib Module
-                             | returns a Path object
-                             |
-                             | the path module is primarily used to form paths
-                             | that translate between windows and linux file systems
-                             |
-  Createing paths            | from pathlib import Path
-    pathlib module           | Path('spam', 'bacon', 'eggs')
-                             |    *nix --> spam/bacon/eggs
-                             |    Windows --> 'spam\\bacon\\eggs'
-                             |
-                             | myFiles = ['file01', 'file02', 'file03']
-                             | for file in myFiles:
-                             |     print(Path(r'C:\Users\A1', file'))
-                             |
-  Joining paths with /       | Path('spam') / Path('bacon', 'egs')
-                             |
-  Current working directory  | Path.cwd()
-                             |
-  Get path object of home    | Path.home()
-  directory                  |
-                             |
-  Is the path absolute       | Path.cwd().is_absolute --> True
-                             | Path('spam/bacon/eggs').is_absolute --> False
-                             |
-  Get the parts of a path    | PathObject.drive
-                             | PathObject.anchor
-                             | PathObject.parent
-                             | PathObject.name
-                             | PathObject.stem
-                             | PathObject.suffix
+[[modules/path|Path Module]]
+[[modules/os|OS Module]]
                              |
                              |
-                             |
-os Module                    | returns a string
-                             |
-  Change working directory   | import os
-                             | os.chdir('/home/<use name>/documents')
-                             |
-  Create new directory       | os.makedirs('/path/to/new/directory')
-                             |
-  get list of files in a     | os.listdir(path)
-  directory                  |
-                             |
-  return the absolute path   | os.path.abspath(<path>)
-                             |
-  is the path Absolute?      | os.path.isabs(<path>)
-                             |
-  will return the relative   | os.path.relpath(<path>,<start>)
-  path                       |
-                             |
-  Opening files              | fileHandler = open(<path to file>) --> default (read mode)
-                             | fileHandler = open(<path to file>, 'r') --> (read mode)
-                             |
-                             | fileHandler = open(<path to file>, 'w') --> (write mode)
-                             | fileHandler = open(<path to file>, 'a') --> (append mode)
-                             |
-  Reading content            |
-    Returns a single large   | fileContent = fileHandler.read()
-    string                   |
-                             |
-    Returns a list of strings| fileContent = fileHandler.readlines()
-                             |
-  Writing to files           |
-    the fileHandler must've  | fileHandler.write(<text content)
-    already been opened in   |
-    write or append mode     |
-                             |
-    closing fileHandler      | fileHandler.close()
-                             |
-  Errors with writing to     |
-    PermissionError:         |
                              |
                              |
                              |

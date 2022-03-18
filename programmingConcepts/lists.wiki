@@ -1,3 +1,4 @@
+[[../Python|index]]
 --------------------------------------------------------------------------------
 = Lists =
 --------------------------------------------------------------------------------
@@ -23,8 +24,8 @@
                              | '<value>' not in <list>  --> returns boolean
                              |
   enumerate()                | Enumerate will iterate over an iterable and return
-                             | two values on each iteration, the index of the 
-                             | item and the 
+                             | two values on each iteration, the index of the
+                             | item and the
                              |
                              | for index, item in enumerate(supplies)
                              |

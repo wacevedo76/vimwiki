@@ -9,3 +9,7 @@ Debian specific settings
                              | netmask 255.255.255.0
                              | gateway 192.168.2.2
                              | dns-nameservers 8.8.4.4 8.8.8.8
+                             |
+  install debian package     | dpkg -i {package name}
+    need Dependencies        | apt -f install
+                             |
