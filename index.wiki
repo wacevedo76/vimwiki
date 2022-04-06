@@ -55,6 +55,9 @@
 == Networking ==
   * [[Networking]]
 
+== Cloud ==
+  * [[AWS/awsindex|AWS]]
+
 == CompSci ==
   * [[Data Structures and algorithms]]
 

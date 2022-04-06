@@ -1,0 +1,74 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+== AWS Global Infrastructure ==
+  (Geographic) Regions       |
+  Availability Zones         |
+  Local Zones                |
+  Edge Locations (CloudFront)|
+  Wavelength                 |
+  Ground Station             |
+  Project Kuiper             |
+
+== Cloud Computing Modes ==
+ Infra as a Service (IaaS)   | Contains the basic building blocks for cloud IT
+                             |   Eg. VPC, EC2, EBS
+                             |
+ Platform as a Service (PaaS)| AWS manages the underlying infrastructure
+                             |   (usually hardware and operating systems)
+                             |   Eg. RDS, EMR, ElasticSearch
+                             |
+ Software as a Service (SaaS)| Completed product that is run and managed by the
+                             |   service provider. Mostly referes to end-user
+                             |   applications:
+                             |     Eg, Web-based email, Office 365, Salesforce.com
+
+== Serverless Computing ==
+                             | Allows you to build and run applications and
+                             | services without thinking about servers.
+                             | * Also reffered to as Function-as-a-Service (FaaS)
+                             |   or Abstracted services.
+                             | Examples:
+                             |   * Amazon Simple Storage Service (S3)
+                             |   * AWS Lambda
+                             |   * Amazon DynamoDB
+                             |   * Amazon SNS
+                             |
+
+== Cloud Computing Deployment Models ==
+  Cloud                      | Fully deployed in the cloud and all parts of
+                             | the application run in the cloud.
+                             |
+  Hybrid                     | A way to connect infrastructure and applications
+                             | between cloud-based resources and existing
+                             | resources that are not located in the cloud.
+                             | Run AWS infrastructure and service on premises
+                             | with AWS Outposts
+                             |
+  On-premise                 | Deploying resources on-premises, using virtualization
+                             | and resource management tools, is sometimes called
+                             | "private cloud"
+
+== AWS Management Console ==
+                             | * Web-based user interface to AWS
+                             | * Requires an AWS account
+                             | * Monitor costs
+                             | * AWS Console Mobile App
+
+SDK & CLI Access
+  Software Development Kits  | * Create applications tha tuse AWS services.
+                             | * SDKs for Javascript, Nodejs, Java, python
+                             |   .NET, PHP, Ruby, Go, C++
+                             | * Moble SDKs for Android, iOS, React Native,
+                             |   Unity, Xamarin
+                             | * Application Programming Interface enables access
+                             |   to AWS usig http calls
+                             |
+  Command Line Interface     | * Control multiple AWS services from the command
+                             |   line and automate them through scripts
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
