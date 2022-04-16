@@ -1,3 +1,4 @@
+[[../Docker.wiki|Back]]
 --------------------------------------------------------------------------------
 = Docker Notes =
 --------------------------------------------------------------------------------
@@ -104,6 +105,9 @@ Docker Run - User to create and run container
                              |   - technically, the version number (..:<version>) is the tag
                              |   (when modifying the Dockerfile, if you use the
                              |   same tag - it overrights the previous image
+                             |
+  Specify a working directory| WORKDIR /usr/app --> all folowing directives
+                             | Will be relative to WORKDIR
                              |
   Copying Files from project | COPY (file relative to build context) (path inside container)
   Directory to container     | COPY ./ ./
@@ -293,3 +297,4 @@ Docker Volumes
                              |
                              |
                              |
+[[../Docker.wiki|Back]]
