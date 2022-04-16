@@ -112,6 +112,26 @@ Docker Run - User to create and run container
   Copying Files from project | COPY (file relative to build context) (path inside container)
   Directory to container     | COPY ./ ./
                              |
+  *** NOTE ***               | the order in which your arrange the commands matter.
+                             | The build process will only execute changes from
+                             | the step where it sees changes
+                             | For exmaple
+                             | if you COPY comes before a RUN directive,
+                             | if the files change in the COPY stage, it will
+                             | rerun all commands afterwards... In the context
+                             | of a nodejs app, if files change in the COPY stage
+                             | then it will rerun the following RUN command
+                             | (namely, reinstalling all the dependencies in
+                             | RUN npm install)  ... you can mitigate this by
+                             | having multiple COPY stages:
+                             |   COPY ./package.json .  <-- npm needs this to install dependencies
+                             |   RUN npm install <--- will only run in new dependencies are added
+                             |   COPY . . now it will only update the files that have changed
+                             |        and not reinstall dependencies
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
