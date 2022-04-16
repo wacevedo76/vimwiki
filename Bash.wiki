@@ -4,6 +4,10 @@
 Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 --------------------------------------------------------------------------------
 Interesting commands (move to appropriate sections when comfortable)
+  uname                      |
+  lsof                       |
+  netstat                    |
+                             |
   return name of parent dir  | `(basename $(dirname $$PWD)`
                              |
   run a command periodically | watch
