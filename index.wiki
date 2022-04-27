@@ -19,6 +19,7 @@
 == Frameworks ==
   * [[Django]]
   * [[React]]
+  * [[EmberJS]]
 
 == Programming Concepts ==
   * [[programmingConcepts/strings|strings]]

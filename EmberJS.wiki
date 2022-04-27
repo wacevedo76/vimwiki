@@ -1,0 +1,54 @@
+--------------------------------------------------------------------------------
+= Ember JS Notes =
+--------------------------------------------------------------------------------
+  Generate ember project     | ember init - creates emberjs files structure in current dir.
+                             |
+--------------------------------------------------------------------------------
+  jsconfig.json              | used to indicate the current workspace
+                             | and has useful features for the the Javascrip LSP
+                             | for example:
+                             |
+                             | "compilerOptions": {
+                             |   "target": "es2015",
+                             |   "experimentalDecorators": true
+                             | },
+                             | "exclude": {
+                             |   "node_modules",
+                             |   "dist"
+                             |
+--------------------------------------------------------------------------------
+Important Files              |
+  app/templ../application.hbs|  Entrypoint into the application - it is imported into
+                             |  app/index.html which hold header, footer and site
+                             |  wide meta-data (site wide dependencies like bootstrap
+                             |  / font-awesome
+                             |
+--------------------------------------------------------------------------------
+Ember addons                 | ember install ember-cli-sass
+                             | add support for addons in /ember-cli-buid.js
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
