@@ -25,13 +25,13 @@
                              |
 == Writing a Dockerfile ==
   * Define a base image      | FROM node
-  * Declare the maintainer   |   LABLE maintainer ian.miell@gmail.com
-  * Clones the todo code     |   RUN git clone -q https://github.com/docker-in-practice/todo.git
-  * Moves to the new cloned  |   WORKDIR todo
-    directory                |
-  * Runs the npm install cmd |   RUN npm install > /dev/null
-  *Specifies that containers |   EXPOSE 8000
-   from the built image      |
+  * Declare the maintainer   |  LABLE maintainer ian.miell@gmail.com
+  * Clones the todo code     |  RUN git clone -q https://github.com/docker-in-practice/todo.git
+  * Creats a namespace for   |  WORKDIR todo
+    working files            |
+  * Runs the npm install cmd |  RUN npm install > /dev/null
+  * Specifies that containers|  EXPOSE 8000
+    from the built image     |
    should listen on port     |
   * Specifies which command  |  CMD ["npm","start"]
     will be run on startup   |
@@ -47,7 +47,7 @@
                              |
                              | The Docker run subcommand starts the
                              | container, -p maps the contaier's port
-                             | 800 to the port 800 on the host machine,
+                             | 8000 to the port 8000 on the host machine,
                              | --name gives the container a unique name,
                              | and the last argument is the image
                              |
@@ -63,29 +63,3 @@
   since the image was        |
   instantiated as a container|
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-[[../Docker.wiki|Back]]

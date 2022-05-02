@@ -129,13 +129,6 @@ Docker Run - User to create and run container
                              |   COPY . . now it will only update the files that have changed
                              |        and not reinstall dependencies
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
   Create an image from a     | docker commit -c <default_Command> <container id>
   container                  | docker commit -c 'CMD ["redis-server"]' 8a3855
 --------------------------------------------------------------------------------
@@ -309,12 +302,5 @@ Docker Run - User to create and run container
   Stop containers            | docker-compose down
                              |
 Docker Volumes
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
 [[../Docker.wiki|Back]]
