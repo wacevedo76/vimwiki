@@ -64,6 +64,11 @@ Docker Run - User to create and run container
   start a container in the   | docker run -d container
   background (detached mode) |
                              |
+  run containers with        | docer run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image id>
+  mounted volumes            |   (first -v ensures that /app/node_modules is only referenced from
+                             |    inside the container, the second -v then mapps the rest of the cwd
+                             |    to the WORKDIR of the container
+                             |
   attach to a detached       | docker attach <name or id of running container>
   container                  |
 --------------------------------------------------------------------------------

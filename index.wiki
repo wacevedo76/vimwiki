@@ -43,6 +43,7 @@
   * [[sed]]
   * [[Tmux|tmux]]
   * [[Docker]]
+  * [[kubernetes/kubernetesIndex|Kubernetes]]
   * [[Selenium]]
   * [[Nagios|Nagios Core]]
 
