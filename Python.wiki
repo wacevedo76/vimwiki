@@ -4,6 +4,9 @@ Python notes
 Books
 [[AtBS|Automate the Boring Stuff]]
 --------------------------------------------------------------------------------
+== Common Useful commands ==
+[[Python/common_useful_commands|Common useful commands]]
+--------------------------------------------------------------------------------
 == Common Modules ==
 [[common_modules]]
 --------------------------------------------------------------------------------

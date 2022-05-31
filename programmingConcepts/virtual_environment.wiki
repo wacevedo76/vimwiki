@@ -3,6 +3,23 @@
 --------------------------------------------------------------------------------
 == Vitrual Environment in Python ==
 --------------------------------------------------------------------------------
+== virtualenvwrapper ==
+  Install virtualenvwrapper  | A virtual env wrapper; Store all project dependencies
+                             | in one location and activate the environment anywhere using
+                             | workon <name of project>
+                             |
+  Installation               | On Winodws
+                             |   pip install virtualenvwrapper
+                             | On Linux / macOS
+                             |   pip install --user virtualenvwrapper
+                             |
+                             | (add "source virtualenvwrapper.sh" into your .SHELLrc file (~/.zshrc | ~/.bashrc))
+                             |
+  Initialize new project     | mkvirtualenv --python=python3.9 <name of project>
+                             |
+  activate project           | workon <name of project>
+                             |
+--------------------------------------------------------------------------------
 venv                         | python3 -m venv <new roject>
                              | venv will create a few new directories
                              |   bin/ - python scripts and new executalbes by other
@@ -68,23 +85,6 @@ venv                         | python3 -m venv <new roject>
                              |
   list only packages locally | pip list --local
   installed in the package   |
---------------------------------------------------------------------------------
-== virtualenvwrapper ==
-  Install virtualenvwrapper  | A virtual env wrapper; Store all project dependencies
-                             | in one location and activate the environment anywhere using
-                             | workon <name of project>
-                             |
-  Installation               | On Winodws
-                             |   pip install virtualenvwrapper
-                             | On Linux / macOS
-                             |   pip install --user virtualenvwrapper
-                             |
-                             | (add "source virtualenvwrapper.sh" into your .SHELLrc file (~/.zshrc | ~/.bashrc))
-                             |
-  Initialize new project     | mkvirtualenv --python=python3.9 <name of project>
-                             |
-  activate project           | workon <name of project>
-                             |
 --------------------------------------------------------------------------------
 == pipenv ==
   Install pipenv             |  pip install pipenv

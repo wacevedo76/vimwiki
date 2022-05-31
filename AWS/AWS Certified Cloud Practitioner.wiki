@@ -8,6 +8,49 @@
   Wavelength                 |
   Ground Station             |
   Project Kuiper             |
+--------------------------------------------------------------------------------
+  Availability Zones         | * Each AWS Region has multiple physically isolated
+                             |   Availability Zones.
+                             | * Connected to each other with fast, private fiber-
+                             |   optic networking.
+                             |
+  Local Zones                | * Clost to large population, industry, and IT
+                             |   centers.
+                             | * Are an extension of an AWS Region
+                             |
+  Edge locations             | * CloudFront CDN cached content at edge locations
+                             |   for high performance delivery of content.
+                             | * Also provides DDOS protection
+                             |
+  AWS Wavelength             | * Allows parts of your application to use AWS
+                             |   compute and storage services that are embedded
+                             |   witin communications service providers' (CSP)
+                             |   datacenters at the edge of the 5G network
+                             |
+  Ground Station             | * Fully managed service that enables customers
+                             |   to easily command, control, and downlink from
+                             |   satellites.
+                             | * Located within the AWS Global Infrastructure
+                             |   footprint, Contacts (reservations) are scheduled
+                             |   for an antenna to communicate with a satellite
+                             |
+  Project Kuiper             | * Kuiper Systems LLC is a subsidiary of Amazon.
+                             | * Proposed constellation network of Low Earth
+                             |   Orbit satellites
+                             | * Provide low-latency, high-speed broadband
+                             |   connectivity to unserved and underserved
+                             |   communities around the world
+                             | * Will extend low latency acess to the AWS cloud
+                             |   from all areas of the world.
+                             |
+-- Other Terms -----------------------------------------------------------------
+  Virtual Private Cloud (vpc)| * The space within AWS cloud that contain servers
+                             |   and will also contain EBS block devices
+                             |
+  VPC Endpoint               | * The point of contact for storage devices not
+                             |   Hosted within the VPC. Examples are: S3 and
+                             |   S3 Glacier
+                             |
 
 == Cloud Computing Modes ==
  Infra as a Service (IaaS)   | Contains the basic building blocks for cloud IT
@@ -65,6 +108,104 @@
                              |
   Command Line Interface     | * Control multiple AWS services from the command
                              |   line and automate them through scripts
+                             |
+--------------------------------------------------------------------------------
+== Storage Services ==
+  Simple Storage Service (S3)| * Designed to store and accesse any type of data
+                             |   over the internet
+                             | * It is a serverless service
+                             | * Think of it as a bucket where you upload data
+                             |   content. Theoretical size is unlimited
+                             |
+  S3 Glacier                 | * Least expensive storage solution, meant for
+                             |   long term data archival
+                             | * Not as readily accessable as S3, so should
+                             |   only be used for Archieval purposes
+                             |
+  Elastic Block Store (EBS)  | * Low latency block device storage specifically
+                             |   meant to attach to servers that are launched
+                             |   with Amazon EC2 service - think a mounted
+                             |   disk drive
+                             |
+  Elastic File System (EFS)  | * Network attached storage, allowing multiple
+                             |   servers to access the same data source
+                             |
+  Storage Gateway            | * Enables hybrid storage between on-premise
+                             |   environments and the AWS Cloud
+                             | * Provides low-latency performance by caching
+                             |   frequently used data on premises while storing
+                             |   less frequently used data on Cloud storage
+                             |   services
+                             |
+  Snowball (devices)         | * Portable, peta-byte scale, data storage device
+                             |   that can be used to migrate large amouts of data
+                             |   from on-premises environment over to the AWS
+                             |   Cloud.
+-- Hybrid Storage Example ------------------------------------------------------
+  Using an S3 Bucket as a    | * Large scale data backup can be accomplished with
+  disaster recovery solution |   a Snowball Device
+                             | * Data syncing can be accomplished with the
+                             |   AWS Storage Gateway
+------------------------------------------------------------------------------------------
+AWS Database Services
+  Relational Database Service| * A fully managed database service
+  (RDS)                      | * Can launch variations of MySQL (MariaDB or
+                             |   Amazon's enterpirse version called: Amazon Aurora,
+                             |   PostgreSQL, also Amazon Postgres Aurora, MsSQL
+                             |   and Oracle are also available
+                             |
+                             |
+  DynamoDB                   | AWS's noSQL Database as a service
+                             | Serverless database service
+                             |
+  Redshift                   | Fully managed, petabyte scale data warehouse based on
+                             | Postgresql database engine.
+                             |
+  ElastiCache                | In-memory data store/cache.
+                             | access data from fast, fully managed in-memory caches
+                             |
+  Database Migration Services| Orchestarts the migration of databases over to AWS
+  (DMS)                      | easily and securely. Can also migrated databases from one
+                             | type to another
+                             |
+  Neptune                    | Fast, reliable, fully managed, high performacne graph database
+                             | engine optimized for storing billions of relationships.
+                             |
+------------------------------------------------------------------------------------------
+== AWS Compute Services ==
+  Elastic Compute Cloud      | Provides virtual servers in AWS Cloud
+  (EC2)                      |
+                             |
+  EC2 Autoscaling            | Dynamically scale your EC2 Capacity with set thresholds
+                             |
+  Amazon Lightsail           | An easy method for launching virtual servers running
+                             | running applications
+                             |
+  Elastic Container Service  | Highly scaleable, high performance container managment
+  (ECS)                      | service (docker containers)
+                             |
+  AWS Lambda                 | Serverless service - allows you to run code without
+                             | a server
+                             |
+  Elastic Load Balancer      |
+                             |
+------------------------------------------------------------------------------------------
+== Networking & Content Delivery ==
+  CloudFront                 | Global Content Delivery Network (CDN)
+                             |
+                             | Let's you provision logically isolated section of the AWS
+  Virtual Private Cloud (VPC)| cloud, which lets you deploy self-defined aws services
+                             |
+  Direct Connect             | High speed dedicated connection to AWS
+                             |
+  Elastic Load Balancing     | automatically distributes incoming traffic for your application
+  (ELB)                      | across multiple EC2 instances and also across multiple
+                             | availibility zones
+                             |
+  Route 53                   | Highly available Domain Name System
+                             |
+  API Gateway                | fully managed service that allows to create and deploy
+                             | APIs at any scale
                              |
                              |
                              |
