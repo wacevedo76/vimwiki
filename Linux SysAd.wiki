@@ -9,4 +9,4 @@ Linux Sys Admin and Certification Training
 * [[RHCSA]]
 * [[linuxbootcamp|Linux Bootcamp]]
 * [[linuxGeneralConcepts/commonCommands|Common Commands]]
-*
+* [[linuxGeneralConcepts/lightdm|lightdm]]
