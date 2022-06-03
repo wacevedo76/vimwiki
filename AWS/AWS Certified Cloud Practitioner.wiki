@@ -179,7 +179,7 @@ AWS Database Services
   EC2 Autoscaling            | Dynamically scale your EC2 Capacity with set thresholds
                              |
   Amazon Lightsail           | An easy method for launching virtual servers running
-                             | running applications
+                             | applications
                              |
   Elastic Container Service  | Highly scaleable, high performance container managment
   (ECS)                      | service (docker containers)
