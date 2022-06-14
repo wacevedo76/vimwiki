@@ -1,0 +1,25 @@
+--------------------------------------------------------------------------------
+= Tailwind CSS =
+--------------------------------------------------------------------------------
+Typography
+  Leading (line height)      | leading-tight
+                             | leading-snug
+                             | leading-normal
+                             | leading-relaxed
+                             | leading-loose
+                             |
+  Letter-spaceing            | tracking-tight
+                             | tracking-tighter
+                             | tracking-wide
+                             | tracking-wider
+                             | tracking-widest
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
