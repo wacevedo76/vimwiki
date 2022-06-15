@@ -18,7 +18,9 @@
                              |   centers.
                              | * Are an extension of an AWS Region
                              |
-  Edge locations             | * CloudFront CDN cached content at edge locations
+  Edge locations             | * there are over 100 Edge locations which are used
+                             |   for the CloudFront Delivery network
+                             | * CloudFront CDN cached content at edge locations
                              |   for high performance delivery of content.
                              | * Also provides DDOS protection
                              |
@@ -26,6 +28,8 @@
                              |   compute and storage services that are embedded
                              |   witin communications service providers' (CSP)
                              |   datacenters at the edge of the 5G network
+                             | * This allows developers to low-latency to
+                             |   Mobile devices
                              |
   Ground Station             | * Fully managed service that enables customers
                              |   to easily command, control, and downlink from
@@ -53,15 +57,15 @@
                              |
 
 == Cloud Computing Modes ==
- Infra as a Service (IaaS)   | Contains the basic building blocks for cloud IT
-                             |   Eg. VPC, EC2, EBS
+ Infrafrastructure as a      | Contains the basic building blocks for cloud IT
+ Service (IaaS)              |   Eg. VPC, EC2, EBS
                              |
  Platform as a Service (PaaS)| AWS manages the underlying infrastructure
                              |   (usually hardware and operating systems)
                              |   Eg. RDS, EMR, ElasticSearch
                              |
  Software as a Service (SaaS)| Completed product that is run and managed by the
-                             |   service provider. Mostly referes to end-user
+ (Serverless Computing)      |   service provider. Mostly referes to end-user
                              |   applications:
                              |     Eg, Web-based email, Office 365, Salesforce.com
 
@@ -71,10 +75,10 @@
                              | * Also reffered to as Function-as-a-Service (FaaS)
                              |   or Abstracted services.
                              | Examples:
-                             |   * Amazon Simple Storage Service (S3)
-                             |   * AWS Lambda
-                             |   * Amazon DynamoDB
-                             |   * Amazon SNS
+                             |   * Amazon Simple Storage Service (S3) - file storage (bucket)
+                             |   * AWS Lambda - running code in the cloud
+                             |   * Amazon DynamoDB - nosql database running in the cloud
+                             |   * Amazon SNS - Simple Notification Service
                              |
 
 == Cloud Computing Deployment Models ==
@@ -108,6 +112,12 @@
                              |
   Command Line Interface     | * Control multiple AWS services from the command
                              |   line and automate them through scripts
+                             |
+  Important URLs             | * aws.amazon.com/certification
+                             | * docs.aws.amazon.com
+                             | * aws.amazon.com/whitepapers
+                             | * aws.amazon.com/products
+                             | * aws.amazon.com/new
                              |
 --------------------------------------------------------------------------------
 == Storage Services ==
@@ -146,7 +156,7 @@
   disaster recovery solution |   a Snowball Device
                              | * Data syncing can be accomplished with the
                              |   AWS Storage Gateway
-------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 AWS Database Services
   Relational Database Service| * A fully managed database service
   (RDS)                      | * Can launch variations of MySQL (MariaDB or
@@ -155,8 +165,8 @@ AWS Database Services
                              |   and Oracle are also available
                              |
                              |
-  DynamoDB                   | AWS's noSQL Database as a service
-                             | Serverless database service
+  DynamoDB                   | * AWS's noSQL Database as a service
+                             | * Serverless database service
                              |
   Redshift                   | Fully managed, petabyte scale data warehouse based on
                              | Postgresql database engine.
@@ -164,7 +174,7 @@ AWS Database Services
   ElastiCache                | In-memory data store/cache.
                              | access data from fast, fully managed in-memory caches
                              |
-  Database Migration Services| Orchestarts the migration of databases over to AWS
+  Database Migration Srvc    | Orchestarts the migration of databases over to AWS
   (DMS)                      | easily and securely. Can also migrated databases from one
                              | type to another
                              |
