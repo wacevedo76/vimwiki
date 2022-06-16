@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------------
+= Ansible =
+--------------------------------------------------------------------------------
+Inventory Files              | * and ini like format to define target hosts
+                             |   it is simplay a list of services
+                             |
+  Default inventory file     | /etc/ansible/hosts
+                             |
+  Grouping servers together  | * servers can be grouped together my surrounding
+                             |   the group name with "[]" example:
+                             |
+                             | [mail]                 <-- group name
+                             | server3.company.com    <-- Server under [mail]
+                             | server4.company.com    <-- Server under [mail]
+                             |
+                             | [db]                   <-- group name
+                             | server5.company.com    <-- Server under [db]
+                             | server6.company.com    <-- Server under [db]
+                             |
+                             | [web]                  <-- group name
+                             | server5.company.com    <-- Server under [web]
+                             | server6.company.com    <-- Server under [web]
+                             |
+  A group of groups          | [all_servers:children] <-- group name:specify children
+                             | mail                   <-- child of "all_servers"
+                             | db                     <-- child of "all_servers"
+                             | web                    <-- child of "all_servers"
+                             |
+  Inventory host aliases     | <alias>  ansible_host=<server ip or hostname>
+                             |
+                             | web      ansible_host=server1.conpany.com
+                             | db       ansible_host=server2.company.com
+                             | mail     ansible_host=server3.company.com
+                             | web2     ansible_host=server4.company.com
+                             |
+  Define connetion type      | <alias>  ansible_host=<server ip or hostname> ansible_connection=<connection type>
+                             |
+                             | web      ansible_host=server1.conpany.com ansible_connection=ssh
+                             | db       ansible_host=server2.company.com ansible_connection=winrm
+                             | mail     ansible_host=server3.company.com ansible_connection=ssh
+                             | web2     ansible_host=server4.company.com ansible_connection=winrm
+                             |
+  Other parameters           | * ansible_port - 22/5986
+                             | * ansible_user - root/administrator
+                             | * ansible_ssh_pass - Password
+                             |
+** Check connectivity to host| > ansible <target host name> -m ping -i <inventory file>   <-- -m for module
+                             | > ansible target01 -m ping -i inventory.txt
+                             |
+                             |
+                             |
+                             |
+                             |

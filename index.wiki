@@ -43,6 +43,7 @@
   * [[Emacs]]
   * [[sed]]
   * [[Tmux|tmux]]
+  * [[Ansible]]
   * [[Docker]]
   * [[kubernetes/kubernetesIndex|Kubernetes]]
   * [[Selenium]]
