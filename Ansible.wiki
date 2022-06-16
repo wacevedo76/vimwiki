@@ -46,8 +46,222 @@ Inventory Files              | * and ini like format to define target hosts
                              |
 ** Check connectivity to host| > ansible <target host name> -m ping -i <inventory file>   <-- -m for module
                              | > ansible target01 -m ping -i inventory.txt
+--------------------------------------------------------------------------------
+== Yaml ==
+                             | <-- whitespace is used to help define structure
+  Key Value Pair             | key: value  # example ->
+                             | Fruit: Apple
+                             | Vegetable: Carrot
+                             | liquid: water
                              |
+  Array / List               | <array name>:
+                             | -   list_item_1
+                             | -   list_item_2
+                             | -   list_item_3
                              |
-                             |
-                             |
-                             |
+  Dictionary / Map           | <map name>:
+                             |     key01: value01
+                             |     key02: value02
+                             |     key03: value03
+--------------------------------------------------------------------------------
+== Playbooks ==
+  * Playbook - A single YAML file
+    * Play - Defines a set of activities (task) to be run on hosts
+      * Task - An action to be performed on the host
+        > Execute a command
+        > Run a script
+        > Install a package
+        > Shutdown / Restart
+  Example playbook:
+
+  # Simple Ansible Playbook1.yml
+  -
+    name: Play 1
+    hosts: localhost
+    tasks:
+      - name: Execute command 'date'
+        command: date
+
+      - name: Execute script on server
+        script: test_script.sh
+
+      - name: Install httpd service
+        yum:
+          name: httpd
+          state: present
+
+      - name: Start web server
+        service:
+          name: httpd
+          state: started
+                           |
+--------------------------------------------------------------------------------
+  Playbook Format
+    Example:
+
+      # Simple Ansible Playbook1.ymp
+      -                                    <-- Defines beginning of play
+        name: Play 1                       <-- Name of play
+        hosts: localhost                   <-- host (local host or from Inventory file)
+        tasks:                             <-- start task list
+          - name: Execute command 'date'   <-- name of task
+            command: date                  <-- Ansible module
+
+          - name: Execute script on server <-- name of task
+            script: test_script.sh         <-- Ansible module
+
+      -                                    <-- Defines beginning of play
+        name: Play 2                       <-- Name of play
+        hosts: localhost                   <-- host (local host or from Inventory file)
+        tasks:                             <-- start task list
+          - name: Install httpd service    <-- name of task
+            yum:                           <-- Ansible module
+              name: httpd
+              state: present
+
+          - name: Start web server         <-- name of task
+            service:                       <-- Ansible module
+              name: httpd
+              state: started
+                           |
+  Execute Ansible Playbook | > ansible-playbook playbook.yml
+--------------------------------------------------------------------------------
+Running Ansible commands
+  One-offs (syntax)        | ansible <hosts> -a <command>
+                           | ansible all -a "/sbin/reboot"
+                           |
+                           | ansible <hosts> -m <module>
+                           | ansible target01 -m ping
+                           |
+  Playbooks                | ansible-playbook <playbook name> -i <inventory file>
+                           |
+--------------------------------------------------------------------------------
+== Modules ==
+  System                   | - User
+                           | - Group
+                           | - Hostname
+                           | - Iptables
+                           | - Lvg
+                           | - Lvol
+                           | - Make
+                           | - Mount
+                           | - Ping
+                           | - Timezone
+                           | - Systemd
+                           | - Service
+                           |
+  Commands                 | - Command
+                           | - Expect
+                           | - Raw
+                           | - Script
+                           | - Shell
+                           |
+  Files                    | - Acl
+                           | - Archive
+                           | - Copy
+                           | - File
+                           | - Find
+                           | - Lineinfile
+                           | - Replace
+                           | - Stat
+                           | - Template
+                           | - Unarchive
+                           |
+  Database                 | - Mongodb
+                           | - Mssql
+                           | - Mysql
+                           | - Postgresql
+                           | - Proxysql
+                           | - vertica
+                           |
+  Cloud                    | - Amazon
+                           | - Atomic
+                           | - Azure
+                           | - Centrylink
+                           | - Cloudscale
+                           | - Cloudstack
+                           | - Digital Ocean
+                           | - Docker
+                           | - Google
+                           | - Linode
+                           | - Openstack
+                           | - Sartos
+                           | - Softlayer
+                           | - VMware
+                           |
+  Windows                  | - Win_copy
+                           | - Win_command
+                           | - Win_domain
+                           | - Win_file
+                           | - Win_iis_website
+                           | - Win_msg
+                           | - Win_package
+                           | - Win_ping
+                           | - Win_path
+                           | - Win_robocopy
+                           | - Win_regedit
+                           | - Win_shell
+                           | - Win_service
+                           | - Win_user
+--------------------------------------------------------------------------------
+== Variables ==
+  Variables are defined    | # Sample Ansible Playbook1.yml
+  as key-value pairs       | -
+                           |   name: Add DNS server to resolv.conf
+                           |   hosts: localhost
+                           |   vars:
+                           |     dns_server: 10.1.250.10
+                           |   tasks:
+                           |     - lineinfile:
+                           |         path: /etc/resolv.com
+`                           |         line: 'nameserver {{ dns_server }}'`
+                           |           <-- variables are called within double brackets
+                           |
+--------------------------------------------------------------------------------
+== Loops ==
+                           | # Sample Ansible Playbook1.yml
+                           | -
+                           |   name: Install Packages
+                           |   host: localhost
+                           |   tasks:
+                           |     - yum: name=http       state=present
+   --> looping key word    |       with_items:
+                           |           - httpd
+                           |           - binutils
+                           |           - glibc
+                           |           - ksh
+                           |           - libaio
+                           |           - libXext
+                           |           - gcc
+                           |           - make
+                           |           - sysstat
+                           |           - unixODBC
+                           |           - mongodb
+                           |           - nodejs
+                           |           - grunt
+--------------------------------------------------------------------------------
+== Roles ==
+  used to modularize       | # Sample Ansible Playbook1.ym
+  playbooks                | -
+                           |   name: Set Firewall Configuration
+                           |   hosts: web
+  include variables file   |   vars_files:
+                           |     - varibles.yml
+                           |   tasks:
+  all other includes ->    |     - include: tasks.yml
+                           |
+Roles best practices       |
+  lets look a a possible file structure:
+
+  - Ansible Project          | # Sample Ansible setup_application.yml
+    * inventory.txt          | -
+    * setup_application.yml  |   name: Set Firewall Configurations
+    - roles                  |   hosts: web
+      - webservers           |   roles:
+        - files              |       - webservers
+        - templates          |
+        - tasks              |------------------------------------------------
+        - handlers           | by seting the role "webservers"
+        - vars               | all relevant files including tasks and vars
+        - defaults           | in the "webservers" directory will be automatically
+        - mets               | loaded
