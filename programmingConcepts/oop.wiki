@@ -54,6 +54,51 @@ The Four major principles of OOP
                              |
   An Object                  | A collection of data with associated behaviors
                              |
+  Composition                | Composition is the act of collecting several
+                             | objects together to create a new one. Composition
+                             | is usually a good choice when one object is part
+                             | of another object.
+                             |
+  Aggregation                | Aggregation is similar to composition, the difference
+                             | being that aggregate object can exist independently.
+                             |
+  Interface                  | An abstract method that is initiated by a class
+                             | which has no default behavior, wherein an inheriting
+                             | class can define the interfaces behavior.
+                             |
+--------------------------------------------------------------------------------
+4 + 1 Views
+  Logical View               | A logical view of the data entities, their static
+                             | attributes, and their relationships. This is the
+                             | heart of object-oriented design
+                             |
+  Process View               | A process view that describes how the data is
+                             | processed. This can take a variety of forms, including
+                             | state models, activity diagrams, and sequence diagrams
+                             |
+  Development View           | A development view of the code components to be
+                             | built. This diagram shows relationships among
+                             | software components. This is used to show how class
+                             | definitions are gathered into models and packages
+                             |
+  Physical View              | A physical view of the application to be integrated
+                             | and deployed. In cases where an application follows
+                             | a common design pattern, a sophisticated diagram
+                             | isn't necessary. In other cases, a diagram is
+                             | essential to show how a collection of components are
+                             | integrated and deployed
+                             |
+  Context View               | A context view that provides a unifying context
+                             | for the other four views. The context view will
+                             | often describe the actors that use (or interact)
+                             | with the system to be built. This can involve
+                             | human actors as well as automated interfaces: both
+                             | are outside the system, and the system must respond
+                             | to these external actors
+                             |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 == OOP in Python ==
                              | class Employee(inherited-class):   <- Class definition with inherited class
