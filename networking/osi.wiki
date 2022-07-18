@@ -15,21 +15,105 @@
   `|              |             |                          |                | information in the form of mutiple back-and-forth transmissions       |`
   `|              |             |                          |                | between nodes                                                         |`
   `|              |             |                          |                |                                                                       |`
-  `+--------------+-------------+--------------------------+----------------+-----------------------------------------------------------------------+`
-  `| Transport    | TCP         |      Segment (TCP)       | Transport      | Reliable transmission of data segments between points on a            |`
-  `|              | UDP         |      Datagram (UDP)      |                | network, including segmentation, acknowledgement and multiplexing     |`
+  `+--------------+------Ports--+--------------------------+----------------+-----------------------------------------------------------------------+`
+  `| Transport    | TCP         |      Segments (TCP)      | Transport      | Reliable transmission of data segments between points on a            |`
+  `|              | UDP         |      Datagrams (UDP)     |                | network, including segmentation, acknowledgement and multiplexing     |`
   `+--------------+-------------+--------------------------+----------------+-----------------------------------------------------------------------+`
   `| Network      | ICMP, IGMP  |                          | Internet       | Structuring and managing a multi-node network, including addressing   |`
-  `|              | IP4, IP6    |      Packet              |                | routing and traffic control                                           |`
+  `|              | IP4, IP6    |      Packets             |                | routing and traffic control                                           |`
   `+--------------+--------Arp--+--------------------------+----------------+-----------------------------------------------------------------------+`
   `| Data Link    | MAC Address |                          |                | Reliable transmission of data frames between two nodes connected by a |`
-  `|              |             |      Frame               |                | physical layer                                                        |`
+  `|              |             |      Frames              |                | physical layer                                                        |`
   `+--------------+-------------+--------------------------+ Network Access +-----------------------------------------------------------------------+`
-  `| Physical     | Ethernet    |      Bit                 |                | Transmission and reception of raw bit streams over a physical medium  |`
+  `| Physical     | Ethernet    |      Bits                |                | Transmission and reception of raw bit streams over a physical medium  |`
   `|              | Fiber       |                          |                |                                                                       |`
   `|              | Wifi        |                          |                |                                                                       |`
   `|______________|_____________|__________________________|________________|_______________________________________________________________________|`
 
+Notes:
+
+Layer 2 (Data Link) notes:
+  data type: Frames          |
+                             |
+  Logical Link control       | Provides connection services and allows
+                             | acknowledgement of receipt of messages.
+                             | Also provides basic error control functions.
+                             |
+  Isochronous                | Network device use a common reference clock
+                             | source and create time slots for transmission
+                             |
+                             |
+  Synchronous                | Network devices agree on clocking method to
+                             | indicate beginning and end of frams and can use
+                             | control characters
+--------------------------------------------------------------------------------
+Layer 3 (Network) notes:
+  data type: Packets         |
+                             |
+  How data is forwarded      | Packet Switching (routing) (most often used)
+  (routed)                   |   Data is divided into packets and then forwarded
+                             |
+                             | Circuit Switching
+                             |   Dedicated communication link is established
+                             |   between two devices
+                             |
+                             | Message Switching
+                             |   Data is divided into messages which may be
+                             |   stored and then forwarded
+                             |
+  Route Discovery and        | Manually configured as a static rout or
+  Selection                  | dynamically through a routing protocol
+                             |
+                             | Some routing protocols include:
+                             | * RIP
+                             | * OSPF
+                             | * EIGRP
+                             |
+  Connection Services        | Augment Layer 2 connection services to improve
+                             | Reliability
+                             |
+                             | * Flow control
+                             | * Packet reordering
+                             |
+  Internet Control Message   | Sends error messages and operational information
+  Protocol (ICMP)            | to an IP destination
+                             |
+                             | Some tools used are:
+                             | * ping
+                             | * traceroute
+--------------------------------------------------------------------------------
+Layer 4 (Transport) notes
+  data type: segment(TCP)    | the two primary transport protocol
+             data gram (UDP) | * TCP
+                             | * UDP
+                             |
+  Transport Control Protocol | Connection-oriented protocol that is a reliable
+  (TCP) (segments)           | way to transport segments across the network
+                             |
+                             | Client >--Syn (seq=x)--------------> Server
+                             | client <--Syn Ack (ack=x+1 seq=y)--< Server
+                             | client >--Ack (ack=y+1 seq=x+1)----> Server
+                             | client <----------data-------------< Server
+                             |
+  User Diagram Protocol      | Connectionless protocol that is an unreliable
+  (UDP) (datagram)           | way to transport segments across the network
+                             |
+  Comparison Chart           |           TCP            |             UDP           |
+`                             |       * Reliable         |      * Unreliable         |`
+`                             |  * Connection-oriented   |     * Connectionless      |`
+`                             |  *Segment retransmission |     * No windowing or     |`
+`                             |  and flow control through|      retransmission       |`
+`                             |  windowing               |                           |`
+`                             |   * Segment sequencing   |    * No sequencing        |`
+`                             |                          |                           |`
+                             | Layer 4 Reliability features include:
+                             | * Windowing
+                             | * Buffering
+                             |
+                             |
+                             |
+                             |
+                             |
 Acronyms:
 OSI (1-7) (P)lease (D)o (N)o (Throw) (S)ausage (P)izza (A)way
 OSI (7-1) (A)ll (P)eople (S)eem (T)o (N)eed (D)ata (P)rocessing
@@ -53,13 +137,13 @@ Data Ecapsulation and decapsulation within the OSI model context
   `|  |     (IP address            |  |`
   `|  |   +---------------------+  |  |`
   `|  |   |    TCP header       |  |  |`
-  `| F| D +---------------------+  |  |`
-  `| r| t | S                   |  |  |`
-  `| a| a | e      Data         |  |  |`
-  `| m| g | g                   |  |  |`
-  `| e| r | m                   |  |  |`
-  `|  | a | e                   |  |  |`
-  `|  | m | n                   |  |  |`
+  `| F| P +---------------------+  |  |`
+  `| r| a | S                   |  |  |`
+  `| a| c | e      Data         |  |  |`
+  `| m| k | g                   |  |  |`
+  `| e| e | m                   |  |  |`
+  `|  | t | e                   |  |  |`
+  `|  |   | n                   |  |  |`
   `|  |   | t                   |  |  |`
   `|  |   f_____________________+  |  |`
   `|  |____________________________|  |`
