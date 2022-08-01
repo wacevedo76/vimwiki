@@ -16,7 +16,7 @@
   `|              |             |                          |                | between nodes                                                         |`
   `|              |             |                          |                |                                                                       |`
   `+--------------+------Ports--+--------------------------+----------------+-----------------------------------------------------------------------+`
-  `| Transport    | TCP         |      Segments (TCP)      | Transport      | Reliable transmission of data segments between points on a            |`
+  `| Transport    | TCP   RTP   |      Segments (TCP)      | Transport      | Reliable transmission of data segments between points on a            |`
   `|              | UDP         |      Datagrams (UDP)     |                | network, including segmentation, acknowledgement and multiplexing     |`
   `+--------------+-------------+--------------------------+----------------+-----------------------------------------------------------------------+`
   `| Network      | ICMP, IGMP  |                          | Internet       | Structuring and managing a multi-node network, including addressing   |`
@@ -25,7 +25,7 @@
   `| Data Link    | MAC Address |                          |                | Reliable transmission of data frames between two nodes connected by a |`
   `|              |             |      Frames              |                | physical layer                                                        |`
   `+--------------+-------------+--------------------------+ Network Access +-----------------------------------------------------------------------+`
-  `| Physical     | Ethernet    |      Bits                |                | Transmission and reception of raw bit streams over a physical medium  |`
+  `| Physical     | Ethernet    |      Bits                | Net. Interface | Transmission and reception of raw bit streams over a physical medium  |`
   `|              | Fiber       |                          |                |                                                                       |`
   `|              | Wifi        |                          |                |                                                                       |`
   `|______________|_____________|__________________________|________________|_______________________________________________________________________|`
