@@ -8,13 +8,14 @@
 [[notes]]
 
 == Programming ==
-  * [[Bash]]
-  * [[TypeScript]]
-  * [[Python]]
   * [[Awk]]
-  * [[c]]
+  * [[Bash]]
+  * [[clojure/clojure_index|Clojure]]
   * [[Go]]
+  * [[Python]]
   * [[Ruby]]
+  * [[TypeScript]]
+  * [[c]]
   * [[webdev/webdev_index|WebDev]]
 
 == Frameworks ==
