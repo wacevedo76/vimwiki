@@ -1,0 +1,39 @@
+--------------------------------------------------------------------------------
+= Clojure Fundamentals =
+--------------------------------------------------------------------------------
+Core data structures         | (1 2 3 4 5)                      ; List
+  NOTE: Commas are not       | ["a" "b" "c" "d" "e"]            ; Vector
+  evaluated in expressions   | {:name "Grogu", :age 50}         ; Map
+  (evaluated as whitespace)  | #(5 2 3 1 4)                     ; Set
+  so they are not needed but |
+  can be used as visual      |
+  separators (maps)          |
+                             |
+Function call                | (function arg-1 arg-2 ...)
+                             | (max 1 2 3)                      ; => 6
+                             | (filter odd? [1 2 3])            ; => (1 3)
+  (conditional)              | (if (< 1 2) "a" "b")             ; => "a"
+                             |
+Immutability                 | All data structures in Clojure are immutable
+                             |
+Set variables                | (def first-name "Dave")
+                             | (def ages [42 3 18])
+                             |
+  string concatinaion        | (str "I'm sorry " first-name)    ; => "I'm sorry Dave"
+  conjoin (append) value     | (conj ages 21)                   ; => [42 3 18 21] (ages doesn't change)
+                             |
+Define new function          | (def greetings (fn [name] (str "Hello " name)))
+                             |
+Syntactic sugar for function | (defn greetings [name]             ; uses defn (define function)
+Declarations                 |   (str "Hello" name))
+                             |
+Functions calls are the same | (greetings "Dave")                 ; => "Hello Dave"
+                             |
+Nested functions             | (filter odd? (map inc (range 5)))  ; => (1 3 5)
+                             |
+"Thread Last" for structuing | (->> (range 5)                     ; => (0 1 2 3 4)
+Nested function to be more   |      (map inc)                     ; => (1 2 3 4 5)
+natural (to read)            |      (filter odd?))                ; => (1 3 5)
+                             |
+                             | (->> Acts as sort of a pipe (Unix pipe)
+                             |
