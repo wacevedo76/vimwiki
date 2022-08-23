@@ -22,7 +22,6 @@ Set variables                | (def first-name "Dave")
   string concatinaion        | (str "I'm sorry " first-name)    ; => "I'm sorry Dave"
   conjoin (append) value     | (conj ages 21)                   ; => [42 3 18 21] (ages doesn't change)
                              |
-Define new function          | (def greetings (fn [name] (str "Hello " name)))
                              |
 Syntactic sugar for function | (defn greetings [name]             ; uses defn (define function)
 Declarations                 |   (str "Hello" name))
@@ -36,4 +35,208 @@ Nested function to be more   |      (map inc)                     ; => (1 2 3 4 
 natural (to read)            |      (filter odd?))                ; => (1 3 5)
                              |
                              | (->> Acts as sort of a pipe (Unix pipe)
+                             |
+--------------------------------------------------------------------------------
+  Define variable            |(def x 42) -> use the def keyword, variable name
+                             |              then value
+                             |
+  Define new function        | (def greetings (fn [name] (str "Hello " name)))   <- is this how lamda functions are made?
+  (using def)                |    -> use the "def" keyworkd then function name
+                             |       parameters listed between brackets "[]"
+                             |       then the body of the function within "()"
+                             |       if you use the "def" keyword then you must
+                             |       use "fn" keyworkd as the first items in the
+                             |       body of the function
+                             |
+  (using defn)               | (defn foo [x] (* x 2))
+                             |
+--------------------------------------------------------------------------------
+Built in Math operations     |
+                             |
+  Modulo                     | (mod 23 2)
+                             | ;; -> 1
+                             |
+  Max (returns the max num   | (max 1 2 3 99 5 7)
+    from list)               | ;; -> 99
+                             |
+  Min                        | (min 3 4 5 99 3)
+                             | ;; -> 3
+                             |
+  Random (rational number)   | (rand 100)
+                             | ;; -> 37.51551833853015 (for example)
+                             |
+  Random Integer             | (rand-int 100)
+                             |
+  PI                         | (Math/PI)
+  (The Math module contains  |
+   many mathimatical operat- |
+   ions                      |
+                             |
+--------------------------------------------------------------------------------
+Characters and Strings       |
+                             |
+  Single Character           | \H, \w
+                             |
+  String                     | "Hello", "World!"
+                             |
+  Regular Expressions        | #"[0-9]+"
+                             |
+  Get the length of string   | (.length "Hello!")
+                             | ;; -> 6
+                             |
+  Convert to lower case      | (.toLowerCase "Hello!")
+                             | ;; -> "hello!"
+                             |
+  Convert to upper case      | (.toUpperCase "Hello!")
+                             | ;; -> "HELLO!"
+                             |
+  Return a character from a  | (.charAt "Hello!" 3)
+  specific position          | ;; -> \l
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
