@@ -70,4 +70,5 @@
 == Misc ==
   * [[DevOps]]
   * [[Quotes]]
+  * [[Maths/Index|Maths]]
   * [[bujo|Bullet Journal]]
