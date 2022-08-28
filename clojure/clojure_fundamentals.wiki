@@ -35,6 +35,61 @@ Nested function to be more   |      (map inc)                     ; => (1 2 3 4 
 natural (to read)            |      (filter odd?))                ; => (1 3 5)
                              |
                              | (->> Acts as sort of a pipe (Unix pipe)
+--------------------------------------------------------------------------------
+Collections
+  List                       | '(1 2 "tom") <- start with a quote, separating commas are optional
+                             |   - Elements are accessed sequentially
+                             |
+  Vector                     | [:test01 2 3 4 5 :test2]
+                             |   - Elements are accessed by index
+                             |
+  Maps                       | {:jam1 "strawberry" :jam2 "blackberry"}
+                             | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
+                             |
+Lists and Vectors            |
+                             |
+  Access first element       | (first '(:rabbit :pocket-watch :marmalade :dorr))
+                             | ;; -> :rabit
+                             |
+  Access all but first       | (rest '(:rabbit :pocket-watch :marmalade :dorr))
+  element                    | ;; -> :pocket-watch :marmalade :door
+                             |
+  Access the last element    | (last '(:rabbit :pocket-watch :marmalade :door))
+                             | ;; -> :door
+                             |
+  Access the nth element     | (nth [:rabbit :pocket-watch :marmalade :door] 2)
+  (faster with vectors)      | ;; -> :marmalade ()
+                             |
+  Add element an to the start| (cons 2 '(3 4))
+  of a collection            | ;; -> (2 3 4)
+                             |
+  Add elemnt to the end      | (conj [:first :second] :third])
+  of a vector                |
+                             |
+  count the number of elemen-| (conj [:toast :butter] :jam)
+  ts in a colletion          | ;; -> [:toast :butter :jam]
+                             |
+  (conj adds elements to the | (conj [:toast :butter] :jam :honey)
+  end of vectors, it adds to | ;; -> [:toast :butter :jam :honey]
+  the begining of list       |
+                             |
+Maps                         |
+  Retrieve (get) the value   | (get {:jam1 "Strawberry" :jam2 "blackberry"} :jam2)
+  from a item in a map       | ;; -> "blackberry"
+                             |
+  set a default value if     | (get {:jam1 "strawberry" :jam2 "blackberry"} :jam3 "not found")
+  a key in map is not present| ;; -> "not found"
+                             |
+  get using the key as a     | {:jam2 {:jam1 "strawberry" :jam2 "blackberry" :jam3 "marmalade"}}
+  function                   | ;; -> "blackberry"
+                             |
+  Return only the keys of    | (keys {:jam1 "strawberry" :jam2 "blackberry" :jam3 "marmalade"})
+  a mape                     | ;; -> {"marmalade" "blackberry" "stawberry"}
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
   Define variable            |(def x 42) -> use the def keyword, variable name
