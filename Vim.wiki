@@ -133,3 +133,10 @@ textwidth                    | set width of line
     (Operator non recursive  |   :normal -> dp    ---> deletes all within ()
     mapping)                 |   :normal -> cp    ---> changes all within ()
                              |
+--------------------------------------------------------------------------------
+  Telescope                  | Telescope.nvim
+                             | Telescope.setup
+                             | Telescope.builtin
+                             | Telescope.layout
+                             | Telescope.action
+
