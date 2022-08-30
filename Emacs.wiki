@@ -67,7 +67,7 @@ To stop the tutorial         | C-x k
                              |
   Kill word before cursor    | M-<del>
                              |
-  Kill word after cursor     | M-d 
+  Kill word after cursor     | M-d
                              |
   Kill from cursor to end of | C-k
   line                       |
@@ -87,7 +87,7 @@ To stop the tutorial         | C-x k
   List Buffers               | C-x C-b
                              |
   Save file                  | C-x C-s
-  Save some buffers          |
+  Save some buffers          | C-x s
   List Buffers               | C-x C-b
   Switch buffer              | C-x b
   quit Emacs                 | C-x C-c
