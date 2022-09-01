@@ -63,6 +63,7 @@
 
 == Cloud ==
   * [[AWS/awsindex|AWS]]
+  * [[Azure/AzureIndex|Azure]]
 
 == CompSci ==
   * [[Data Structures and algorithms]]
