@@ -42,6 +42,8 @@ Collections
                              |
   Vector                     | [:test01 2 3 4 5 :test2]
                              |   - Elements are accessed by index
+                             |     (def family ["bob" "jim" "Sally"])
+                             |     (family 1)           ;; output: "jim"
                              |
   Maps                       | {:jam1 "strawberry" :jam2 "blackberry"}
                              | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
@@ -104,6 +106,18 @@ Maps                         |
                              |       body of the function
                              |
   (using defn)               | (defn foo [x] (* x 2))
+                             |
+--------------------------------------------------------------------------------
+  Define local variables     | (let [a 5]               ;; a = 5
+                             |    (println "a = " a)
+                             |    (inc a))
+                             |
+  Multiple variables         | (let [a 5
+                             |       b 7]
+                             |    (println "a =" a)
+                             |    (println "b =" b)
+                             |    (+ a b))
+                             |
                              |
 --------------------------------------------------------------------------------
 Built in Math operations     |
@@ -173,120 +187,9 @@ Control Structures           |
                              |    (< a 1)  :small_a
                              |    (= 0 c)  :zero_c)
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+--------------------------------------------------------------------------------
+Loops                        | (for [i [1 2 3]]
+                             |    (inc 1))        ;; Output: (2 3 4)
                              |
                              |
                              |
