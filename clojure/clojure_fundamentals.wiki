@@ -92,7 +92,7 @@ Maps                         |
                              |
                              |
 --------------------------------------------------------------------------------
-  Define variable            |(def x 42) -> use the def keyword, variable name
+  Define variable            | (def x 42) -> use the def keyword, variable name
                              |              then value
                              |
   Define new function        | (def greetings (fn [name] (str "Hello " name)))   <- is this how lamda functions are made?
@@ -148,29 +148,30 @@ Characters and Strings       |
   Return a character from a  | (.charAt "Hello!" 3)
   specific position          | ;; -> \l
                              |
+--------------------------------------------------------------------------------
+Control Structures           |
+  if                         | (if (condition)    ;; Condition
+                             |    (inc a)         ;; True branch
+                             |    (inc b))        ;; False branch
                              |
+  when (there is no false    | (when (> a 0)
+    branch to execute)       |    (println "a > 0")
+                             |    (inc a))
                              |
+  when-not (there is no true | (when-not (> a 0)
+    branch to execute)       |    (println "a <= 0")
+                             |    (dec a))
                              |
+  Case Expression            | (case x           ;; "x" is the Expression to match
+                             |    10 :ten        ;;  case :result
+                             |    20 :twenty     ;;  case :result
+                             |    50 :fifty      ;;  case :result
+                             |    :other)        ;; Default result expression
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  Cond expression            | (cond
+                             |    (> x 10) :big_x
+                             |    (< a 1)  :small_a
+                             |    (= 0 c)  :zero_c)
                              |
                              |
                              |
