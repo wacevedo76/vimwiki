@@ -88,11 +88,6 @@ Maps                         |
   Return only the keys of    | (keys {:jam1 "strawberry" :jam2 "blackberry" :jam3 "marmalade"})
   a mape                     | ;; -> {"marmalade" "blackberry" "stawberry"}
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
 --------------------------------------------------------------------------------
   Define variable            | (def x 42) -> use the def keyword, variable name
                              |              then value
@@ -191,11 +186,25 @@ Control Structures           |
 Loops                        | (for [i [1 2 3]]
                              |    (inc 1))        ;; Output: (2 3 4)
                              |
+--------------------------------------------------------------------------------
+The Dot and new operators    | The dot operator, written as a literal ".", forms
+                             | the basis for Java interop. When seen by itself
+                             | after an opening parenthesis, it should be read a
+                             | "in the scope of A do B with arguments..." for example
                              |
+                             |   (. Math PI)
+                             |   ;; Result: 3.141592653589793
+                             |   (. Math abs -3)
+                             |   ;; Result: 3
+                             |   (. "foo" toUpperCase)
+                             |   ;; Result: "FOO"
                              |
+                             | To create instance of classes, you can use the
+                             | the new operator or a trailing dot to indicate
+                             | that the class's constructor should be called
                              |
-                             |
-                             |
-                             |
-                             |
+                             | (new Integer "42")
+                             | ;; Result: 42
+                             | (Integer. "42")
+                             | ;; Result: 42
                              |
