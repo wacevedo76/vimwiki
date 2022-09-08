@@ -5,6 +5,11 @@
   visudo                     | * Specific versions of vi intended to edit
                              |   /ect/sudoers file
 --------------------------------------------------------------------------------
+File Redirection
+  Redirecting only errors    | 2>   Overwrite all content with error stream
+                             | 2>>  Appending error stream
+                             |
+--------------------------------------------------------------------------------
 == Managing Users and Groups ==
 === Users ===
   adding users               | useradd
@@ -54,6 +59,15 @@
   Check group membership     | id <user name>
                              |
   Assign group administrator | gpasswd -A <user name> <group>
+                             |
+--------------------------------------------------------------------------------
+Files types
+  Regular file: -            | Normal files such as text, data, or executable
+  Directory:    d            | Files which are lists of other files
+  Link:         l            | A shortcut which points to the location of the actual file
+  Special file: c            | A mechanism which is used for input and output, such as files in /dev
+  Socket:       s            | A special file which provides inter-process networking protected by the system's access control
+  Pip:          p            | A special file which allows processes to communicate with each other without using network socket semantics
                              |
 --------------------------------------------------------------------------------
 == File Access & Permission ==
