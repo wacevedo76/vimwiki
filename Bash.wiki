@@ -247,6 +247,13 @@ commands to grokk
   Run multi script on one    | -e
   stream                     |
 --------------------------------------------------------------------------------
+== Conditional Operators ==
+  and                        | &&
+                             |
+  or                         | ||
+                             |
+                             |
+--------------------------------------------------------------------------------
 == Conditional Testing and Scripting Loops ==
   While loop                 | while true; do
                              | done
