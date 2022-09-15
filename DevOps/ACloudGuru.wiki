@@ -1,0 +1,25 @@
+--------------------------------------------------------------------------------
+= acloudguru DevOps path Notes =
+--------------------------------------------------------------------------------
+Defining DevOps
+  DevOps                     | = Dev (Development) + Ops (Operations)
+                             |
+                             | Different people define DevOps in a variety of ways.
+                             |
+                             | This definition from Wikipedia is a good starting point
+                             |
+                             |   "DevOps is a software engineering culture and practice
+                             |   aims at unifying software development and software
+                             |   operations
+                             |
+                             |   DevOps aims at shorter development cycles, increased
+                             |   deployment frequency, and more dependable releases,
+                             |   in close alignment with busines objectives
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |

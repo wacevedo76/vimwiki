@@ -53,6 +53,7 @@
 == Systems ==
   * [[snmp]]
   * [[proxmox]]
+  * [[nvm]]
 
 == Administration ==
   * [[Linux SysAd]]
