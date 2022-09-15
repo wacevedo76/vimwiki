@@ -16,6 +16,107 @@ Defining DevOps
                              |   deployment frequency, and more dependable releases,
                              |   in close alignment with busines objectives
                              |
+--------------------------------------------------------------------------------
+Brief History of DevOps      |
+  Agile Software Development | * DevOps grew out of the Agile software development
+                             |   movement
+                             | * Agile seeks to develop software in small,
+                             |   frequent cycles in order to deliver
+                             |   functionality to customers quickly andquickly
+                             |   respond to chaning busin
+                             |
+                             | * DevOps and Agile often go hand-in-hand
+                             |
+  The Timeline of DevOps     | * 2007: Agile software development was gaining
+                             |   popularity, but it was also suffering from a
+                             |   growing divide between development and operations
+                             |
+                             | * 2007: Patrick Debois, an enginner with experience
+                             |   doing both dev and ops, was doing testing on a
+                             |   project and became frustrated by the huge divide
+                             |   between dev and ops
+                             |
+                             | * 2008: Patrick Debois and Andrew Shafer met at the
+                             |   Agile2008 Conference in Toronto, Canada. They
+                             |   began to start conversations and seek others
+                             |   interesten bridging the divide between dev and ops
+                             |
+                             | * June 23, 2009: John Allspawn and Paul Hammond gave
+                             |   a talk to Velocity Conference: "10+ Deploys Per
+                             |   Day: Dev and Ops Cooperation at Flickr." Patrick
+                             |   was watching vial livestream. People began discussing
+                             |   it via twiter.
+                             |
+                             | * October 30-31 2009: Patrick hosted the first DevOpsDays
+                             |   in Ghent, Belgium; a conference for both devs and
+                             |   ops engineers. The conversation continued on
+                             |   Twitter:#devops
+                             |
+                             |
+                             | * DevOps grew into an organic, grassroots movement
+                             |   all over the world and spawned many tools to
+                             |   support the practices valued by DevOps
+                             |
+--------------------------------------------------------------------------------
+Devops Essentials
+  The Goals of DevOps        | Devops cultures is about collaboration between Dev and Ops
+                             |
+                             | Under the traditional separations between Dev and Ops
+                             |   , Dev and Ops have different and opposing goals.
+                             |
+                             | * Development -> speed
+                             | * Operations  -> Stability
+                             |
+                             | However, in a devOps culture
+                             |   * Dev and Ops are playing on the same team
+                             |   * Devn and Ops share the same goals
+                             |
+                             | These goals include things like:
+                             |   * Fast time-to-market (TTM)
+                             |   * Few production failures
+                             |   * Immediae recovery from failures
+                             |
+                             | DevOps is a Dev and Ops working together.
+                             |
+--------------------------------------------------------------------------------
+Devops Essentials
+  Why do build automation    | * Build automation is fast - Automation handles
+                             |   tasks that would otherwis need to be done manually.
+                             |
+                             | * Build automation is consistent - The build happens
+                             |   the same way every time, removing problems and
+                             |   confusion that can happen with manual builds.
+                             |
+                             | * Buld automation is repeatable - The build can
+                             |   be done multiple times with the same result.
+                             |   Any version of the source code can always be
+                             |   transformed into deployable code in a consistent way.
+                             |
+                             | * Buld automation is portable - The buld can be done
+                             |   the same way on any machine. Anyone on the team
+                             |   cab build on their macine, as well as on a shared
+                             |   build server. Building code doesn't depend on specific
+                             |   people or machines
+                             |
+                             | * Build automation is more reliable - There will be
+                             |   fewer problems caused by bad builds
+                             |
+  What is continuous         | * Continuous Intergration(CI): the practive of frequently
+  integration                |   merging code changes done by developers
+                             |
+                             | * Traditionally, developers would worl separately, perhaps
+                             |   for weeks at a time, and then merge all of their
+                             |   work together at the end in one large effort
+                             |
+                             | * Continuous integration mens merging constantly throughout
+                             |   the day, usually with the execution of automated
+                             |   tests to detect any problems caused by the merge
+                             |
+                             | * Merging all the time could be a lot of work, so
+                             |   to avoid that it should be automated
+                             |
+                             |
+                             |
                              |
                              |
                              |
