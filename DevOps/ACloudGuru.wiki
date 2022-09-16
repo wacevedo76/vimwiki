@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 = acloudguru DevOps path Notes =
 --------------------------------------------------------------------------------
-Defining DevOps
+== Defining DevOps ==
   DevOps                     | = Dev (Development) + Ops (Operations)
                              |
                              | Different people define DevOps in a variety of ways.
@@ -17,7 +17,7 @@ Defining DevOps
                              |   in close alignment with busines objectives
                              |
 --------------------------------------------------------------------------------
-Brief History of DevOps      |
+== Brief History of DevOps ==
   Agile Software Development | * DevOps grew out of the Agile software development
                              |   movement
                              | * Agile seeks to develop software in small,
@@ -58,7 +58,7 @@ Brief History of DevOps      |
                              |   support the practices valued by DevOps
                              |
 --------------------------------------------------------------------------------
-Devops Essentials
+== Devops Essentials ==
   The Goals of DevOps        | Devops cultures is about collaboration between Dev and Ops
                              |
                              | Under the traditional separations between Dev and Ops
@@ -79,7 +79,7 @@ Devops Essentials
                              | DevOps is a Dev and Ops working together.
                              |
 --------------------------------------------------------------------------------
-Devops Essentials
+== Devops Essentials ==
   Why do build automation    | * Build automation is fast - Automation handles
                              |   tasks that would otherwis need to be done manually.
                              |
@@ -115,12 +115,239 @@ Devops Essentials
                              | * Merging all the time could be a lot of work, so
                              |   to avoid that it should be automated
                              |
+--------------------------------------------------------------------------------
+== Infrastructure as Code (IaC) ==
+  What is infrastructure as  | * Infrastructure as Code (IaC): manage and provision
+  code?                      |   infrastructure through code and automation
                              |
+                             | * With infrastructure as code, instead of doing
+                             |   things manually, you use automation and code
+                             |   to create and change:
                              |
+                             |   * Servers
+                             |   * Instances
+                             |   * Environments
+                             |   * Containers
+                             |   * Other infrastructure
                              |
+  What does infrastructure   | - Without infrastructure as code you might:
+  as code look like?         |   * ssh into a host
+                             |   * Issue a series of commands to perform the change
                              |
+                             | - With infrastructure as code:
+                             |   * Chance some code or configuration files that
+                             |     can be used with an automation too to perform
+                             |     changes
                              |
+                             |   * Commit them to souce control
                              |
+                             |   * Use an automation tool to enact the chanes
+                             |     defined in the code and/or configuration files
                              |
+                             | - With IaC, provisioning new resource and changing
+                             |   existing resources are both done through automation
                              |
+  Why do infrastructure as   | * Consistency in creation and management of resources -
+  code?                      |   The same automation will run he same way every time.
+                             |
+   * Consistency             | * Reusability - Code can be used to make the same change
+   * Reusability             |   consistently across multiple hhosts and can be
+   * Scalability             |   used again in the future.
+   * Self-documenting        |
+   * Simplify the complexity | * Scalability - Need a new instance? You can have
+                             |   one configured exactly the same way as  the
+                             |   existing instances in minutes (or seconds).
+                             |
+                             | * Self-documenting - With LaC, changes to infrastructure
+                             |   document themselves to a degree. The way a
+                             |   server is configured can be viewed in source
+                             |   control, rather than being a matter of who
+                             |   logged in to the server and did something.
+                             |
+                             | * Simplify the complexity - Complex infrastructures
+                             |   can be  stood up quickly once they are defined
+                             |   as code. A group of several interdependent servers
+                             |   can be provisioned on demand.
+                             |
+--------------------------------------------------------------------------------
+== Configuration Management ==
+  What is Configuration      | * Configuration Management: maintaining a changing
+  management?                |   the state of pieces of infrastructure in a
+                             |   consistend, maintainable, and stable way
+                             |
+                             | * Changes always need to happen - configuration
+                             |   management is about doing themn in a maintainable
+                             |   way
+                             |
+                             | * Configuration management allows you to minimize
+                             |   configuration drift - the small changes that
+                             |  accumulate ove rtime and make systems different
+                             |  from one another nd harder to manage
+                             |
+                             | * Infrastructures as Code is very beneficial for
+                             |   configuration managment
+                             |
+  What does configuration    | Here is an Example
+  management look like?      | * You need ot upgrade a software package on a
+                             |   bunch of servers:
+                             |   * Without good configuration management, you
+                             |     log on into each server and perform the upgrade.
+                             |     However, this can lead to a lot of problems.
+                             |     Perhaps one server was missed due to poor
+                             |     documentation, or perhaps something doesn't
+                             |     while the versions are temporarily mismatched
+                             |     between servers, causing a lot of downtime
+                             |     while you do the upgrade
+                             |
+                             |   * With good configuration management, you define
+                             |     the new version of the software package in a
+                             |     configuration file or tool and automatically
+                             |     roll out the change to all of the servers.
+                             |
+                             | * Configuration management is about managing your
+                             |   somewhere outside of the servers themselves
+                             |
+  Why do configuration       | * Save time - It takes less time to change the configuration.
+  management?                |
+                             | * Insight - With good configuration management,
+  * Save time                |   you can know about the state of all pieces of
+  * Insight                  |   large and complex infrastructure
+  * Maintainability          |
+  * Less configuration drift | * Maintainability - A more maintainable infrastructure
+                             |   is easier to change in a stable way.
+                             |
+                             | * Less configuration drift - It is easier to keep
+                             |   a standard configuration across a multitude of hosts
+                             |
+--------------------------------------------------------------------------------
+== Orchestration ==
+  What is Orchestration?     | * Orchestration: automation that supports processes
+                             |   and workflows, such as provisioning resources
+                             |
+                             | * With orchestration, managing a complex infrastructure
+                             |   is less like being a builder and more like
+                             |   conducting an orchestra
+                             |
+                             | * Instead of going out and creating a pice of
+                             |   infrastructure, the conductor simply signals
+                             |   what needs to be done and the orchestra performs it:
+                             |
+                             |   * The conductor does not need to control every detail
+                             |   * The musicians (automation) are able to perform
+                             |     their piece with only a little bit of guidance
+                             |
+  What does Orchestration    | * Here is an example:
+  look like?                 |   * A customer requests more resources for a web
+                             |     service that is abot to see a heavy increase
+                             |     in usage due to a planned marketing effort
+                             |
+                             |   * Instead of manually standing up new nodes,
+                             |     operations engineers use an orchestration to
+                             |     request five more nodes to support the service
+                             |
+                             |   * A few minutes later, the tool has five new nodes
+                             |     up and running
+                             |
+                             | * A much cooler example:
+                             |   * A monitoring too detects an increased load on the service
+                             |
+                             |   * An orchestration tool responds to this by spinning up
+                             |     additional resources to handle the load
+                             |
+                             |   * When the load decreases again, the tool spins the
+                             |     additional resources to handle the load
+                             |
+                             |   * When the load decreases again, the tool spins
+                             |     the additional resources back down, freeing them
+                             |     up to be used by something else
+                             |
+                             |   * Al of this happens while the engineer is getting coffee
+                             |
+  Why do orchestration?      | * Scalability - Resources can bequickly increased
+                             |   or decreased to meet changing needs.
+  * Scalability              |
+  * Stability                | * Stability - Automation tools can automatically
+  * Save time                |   respond to fix problems before users see them.
+  * Self-service             |
+  * Granular insigth into    | * Save time - Certain tasks and workflows can be
+    resource usage           |   automaticaly respond to fix problems before users
+                             |   see them
+                             |
+                             | * Save time - Certain tasks and workflows can be
+                             |   automated, freeing up engineers' time
+                             |
+                             | * Granular insight into resouce usage - Orchestration
+                             |   Tools give greater insight into how many resources
+                             |   are being used by what software, services, or customers.
+                             |
+--------------------------------------------------------------------------------
+== Monitoring ==
+  What is Monitoring?        | * Monitoring: The collection and presentation of
+                             |   data about the performace and stability of
+                             |   services and infrastructure
+                             |
+                             | * Monitoring tools collect data over things such
+                             |   as:
+                             |
+                             |   * Usage of memory
+                             |   * CPU
+                             |   * disk i/o
+                             |   * Other reources over time
+                             |   * Application logs
+                             |   * Network traffice
+                             |   * etc
+                             |
+                             | * The collected data is presented in various
+                             |   forms, such as charts and graphs, or in the form
+                             |  of real-time notifications about problems
+                             |
+  What does Monitoring look  | * Real-time notifications:
+  like?                      |   * Performance on the website is beginning to
+                             |     slow down
+                             |   * A monitoring tool detects that response times
+                             |     are growing
+                             |   * An administrator is immediately notified and
+                             |     is able to intervene before downtime occurs
+                             |
+                             | * Postmortem analysis:
+                             |   * Something went wrong in production last night
+                             |   * It's working now, but we don't know what caused it
+                             |   * Luckily, monitoring tools collected a lot of data
+                             |     during the outage
+                             |   * With that data, developers and operations
+                             |     engineers are able to determing the root cause
+                             |     (a poorly performing SQL query) and fix it.
+                             |
+  Why do Monitoring?         | * Fast recovery - The sooner a problem is detected,
+                             |
+  * Fast recovery            | * Better root cause analysis - The more data you have,
+  * Better root cause        |   the easier it is to determine the root cause of a problem
+    analysis                 |
+  * Visibility across teams  | * Visibility across teams - Good monitoring tools
+  * Automated response       |   usefule data to both developers and operations
+                             |   people about the perfomance of code in production.
+                             |
+                             | * Automated response - Monitoring data can be used
+                             |   alongside orchestration to provide automated
+                             |   responses to events, such as automated recovery
+                             |   from failures.
+                             |
+--------------------------------------------------------------------------------
+== Microservices ==
+  What are Microservices?    | * Microservices: A microservice architecture breaks
+                             |   an application up into a collection of small,
+                             |   loosely-coupled services.
+                             |
+                             | * Traditionally, apps used a monolithic architecture.
+                             |   In a monolithic architecture, all features and
+                             |   services are part of one large appliation
+                             |
+                             | * Microservices are small: each microservice
+                             |   implements only a small piece of an application's
+                             |   overall functionality
+                             |
+                             | * Microservices are loosely coupled: different
+                             |  microservices interact with each other using stable
+                             |  and well-defined APIs. This means that they are
+                             |  independent of one another
                              |
