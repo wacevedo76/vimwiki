@@ -101,8 +101,8 @@ Devops Essentials
                              | * Build automation is more reliable - There will be
                              |   fewer problems caused by bad builds
                              |
-  What is continuous         | * Continuous Intergration(CI): the practive of frequently
-  integration                |   merging code changes done by developers
+  What is Continuous         | * Continuous Intergration(CI): the practive of frequently
+  Integration?               |   merging code changes done by developers
                              |
                              | * Traditionally, developers would worl separately, perhaps
                              |   for weeks at a time, and then merge all of their
@@ -114,6 +114,108 @@ Devops Essentials
                              |
                              | * Merging all the time could be a lot of work, so
                              |   to avoid that it should be automated
+                             |
+  What does Continuous       | * Continuous integration is ususally done with the
+  Itegration look like?      |   help of a CI server
+                             |
+                             | * When a developer commits a code change, the CI
+                             |   server sees the change and automatically performs
+                             |   a build, also executing automated tests.
+                             |
+                             | * The occurs multiple times a day.
+                             |
+                             | * If ther eis any problem with the build, the CI
+                             |   server immediately and automatically notifies the
+                             |   developers.
+                             |
+                             | * If anyone commits code that "breaks the build"
+                             |   they are responsible for fixing the problem or
+                             |   rolling back their changes immediately so that
+                             |   other developers can continue working.
+                             |
+  Why do Continuous          | * Early detection of certain types of bugs - if
+                             |   code doesn't compile or an automated test fails,
+                             |   the developers are notified and can fix it and
+                             |   can fix it immediately. The sooner these bugs
+                             |   are detected, the easier tey are to fix?
+                             |
+                             | * Eliminate the scrable to integrate just before
+                             |   a big release - The code is constantly merged,
+                             |   so there is no need to do a big merge at the end
+                             |
+                             | * Makes frequet releases possible - Code is always
+                             |   in a stat that can be deplolyed to production
+                             |
+                             | * Makes continuous testing possible - Sinse the
+                             |   code can always be run, QA testers can get their
+                             |   hads on it all throughout the development process
+                             |   not just at the end
+                             |
+                             | * Encourages good coding practice - Frequent commits
+                             |   encourages simple, modular code.
+                             |
+--------------------------------------------------------------------------------
+Continuous Delivery and Continuous Deployment
+  What is Continuous Delivery| * Continuous Delivery (CD): the practice of
+                             |   continuously maintaining code in a deployable
+                             |   state
+                             |
+                             | * Regardless of whether or not the decision is
+                             |   made to deploy, the code is always in a state
+                             |   that is able to be deployed
+                             |
+                             | * Some use the terms continuous delivery and
+                             |   continuous deployment interchangeably, o
+                             |   or simply use the abbreviation CD
+                             |
+  What is Continuous         | * Continuous Deployment: the practice of frequently
+  Deployment                 |   deploying small code changes to production
+                             |
+                             | * Continuous delivery is keeping the coe in a
+                             |   deployable state. Continuous deployment is
+                             |   actually doing the deployment frequently
+                             |
+                             | * Some companies that do continuous deployment
+                             |   deploy to production multiple times a day
+                             |
+                             | * There is no standard for how often you should
+                             |   deploy, but in general the more foten you
+                             |   deploy the better!
+                             |
+                             | * With continuous deployment, deployments to
+                             |   production are routine and commonplace.
+                             |   They are not a big, scary event
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
