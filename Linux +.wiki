@@ -11,6 +11,22 @@ File Redirection
                              |
 --------------------------------------------------------------------------------
 == Managing Users and Groups ==
+=== Types of users ===
+  root                       | User ID: 0
+                             | Group ID: 0
+                             | Home Dir: /root
+                             | Shell: /bin/bash
+                             |
+  Regular                    | User ID: 1000 to 60000
+                             | Group ID: 1000 to 60000
+                             | Home Dir: /home/username
+                             | Shell: /bin/bash
+                             |
+  Service                    | User ID: 1 to 999
+                             | Group ID: 1000 to 60000
+                             | Home Dir: /var/ftp, etc
+                             | Shell: /sbin/nologin
+                             |
 === Users ===
   adding users               | useradd
                              |    -c (comment)
