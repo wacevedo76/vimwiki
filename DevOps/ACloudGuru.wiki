@@ -78,8 +78,6 @@
                              |
                              | DevOps is a Dev and Ops working together.
                              |
---------------------------------------------------------------------------------
-== Devops Essentials ==
   Why do build automation    | * Build automation is fast - Automation handles
                              |   tasks that would otherwis need to be done manually.
                              |
@@ -101,8 +99,8 @@
                              | * Build automation is more reliable - There will be
                              |   fewer problems caused by bad builds
                              |
-  What is continuous         | * Continuous Intergration(CI): the practive of frequently
-  integration                |   merging code changes done by developers
+  What is Continuous         | * Continuous Intergration(CI): the practive of frequently
+  Integration?               |   merging code changes done by developers
                              |
                              | * Traditionally, developers would worl separately, perhaps
                              |   for weeks at a time, and then merge all of their
@@ -350,4 +348,215 @@
                              |  microservices interact with each other using stable
                              |  and well-defined APIs. This means that they are
                              |  independent of one another
+                             |
+--------------------------------------------------------------------------------
+== Continuous Integration ==
+  What does Continuous       | * Continuous integration is ususally done with the
+  Integration look like?     |   help of a CI server
+                             |
+                             | * When a developer commits a code change, the CI
+                             |   server sees the change and automatically performs
+                             |   a build, also executing automated tests.
+                             |
+                             | * The occurs multiple times a day.
+                             |
+                             | * If ther eis any problem with the build, the CI
+                             |   server immediately and automatically notifies the
+                             |   developers.
+                             |
+                             | * If anyone commits code that "breaks the build"
+                             |   they are responsible for fixing the problem or
+                             |   rolling back their changes immediately so that
+                             |   other developers can continue working.
+                             |
+  Why do Continuous          | * Early detection of certain types of bugs - if
+                             |   code doesn't compile or an automated test fails,
+                             |   the developers are notified and can fix it and
+                             |   can fix it immediately. The sooner these bugs
+                             |   are detected, the easier tey are to fix?
+                             |
+                             | * Eliminate the scrable to integrate just before
+                             |   a big release - The code is constantly merged,
+                             |   so there is no need to do a big merge at the end
+                             |
+                             | * Makes frequet releases possible - Code is always
+                             |   in a stat that can be deplolyed to production
+                             |
+                             | * Makes continuous testing possible - Sinse the
+                             |   code can always be run, QA testers can get their
+                             |   hads on it all throughout the development process
+                             |   not just at the end
+                             |
+                             | * Encourages good coding practice - Frequent commits
+                             |   encourages simple, modular code.
+                             |
+--------------------------------------------------------------------------------
+== Continuous Delivery and Continuous Deployment ==
+  What is Continuous Delivery| * Continuous Delivery (CD): the practice of
+                             |   continuously maintaining code in a deployable
+                             |   state
+                             |
+                             | * Regardless of whether or not the decision is
+                             |   made to deploy, the code is always in a state
+                             |   that is able to be deployed
+                             |
+                             | * Some use the terms continuous delivery and
+                             |   continuous deployment interchangeably, o
+                             |   or simply use the abbreviation CD
+                             |
+  What is Continuous         | * Continuous Deployment: the practice of frequently
+  Deployment                 |   deploying small code changes to production
+                             |
+                             | * Continuous delivery is keeping the coe in a
+                             |   deployable state. Continuous deployment is
+                             |   actually doing the deployment frequently
+                             |
+                             | * Some companies that do continuous deployment
+                             |   deploy to production multiple times a day
+                             |
+                             | * There is no standard for how often you should
+                             |   deploy, but in general the more foten you
+                             |   deploy the better!
+                             |
+                             | * With continuous deployment, deployments to
+                             |   production are routine and commonplace.
+                             |   They are not a big, scary event
+                             |
+--------------------------------------------------------------------------------
+== DevOps Tools ==
+  Some of the most popular   | Source for learning about DevOps tools
+  Tools                      | https:/xebialabs.com/periodic-table-of-devops-tools/
+                             |
+  Build Automation Tools     | * Build automation - Automated processing of code
+                             |   in preparation for deployment
+                             |
+                             | * What tools you use for build automation usually
+                             |   depends on programming language and frameworks
+                             |
+                             | A few examples:
+                             |   * Java - ant, maven, gradle
+                             |   * Javascript - npm, grunt, gulp
+                             |   * Make - widely used in Unix-based systems
+                             |   * Packer - build machine images and containers
+                             |
+  Continuous Integration     | * Continuous Integration - Continuously merging
+  Tools                      |   code into a single branch or mainline
+                             |
+                             | * Continuous Integration tools usually consist
+                             |   of a server that integrates with source control
+                             |
+                             | * When source code is changed, the server responds
+                             |   by executing an automated build
+                             |
+                    Jenkins: | * Open Source - fork of Hudson
+                             |
+                             | * Widely used
+                             |
+                             | * Java servlet-based
+                             |
+                   TravisCI: | * Open Source
+                             |
+                             | * Built around Github integration
+                             |
+                             | * Executes builds in clean VMs
+                             |
+                     Bamboo: | * Enterprise product by Atlassian
+                             |
+                             | * Out-of-the-box integration with otherAtlassian
+                             |   products like JIRA and Confluence
+                             |
+--------------------------------------------------------------------------------
+== Tools for Configuration Management ==
+  Configuration Management   | * Configuration Management - Managing and changing
+  Tools                      |   the state of pieces of infrastructure in a
+                             |   consistent and maintainable way
+                             |
+                             | * Configuration management tols are a great way |
+                             |   to implement infrastructure as code
+                             |
+                    Ansible: | * Open source
+                             |
+                             | * Declarative configuration
+                             |
+                             | * YAML configuration files
+                             |
+                             | * No control server needed - but Ansible tower
+                             |   is available
+                             |
+                             | * No agents needed, just python and ssh
+                             |
+                    Puppet:  | * Declarative configuration
+                             |
+                             | * Manage state through a UI
+                             |
+                             | * Custom modules use Puppet DSL
+                             |
+                             | * Pushes changes to clients using a control
+                             |   server and agents installed on clients
+                             |
+                       Chef: | * Procedural configuration
+                             |
+                             | * Agent/server
+                             |
+                             | * Uses Chef DSL
+                             |
+                       Salt: | * Declarative configuration
+                             |
+                             | * Agent (Minions)/server (master) - but can support agentless
+                             |
+                             | * Uses YAML
+                             |
+                             | * Support for event-driven automation
+                             |
+--------------------------------------------------------------------------------
+== Tools for Virtualization and Containerization ==
+  Virtualization Tools       | * Virtualization - Managing resource by creating
+                             |   virtual machines rather than physical machines
+                             |
+                             | * Hypervisor - Runs on bare metal and manages
+                             |   virtual machines (VMs)
+                             |
+                             | * Examples:
+                             |
+                             |   * VMWare ESX and ESXi
+                             |
+                             |   * Microsoft Hyper-V
+                             |
+                             |   * Citrix XenServer
+                             |
+  Containerization           | * Containers - Lightweight, isolated packages
+                             |   containing everything needed to run a piece of
+                             |   software
+                             |
+                             | * require fewer resources than VMs - VMs contain
+                             |   and entire OS plus virtual versions of all
+                             |   hardware
+                             |
+                             | * Containers have the bare minimum needed to run
+                             |   the software
+                             |
+                             | * Docker - Docker is currently the leading container
+                             |   technology
+                             |
+                             | * Containers are still relatively new but very
+                             |   useful for DevOps!
+                             |
+--------------------------------------------------------------------------------
+== Tools for Monitoring ==
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |

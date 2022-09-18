@@ -387,41 +387,41 @@ Globbing and the loop        |
 --------------------------------------------------------------------------------
 == Command line Arguments ==
 === Command line switches ===
-  Filtering command line     | #!/bin/bash
-  switches with case statment| echo
-  (only checking the first   | while [ -n "$1" ]
-   argument)                 | do
-                             |   case "$1" in
-                             |     -a) echo "Found the -a option" ;;
-                             |     -b) echo "Found the -b option" ;;
-                             |     -c) echo "Found the -c option" ;;
-                             |     *) echo "$1 is not an option" ;;
-                             |   esac
-                             | shift
-                             | done
+`  Filtering command line     | #!/bin/bash`
+`  switches with case statment| echo`
+`  (only checking the first   | while [ -n "$1" ]`
+`   argument)                 | do`
+`                             |   case "$1" in`
+`                             |     -a) echo "Found the -a option" ;;`
+`                             |     -b) echo "Found the -b option" ;;`
+`                             |     -c) echo "Found the -c option" ;;`
+`                             |     *) echo "$1 is not an option" ;;`
+`                             |   esac`
+`                             | shift`
+`                             | done`
                              |
-  Switches with case statment|#!/bin/bash
-  (checking all arguments)   |
-                             |while [ -n "$1" ]
-                             |do
-                             |  case "$1" in
-                             |    -a) echo "Found the -a option";;
-                             |    -b) parm="$2"
-                             |      echo "Fount the -b option, with parameter value $parm"
-                             |      shift ;;
-                             |    -c) echo "Fount the -c option";;
-                             |    --) shift
-                             |      break ;;
-                             |    *) echo "$1 is not an option";;
-                             |  esac
-                             |  shift
-                             |done
-                             |count=1
-                             |for param in "$@"
-                             |do
-                             |  echo "Parameter #$count: $param"
-                             |  count=$(( $count + 1 ))
-                             |done
+`  Switches with case statment|#!/bin/bash`
+`  (checking all arguments)   |`
+`                             |while [ -n "$1" ]`
+`                             |do`
+`                             |  case "$1" in`
+`                             |    -a) echo "Found the -a option";;`
+`                             |    -b) parm="$2"`
+`                             |      echo "Fount the -b option, with parameter value $parm"`
+`                             |      shift ;;`
+`                             |    -c) echo "Fount the -c option";;`
+`                             |    --) shift`
+`                             |      break ;;`
+`                             |    *) echo "$1 is not an option";;`
+`                             |  esac`
+`                             |  shift`
+`                             |done`
+`                             |count=1`
+`                             |for param in "$@"`
+`                             |do`
+`                             |  echo "Parameter #$count: $param"`
+`                             |  count=$(( $count + 1 ))`
+`                             |done`
                              |
 === Common command line switches ===
                              | -a: List all objects.
@@ -440,54 +440,4 @@ Globbing and the loop        |
                              | -v: Execute verbose output.
                              | -x: Exclude object.
                              | -y: Answer "yes" to all questions.
-
-
-
-
-
-
-
-#!/bin/bash
-
-while [ -n "$1" ]
-do
-  case "$1" in
-    -a) echo "Found the -a option";;
-    -b) parm="$2"
-      echo "Fount the -b option, with parameter value $parm"
-      shift ;;
-    -c) echo "Fount the -c option";;
-    --) shift
-      break ;;
-    *) echo "$1 is not an option";;
-  esac
-  shift
-done
-count=1
-for param in "$@"
-do
-  echo "Parameter #$count: $param"
-  count=$(( $count + 1 ))
-done
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                             |
