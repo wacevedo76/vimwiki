@@ -634,6 +634,184 @@
                              |   services offer features that support DevOps
                              |   practices
                              |
-                             | * a traditional stack is a regulare, self-hosted   `+----------------+`
-                             |   data center                                      `|Application     |`
-                             |                                                    `+----------------+`
+                             | * a traditional stack is a regulare, self-hosted
+                             |   data center
+                             |
+                             | * In a traditional stack, you are responsible for
+                             |   every layer of the architecture
+                             |
+                             | * You provide all of the infrastructure necessary
+                             |   to run your apps
+                             |
+                             | Infrastructure as a Service
+                             |   * With infrastructure as a Service (Iaas), someone
+                             |     else provides the low-level infrastructure
+                             |   * The cloud service provider gives you a bare OS
+                             |   * You are responsible for all installation and
+                             |      and configuration above the OS level.
+                             |
+                             |   * Examples
+                             |       * Amazon ec2 instances
+                             |       * Microsoft Azure VMs and containers
+                             |       * Google Compute Engine
+                             |
+                             | Platform as a Service
+                             |
+                             |   * With Plaform as a Service (PaaS), everything
+                             |   * The cloud service provider gives you a way to
+                             |     deploy an app and use databases
+                             |   * You are only responsible for managing the app and data
+                             |
+                             |   * Examples:
+                             |     * AWS Elastic Beanstalk
+                             |     * Heroku
+                             |     * Google App Engine
+                             |
+                             | Software as a Service
+                             |   * With Software as a service (Saas), everything is managed
+                             |   * The cloud service provider give you an appliation
+                             |     ready for use
+                             |   * You are only responsible for using the application
+                             |
+                             |   * Examples
+                             |     * G-mail
+                             |     * Microsoft Office 365
+                             |
+                             | Serverless
+                             |   * Serverless is also know as Function as a Service (FaaS)
+                             |   * Serverless is different from the traditional
+                             |     application architecture
+                             |   * Everything is abstracted. YOu deploy small, single-purpose
+                             |     functions
+                             |   * You pay for the compute resource used by your functions
+                             |
+                             |   * Examples:
+                             |     * AWS Lambda (AWS Serverless Platform)
+                             |     * Azure functions
+                             |     * Google Cloud Functions
+                             |
+                             |  Traditional           Iaas Stack         PaaS Stack          Serverless Stack
+                             |  Non-Cloud Stack
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `|Application     |  |Application     |  |Application     |  | Functions      |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Data           |  | Data           |  | Data           |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Runtime        |  | Runtime        |  | Runtime        |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Middleware     |  | Middleware     |  | **PaaS**       |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| O/S            |  | **IaaS**       |  | **PaaS**       |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Virtualization |  | **IaaS**       |  | **PaaS**       |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Servers        |  | **IaaS**       |  | **PaaS**       |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Storage        |  | **IaaS**       |  | **PaaS**       |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `| Network        |  | **IaaS**       |  | **PaaS**       |  | **Serverless** |`
+                             |  `+----------------+  +----------------+  +----------------+  +----------------+`
+                             |  `                                                            | **Serverless** |`
+                             |  `                                                            +----------------+`
+                             |
+--------------------------------------------------------------------------------
+== DevOps and Google Cloud Platform ==
+  Google App Engine (PaaS)   | * PaaS - Deploy your code, don't worry about the rest
+                             |
+                             | * Built-in support for microservices
+                             |
+                             | * Out-of-the box autoscaling
+                             |
+                             | * Certain configurations can be considered serverliess
+                             |
+  Google Compute Engine      | * IaaS - Deploy and orchestrate clusters of VMs on
+  (Iaas)                     |   Google's architecture
+                             |
+                             | * Built-in orchestration
+                             |
+                             | * Works with app engine
+                             |
+                             | * Can be managed with other tools like Ansible,
+                             |   Salt, Puppet, and Chef
+                             |
+  Google Cloud Functions     | * Google's FaaS/Serverless solution
+  (Serverless/FaaS)          |
+                             | * Quickly and easily create and deploy FaaS functions
+                             |
+  Google Cloud SDK           | * An SDK (Software development kit) for interacting
+                             |   with GCP APIs
+                             |
+                             | * Makes it easy to build your own tools and automations
+                             |   that interact with GCP
+                             |
+  Stackdriver (Monitoring)   | * GCP's monitoring solution
+                             |
+                             | * Monitoring, logging, and diagnostics for your
+                             |   GCP services
+                             |
+                             | * Also works within AWS
+                             |
+  Cloud Deployment Manager   | * Declarative configuration for your GCP stack
+                             |
+                             | * IaaC and automated deployment
+                             |
+                             | * YAML-based
+                             |
+  Google Kubernetes Engine   | * Orchesytsyion on GCP with Kubernetes
+                             |
+                             | * Do continuous integration with Jenkins on
+                             |   Kubernetes Engine
+                             |
+--------------------------------------------------------------------------------
+== DevOps and Microsoft Azure ==
+  MicrosoftAzure DevOps      |
+  features                   |
+                             |
+  Continuous Integration,    | * Visual Studio Team Services - souce control
+  Delivery, and Deployment:  |   and CI
+                             |
+                             | * Jenkins - CI for Java apps
+                             |
+                             | * Continuous Deployment Triggers - Automated
+                             |   deployment triggers integrated with CI
+                             |
+  Orchestration:             | * Azure Container Registry - repository of
+                             |   container images
+                             |
+                             | * Azure Container Service - Kumbernetes orchestration
+                             |
+                             | * Azure Web Apps - Cloud hosting for web apps
+                             |   integrated with DevOps pipeline
+                             |
+  Monitoring                 | * Azure Application Insigth - APM, diagnostics,
+                             |   and analytics. Supports machine learning
+                             |
+  FaaS/Serverless            | * Azure Functions -autoscaling, serverless functions
+                             |   in Azure
+                             |
+--------------------------------------------------------------------------------
+== DevOps and Amazon Web Services ==
+  Amazon Web Services Devops |
+  Features                   |
+                             |
+  Amazon EC2                 | * IaaS
+  (Elastic Compute Cloud):   | * Easily Scalable
+                             | * Full control over your cloud infrastructure
+                             | * Inegrates with tons of tools, both AWS and 3rd-party
+                             |
+  AWS Elastic Beanstalk:     | * PaaS
+                             | * Out-of-th-box load balancing and autoscaling
+                             | * Can still access underlying AWS resouces with
+                             |   full control
+                             |
+  Continuous integration,    | * AWS CodeBuild - continuous integration
+  Delivery, and Deployment   | * AWS CodeDeploy - continuous deployment
+                             | * AWS CodePipeline - full code pipeline from build to deploy
+                             | * AWS CodeStar - integrates all parts of the
+                             |   process with project management tools and JIRA
+                             |   issue tracking
+                             |
+                             |
+                             |
+                             |
+                             |
