@@ -70,6 +70,7 @@
   * [[Data Structures and algorithms]]
 
 == Misc ==
+  * [[terms|Misc terms]]
   * [[DevOps]]
   * [[Quotes]]
   * [[Maths/Index|Maths]]

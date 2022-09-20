@@ -4,6 +4,7 @@ DevOps
 == Platforms ==
   * [[Azure]]
   * [[DevOps/ACloudGuru-DevOps_Essential_Training|acloudguru - DevOps Essential Training]]
+  * [[DevOps/ACloudGuru-DevSecOps_Essential_Training|acloudguru - DevSecOps Essential Training]]
 --------------------------------------------------------------------------------
 ** Agile Principles
   1 - Satisfy the Customer

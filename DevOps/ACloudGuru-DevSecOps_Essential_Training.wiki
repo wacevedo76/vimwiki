@@ -1,0 +1,302 @@
+--------------------------------------------------------------------------------
+= DevSecOps Essentials =
+--------------------------------------------------------------------------------
+== Introduction ==
+  DevOps and DevSecOps are   | * Process experts and coaches often say that DevOps
+  about automation           |   is not about tooling
+                             | * Engineers and technologists grow tired of process
+                             |   quickly and want real-world examples of how
+                             |   processes can be implemented
+                             | * Executive stakeholders measure outcomes and
+                             |   results when making investments in process
+                             |   improvement
+                             | * To achieve the goal of DevOps, quality software
+                             |   must be developed and deployed faster
+                             | * The "Automate everything" mantra of the DevOps
+                             |   movement is central to DevSecOps as well
+                             |
+  DevSecOps Automation       |  `+---------+   Security      +---------+`
+                             |  `| Plan    |<---+      /->-- | Deploy  |`
+                             |  `+---------+     \    /      +---------+`
+                             |  `| Code    |      \__/_      | Operate |`
+                             |  `+---------+        / \      +---------+`
+                             |  `| Build   |       /   \--<--| Monitor |`
+                             |  `+---------+      /          +---------+`
+                             |  `| Test    |->---/`
+                             |  `+---------+  Integration`
+                             |
+                             |  DevSecOps can be sued to enforce proper cybersecurity
+                             |  practices within an automated DevOps CI/CD pipeline
+                             |
+                             | DevSecOps Automation involves:
+                             |   * Software version control
+                             |   * Continuous integration
+                             |   * Continuous testing
+                             |   * Configuration management and deployment
+                             |   * Continuous monitoring
+                             |   * Containerization
+                             |   * Container orchestration
+                             |
+  Measuring DevSecOps        | * Deployment frequency (fast and frequent releases)
+  Success                    | * Lead time (code to cash cycle)
+                             | * Detection of threats, vulnerabilities, and malware
+                             | * Mean time to repair and remediation
+                             | * Efficiency of rollback and recovery
+                             |
+--------------------------------------------------------------------------------
+== An Overview of DevSecOps ==
+  What is DevSecOps?         | * In large corporations, IT departments are generally
+                             |   organized by function
+                             | * In the past, Development, Security and Operations
+                             |   were separate departments
+                             | * Development has traditionally been tasked with
+                             |   writing software applications
+                             | * Operations has traditionally been responsible for
+                             |   maintaining the data center of infrastructure
+                             | * Security has been the role used to enforce regulatory
+                             |   governance and other compliance measures
+                             | * DevSecOps is a partmanteau or mashup of Development,
+                             |   Security, and Operations.
+                             | * It is a process used to help organizations improve
+                             |   time-to-market and release software faster
+                             |
+  Agile Development          | * As Agile proceses have become popular,
+                             |   cross-functional development teams have started
+                             |   using extreme programming and Scrum methodologies
+                             |   to improve productivity
+                             |
+                             | * By breaking up large releases that could take
+                             |   months into small batches of feature changes that
+                             |   only take days or weeks, teams can drastically
+                             |   Shorten time to market
+                             |
+                             | * Teams also practice "Kaizen" (Continuous improvement)
+                             |   to improve systems over time based on feedback
+                             |   from customers
+                             |
+                             | * As Agile teams become more productive, Poentially
+                             |   Shippable Increments build up in Staging and
+                             |   Quality Assurance (QA)
+                             |
+                             | * Even though Agile teams can develop applications
+                             |   faster, these products often aren't pushed to
+                             |   production any faster than normal
+                             |
+  Operations                 | * Operations teams can streamline their processes
+                             |   to increase the frequency of realeases to production
+                             |
+                             | * Operations teams can iterate through release
+                             |   deployments to mimic the iteration cadence of the
+                             |   development team.
+                             |
+  Release Management         | * Release management is the process of coordinating
+                             |   the deployment of finished application increments
+                             |   to production
+                             |
+                             | * Stagin is the interim area where application
+                             |   sub-releases are tested prior to use by customers
+                             |
+                             | * In highly regulated industries, many approvals
+                             |   are required before code can be released into
+                             |   production
+                             |
+  Release Gating             | * Governance, risk management, auditing, and
+                             |   compliance groups have had to change the way
+                             |   they approve software release in order to
+                             |   accommodate Agile's fast and frequent releases
+                             |
+                             | * Automation is necessary for this rapid approval
+                             |   proces
+                             |
+                             | * Many vendors and open-source project have sprung
+                             |   up to help automate the Continuous Deployment
+                             |   process
+                             |
+  Security                   | * To comply with regulations and corporate policy
+                             |   departments must verify that software adheres
+                             |   to governance requirements.
+                             |
+                             | * By invoving security personnel in the automation
+                             |   process, DevOps practitioners can improve the
+                             |   throughput of security checkpoints and approvals
+                             |
+                             | * DevSecOps is the evolution of DevOps that
+                             |   emphasizes the importance of security in the
+                             |   software release pipeline
+                             |
+  Security Monitoring        | * After applications andsystems have been
+                             |   promoted to production, they are continuously
+                             |   monitored for vulnerabilities
+                             |
+                             | * Depending on the severity of an identified
+                             |   vulnerability, applications might be removed from
+                             |   production or simply cleansed of the vulnerability.
+                             |
+                             | * Typically, remediation involves the development
+                             |   organization, as refactoring may e required in
+                             |   order to update component libraries to versions
+                             |   that have eliminated the threat.
+                             |
+  Release-and-adapt          | * Lessons learned from production performance often
+                             |   subsequent iterations of software enhancement
+                             |   to remediate performance and security defects.
+                             |
+                             | * A release-and-adapt cadence is the process through
+                             |   which key performance indicators are communicated
+                             |   back to developers so that remedial actions may be taken.
+                             |
+--------------------------------------------------------------------------------
+== Cyber Security Concepts and standards part 1 ==
+  Attack Surface             | * The atack surface of a system is the collection
+                             |   of points (attack vectors) where an unauthorized
+                             |   user (attacker) may enter to inject data or extract
+                             |   data from an environment
+                             | * Keeping the attack surface as small as possible
+                             |   is a basic security measure.
+                             |
+  Malware and Vulnerabilities| * Malware is malicious software that attackers deploy
+                             |   to infect individual computes or an entire digital
+                             |   network
+                             |
+                             | * Malware exploits target system vulnerabilities that
+                             |   can be hijacked, such as bugs in legitimate
+                             |   software (e.g., browser or web application plugins)
+                             |
+                             | * A vulnerability is a weaknes or deficiency in a
+                             |   computer system that an attacker can exploit to
+                             |   perform unquthorized actions within the system
+                             |
+  The OpenSCAP Project       | * The Security Content Automation Protocol (SCAP)
+                             |   is a U.S. security standard maintained by the
+                             |   Naional Institute of Standards and TEchnology (NIST)
+                             |
+  The Center for Internet    | * The Center for Internet Security (CIS) provides     <--- series of books and articles for security
+  Security (CIS)             |   security benchmarks and the National Checklist
+                             |   Program (NCP), defined by the NIST
+                             |
+  Malware and Vulnerability  | * Scanners can be debployed to network hosts and
+  Scanners                   |   run in memory- resident mode to monitor activity
+                             |   in real time.
+                             |
+                             | * By monitoring multiple sensor points, scanners
+                             |   can log vulnerabilities so that DevSecOps
+                             |   stakeholders become aware of the need for
+                             |   remedial action
+                             |
+                             | * Scanners should be used to interrogate new and
+                             |   existing software to determine whether any
+                             |   system or application may be infected by threat
+                             |   actors or attackers.
+                             |
+                             | * There ae two type of scanning: dynamic scanning
+                             |   and static scanning
+                             |
+  Dynamic vs Static Scanning | * Dynamic scanning is a method of code analysis
+                             |   that identifies vulnerabilities in a runtime
+                             |   environment
+                             |
+                             | * Dynamic tests monitor system memory, functional
+                             |   behavior, response time, and the overall performance
+                             |   of the system.
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
