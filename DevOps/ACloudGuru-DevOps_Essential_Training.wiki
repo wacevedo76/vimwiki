@@ -717,48 +717,36 @@
 --------------------------------------------------------------------------------
 == DevOps and Google Cloud Platform ==
   Google App Engine (PaaS)   | * PaaS - Deploy your code, don't worry about the rest
-                             |
                              | * Built-in support for microservices
-                             |
                              | * Out-of-the box autoscaling
-                             |
                              | * Certain configurations can be considered serverliess
                              |
   Google Compute Engine      | * IaaS - Deploy and orchestrate clusters of VMs on
   (Iaas)                     |   Google's architecture
-                             |
                              | * Built-in orchestration
-                             |
                              | * Works with app engine
-                             |
                              | * Can be managed with other tools like Ansible,
                              |   Salt, Puppet, and Chef
                              |
   Google Cloud Functions     | * Google's FaaS/Serverless solution
-  (Serverless/FaaS)          |
-                             | * Quickly and easily create and deploy FaaS functions
+  (Serverless/FaaS)          | * Quickly and easily create and deploy FaaS functions
+                             |
                              |
   Google Cloud SDK           | * An SDK (Software development kit) for interacting
                              |   with GCP APIs
-                             |
                              | * Makes it easy to build your own tools and automations
                              |   that interact with GCP
                              |
   Stackdriver (Monitoring)   | * GCP's monitoring solution
-                             |
                              | * Monitoring, logging, and diagnostics for your
                              |   GCP services
-                             |
                              | * Also works within AWS
                              |
   Cloud Deployment Manager   | * Declarative configuration for your GCP stack
-                             |
-                             | * IaaC and automated deployment
-                             |
+                             | * IaC and automated deployment
                              | * YAML-based
                              |
-  Google Kubernetes Engine   | * Orchesytsyion on GCP with Kubernetes
-                             |
+  Google Kubernetes Engine   | * Orchestration on GCP with Kubernetes
                              | * Do continuous integration with Jenkins on
                              |   Kubernetes Engine
                              |
@@ -769,17 +757,13 @@
                              |
   Continuous Integration,    | * Visual Studio Team Services - souce control
   Delivery, and Deployment:  |   and CI
-                             |
                              | * Jenkins - CI for Java apps
-                             |
                              | * Continuous Deployment Triggers - Automated
                              |   deployment triggers integrated with CI
                              |
   Orchestration:             | * Azure Container Registry - repository of
                              |   container images
-                             |
                              | * Azure Container Service - Kumbernetes orchestration
-                             |
                              | * Azure Web Apps - Cloud hosting for web apps
                              |   integrated with DevOps pipeline
                              |
@@ -810,6 +794,28 @@
                              | * AWS CodeStar - integrates all parts of the
                              |   process with project management tools and JIRA
                              |   issue tracking
+                             |
+  Infrastructure as Code:    | * CloudFormation - Stack templating engine, YAML or JSON based
+                             | * OpsWork - IaC with Chef
+                             |
+  Serverless/FaaS:           | * AWS Lambda - run serverless functions on AWS
+                             |
+  Monitoring:                | * Amazon Cloudwatch - track metrics and logs, set
+                             |   alarms, and automate responses to monitoring
+                             |
+DevOps Essentials Certificate of Completion
+https://verify.acloud.guru/7AC0C4CDB87D
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
