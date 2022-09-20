@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------
+------------------------------------------------------------u-------------------
 = acloudguru DevOps path Notes =
 --------------------------------------------------------------------------------
 == Defining DevOps ==
@@ -435,7 +435,7 @@
                              |
                              | A few examples:
                              |   * Java - ant, maven, gradle
-                             |   * Javascript - npm, grunt, gulp
+                             |   * Javascript - npm, Grunt, Gulp
                              |   * Make - widely used in Unix-based systems
                              |   * Packer - build machine images and containers
                              |
@@ -543,20 +543,97 @@
                              |
 --------------------------------------------------------------------------------
 == Tools for Monitoring ==
+  Monitoring Tools           | * Monitoring - Collecting and presenting data about
+                             |  the state and performance of applications
                              |
+                             | * There are different types of monitoring:
+                             |   * Infrastructure monitoring - focuses on things
+                             |     related to infrasctucture
+                             |       * Examples: CPU, ram
                              |
+              Term: (APM) -> |   * Application Performance monitoring(APM) focuses
+                             |     on performance and stability of individual parts
+                             |     on an application
+                             |       * Examples: response time, logs
                              |
+  Infrastructure Monitoring  | * SenSu
+  Tools                      |   * Designed as a modern replacement for Nagios
+                             |   * Server/agent
+                             |   * Agents push data to an AMQP broker
                              |
+                             | * NewRelic
+                             |   * SaaS + agent
+                             |   * Wide variety of metrics (also does APM)
                              |
+  Application Performanc     | * AppDynamics - Collects data points about applications
+  Monitoring Tools           |   and presents it in a centralized dashboard
+                             |   * Code-level diagnostics - Able to identify
+                             |     performace issues at the code level.
+                             |   * Server/agent
                              |
+                             | * NewRelic (APM)
                              |
+  Aggregation and Analytics  | * Aggregation nand Analytics are about collecting
+  Tools                      |   monitoring data and doing something with it
                              |
+                             | * Most monitoring tools have some aggregation
+                             |   and analytics features
                              |
+                             | * Elastic Stack - pump data in a nd quickly
+                             |   create viewws to aggregate data and easily
+                             |   detect and diagnose problems
+--------------------------------------------------------------------------------
+== Tools for Orchestration ==
+  Orchestration Tools        | * Orchestration - automation that supports processes
+                             |   and workflows, such as provisioning resources
                              |
+                             | * Lets you do things like:
+                             |   * Scale up and scale down applications
+                             |   * Auto scale applications based on use
+                             |   * Create self-healing systems by spinning down
+                             |     unhealthy nodes and replacing them with new ones
                              |
+                             | * Docker Swarm:
+                             |   * Docker-native
+                             |   * Orchestration for Docker containers
                              |
+                             | * Kubernetes
+                             |   * Open source
+                             |   * Orchestration server
+                             |   * Manage containerized apps across multiple hosts
                              |
+                             | * Zookeeper
+                             |   * Open source - Apache foundation
+                             |   * Can work alongside Kubernetes
+                             |   * Offers a centralized servie registry that
+                             |     integrates with orchestration features
                              |
+                             | * Terraform:
+                             |   * Combines orchestration and infrastructure-as-code
+                             |   * Works well with other tools, like Ansible
+                             |   * Works well with AWS
+                             |   * Integrates with Kubernetes
                              |
+--------------------------------------------------------------------------------
+== DevOs and the Cloud ==
+                             | * DevOps and the Cloud are not the same thing:
+                             |   * DevOps - a culture of collaboration between
+                             |     Dev and Ops
+                             |   * The Cloud - remote servers on the internet
+                             |     that offere services in place of locally-hosted
+                             |     solutions. "The cloud is someone else's computer"
                              |
+                             | * DevOps culture and practices are very useful in
+                             |   the world of the cloud
                              |
+                             | * DevOps and the Cloud developed alongside each
+                             |   other, and many cloud services are built on
+                             |   DevOps practices
+                             |
+                             | * They can also be a tool for DevOps. Many cloud
+                             |   services offer features that support DevOps
+                             |   practices
+                             |
+                             | * a traditional stack is a regulare, self-hosted   `+----------------+`
+                             |   data center                                      `|Application     |`
+                             |                                                    `+----------------+`
