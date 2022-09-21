@@ -199,25 +199,27 @@
                              |   behavior, response time, and the overall performance
                              |   of the system.
                              |
+--------------------------------------------------------------------------------
+== Cyber Security Concepts and standards part 2 ==
+  Identifying and Scoring    | * Common Vulnerabilities and Exposures (CVE) is a
+  Vulnerabilities            |   dictionary style list of standardized names for
+                             |   vulnerabilities and other information related to
+                             |   security exposures
                              |
+                             | * CVE aims to standardize the names of all publicly
+                             |   known vulnerabilities and security exposures
                              |
+                             | * The common Vulnerability Scoring System (CVSS)
+                             |   is a free and open industry standard for assessing
+                             |   the severity of security vulnerabilities
                              |
+                             | * CVSS assigns severity scores to vulnerabilities,
+                             |   allowing responders to prioritize responses and
+                             |   resource according the threat level
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  National Vulnerability     | * The NST NVD provides Datafeeds and realtime API's
+  Database (NVD)             |   that allow tooling to access the data and use it
+                             |   as intelligenc for scanning and monitoring tools
                              |
                              |
                              |
