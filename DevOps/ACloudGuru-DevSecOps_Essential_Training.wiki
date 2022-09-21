@@ -221,27 +221,27 @@
   Database (NVD)             |   that allow tooling to access the data and use it
                              |   as intelligenc for scanning and monitoring tools
                              |
+  DevSecOps Resources        | * The National Checklist Program (NCP) repositroy
+                             |   provides secure configuration for specific software
+                             |   components
                              |
+                             | * DevSecOps stakeholders can use the NCP repository
+                             |   to search the CIS for information on particular
+                             |   software products
                              |
+                             | * The NCP repository provides metadata and links to
+                             |   security checklists, including checklists that conform
+                             |   to the SCAP
                              |
+                             | * The NIST provides an online search tool as well as
+                             |   data feeds that are used by man SCAP-validated tools
+                             |   to provide intelligence for advanced DevSecOps
+                             |   monitoring
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | * The National Vulnerability Database (NVD) is a
+                             |   terms security professionals use to refer to this
+                             |   NIST repository and other data stores provided by
+                             |   the NIST
                              |
                              |
                              |
