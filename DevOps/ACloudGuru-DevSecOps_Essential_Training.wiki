@@ -242,10 +242,110 @@
                              |   terms security professionals use to refer to this
                              |   NIST repository and other data stores provided by
                              |   the NIST
+--------------------------------------------------------------------------------
+== Identity and Access Management ==
+  Secure Automation          | * In DevSecOps, many of the processes required for
+                             |   software development, testing, and deployment are
+                             |   automated
+                             |
+                             | * Security checks should be implemented for each
+                             |   server and tool to reduce the number of possible
+                             |   attack vectors and prevent malfeasance
+                             |
+                             | * Security practices are different for every team
+                             |   and system, but there are three main categories:
+                             |   server hardening, application harening, and identity
+                             |   and access management
+                             |
+  DevSecOps Pipeline Flow    | Development -> QA Testing -> Staging -> Production
+                             |
+                             | * The platforms and systems used to automate
+                             |   DevSecOps processe must be secured individually
+                             |   according to the specific technonogy they employ
+                             |
+  Identity and Access        | * Identity and Access Management (IAM) is the
+  Management                 |   process of granting or restricting access to
+                             |   computing resources for individual users, groups,
+                             |   or systems
+                             |
+                             | * All modern software applications govern users
+                             |   and group authentication, but their specific
+                             |   methods vary
+                             |
+                             | * Systems that access applications through APIs
+                             |   also have frameworks for managing access to
+                             |   those application
+                             |
+                             | * To harden servers and applications in a DevSecOps
+                             |   pipeline, teams have to implement security
+                             |   practices based on the particular tooling being
+                             |   used
+                             |
+                             |                   IAM
+                             |
+                             |  `+----------------+ +----------------+`
+                             |  `| Authentication | | Authorization  |`
+                             |  `|                | |                |`
+                             |  `+----------------+ +----------------+`
+                             |  `+----------------+ +----------------+`
+                             |  `|      User      | |   Credentials  |`
+                             |  `|   Management   | |   Repository   |`
+                             |  `+----------------+ +----------------+`
+                             |
+                             |  Identity and Access Management involves authenticating,
+                             |  auhorizing, and managing users and their credentials
+                             |  via automation and security frameworks
+                             |
+  Server Hardening           | * Server hardening is the practice of enhancing
+                             |   each server's security
+                             |
+                             | * Teams can consult benchmarks from CIS and
+                             |   applications such as OpenSCAP to review possible
+                             |   server vulnerabilities and determine what steps
+                             |   to take to mitigate risks
+                             |
+                             | *** Reduce Potential Attack Vectors
+                             | *** OpenSCAP -> Implement Benchmark Security
+                             |
+                             | The security community has developed best practice
+                             | guidelines and automated tooling for server hardening
+                             |
+  Application Hardening      | * Application hardening is the practice of enhancing
+                             |   an application or framework's security according
+                             |   to the provider's recommendations.
+                             |
+                             | * Most DevSecOps tooling involves automated
+                             |   integration with other third-party systems through
+                             |   APIs
+                             |
+                             | * The process of hardening and application includes
+                             |   both the initial implementation of security assets
+                             |   and ongoing governance over time.
+                             |
+                             | Application hardening consists of conventional
+                             | access authentication for humans and token management
+                             | for application-to-application interfaces
+                             |
+  IAM Fundamentls            | * Identity repositories are systems that store
+                             |   information about all users and groups within an
+                             |   enterprise in a single plance
+                             |
+                             | * Access keys are encrypted keys that enable applications
+                             |   to securely access servers
+                             |
+                             | * Signatures and certificates allow programs to
+                             |   verify the source and authenticity of digital assets
+                             |
+                             | * Vaults store secrets and encrypt login credentials
+                             |   to prevent attackers from accessing them
                              |
                              |
+                             | Cyber security is an important part of software
+                             | development, and all DevSecOps stakeholders should
+                             |  be vamiliar with fundamental security practices
                              |
-                             |
+--------------------------------------------------------------------------------
+== Clean Repositories ==
                              |
                              |
                              |
