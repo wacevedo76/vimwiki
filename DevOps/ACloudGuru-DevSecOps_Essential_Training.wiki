@@ -346,39 +346,38 @@
                              |
 --------------------------------------------------------------------------------
 == Clean Repositories ==
+  Software Repositories      | * Software onboarding is the process developers use
+                             |   to acquire the third-party components needed to
+                             |   develop and compile an application.
                              |
+                             | * With the rise of open source, many third-party
+                             |   component libraries and frameworks are acquired
+                             |   from public repositories
                              |
+                             | * In some cases, off-premise repositories are not
+                             |   administered or maintained by the developer's
+                             |   organization
                              |
+  Security in Public         | * Attack vectors are often exploited in public
+  Repositories               |   systems
                              |
+                             | * Since the systems are not on-premise, they must
+                             |   be hardened and maintained by the organizations
+                             |   that provide them
                              |
+                             | * Highly regulated industries require levels of
+                             |   security and protection that may exceed those
+                             |   practiced by the organizations maintaining public
+                             |   repositories
                              |
+  Malware                    | * Malware exists in most public repositories, and
+                             |   some of the most popular software components in
+                             |   user today are known to be vulnerable
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | * Once inside the private infrastructure, malware
+                             |   can be unknowingly propagated to production
+                             |   where vulnerabilities are further exploited by
+                             |   attackers
                              |
                              |
                              |
