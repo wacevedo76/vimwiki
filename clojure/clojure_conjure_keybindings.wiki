@@ -3,6 +3,12 @@
   Eval inner form            | <localleader>ee
   Eval outermost form        | <localleader>er
   Eval and replace form      | <localleader>e!
+  Eval at mark               | <localleader>em<mark>
+  Eval motion                | <localleader>Ei<motion> (example w)
+                             |
+                             |
+  Inspect variable contents  | <localleader>ew
+  Inspect visual selection   | <llcalleader>E
                              |
   Open log buffer horizonally| <localleader>ls
   Open log buffer vertically | <localleader>lv
