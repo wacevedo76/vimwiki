@@ -1,0 +1,26 @@
+--------------------------------------------------------------------------------
+  Eval whole buffer          | <localleader>eb
+  Eval inner form            | <localleader>ee
+  Eval outermost form        | <localleader>er
+  Eval and replace form      | <localleader>e!
+                             |
+  Open log buffer horizonally| <localleader>ls
+  Open log buffer vertically | <localleader>lv
+  Open log buffer in new tab | <localleader>lt
+                             |
+  Clear log (soft)           | <localleader>lr
+  Clear log (hard)           | <localleader>lR
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
