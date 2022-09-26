@@ -379,6 +379,209 @@
                              |   where vulnerabilities are further exploited by
                              |   attackers
                              |
+--------------------------------------------------------------------------------
+== Securing Public Repositories ==
+  Use case: GitHub           | * GitHub is a useful and popular off-premise
+                             |   used by many organizations
+                             |
+                             | * We will use GitHub as an example of a public
+                             |   repository because it is one of the most well-
+                             |   developed repositories in use today
+                             |
+  Why Attackers Target GitHub| * The files stored in GitHub are often application
+                             |   source code and, thus, valuable intellectual
+                             |   property
+                             |
+                             | * Copying the code may enable other companies or
+                             |   even nation-states to quickly develop derivative
+                             |   applications, saving years or even decades of
+                             |   development time and leveraging trade secrets
+                             |   without paying licensing fees.
+                             |
+                             | * Hackers might also steal code to resell it on
+                             |   the dark web
+                             |
+  Threats Facing GitHub      | * Hackers can study application source code to
+                             |   learn how to attack the software when it's run
+                             |   in production
+                             |
+                             | * Stealing source code gives hackers time to look
+                             |   for vulnerabilities that would be more difficult
+                             |   to detect through the penetration of production
+                             |   systems
+                             |
+                             | * Attackers can even run code in production on their
+                             |  own systems and test attacks against it, refining
+                             |  their attacks to increase their speed, stealth,
+                             |  and effectiveness
+                             |
+                             | * State-sponsored cyber terrorism and global
+                             |   corporate espionage are well-funded efforts
+                             |   that retain professionals to develop methods
+                             |   of intrusion and attack
+                             |
+  Login and Authentication   | * Usernames and passwords may be hard-coded in
+                             |   source code because one program module requires
+                             |   acess to another system or API. This is a known
+                             |   vulnerability, and best practices dictate that
+                             |   authentication credentials should be stored
+                             |   externally in encrypted digital vaults
+                             |
+                             | * Sometimes files checked into GitHub inadvertently
+                             |   containt login credentials for other internal or
+                             |   external services
+                             |
+                             | * The rise of (SaaS) and microservice architectures
+                             |   means that many application components have to
+                             |   authenticate and establish a secure session with
+                             |   an API on another system.
+                             |
+                             | * Some developers cut corners by embedding login
+                             |   and authentication data in the source code or
+                             |   supporting files checked in to GitHub
+                             |
+                             | * When hackers gain access to the code, they can
+                             |   gain access to related services, giving them the
+                             |   opportunity to steal more data and disrupt operations
+                             |
+  Unauthorized Access        | * In many cases, developers are granted access to
+                             |  company repositories from their personal or coporate
+                             |  email accounts
+                             |
+                             | * These emal accounts may be left vulnerable, as some
+                             |   organizations do not purge old email accounts in a
+                             |   timely manner when employees leave the company
+                             |
+                             | * Another poor security practice is when dvelopers
+                             |   are granted access to all of the company's
+                             |   repositories instead of just what they need for
+                             |   their projects
+                             |
+                             | * Over time, deficient security policies and
+                             |   procedures create a wide-open attack surface
+                             |   that attackers can exploit
+                             |
+  Insider Threats            | * a lack of proactive monitoring can allow
+                             |   malicious insiders to hide abnormal activities
+                             |
+                             | * A single developer accessing many repositories
+                             |   could be an early indicator of an insider threat,
+                             |   and such behavior should be detected and flagged
+                             |
+                             | * Unfortunately, due to limited resources, many
+                             |   organizations do not monitor the use of GitHub
+                             |   and other external repositories
+                             |
+  Practical Steps for        |
+  DevSecOps                  |
+                             |
+  Threat Monitoring for      | * DevSecOps practitioners can take practical steps
+  GitHub                     |   to tighten security when using public repositories
+                             |
+  Clean Up Login Credentials | * It is best to limit access to only those developers
+                             |   who are involved in a given project.
+                             |
+                             | * When developers leave a project, their credentials
+                             |   should be revoked
+                             |
+  Maintain and Administer    | * The software behind GitHub - the software version
+  Repository Settings        |   control program Git - was originally developed for
+                             |   managing development of the Linux Kernel
+                             |
+                             | * Both Git and GitHub are widely used in open-source
+                             |   projects
+                             |
+                             | * Some developers, particularly those that contribute
+                             |   to open-souce projecs, treat all GitHub repositories
+                             |   as public, whether they're for open-source projects
+                             |   or not
+                             |
+                             | * DevSecOps best practice requires that you organizations
+                             |   GitHub configuration be maintained and
+                             |   administered on an ongoing basis to ensure that
+                             |   access isn't any broader than necessary
+                             |
+  Monitor GitHub for         | * Many attacks originate from remote locations.
+  Suspicious Activity        |   Organizations can map IP addresses to locations
+                             |   where known employees and business partners reside.
+                             |   Access from outside these locales often indicates
+                             |   suspicious activity
+                             |
+                             | * Automated and manual monitoring of GitHub can
+                             |   detect a sudden spike in souce code check-ins
+                             |
+                             | * Monitoring should also detect the check-out of
+                             |   an unusually large amount of source code
+                             |
+                             | * It is also possible to monitor and detect logins
+                             |   from unusual locations, or logins or requests from
+                             |   users outside the organization.
+                             |
+  Aggregate and Analyze      | * GitHub logs can be aggregated and downloaded
+  GitHub Logs                |   on a regular basis for further analysis.
+                             |
+                             | * Toos are available for parsing logs and analyzing
+                             |   activity against a baseline of what would be
+                             |   considered normal use.
+                             |
+                             | * When unusual activity is detected it can be reported
+                             |   through dashboards or even messaged to stakeholders
+                             |   as a means of providing early warning of potential
+                             |   threats
+                             |
+--------------------------------------------------------------------------------
+== Secure Containerization ==
+  Containers                 | * Containers are specially formatted files that
+                             |   contain executable application programs,
+                             |   modules, and the code libraries that they
+                             |   depend upon.
+                             |
+                             | * They isolate an application from other applications
+                             |   and from the operating system and hardware.
+                             |
+                             | * Containers help ensure that the versions of
+                             |   libraries within the container do not mandate
+                             |   patching nd upgrades that might affect other
+                             |   applications in other containters
+                             |
+                             | * In virtual environments, the libraries and
+                             |   dependencies of an application were oftentimes
+                             |   shared with all of the other applications on a
+                             |   particular virtual server
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
