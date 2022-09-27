@@ -560,12 +560,12 @@
                              |   restricted
                              |
                              | * Device and File Restrictions further reduce the
-                             |   attach suface by restricting access by continerized
+                             |   attack suface by restricting access by continerized
                              |   applications to the physical device on a host,
                              |   through the use of the device resouce control
                              |   groups (cgroups) mechanism.
                              |
-                             | * Container images are ephemeral. EAch container
+                             | * Container images are ephemeral. Each container
                              |   has its own file sysem and can not write to the
                              |   host file system unless writes are committed.
                              |   Committing changes tracks and audits revisions
@@ -573,7 +573,7 @@
                              |   can then be pushed as a new image for storage
                              |   in Docker Hub and run in a container.
                              |
-                             | * The audit trail is important in poviding
+                             | * The audit trail is important in providing
                              |   information to maintain compliance. It also
                              |   allows for a fast and easy rollback to previous
                              |   versions if a container has been compromised or
@@ -667,3 +667,211 @@
 `                                                                 +-----------------------+`
 
   Client/Server                 Docker Host                        Docker Registry
+
+--------------------------------------------------------------------------------
+== Docker trusted Registries ==
+  Trusted Content and        | * Trusted registries are secure managed repositiories
+  Digital Signatures         |
+                             | * A registry is a data store that contains metadata
+                             |   (i.e., data about data)
+                             |
+                             | * A repository contains the actual content of
+                             |   interest
+                             |
+                             | * Trusted registries use a digital signature to
+                             |   indicate which content in the repository is safe
+                             |
+                             | * Sotware publishers digitally sign their content
+                             |   when it is published
+                             |
+                             | * Developers can use systems that verify digital
+                             |   signatures prior to donwloading content
+                             |
+  Content Trust in Docker    | * Image signing and vulnerability scnanning allow
+                             |   operations teams to protect the contents of
+                             |   containers
+                             |
+                             | * Metadata may contain information about the author,
+                             |   the bill of materials, and whether or not there
+                             |   is a critical vulnerability, which can help
+                             |   ensure that a container is safe at the time
+                             |   of onboarding
+                             |
+                             | * Automated insights enable oreganizations to meet
+                             |   compliance requirements and prevent security
+                             |   breaches
+                             |
+  Policy-Based Image         | * Policy-based image promotion accelerates the
+  Promotion                  |   DevSecOps pipeline by providing the data needed
+                             |   for automated or manual promotion
+                             |
+                             | * The gating process can be configured to require
+                             |   images to pass security scans.
+                             |
+                             | * Policy-driven automation improves scale and speed
+                             |   by accommodating hundreds or thousands of
+                             |   container images
+                             |
+  Docker Notary              |
+  Architecture and Componens | * Notary clients pull metadata from one or more
+                             |   remote Notary services
+                             |
+                             | * Some Notary clients also push metadata to one
+                             |   or more Notary services
+                             |
+                             | * A Notary service consists of a Notary server,
+                             |   which stores and updates the signed TUF metadata
+                             |   files for multiple trusted collections in an
+                             |   associated database
+                             |
+                             | * A Notary signer stores private keys and signs
+                             |   metadata for the Notary server
+                             |
+  Using Private Keys to Sign | * Docker Notary controls server access through
+  Containers                 |   strict authentication and open SSL security.
+                             |
+                             | * Clients upload metadata for their container
+                             |   images
+                             |
+                             | * Once the data is verified, the server sends
+                             |   approval for the container image to be signed
+                             |
+                             | * Encrypted keys are used for the signature
+                             |
+                             | * Notary Server is the source of truth for the
+                             |   state of a trusted collection
+                             |
+                             | * Timestamps and checksums are used as part of
+                             |   the signature to prevent forgery
+                             |
+--------------------------------------------------------------------------------
+== Docker Bench ==
+  CIS Docker Benchmark       | * Docker Bench is a software tool that analyzes
+                             |   server infrastructures and Docker components
+                             |
+                             | * Docker Bench uses the CIS Docker Benchmark to
+                             |   make recommendations on server hardening and
+                             |   proper Docker configuration
+                             |
+                             | * Since new vulnerabilities are createdc and
+                             |   discovered over time, it is important to
+                             |   consult the benchmarks as they are revised
+                             |   and updated.
+                             |
+                             | * Most importantly, tools that scan and detect
+                             |   based on configuration files that use benchmarks
+                             |   must be updated to the most recent release in
+                             |   order to be effective
+                             |
+  Docker Bench               | * In large enterprises, the engineering and
+                             |   operations departments create continer images
+                             |   that include the necessary tooling for ongoing
+                             |   detection and remediation
+                             |
+                             | * Since new vulnerabilites often come from
+                             |   unprotected sources, teams must maintain certified
+                             |   repositories
+                             |
+                             | * Trusted registries are the optimal source, and
+                             |   teams must carry out careful onboarding when
+                             |   using unproven sources
+                             |
+                             | * Docker Bench can be run regularly to detect
+                             |   configuration flaws
+                             |
+  Host Configuration         | * Docker Bench recommends host hardening
+                             |
+                             | * Avoid the common mistake of creating uers within
+                             |   the Docker group. This known vulnerability
+                             |   allows privilege escalation on a spawned
+                             |   container process, which can enable a user to
+                             |   gain root access
+                             |
+                             | * Audit the file system agains the Docker directories
+                             |   to receive early warning about unusual access
+                             |   orupdates to system logs
+                             |
+  Docker Daemon              | * Containers allow network bridging to be limited
+  Configuration              |   to only those ports necessary for the particular
+                             |   application within the continer instance
+                             |
+                             | * Since SSL authentication has been deprecated,
+                             |   Docker Bench recommends that the Docker daemon
+                             |   be configured to use TLS (Transport Layer Security)
+                             |   authentication
+                             |
+                             | * When running a container, you can set a ulimit
+                             |   to ensuret hat the container is limited to a
+                             |   specified maximum number of open file descriptors
+                             |
+                             | * Containers should be prohibited from acquiring
+                             |   new privileges
+                             |
+                             | * When configuring the Docker daemon, Linux file
+                             |   security must be strictly enforced
+                             |
+                             | * The Docker daemon runs as root, and while Linux
+                             |   allows processes to be configured such that
+                             |   their spawned child processes also run as root,
+                             |   this is a vulnerability
+                             |
+                             | * The 644 octet grants read/write privileges to
+                             |   the owner (in this case, root) but only read
+                             |   privileges to group- and user-level processes
+                             |
+                             | * Nework sockets carry a similar security setting
+                             |   when permissions are set
+                             |
+  Docker Security Operations | * Docker Swarm is a native clustering solution from
+  and Swarm Configuration    |   Docker that can be used for continer orchestration
+                             |
+                             | * The Docker Bench includes a review of Docker
+                             |   Swarm hardening recommendations
+                             |
+                             | * Note the Docker Bench recommendations for
+                             |   maintaining secrets in a Swam Cluster
+                             |
+  Container Images and Build | * The Docker content trust system uses The
+  File                       |   Update Framework (TUF) to enforce content trust
+                             |
+                             | * Container images signing and verification
+                             |   policies can be set to allow the use of only
+                             |   trusted repositories
+                             |
+                             | * The following commands can be configured
+                             |   to require content trust:
+                             |     docker pull
+                             |     docker push
+                             |     docker build
+                             |     docker create
+                             |     docker run
+                             |
+--------------------------------------------------------------------------------
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+
