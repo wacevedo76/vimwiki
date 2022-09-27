@@ -847,6 +847,109 @@
                              |     docker run
                              |
 --------------------------------------------------------------------------------
+== Provisioning with PaaS Tooling ==
+  Provisioning               | * Provisioning means providing something for use
+                             |
+                             | * In DevSecOps, the process of providing the
+                             |   developer with the software needed to develop
+                             |   an application is automated
+                             |
+                             | * It's important to ensure that the same software
+                             |   the developers use is provisioned in the test,
+                             |   staging, and production environments
+                             |
+                             | * Complex systems require automation to ensure
+                             |   that provisioned processes and components
+                             |   remain uniform and managed
+                             |
+  Platform as a Service      | * The goal of Agile development is to give
+  (PaaS)                     |   developers greater autonomy
+                             |
+                             | * Shift left is a process change in which
+                             |   and engineering teams shift processes upstream
+                             |   to developers
+                             |
+                             | * Anything "as a service" allows consumers to
+                             |   request and receive deliverables on demand via
+                             |   self-service portal
+                             |
+                             | * Platform as a Service (PaaS) offerings provide
+                             |   developer platforms and infrastructures via
+                             |   self-service tools and automation
+                             |
+  Templates                  | * Enterprise architects evaluate and test software
+                             |   components for production use
+                             |
+                             | * PaaS systems facilitate the development of templates
+                             |   (predefined configurations that comply with policy)
+                             |
+                             | * When developers require specific frameworks and
+                             |   infrastructures, they can select from available
+                             |   templates
+                             |
+                             | * Infrastructure as Code  simplifies the configuration
+                             |   and deployment process and reduces maintenance
+                             |
+    * Source to Image (S21)  | * Source to Image (S21) is a framework for building
+                             |   reproducible container images from application
+                             |   source code and ependent component libraries
+                             |
+  OpenShift                  | * OpenShift is an open-source PaaS offering from
+                             |   Red Hat
+                             |
+                             | * As containers and clustering have grown in
+                             |   popularity, OpenShift has adopted Docker and
+                             |   Kubernetes as standards
+                             |
+                             | * Now that OpenShift can be used to deploy and
+                             |   manage production evnironments, it is considered
+                             |   a container orchestration tool instead of a PaaS
+                             |
+                             | * OpenShift is a fully automated container
+                             |   orchestration system that meets developer
+                             |   provisioning needs and automates S21 as workloads
+                             |   are promoted from development to test, staging,
+                             |   and production
+                             |
+--------------------------------------------------------------------------------
+== Securing the Automated Build ==
+  Jenkins                    | * Jenkins is a popular open-source build
+                             |   automation system
+                             |
+                             | * Jenkins originated from the open-source Hudson
+                             |   project
+                             |
+                             | * Jenkis is highly extensible ans supports hundreds
+                             |   of plugins that handle build tasks
+                             |
+                             | * Jenkins supports Continuous Integration by
+                             |   integrating with source code management tools
+                             |
+                             | * Jenkis supports webhooks that automatically
+                             |   trigger a build process when developers check
+                             |   in modified appliaction souce code
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
