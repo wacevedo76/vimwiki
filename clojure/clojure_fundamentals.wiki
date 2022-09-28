@@ -1,13 +1,23 @@
 --------------------------------------------------------------------------------
 = Clojure Fundamentals =
 --------------------------------------------------------------------------------
-Core data structures         | (1 2 3 4 5)                      ; List
-  NOTE: Commas are not       | ["a" "b" "c" "d" "e"]            ; Vector
-  evaluated in expressions   | {:name "Grogu", :age 50}         ; Map
-  (evaluated as whitespace)  | #(5 2 3 1 4)                     ; Set
-  so they are not needed but |
+Core data structures         | nil
+  NOTE: Commas are not       | true false                       :boolean
+  evaluated in expressions   | \a \b \b, etc...                 :Characters
+  (evaluated as whitespace)  | "foo"                            :string
+  so they are not needed but
   can be used as visual      |
   separators (maps)          |
+                             |
+                             |
+                             |
+                             |
+                             | (1 2 3 4 5)                      ; List
+                             | ["a" "b" "c" "d" "e"]            ; Vector
+                             | {:name "Grogu", :age 50}         ; Map
+                             | #(5 2 3 1 4)                     ; Set
+                             |
+                             |
                              |
 Function call                | (function arg-1 arg-2 ...)
                              | (max 1 2 3)                      ; => 6
