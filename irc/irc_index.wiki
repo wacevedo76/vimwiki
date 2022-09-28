@@ -45,11 +45,14 @@ Command list
   List all users on a channel| /NAMES #channel-name
                              |
   Leave a channel            | /LEAVE
+                             | /PART #channelname
                              |
   Show information on        | /WHOIS <name>
   specific user              |
                              |
   Set away msg               | /AWAY what ever msg you want to leave
+                             |
+  list all open windows      | /window list
                              |
 Private conversation commands
   Send private message       | /MSG <what ever message you want to send>

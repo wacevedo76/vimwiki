@@ -72,6 +72,7 @@
 == Misc ==
   * [[terms|Misc terms]]
   * [[DevOps]]
+  * [[irc/irc_index|irc]]
   * [[Quotes]]
   * [[Maths/Index|Maths]]
   * [[bujo|Bullet Journal]]
