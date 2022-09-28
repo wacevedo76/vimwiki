@@ -929,48 +929,20 @@
                              |   trigger a build process when developers check
                              |   in modified appliaction souce code
                              |
+  Typical CI/CD Pipeline     | * A commit starts the process when the developer
+  Architecture (Using        |   checks in code
+  Jenkins)                   |
+                             | * The CI server launches a build process
                              |
+                             | * Automated unit tests are typically part of the
+                             |   build process
                              |
+                             | * Developers may review the build status via their
+                             |   IDE or the Jenkins console
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | * The build server delivers build artifacts to
+                             |   the appropriate target, typically a staging
+                             |   server
                              |
                              |
                              |
@@ -978,3 +950,7 @@
                              |
                              |
 
+
+
+
+  Commit -> Build -> Test -> Stage -> Deploy
