@@ -1,32 +1,34 @@
 --------------------------------------------------------------------------------
 = Clojure Fundamentals =
 --------------------------------------------------------------------------------
-Core data structures         | nil
-  NOTE: Commas are not       | true false                       :boolean
-  evaluated in expressions   | \a \b \b, etc...                 :Characters
-  (evaluated as whitespace)  | "foo"                            :string
-  so they are not needed but
-  can be used as visual      |
-  separators (maps)          |
+Core data structures         | Core Data Structures
+  NOTE: Commas are not       |
+  evaluated in expressions   |   nil
+  (evaluated as whitespace)  |   true false                       :boolean
+  so they are not needed but |   \a \b \b, etc...                 :Characters
+  can be used as visual      |   "foo"                            :string
+  separators (maps)          |   ; end of line comment
+                             |   ;; full line comment
+                             |   ;;; block comment
+                             |   foo, 'foo                        :symbol
+                             |   :foo                             :keyword
                              |
+                             | Collections
                              |
+                             |   (1 2 3 4 5)                      ; List
+                             |   ["a" "b" "c" "d" "e"]            ; Vector
+                             |   {:name "Grogu", :age 50}         ; Map
+                             |   #(5 2 3 1 4)                     ; Set
+Function call                |
+                             |   (function arg-1 arg-2 ...)
+                             |   (max 1 2 3)                      ; => 6
+                             |   (filter odd? [1 2 3])            ; => (1 3)
                              |
-                             |
-                             | (1 2 3 4 5)                      ; List
-                             | ["a" "b" "c" "d" "e"]            ; Vector
-                             | {:name "Grogu", :age 50}         ; Map
-                             | #(5 2 3 1 4)                     ; Set
-                             |
-                             |
-                             |
-Function call                | (function arg-1 arg-2 ...)
-                             | (max 1 2 3)                      ; => 6
-                             | (filter odd? [1 2 3])            ; => (1 3)
-  (conditional)              | (if (< 1 2) "a" "b")             ; => "a"
+               (conditional) |   (if (< 1 2) "a" "b")             ; => "a"
                              |
 Immutability                 | All data structures in Clojure are immutable
                              |
-Set variables                | (def first-name "Dave")
+Define variables             | (def first-name "Dave")
                              | (def ages [42 3 18])
                              |
   string concatinaion        | (str "I'm sorry " first-name)    ; => "I'm sorry Dave"
