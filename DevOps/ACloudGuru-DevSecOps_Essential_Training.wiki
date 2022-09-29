@@ -1101,4 +1101,115 @@
                              |  platforms
                              |
 --------------------------------------------------------------------------------
+== 4.1 Release Gating - The 16 Gates ==
+  Release Gating             | * Release gating is a means of conrol that involves
+                             |   checks and blances in large enterprises
+                             |
+                             | * Authorized stakeholders responsible for governance,
+                             |   risk manaement, audit, and compliance review build
+                             |   artifacts prior to approving a software release
+                             |   for deployment
+                             |
+                             | * While release gating may be done at various
+                             |   stages of the pipeline, it is most often peformed
+                             |   in Pre-Producion
+                             |
+  The 16 Gates               | * The 16 gates are a set of software quality attributes
+                             |   that should be evaluated as part of a governed
+                             |   deployment process
+                             |
+                             | 1. Source code version control *  9. Immutable servers *
+                             | 2. Optimum branching strategy     10. Integration testing
+                             | 3. Static analysis             *  11. Performance testing
+                             | 4. At least 80% code coverage     12. Bulid deploy testing automated for every commit *
+                             | 5. Vulnerability scan          *  13. Automated rollback *
+                             | 6. Open source scan            *  14. Automated change order
+                             | 7. Artifact version control       15. Zero-downtime release
+                             | 8. Auto provisioning           *  16. Feature toggle *
+                             |
+                             | (* - Aspects of the 16 Gates that are of particular
+                             |      Concern to security)
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
