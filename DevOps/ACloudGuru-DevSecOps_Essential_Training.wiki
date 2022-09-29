@@ -1226,8 +1226,125 @@
                              |
 ----  6 - Production Monitoring and Ongoing Detection and Remediation  ---------
 == 6.1 - Production Monitoring ==
+  Production Monitoring      | * Continuous monitoring is the ongoing, automated
+                             |   evaluation of workloads to assess their health and
+                             |   function
+                             |
+                             | * Production monitoring may include threat detection,
+                             |   vulnerability detection, and malware prevention
+                             |
+                             | * Since new threats and vulnerabilities are
+                             |  developed and discovered over time, it is important
+                             |  to monitor applications throughout their entire
+                             |  lifespan, not just while they're under development
+                             |
+                             | * When applications need to be refactored or upgraded
+                             |   with patched third-party libraries, feeedback loops
+                             |   and automated reporting notify the development team
+                             |   that vulnerabilities or other defects require attention
+                             |
+  Static Application         | * Static scanning is used to test for new vulnerabilities
+  Security Testin (SAST)     |   that have become known since an application's release
+                             |   ino production
+                             |
+                             | * Scanning tools use container image manifests and
+                             |   build time dependency lists to determine which
+                             |   known vulnerabilities are present in compiled
+                             |   appliations and container images
+                             |
+                             | * Due to ongoing chanes to operating systems, binary
+                             |   libraries, and third-party software components,
+                             |   applications need to be continually upgraded.
+                             |   Scanning is fundamental to hygiene, and as
+                             |   applications are redeployed, automated pipelines
+                             |   ensure persistent security
+                             |
+                             | * NOTE: Ongoing Static Application Security Testing
+                             |   (SAST) is necessary to keep applications free of
+                             |   vulnerabilities
+                             |
+  Dynamic Application        | * Dynamic scanning uses black box security testing
+  Security Testing (DAST)    |   methodology
+                             |
+                             | * A black box test involves testing an application
+                             |   from the ouside in while it is running in production
+                             |
+                             | * In DAST, a security analyst attempts to hack an
+                             |   application in the same way a cyber attacker would
+                             |
+                             | * Unlike SAST, DAST does not involve examining
+                             |   source code to identify vulnerabilites from the
+                             |   inside out
+                             |
+  Penetration Tests          | * Penetration tests (pentests) are a form of DAST
+                             |   that use external programs to interrogate
+                             |   applications ithrough their exposed API and HTTP
+                             |   endpoints
+                             |
+                             | * Penetration tests simulate automated cyber attacks
+                             |   on production infrastructure
+                             |
+                             | * Penetration tests detect common vulnerabilities such
+                             |   as injection, cross-site scripting, and flaws in
+     (Idenity and access     |   authentication and identity and access manaement
+      management)            |   (IAM)
                              |
 --------------------------------------------------------------------------------
 == 6.2 - DashBoards and Automated Vulnerability Detection ==
+  Dashboards and Auomated    | * Dashboards provide continual updates on the health
+  Vulnerability Detection    |   of applications running in production
                              |
+                             | * Dashboards aggregate and analyze logs, providing
+                             |   a stream of real-time data that is presented visually
+                             |   based on predefined ocnfigurations
+                             |
+                             | * Extensible dashboard software systems support
+                             |   plugins that can be configured according to user
+                             |   preferences
+                             |
+                             | * Dashboards also let you set up real-time alerts
+                             |   for system events that require immediate attention
+                             |
+  Automated Vulnerability    | * DAST and SAST tools can provide logs for
+  Detection                  |   aggregation and monitoring in dashboard systems
+                             |
+                             | * Many dashboard visualization systems generate
+                             |   benchmark thresholds of normal performance and
+                             |   report anomalies that exceed normal limits
+                             |
+                             | * Advanced machine lerning and artificial intelligence
+                             |   algorithms can be used to score workloads over time
+                             |   and provide alerts when threas increase
+                             |
+  Traceability and Rollback  | * Traceability refers to the process of communicating
+                             |   information about threat detection back to stakeholders
+                             |   including the development team
+                             |
+                             | * When release management and source code control is
+                             |   established to track major releases and sub-releases
+                             |   of applications, vulnerability reporting can be traced
+                             |   back to the specific souce code being evaluaed
+                             |
+                             | * Alerts and threat detecion can be used to automatically
+                             |   roll back vulnerable systems when new releases appear
+                             |   flawed
+                             |
+                             | * NOTE: Branching and rebasing souce code throughout
+                             |         an automated release cycle helps with
+                             |         identifying vulnerable source code during
+                             |         production monitoring
+                             |
+  Agile Lifecycle Integration| * Developmen teams use Agile Backlogs to record
+                             |  user stories
+                             |
+                             | * Production monitoring systems often provide a way
+                             |   to create tickts and integrae with Agile lifecycle
+                             |   managemen tools
+                             |
+                             | * Production monitoring systems often provide a
+                             |   way to creae tickes and integrae with Agile lifecycle
+                             |   management tools
+                             |
+                             | * Up-to-date feedback from production systems helps
+                             |   with continuous adapion and improvement
 --------------------------------------------------------------------------------
