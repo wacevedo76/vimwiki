@@ -919,7 +919,7 @@
                              | * Jenkins originated from the open-source Hudson
                              |   project
                              |
-                             | * Jenkis is highly extensible ans supports hundreds
+                             | * Jenkis is highly extensible and supports hundreds
                              |   of plugins that handle build tasks
                              |
                              | * Jenkins supports Continuous Integration by
@@ -943,14 +943,162 @@
                              | * The build server delivers build artifacts to
                              |   the appropriate target, typically a staging
                              |   server
+                             | * Commit -> Build -> Test -> Stage -> Deploy
                              |
+  CI/CD Pipeline             | * Java builds typically involve a repor that
+  Architecture (Using Jenkins|   contains needed component libraries
+  with Maven                 |
+                             | * Apache Maven is an open-souce tool often used
+                             |   by Java teams
                              |
+                             | * When Maven performs a build, it automatically
+                             |   downloads libraries from Maven Central
                              |
+                             | * Maven Central is a public repository maintained
+                             |   by Sonatype
                              |
+                             | * Most enterprises configure a repository inside
+                             |   their firewall using products like Nexus
                              |
+  Attack Surface of a        | * Attack vectors exist at the point of code
+  of a typical CI/CD Build   |   check-in and anywhere an API session is
+  Environment                |   established to pull code
                              |
-
-
-
-
-  Commit -> Build -> Test -> Stage -> Deploy
+                             | * Malware and vulnerabilities exist in most
+                             |   component libraries pulled from third-party
+                             |   repos
+                             |
+                             | * Since it is necessary to use vulnerable code,
+                             |  vulnerability detection and monitoring must
+                             |  be done after the build process
+                             |
+                             | * The OWASP Dependency Checker is one open-source
+                             |   tool that detects and reveals vunerabilities
+                             |   and their severity levels
+                             |
+--------------------------------------------------------------------------------
+== Vulnerability Detection and Remediation ==
+                             |
+  OWASP Dependency Checker   | * OWASP Dependency Check is an open-source
+                             |   scanning system
+                             |
+                             | * Dependency Check can be run from the command
+                             |   line or throughn automated build program such
+                             |   as Jenkins
+                             |
+                             | * OWASP Dependency Check maintains a downloaded
+                             |   CVE database from the NIST NVD
+                             |
+                             | * OWASP Dependency Check provides human-readable
+                             |  and machine-readable reports
+                             |
+                             | * To enforce security policy, automated builds
+                             |   can be configurd to fail when policy
+                             |  thresholds are exceeded
+                             |
+  OWASP Top 10 - 2017        | * Prioritization is vital to an effective security
+                             |   strategy
+                             |
+                             | * It is impossible to eliminae vulnerabilities
+                             |
+                             | * The severity of a vulnerability indicates its
+                             |   potential threat
+                             |
+                             | * The actual threat factors in its context
+                             |
+                             | * The key factor for defining and automating a
+                             |   security policy is business impact
+                             |
+  OWASP Risk Management      | * Attackers can potentially use many different
+                             |   paths through your application to do harm to
+                             |   your business or organization. Each of these
+                             |   paths represents a risk that may, or may not,
+                             |   be serious enough to warrant attention
+                             |
+                             | * Sometimes these paths are trivial to find and
+                             |   exploit, and sometimes they are extremely
+                             |   difficult. Similarly, the harm that is caused
+                             |   may be of no consequence, or it may put ou out
+                             |   of business. To determine the risk to your
+                             |   organization, you can evaluate the likelihood
+                             |   associated with each threat agent, attack vector,
+                             |   and security weakness and combine it with an
+                             |   estimate of the technical and business impact
+                             |   to your organization. Together, these factors
+                             |   determine your overall risk
+                             |
+  OWASP Top 10 Risks         | 1)  Injection
+                             | 2)  Broken Authentications
+                             | 3)  Sensitive Data Exposure
+                             | 4)  XML External Entities (XXE)
+                             | 5)  Broken Access Control
+                             | 6)  Security Misconfiguration
+                             | 7)  Cross-Site Scripting (XSS)
+                             | 8)  Insecure Deserialization
+                             | 9)  Using Components with Known Vulnerabilities
+                             | 10) Insufficient Logging and Monitoring
+                             |
+  DevSecOps Detection and    | 1)  Automate scanning throughout the pipeline
+  Remediation                | 2)  Create well-defined security policy
+                             | 3)  Implement rigorous gating
+                             | 4)  Reduce the attack surface of DevOps infrastructures
+                             | 5)  Continuously monitor deployed applications
+                             | 6)  Establish traceability back to the developent
+                             | 7)  Practice ongoing hygiene
+                             | 8)  Utilize automated Configuratiom Management
+                             | 9)  Establish automated roll-back and recover
+                             | 10) Practice Continuous Improvement with ongoing
+                             |     inspection and adaptation to accommodate security
+                             |     enhancements
+                             |
+--------------------------------------------------------------------------------
+== Secure Staging ==
+  Nexus Repository (Use Case)| * Sonatype Nexus is an open-source repository
+                             |   management system
+                             |
+                             | * Build artifacts produced by programs like Maven
+                             |   are scanned as part of the automated build
+                             |   pipeline
+                             |
+                             | * Once a build output is produced, it is important
+                             |   to push the compiled file to a secure repo
+                             |
+                             | * A private on-premise or hardened cloud-based repo
+                             |   server is needed to prevent unauthorized access
+                             |   to or tampering with executable binaries
+                             |
+                             | * The use of a repo for build artifacts ensurs
+                             |   that test, QA, and staging environments all
+                             |   pull the same file, maintaining uniformity and
+                             |   control of the deployment pipeling
+                             |
+  Typical CI/CD Pipeline     | * The Nexus repo manager has a secure API that
+  Architecture (Using        |   allows the Jenkins pipeline to push artifacts
+  Nexus)                     |   to the repo
+                             |
+                             | * Once in the repo, atifacts are proteced, and the
+                             |   attach surface is limited to authorizd and
+                             |   authenticated endpoints
+                             |
+                             | * QA (Quality Assurace) and UAT (User Acceptace
+                             |   Test) platforms can then pull the executables
+                             |   when neede
+                             |
+                             | * Container images can be stored in Nexus to
+                             |   ensure that components and binaries are packaged
+                             |   with build executables
+                             |
+                             | * Once a build artifact is stored, all upstream
+                             |  environments use the original binary, even when
+                             |  it is promoted to production.
+                             |
+  Automated Provisioning and | * PaaS and ARA tooling depends on a stable repo
+  Application Release        |   for fast-and-frequent releases
+  Automation (ARA)           |
+                             | * Automated release and promotion to test
+                             |  environments prevents human error and other
+                             |  factors from disrupting uniform and consistent
+                             |  platforms
+                             |
+--------------------------------------------------------------------------------
+                             |
