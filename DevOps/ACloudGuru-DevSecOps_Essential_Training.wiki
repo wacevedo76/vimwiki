@@ -1132,22 +1132,63 @@
                              |
                              |
                              |
---------------------------------------------------------------------------------
-== 5.1 - Continuous Delivery Release Automation ==
+----  5 - Continuous Delivery Release Automation  ------------------------------
+== 5.1 - Automated Deployment ==
+  Continuous Delivery        | * Continuous Delivery Release Auomation (CDRA)
+  Release Automation (CDRA)  |   is the practice and tooling required to promote
+                             |   application workloads to upper environments with
+                             |   minimal or no manual inervention
+                             |
+                             | * Automted Deployment systems are typically employed
+                             |   for all post-build platform includint test, QA
+     (User Acceptance Test)  |   UAT, Pre-Production and ultimately production
+                             |
+                             | * CDRA systems categorized into two domans,
+                             |   Application Release Automation (ARA) and Application
+                             |   Release Orchestration (ARO)
+                             |
+                             | * The context of this lesson is primarily focused
+                             |   on ARA. Orchestration would include many concepts
+                             |   such as self-healing, cloud bursting, and hybrid
+                             |   cloud orchestration
+                             |
+                             | * NOTE: Automated DEployment is critical to ensure
+                             |         control and consistency when promoting
+                             |         workloads into production environment
+                             |
+  Automated Deployment       | * Automaed Deployment refers to the practice and
+                             |   tooling used to cause build artifacts to be
+                             |   installed on upper level environments including
+                             |   production systems
+                             |
+                             | * Automation is key to improving throughput, but
+                             |   also as a means of controlling outcomes and
+                             |   ensuring consistency
+                             |
+                             | * Once systems have cleared gating, triggers in
+                             |   the tooling call programs that ready the
+                             |   infrastructure and deploy, or install the
+                             |   application so that it may be immediately executed
+                             |
+  DeployHub (Use Case)       | * Automated Deployment Tooling varies widely in
+                             |   capability and level of implementation
+                             |
+                             | * DeployHub is an open source solution that is
+                             |   hosted as a SaaS solution as well as being
+                             |   offered for on-premie implementation
+                             |
+                             | * DeployHub provides a means of integrating
+                             |   deployment with Jenkins build automation,
+                             |   the nexus repo, and may use Ansible playbooks
+                             |   for actual deployment
                              |
 --------------------------------------------------------------------------------
-== 5.2 - Automated Deployment ==
+== 5.2 - Configuration Management ==
+                             |
+----  6 - Production Monitoring and Ongoing Detection and Remediation  ---------
+== 6.1 - Production Monitoring ==
                              |
 --------------------------------------------------------------------------------
-== 5.3 - Configuration Management ==
-                             |
---------------------------------------------------------------------------------
-== 6.1 - Production Monitoring and Ongoing Detection and Remediation ==
-                             |
---------------------------------------------------------------------------------
-== 6.2 - Production Monitoring ==
-                             |
---------------------------------------------------------------------------------
-== 6.3 - DashBoards and Automated Vulnerability Detection ==
+== 6.2 - DashBoards and Automated Vulnerability Detection ==
                              |
 --------------------------------------------------------------------------------
