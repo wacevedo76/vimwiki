@@ -1348,3 +1348,21 @@
                              | * Up-to-date feedback from production systems helps
                              |   with continuous adapion and improvement
 --------------------------------------------------------------------------------
+== Next Steps ==
+  Areas of Specialty
+
+`- Development                 - Release Management           - Operations`
+`  * Source Code Management      * Build Pipeline Automation    * Server Hardening`
+`  * Agile Lifecycle Tools       * Continuous Integration       * Application Hardening`
+`  * Test-Driven Development     * Automated Testing            * Continuous Deployment`
+`  * PaaS Tooling                * Pre-Production Staging       * Continuous Monitoring`
+`  * Security Standards          * Release Automation           * Security Analytics`
+`  * Containerization            * Configuration Management     * Cloud Orchestration`
+
+Mesuring DevSecOps Success   | * Deployment frequency (fast and frequent releases)
+                             | * Lead time (code-to-cash cycle)
+                             | * Detection of treats, vulnerabilities, and malware
+                             | * Mean time to repair and remediaion
+                             | * Efficiency of rollback and recovery
+                             |
+--------------------------------------------------------------------------------
