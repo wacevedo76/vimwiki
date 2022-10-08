@@ -4,7 +4,9 @@ Terms
   What is Composition?       | Composition is the idea of building classes by
                              | passing in instances of other classes.
                              |
-                             |
+  What is Polymorphism?      | if it walks and quacks like a duck, it is a duck
+                             | As long as you implement the right methods on
+                             | something, then you have a polymorphic relationship
                              |
                              |
                              |

@@ -2,13 +2,13 @@
 = Python notes =
 --------------------------------------------------------------------------------
 == Books ==
-[[AtBS|Automate the Boring Stuff]]
+  [[AtBS|Automate the Boring Stuff]]
 --------------------------------------------------------------------------------
 == Common Useful commands ==
-[[Python/common_useful_commands|Common useful commands]]
+  [[Python/common_useful_commands|Common useful commands]]
 --------------------------------------------------------------------------------
 == Common Modules ==
-[[common_modules]]
+  [[common_modules]]
 --------------------------------------------------------------------------------
 == Defined Terms ==
   [[programmingConcepts/Terms|Defined Terms]]
