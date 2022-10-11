@@ -8,7 +8,20 @@ Python Networking
   * Nornir
 
 --------------------------------------------------------------------------------
-Common Module methods
+== Common Module methods ==
+=== os Module ===
+  Working with Enviromental  | os.environ  -> returns a dictionary of environmental
+  variables                  |                variables -> Throws an error if
+                             |                variable does not exists
+                             |
+                             | os.getenv("key", default=None)  -> returns string
+                             |                                    if key found, none
+=== sys Module ===
+  Return exit code to shell  | sys.exit(exit_number)
+                             |
+
+--------------------------------------------------------------------------------
+== Common Module's Method's ==
 `-----------------------------+-----------------------------+`
 `os                           | re                          |`
 `                             |                             |`
