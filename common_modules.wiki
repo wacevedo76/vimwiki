@@ -1,5 +1,11 @@
 [[Python|index]]
-[[--------------------------------------------------------------------------------]]
+--------------------------------------------------------------------------------
+== interesting modules to look up ==
+  * argparse      - For building the CLI and parsing flags
+  * pwd           - For accessing the Password/User database
+  * json          - For JSON encoding and decoding
+  * csf          - For csf encoding and decoding
+--------------------------------------------------------------------------------
 Python Networking
   * Pexpect
   * Paramiko
