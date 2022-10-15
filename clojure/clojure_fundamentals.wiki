@@ -52,13 +52,29 @@ Collections
   List                       | '(1 2 "tom") <- start with a quote, separating commas are optional
                              |   - Elements are accessed sequentially
                              |
+      Return 1st element     | (def testlist '(1 2 3 4 5))
+                             | (peek testlist)  ;=> 1
+                             |
+      Return all but first   | (pop testlist)  ;=> (2 3 4 5)
+      element of list        |
+                             |
   Vector                     | [:test01 2 3 4 5 :test2]
                              |   - Elements are accessed by index
                              |     (def family ["bob" "jim" "Sally"])
                              |     (family 1)           ;; output: "jim"
                              |
-  Maps                       | {:jam1 "strawberry" :jam2 "blackberry"}
-                             | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
+      Modify a vector        | (def the-vector [10 20 30 40 50])
+                             | ;; (assoc (list) (list index) (new value))
+                             | (assoc the-vector 2 25)  -> [10 20 25 40 50]
+                             |
+      Retrieve a value from  | (get the-vector 2)  ;=> 30  -> returns nil if value isn't found
+      a vector               | (nth the-vector 2)  ;=> 30  -> throws an error if value isn't found
+                             |
+      return vector element  | (the-vector 3)  ;=> 40
+      using an index         |
+                             |
+      Add a value to vector  | (conj [1 2 3 4 5] 6)  ;=> [1 2 3 4 5 6]
+                             | ;; appends the new value to the end
                              |
 Lists and Vectors            |
                              |
@@ -88,8 +104,21 @@ Lists and Vectors            |
   the begining of list       |
                              |
 Maps                         |
+                             | {:jam1 "strawberry" :jam2 "blackberry"}
+                             | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
+                             |
   Retrieve (get) the value   | (get {:jam1 "Strawberry" :jam2 "blackberry"} :jam2)
   from a item in a map       | ;; -> "blackberry"
+                             |
+                             | (def the-map {:a 1 :b 2 :c 3})
+                             |
+                             | (the-map :b)  ;=> 2
+                             |
+                             | (:b the-map)  ;=> 2
+                             |
+     Set default value       | (:d the-map 26)  ;=> 26
+                             |
+                             |
                              |
   set a default value if     | (get {:jam1 "strawberry" :jam2 "blackberry"} :jam3 "not found")
   a key in map is not present| ;; -> "not found"
@@ -98,7 +127,7 @@ Maps                         |
   function                   | ;; -> "blackberry"
                              |
   Return only the keys of    | (keys {:jam1 "strawberry" :jam2 "blackberry" :jam3 "marmalade"})
-  a mape                     | ;; -> {"marmalade" "blackberry" "stawberry"}
+  a map                      | ;; -> {"marmalade" "blackberry" "stawberry"}
                              |
 --------------------------------------------------------------------------------
   Define variable            | (def x 42) -> use the def keyword, variable name
