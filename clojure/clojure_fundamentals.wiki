@@ -104,8 +104,11 @@ Lists and Vectors            |
   the begining of list       |
                              |
 Maps                         |
-                             | {:jam1 "strawberry" :jam2 "blackberry"}
-                             | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
+  Basic Strucute             | {:jam1 "strawberry" :jam2 "blackberry"}
+    ;; commas are optional   | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
+                             |
+    Alternate assignment     | (hash-map :a 1 :b 2 :c 3)
+                             |
                              |
   Retrieve (get) the value   | (get {:jam1 "Strawberry" :jam2 "blackberry"} :jam2)
   from a item in a map       | ;; -> "blackberry"
@@ -118,6 +121,9 @@ Maps                         |
                              |
      Set default value       | (:d the-map 26)  ;=> 26
                              |
+  inserting a new key / val  | (assoc hash_map :d 4 )
+                             |
+  removing a key / val       | (dissoc hash_map a:)
                              |
                              |
   set a default value if     | (get {:jam1 "strawberry" :jam2 "blackberry"} :jam3 "not found")
@@ -128,6 +134,10 @@ Maps                         |
                              |
   Return only the keys of    | (keys {:jam1 "strawberry" :jam2 "blackberry" :jam3 "marmalade"})
   a map                      | ;; -> {"marmalade" "blackberry" "stawberry"}
+                             |
+  Update value in nested map | (assoc-in map [key & more-keys] value)  -> Changes value
+                             |
+                             | (update-in map [key & more-keys] update-function & args)
                              |
 --------------------------------------------------------------------------------
   Define variable            | (def x 42) -> use the def keyword, variable name
