@@ -151,7 +151,18 @@ Maps                         |
                              |       use "fn" keyworkd as the first items in the
                              |       body of the function
                              |
+  Define a function
   (using defn)               | (defn foo [x] (* x 2))
+                             |
+  Define anonymous functions | (fn [x y] (+ x y))
+                             |
+  Call a function with items | (apply + [1 2]) == (+ 1 2)
+  of a sequence as individual|
+  arguments                  |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
   Define local variables     | (let [a 5]               ;; a = 5

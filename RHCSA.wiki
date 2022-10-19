@@ -62,9 +62,30 @@ YUM - package manager which uses rpms
 Install package              | yum install ansible
 View YUM Repos               | yum repolist
                              |
+--------------------------------------------------------------------------------
+** Working with Linux Files - Permissions / Links
+  Hard / Soft Links          | Hard Link:
+                             |   * Additional name for an existing file
+                             |   * Can't be created for directories
+                             |   * Can't cross filesystem boundaries or partitions
+                             |   * Same inode number and permissions as original file
                              |
+                             | Soft Link
+                             |   * Special file that points to another file
+                             |   * Can be created for directories
+                             |   * Can cross filesystem boundaries or partitions
+                             |   * Different indoe number and file permissions than original
+                             |   * Doesn't contain file data
                              |
+  umask                      | The file creation mask (umask) sets permissions for new files/directories
+                             | The umask is subtractive: it removes the persissioms from default permisions
                              |
+                             | Default permissions for files is 666; directories are 777
                              |
-
-
+                             | umask value    File Permissions    Directory Permissions
+                             | 002            -rw-rw-r--          drwxrwxr-x
+                             | 007            -rw-rw----          drwxrwx---
+                             | 022            -rw-r--r--          drwxr-xr-x
+                             | 027            -rw-r-----          drwxr-x---
+                             | 077            -rw-------          drwx------
+                             |
