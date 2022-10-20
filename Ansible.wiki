@@ -1,6 +1,22 @@
 --------------------------------------------------------------------------------
 = Ansible =
 --------------------------------------------------------------------------------
+Installation
+  Extra Packages for         | yum list epel-release
+  Enterpise Linux (EPLE)     |
+                             |
+  Primary configuration file | /etc/ansible/ansible.cfg
+                             |   (this configuration file describes where the
+                             |    the other config files are located)
+                             |
+--------------------------------------------------------------------------------
+Documentation
+  Built-in Ansible document- | ansible-doc -s <module name>
+  ation                      |
+                             |
+  List all available modules | ansible-doc -l
+                             |
+--------------------------------------------------------------------------------
 Inventory Files              | * and ini like format to define target hosts
                              |   it is simplay a list of services
                              |
@@ -12,6 +28,12 @@ Inventory Files              | * and ini like format to define target hosts
                              | [mail]                 <-- group name
                              | server3.company.com    <-- Server under [mail]
                              | server4.company.com    <-- Server under [mail]
+                             |
+                             | or
+                             |
+                             | server[2:3].company.com  <-patters which covers
+                             |                            server2 and server3
+                             |
                              |
                              | [db]                   <-- group name
                              | server5.company.com    <-- Server under [db]
