@@ -244,6 +244,35 @@ Control Structures           |
                              |    (< a 1)  :small_a
                              |    (= 0 c)  :zero_c)
                              |
+  Do                         | To combine multiple s-expression into a single
+                             | form, Clojure provides the do form. It can be used
+                             | for any situation where some side effect is desired
+                             | and the higher-order form accepts only a sing
+                             | s-expression
+                             |
+                             | ( if (is-something-true?)
+                             |   (do
+                             |     (log-message "in true branch")
+                             |     (store-something-in-db)
+                             |     (return-useful-value)))
+                             |
+--------------------------------------------------------------------------------
+Reader Macros
+`  Quote (')                  | Quotes theform follwing it, same as (quote)     `
+`  Character (\)              | Yields a character literal                      `
+`  Comment (;)                | Single-line comment                             `
+`  Meta (^)                   | Associates metadata for the form that follows it`
+`  Deref (@)                  | Dereferences the agent or ref that follows      `
+`  Dispatch (#)               | #{} Constructs a set                            `
+`                             | #"" Constructs a regex patter                   `
+`                             | #^ Associates metadata for the form that follows`
+`                             | #' REsolves the var for the symbol that follows,`
+`                             | #_ Skips the following form                     `
+  Syntax quote (`)           | Used in macros to render s-expressions
+`  Unquote (~)                | Unquotes forms inside syntax-quoted forms       `
+`  Unquote splice (~@)        | Unquotes a list inside a syntax form, but insert`
+`                             |   the elements of the list without the surroundi`
+`                             |                                       `
 --------------------------------------------------------------------------------
 Loops                        | (for [i [1 2 3]]
                              |    (inc 1))        ;; Output: (2 3 4)
