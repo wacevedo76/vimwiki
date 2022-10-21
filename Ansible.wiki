@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 = Ansible =
 --------------------------------------------------------------------------------
-Installation
+== Installation ==
   Extra Packages for         | yum list epel-release
   Enterpise Linux (EPLE)     |
                              |
@@ -10,14 +10,15 @@ Installation
                              |    the other config files are located)
                              |
 --------------------------------------------------------------------------------
-Documentation
+== Documentation ==
   Built-in Ansible document- | ansible-doc -s <module name>
   ation                      |
                              |
   List all available modules | ansible-doc -l
                              |
 --------------------------------------------------------------------------------
-Inventory Files              | * and ini like format to define target hosts
+== Inventory Files ==
+                             | * and ini like format to define target hosts
                              |   it is simplay a list of services
                              |
   Default inventory file     | /etc/ansible/hosts
@@ -68,6 +69,7 @@ Inventory Files              | * and ini like format to define target hosts
                              |
 ** Check connectivity to host| > ansible <target host name> -m ping -i <inventory file>   <-- -m for module
                              | > ansible target01 -m ping -i inventory.txt
+                             |
 --------------------------------------------------------------------------------
 == Yaml ==
                              | <-- whitespace is used to help define structure
@@ -116,9 +118,9 @@ Inventory Files              | * and ini like format to define target hosts
         service:
           name: httpd
           state: started
-                           |
+                             |
 --------------------------------------------------------------------------------
-  Playbook Format
+  == Playbook Format ==
     Example:
 
       # Simple Ansible Playbook1.ymp
@@ -145,136 +147,168 @@ Inventory Files              | * and ini like format to define target hosts
             service:                       <-- Ansible module
               name: httpd
               state: started
-                           |
-  Execute Ansible Playbook | > ansible-playbook playbook.yml
+   Execute Ansible Playbook  | > ansible-playbook playbook.yml
+                             |
 --------------------------------------------------------------------------------
-Running Ansible commands
-  One-offs (syntax)        | ansible <hosts> -a <command>
-                           | ansible all -a "/sbin/reboot"
-                           |
-                           | ansible <hosts> -m <module>
-                           | ansible target01 -m ping
-                           |
-  Playbooks                | ansible-playbook <playbook name> -i <inventory file>
-                           |
+== Running Ansible commands ==
+  One-offs (syntax)          | ansible <hosts> -a <command>
+                             | ansible all -a "/sbin/reboot"
+                             |
+                             | ansible <hosts> -m <module>
+                             | ansible target01 -m ping
+                             |
+  Playbooks                  | ansible-playbook <playbook name> -i <inventory file>
+                             |
+  Dry run                    | ansible-playbook <playbook name> -i <inventory file> --check
+                             |
+  Retry                      | If a playbook fails, a retry file is generated and
+                             | contains the list of hosts where the playbook failed
+                             | playbook-name.retry
+                             |
+                             | The file may be specificed using --limit with
+                             | the same playbook to reattempt that playbook at
+                             | a later time
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 == Modules ==
-  System                   | - User
-                           | - Group
-                           | - Hostname
-                           | - Iptables
-                           | - Lvg
-                           | - Lvol
-                           | - Make
-                           | - Mount
-                           | - Ping
-                           | - Timezone
-                           | - Systemd
-                           | - Service
-                           |
-  Commands                 | - Command
-                           | - Expect
-                           | - Raw
-                           | - Script
-                           | - Shell
-                           |
-  Files                    | - Acl
-                           | - Archive
-                           | - Copy
-                           | - File
-                           | - Find
-                           | - Lineinfile
-                           | - Replace
-                           | - Stat
-                           | - Template
-                           | - Unarchive
-                           |
-  Database                 | - Mongodb
-                           | - Mssql
-                           | - Mysql
-                           | - Postgresql
-                           | - Proxysql
-                           | - vertica
-                           |
-  Cloud                    | - Amazon
-                           | - Atomic
-                           | - Azure
-                           | - Centrylink
-                           | - Cloudscale
-                           | - Cloudstack
-                           | - Digital Ocean
-                           | - Docker
-                           | - Google
-                           | - Linode
-                           | - Openstack
-                           | - Sartos
-                           | - Softlayer
-                           | - VMware
-                           |
-  Windows                  | - Win_copy
-                           | - Win_command
-                           | - Win_domain
-                           | - Win_file
-                           | - Win_iis_website
-                           | - Win_msg
-                           | - Win_package
-                           | - Win_ping
-                           | - Win_path
-                           | - Win_robocopy
-                           | - Win_regedit
-                           | - Win_shell
-                           | - Win_service
-                           | - Win_user
+  System                     | - User
+                             | - Group
+                             | - Hostname
+                             | - Iptables
+                             | - Lvg
+                             | - Lvol
+                             | - Make
+                             | - Mount
+                             | - Ping
+                             | - Timezone
+                             | - Systemd
+                             | - Service
+                             | - setup     <- Pulls system information from tartget host (ansible facts)
+                             |
+  Commands                   | - Command
+                             | - Expect
+                             | - Raw
+                             | - Script
+                             | - Shell
+                             |
+  Files                      | - Acl
+                             | - Archive
+                             | - Copy
+                             | - File
+                             | - Find
+                             | - Lineinfile
+                             | - Replace
+                             | - Stat
+                             | - Template
+                             | - Unarchive
+                             |
+  Database                   | - Mongodb
+                             | - Mssql
+                             | - Mysql
+                             | - Postgresql
+                             | - Proxysql
+                             | - vertica
+                             |
+  Cloud                      | - Amazon
+                             | - Atomic
+                             | - Azure
+                             | - Centrylink
+                             | - Cloudscale
+                             | - Cloudstack
+                             | - Digital Ocean
+                             | - Docker
+                             | - Google
+                             | - Linode
+                             | - Openstack
+                             | - Sartos
+                             | - Softlayer
+                             | - VMware
+                             |
+  Windows                    | - Win_copy
+                             | - Win_command
+                             | - Win_domain
+                             | - Win_file
+                             | - Win_iis_website
+                             | - Win_msg
+                             | - Win_package
+                             | - Win_ping
+                             | - Win_path
+                             | - Win_robocopy
+                             | - Win_regedit
+                             | - Win_shell
+                             | - Win_service
+                             | - Win_user
 --------------------------------------------------------------------------------
 == Variables ==
-  Variables are defined    | # Sample Ansible Playbook1.yml
-  as key-value pairs       | -
-                           |   name: Add DNS server to resolv.conf
-                           |   hosts: localhost
-                           |   vars:
-                           |     dns_server: 10.1.250.10
-                           |   tasks:
-                           |     - lineinfile:
-                           |         path: /etc/resolv.com
-`                           |         line: 'nameserver {{ dns_server }}'`
-                           |           <-- variables are called within double brackets
-                           |
+  Variables are defined      | * Variable names should be letters, numbers and
+  as key-value pairs         |   underscores. Tey should always start with a letter
+                             |
+                             | * Variables can be scoped by group, host, or
+                             |   within a playbook
+                             |
+                             | * Variables may be passed in via command line
+                             |   using the --extra-vars, the -e flag, or defined
+                             |   within a playbook
+                             |
+                             | Examples:
+                             |   ansible-playbook service.yml -e \
+                             |   "target_hosts=localhost \
+                             |   target_service=httpd";
+                             |
+                             | * Variables are referenced using double curly braces
+`                             |   hosts: "{{ my_host_var }}"`
+                             |
+                             | # Sample Ansible Playbook1.yml
+                             | -
+                             |   name: Add DNS server to resolv.conf
+                             |   hosts: localhost
+                             |   vars:
+                             |     dns_server: 10.1.250.10
+                             |  tasks:
+                             |     - lineinfile:
+                             |         path: /etc/resolv.com
+ `                            |          line: 'nameserver {{ dns_server }}'`
+                             |           <-- variables are called within double brackets
+                             |
 --------------------------------------------------------------------------------
 == Loops ==
-                           | # Sample Ansible Playbook1.yml
-                           | -
-                           |   name: Install Packages
-                           |   host: localhost
-                           |   tasks:
-                           |     - yum: name=http       state=present
-   --> looping key word    |       with_items:
-                           |           - httpd
-                           |           - binutils
-                           |           - glibc
-                           |           - ksh
-                           |           - libaio
-                           |           - libXext
-                           |           - gcc
-                           |           - make
-                           |           - sysstat
-                           |           - unixODBC
-                           |           - mongodb
-                           |           - nodejs
-                           |           - grunt
+                             | # Sample Ansible Playbook1.yml
+                             | -
+                             |   name: Install Packages
+                             |   host: localhost
+                             |   tasks:
+                             |     - yum: name=http       state=present
+   --> looping key word      |       with_items:
+                             |           - httpd
+                             |           - binutils
+                             |           - glibc
+                             |           - ksh
+                             |           - libaio
+                             |           - libXext
+                             |           - gcc
+                             |           - make
+                             |           - sysstat
+                             |           - unixODBC
+                             |           - mongodb
+                             |           - nodejs
+                             |           - grunt
+                             |
 --------------------------------------------------------------------------------
 == Roles ==
-  used to modularize       | # Sample Ansible Playbook1.ym
-  playbooks                | -
-                           |   name: Set Firewall Configuration
-                           |   hosts: web
-  include variables file   |   vars_files:
-                           |     - varibles.yml
-                           |   tasks:
-  all other includes ->    |     - include: tasks.yml
-                           |
-Roles best practices       |
+  used to modularize         | # Sample Ansible Playbook1.ym
+  playbooks                  | -
+                             |   name: Set Firewall Configuration
+                             |   hosts: web
+  include variables file     |   vars_files:
+                             |     - varibles.yml
+                             |   tasks:
+  all other includes ->      |     - include: tasks.yml
+                             |
+Roles best practices         |
   lets look a a possible file structure:
-
+                             |
   - Ansible Project          | # Sample Ansible setup_application.yml
     * inventory.txt          | -
     * setup_application.yml  |   name: Set Firewall Configurations
@@ -287,3 +321,15 @@ Roles best practices       |
         - vars               | all relevant files including tasks and vars
         - defaults           | in the "webservers" directory will be automatically
         - mets               | loaded
+                             |
+--------------------------------------------------------------------------------
+== Ad-hoc commands ==
+  Ad-hoc command syntax      | ansible <HOSt> -b -m <MODULE> -a "<ARG1 ARG2 ARG3>"
+                             |
+  examples                   |
+    Install softare          | ansible centos7-02 -b -m yum -a "name=httpd state=latest"
+                             |   (the '-b' flag is for 'become', default state is root
+                             |
+    Modify service state     | ansible centos7-02 -b -m service -a "name=httpd state=started"
+                             |
+--------------------------------------------------------------------------------
