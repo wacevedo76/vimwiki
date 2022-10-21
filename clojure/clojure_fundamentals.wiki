@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 = Clojure Fundamentals =
 --------------------------------------------------------------------------------
+  Clojure documentation      | (doc <name of function or macro>)
+--------------------------------------------------------------------------------
 Core data structures         | Core Data Structures
   NOTE: Commas are not       |
   evaluated in expressions   |   nil
@@ -221,7 +223,9 @@ Characters and Strings       |
                              |
 --------------------------------------------------------------------------------
 Control Structures           |
-  if                         | (if (condition)    ;; Condition
+  if                         | (if test consequent alternative)
+  (if-not)                   |
+                             | (if (condition)    ;; Condition
                              |    (inc a)         ;; True branch
                              |    (inc b))        ;; False branch
                              |
@@ -229,9 +233,14 @@ Control Structures           |
     branch to execute)       |    (println "a > 0")
                              |    (inc a))
                              |
-  when-not (there is no true | (when-not (> a 0)
-    branch to execute)       |    (println "a <= 0")
+  when-not (there is no true | This convenient macro is an if (without the alternative
+    branch to execute)       | clause), along with an implicit do. This allows
+                             | multiple s-expressions to be passed in as the body.
+                             |
+                             | (when-not (> a 0)
+                             |    (println "a <= 0")
                              |    (dec a))
+                             |
                              |
   Case Expression            | (case x           ;; "x" is the Expression to match
                              |    10 :ten        ;;  case :result
@@ -239,10 +248,20 @@ Control Structures           |
                              |    50 :fifty      ;;  case :result
                              |    :other)        ;; Default result expression
                              |
-  Cond expression            | (cond
-                             |    (> x 10) :big_x
-                             |    (< a 1)  :small_a
-                             |    (= 0 c)  :zero_c)
+  Cond expression            | Cond allows you to flatten nested trees of if
+                             | conditionals. The general form looks like:
+                             |
+                             | (cond & clauses)
+                             |
+                             |
+                             | (def x 1)
+                             |
+                             | (cond
+                             |   (> x 0 ) "greater!"
+                             |   (= x 0)  "zero!"
+                             |   :default "lesser!"
+                             |
+                             | ;=> "greater!"
                              |
   Do                         | To combine multiple s-expression into a single
                              | form, Clojure provides the do form. It can be used
@@ -255,6 +274,42 @@ Control Structures           |
                              |     (log-message "in true branch")
                              |     (store-something-in-db)
                              |     (return-useful-value)))
+                             |
+--------------------------------------------------------------------------------
+Logical functions
+  and                        | "and" returns the first failing value. If all
+                             | objects are "Truthy" it will return the last
+                             | value
+                             |
+                             | (and :a :b :c)      ;; NOTE: only nil and false
+                             | ;=> :c                 are logically false;
+                             |                        everything else is true
+                             | (and :a nil :c)
+                             | ;=> nil
+                             |
+  or                         | "or" works in the opposite way. If any values
+                             | return true, it returns it as the value of the or
+                             |
+                             | (or)
+                             | ;=> nil
+                             |
+                             | (or :a nil :c)
+                             | ;=> :a
+                             |
+                             | (or nil false)
+                             | ;=> false
+                             |
+                             | (or false nil)
+                             | ;=> nil
+                             |
+  not                        | "not" function inverts the logical value of
+                             | whateveris passed in as a nargument.
+                             |
+                             | (not true)
+                             | ;=> false
+                             |
+                             | (not nil)
+                             | ;=> true
                              |
 --------------------------------------------------------------------------------
 Reader Macros
@@ -274,8 +329,109 @@ Reader Macros
 `                             |   the elements of the list without the surroundi`
 `                             |                                       `
 --------------------------------------------------------------------------------
-Loops                        | (for [i [1 2 3]]
+Functional iteration         |
+(loops / recursion)          |
+                             |
+  while                      | Clojure's while macro works in a similar fashion
+                             | to those seen in imperative languages
+                             |
+                             | (while test & body)
+                             |
+                             | (while (request-on-queue?)
+                             |   (handle-request (pop-request-queue)))
+                             |
+  LOOP/RECUR                 |
+                             |
+  loop                       | (loop bindings & body)  <- general form
+                             |
+                             | (defn fact-loop [n]
+                             |   (loop [current n fact 1]
+                             |     (if (= current 1)
+                             |       fact                                           <- Return whatever value fact ends up having when current is 1
+                             |         (recure (dec current) (* fact current) ))))  <- But if current isn't 1, repeat the loop with current resets
+                             |                                                         to current minus 1 and with fact set to current times fact
+                             |
+  recure                     | (recur bindings)  <- general form
+                             |   ;; NOTE: in recur, the bindings are computed,
+                             |            and each value is bound to the respective
+                             |            name as described in the loop form.
+                             |            Execution then returns to the start of
+                             |            the loop body.
+                             |
+                             |   ;; recur can only be used in the tail position
+                             |      of the loop (last to evaluate)
+                             |
+  DOSEQ AND DOTIMES          |
+  doseq                      | (defn run-report [user]
+                             |   (println "Running report for" user))
+                             |
+                             | (defn dispatch-reporting-jobs [all-users]
+                             |   (doseq [user all-users]
+                             |     (run-report user)))
+                             |
+                             | The simplest form accepts a vector containing two
+                             | terms, where the first term is a new symbol, which
+                             | will be sequentially bound to each element in the
+                             | secound term (which must be a squence). The body
+                             | will be executed for each element in the sequence
+                             | and then the entire form will return nil.
+                             |
+  dotimes                    | (dotimes [x 5]
+                             |   (println "x is" x))
+                             |
+                             | dotimes is similar. It's a convenience macro that
+                             | accepts a vector containing a symbol and a number n,
+                             | followed by e body. The symbol is set to numbers from
+                             | 0 to (n - 1), and the body is evaluated for each number
+                             |
+  map                        | The simplest use of map accepts a unary function and
+                             | a sequence of data elements. map applies tis function
+                             | to each element of the sequence and returns a new sequence
+                             | that contains all the returned values.
+                             |
+                             | (map inc [0 1 2 3])
+                             | ;=> (1 2 3 4)
+                             |
+                             | map accepts a function that can take any number of
+                             | arguments, along with the same number of sequences.
+                             | It collects the result of applying the function to
+                             | corresponding elements from each sequence
+                             |
+                             | (map + [0 1 2 3] [0 1 2 3])  ->  When supplying multiple sequences, each
+                             | ;=> (0 2 4 6)                    supplies an additional argument to function
+                             |
+                             | (map + [0 1 2 3] [0 1 2])  ->  Length of return value is
+                             | ;=> (0 2 4)                    length of shortest sequence.
+                             |
+  FILTER AND REMOVE          |
+  filter                     | filter does something similar to map - it collects values.
+                             | But it accepts a predicate function and a squence and
+                             | returns only those elements of the sequence that retrun
+                             | a logically true value when the predicate function is
+                             | called on them.
+                             |
+                             | (defn non-zero-expenses [expenses]
+                             |   (let [non-zero? (fn [e] (not (zero? e)))]
+                             |     (filter non-zero? expenes)))
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             | (for [i [1 2 3]]
                              |    (inc 1))        ;; Output: (2 3 4)
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 The Dot and new operators    | The dot operator, written as a literal ".", forms
