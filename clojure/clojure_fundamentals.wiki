@@ -60,6 +60,9 @@ Collections
       Return all but first   | (pop testlist)  ;=> (2 3 4 5)
       element of list        |
                              |
+      Count                  | (count (list 1 2 3 4 5))  ;
+                             |
+                             |
   Vector                     | [:test01 2 3 4 5 :test2]
                              |   - Elements are accessed by index
                              |     (def family ["bob" "jim" "Sally"])

@@ -169,6 +169,16 @@
                              | the same playbook to reattempt that playbook at
                              | a later time
                              |
+  filter                     | Allows you to filter through setup to extract
+                             | specific information (accepts regular expressions)
+                             |
+                             | example
+                             | ansible server-02.com -m setup -a filter=*ipv4* <= returns all
+                             |                                                  lines containing ipv4
+                             |
+                             |
+                             |
+                             |
                              |
                              |
 --------------------------------------------------------------------------------
