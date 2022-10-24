@@ -340,3 +340,67 @@ Roles best practices         |
         - mets               | loaded
                              |
 --------------------------------------------------------------------------------
+== Debugging ==
+  *debug*                    | The debug module may be used to help troubleshoot
+                             | plays:
+                             |   * use to print detail information about in-progress
+                             |     plays
+                             |   * Handy for troubleshooting
+                             |
+                             | *debug* takes two primary parameters that are
+                             | mutually exclusive:
+                             |   * msg: A message that is printed to STDOUT
+                             |   * var: A variable whose content is printed
+                             |     to STDOUT
+                             |
+                             | Example:
+                             | - debug:
+                             |     msg: "System `{{ inventory_hostname }}`
+                             | has uuid `{{ ansible_product_uuid }}"`
+                             |
+  *register*                 | The *register* module is used to store task output
+                             |
+                             | Several attributes are avaiable: return code,
+                             | stderr, and stdout.
+                             |
+                             | The following play will store the results of the
+                             | shell module in a variable named *motd_contents*:
+                             | - hosts: all
+                             |   tasks:
+                             |   - shell: cat /etc/motd
+                             |     register: motd_contents
+                             |
+--------------------------------------------------------------------------------
+== Handlers ==
+  Handlers                   | Ansible provides a mechanism that allows an action
+                             | to be flagged for execution when a task performs a
+                             | change
+                             |
+                             | By only executing certain tasks during a change,
+                             | plays are more efficient.
+                             |
+                             | This mechanism is known as a *handler* in Ansible
+                             |
+                             | A handler may be called using the *notify* keyword:
+                             | - name: template configuration file
+                             |   template:
+                             |     src: foo.conf
+                             |     dest: /etc/foo.conf
+                             |   notify:
+                             |   - restart memcached
+                             |
+                             | No matter how many times a handler is flagged in a
+                             | play, it only runs during a play's final phase.
+                             |
+                             | *notify* will only flag a handler if a task block
+                             | makes changes.
+                             |
+                             | A handler may be defined similarly to tasks:
+                             | handlers:
+                             | - name: restart memcached
+                             |   service:
+                             |     name: memcached
+                             |     state: restarted
+                             |   listen: "restart chace services""
+                             |
+--------------------------------------------------------------------------------
