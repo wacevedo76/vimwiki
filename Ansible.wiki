@@ -175,11 +175,18 @@
                              | example
                              | ansible server-02.com -m setup -a filter=*ipv4* <= returns all
                              |                                                  lines containing ipv4
+--------------------------------------------------------------------------------
+== Ad-hoc commands ==
+  Ad-hoc command syntax      | ansible <HOSt> -b -m <MODULE> -a "<ARG1 ARG2 ARG3>"
                              |
+  Important flags            | -b   => become (without argument, default is root)
+                             | -m   => module
+                             | -a   => Module arguments
+  examples                   |
+    Install softare          | ansible centos7-02 -b -m yum -a "name=httpd state=latest"
+                             |   (the '-b' flag is for 'become', default state is root
                              |
-                             |
-                             |
-                             |
+    Modify service state     | ansible centos7-02 -b -m service -a "name=httpd state=started"
                              |
 --------------------------------------------------------------------------------
 == Modules ==
@@ -331,15 +338,5 @@ Roles best practices         |
         - vars               | all relevant files including tasks and vars
         - defaults           | in the "webservers" directory will be automatically
         - mets               | loaded
-                             |
---------------------------------------------------------------------------------
-== Ad-hoc commands ==
-  Ad-hoc command syntax      | ansible <HOSt> -b -m <MODULE> -a "<ARG1 ARG2 ARG3>"
-                             |
-  examples                   |
-    Install softare          | ansible centos7-02 -b -m yum -a "name=httpd state=latest"
-                             |   (the '-b' flag is for 'become', default state is root
-                             |
-    Modify service state     | ansible centos7-02 -b -m service -a "name=httpd state=started"
                              |
 --------------------------------------------------------------------------------
