@@ -1,0 +1,77 @@
+--------------------------------------------------------------------------------
+= Orchestration =
+--------------------------------------------------------------------------------
+  == What is Orchestration ==
+                             | *Container Orchestration* simply refers to processes
+                             | used to manage containers and o automate the
+                             | management of containers
+                             |
+                             | For example:
+                             | * I want to start up a set of five ocntainers in production
+                             | * I could spin up each container manually.
+                             | * or, I could tell and *orchestration tool* like
+                             |   *Kubernetes* that I want five containers, and
+                             |   let the tool do it.
+                             |
+                             | For the sake of redundancy, it's a good idea to
+                             | spin up my five containers on five different hosts
+                             |
+                             | The *more complex* my requirements for managing
+                             | become, the *more useful* my orchestration tools
+                             | become.
+                             |
+  Another Example:           | In the old days, deployments went like this:
+    Zero-Downtime-Deployments|   1. Take he server down for maintenance (it is unavailable to customers)
+                             |   2. Perform the deployment
+                             |   3. Bring the server back up
+                             |
+                             | A *zero-downtime deployment* (with containers) goes like this:
+                             |   1. Spin up containers running the new code.
+                             |   2. When they are fully up, direct user traffic to he new containers
+                             |   3. Remoe the old containers running the old code. No downtime for users
+                             |
+                             | How do you coordinate those steps quickly and efficiently?
+                             | *Orchestration tools* can do it for you.
+                             |
+--------------------------------------------------------------------------------
+== What are containers used for? ==
+  Containers are great at    | * *Software Portability* - Running software consistently
+  accomplishing things like: |   on different machines
+                             | * *Isolation* - Keeping individual pieces of software
+                             |   separate from one another
+                             | * *Scaling* - Increasing or decreasing resources
+                             |   allocated to software as needed
+                             | * *Automation* - Automating processes to save time and money
+                             | * *Efficient Resource Usage* - Containers use resources
+                             |   efficiently, which saves money
+                             |
+--------------------------------------------------------------------------------
+== Advantages and Limitations of Containers ==
+  Advantages of Containers   | These are a few of the main advantaes of containers:
+                             | * The *isolation* and *portability* of VMs.
+                             | * More *lightweight* than VMs - Less resource usage
+                             | * *Faster* than VMs - Containes can start up in seconds, not minutes
+                             | * *Smaller* than VMs - Container images can be measured in megabytes, not gigabytes
+                             | * All of these add up to faster and simpler automation.
+                             |
+  Limitations of Containers  | These are some limitations of containers:
+                             | * *Less flexibility* than VMs - You can't run a Windows container on a Linux machine (yet)
+                             | * Introduces *new chalenges* around orchestration and automation
+                             |
+--------------------------------------------------------------------------------
+== What is Docker? ==
+  Docker                     | *Docker* is primarily a *container runtime*
+                             |
+                             | This means that Docker is a piece of software that
+                             | is designed to implement and support containers
+                             |
+                             | At its core, Docker allows you to run containerson
+                             | systems. It also offers a variety of tools for
+                             | creating and managing *containers* and *container images*
+                             |
+                             | It is currently the industry leader in container runtimes
+                             |
+--------------------------------------------------------------------------------
+== What about other container runtimes? ==
+                             |
+--------------------------------------------------------------------------------

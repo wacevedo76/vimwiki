@@ -6,6 +6,9 @@ DevOps
   * [[DevOps/ACloudGuru-DevOps_Essential_Training|acloudguru - DevOps Essential Training]]
   * [[DevOps/ACloudGuru-DevSecOps_Essential_Training|acloudguru - DevSecOps Essential Training]]
 --------------------------------------------------------------------------------
+== Concepts ==
+  * [[DevOps/Concepts/Orchestration_and_containers|Orchestration and Containers]]
+--------------------------------------------------------------------------------
 ** Agile Principles
   1 - Satisfy the Customer
     Highest priority by delivering valuable software
