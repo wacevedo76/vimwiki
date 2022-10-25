@@ -1,0 +1,315 @@
+--------------------------------------------------------------------------------
+= A Cloud Guru - Docker Deep Dive =
+--------------------------------------------------------------------------------
+= Installation and Configuration (Centos) =
+  Remove previous installs   | yum remove -y docker docker-client docker-client-latest \
+                             |               docker-common docke-latest docker-latest-logrotate \
+                             |               docker-logrotate docker-engine
+                             |
+  Dependencies               | yum install -y yum-utils device-mapper-persistent-data lvm2
+  Add docker repo            | yum-config-manager --add-repo https://download.docker.com/linux/centos/docer-ce.repo
+  Install                    | yum install docker-ce
+                             |
+  Enable and start Docker    | system-ctl enable --now docker
+                             |
+  Test Docker installation   | docker run hello-world
+                             |
+  Add docker group to user   | usermod -aG docker {user}
+  (prevents having to sudo)  |
+                             |
+  Script installation        | wget -qO- https://get.docker.com | sh
+                             |
+--------------------------------------------------------------------------------
+== Docker Architecture ==
+  Architecture Overview      | * Client-server architecture
+                             | * The client talks to the Docker daemon
+                             | * The Docker daemon handles:
+                             |   * Building
+                             |   * Running
+                             |   * Distributing
+                             | * Both communicate using a REST API:
+                             |   * UNIX sockets
+                             |   * Network interface
+                             |
+                             | The Docker daemon (dockerd)
+                             |   * Listens for Docker API request and manages Docker objects:
+                             |     * Images
+                             |     * Containers
+                             |     * Networks
+                             |     * Volumes
+                             |
+                             | The Docker Client (docker)
+                             |   * Is how users interact with Docker
+                             |   * The client sends these commands to dockerd
+                             |
+                             | Docker registries:
+                             |   * Stores Docker images
+                             |   * Public registry such as DockerHub
+                             |   * Run your own private registry
+                             |
+                             | Docker objects:
+                             |   * *images*
+                             |     * Read-only template with instructions for creating a Docker container
+                             |     * Image is based on another image
+                             |     * Create your own images
+                             |     * Use a Dockerfile to build images
+                             |   * *Containers*
+                             |     * Runnable instance of an image
+                             |     * Connect a container to networks
+                             |     * Attach storage
+                             |     * Create a new image based on its current state
+                             |     * Isolated from other containers and the host machine
+                             |   * *Services*:
+                             |     * Scale containers across multiple Docker daemons
+                             |     * Docker Swarm
+                             |     * Define the desired state
+                             |     * Service is load-balanced
+                             |   * *Docker Swarm*:
+                             |     * Multiple Docker daemon (Master and Worker)
+                             |     * The daemons all communicate using the Docker API
+                             |     * Supported in Docker 1.2 and higher
+                             |
+--------------------------------------------------------------------------------
+== The Docker Engine ==
+  Under the hood             | *Docker Engine*:
+                             |   * Modular in design:
+                             |     * Batteries included but replaceable
+                             |   * Based on an open-standards outline by the *Open Container Initiative*
+                             |
+                             |   * The major components:
+                             |     * Docker client
+                             |     * Docker daemon
+                             |     * containerd
+                             |     * runc
+                             |   * All of these together help build images
+                             |
+  A Breif History of the     | *The first release of Docker*:
+  Docker Enging              |   * *The Docker daemon*
+                             |     * Docker client
+                             |     * Docker daemon
+                             |     * Monolithic binary
+                             |     * Docker API
+                             |     * Container runtime
+                             |     * Image builds
+                             |     * Much more...
+                             |   * *LXC*
+                             |     * Namespaces
+                             |     * Control groups (cgroups)
+                             |     * Linux-specific
+                             |
+                             | *LXC was later replace with libcontainer*:
+                             |   * Harder to innovate
+                             |   * Slow
+                             |   * Now what the ecosystem wanted
+                             |
+                             | *Docker became more modular*:
+                             |   * Smaller more specialized tools
+                             |   * Pluggable architecture
+                             |
+                             | *Open Container initiative*:
+                             |   * Image spec
+                             |   * Container runtime spec
+                             |   * version 1.0 releaseed in 2017
+                             |   * Docker, Inc. heavily contributed
+                             |   * Docker 1.11 (2016) used the specification as
+                             |     much as posible
+                             | *runc*
+                             |   * Implementation of the OCI container-runtime-spec
+                             |   * Lightweight CLI wrapper for libcontainer
+                             |   * Create containers
+                             |
+                             | *containerd*:
+                             |   * Manage container lifecycle:
+                             |     * Start
+                             |     * Stop
+                             |     * Pause
+                             |     * Delete
+                             |   * Image management
+                             |
+                             |   * Part of the 1.11 release
+                             |
+                             | *shim*
+                             |   * Implementation of daemonless Containers
+                             |   * *containerd* forks an instance of *runc* for each new container
+                             |   * *runc* process exits after the container is created
+                             |   * *shim* process becomes the container parent
+                             |   * Responsible for:
+                             |     * STDIN and STDOUT
+                             |     * Reporting exit status to the Docker daemon
+                             |
+  Running Containers         | docker container run -it --name <NAME> <IMAGE>:<TAG>
+                             |
+                             | Creating a container:
+                             |   * Use the CLI to execute a command
+                             |   * Docker client uses the appropriate API payload
+                             |   * POSTs to the correct API endpoint
+                             |   * The Docker daemon receives instructions
+                             |   * The Docker daemon calls *containerd* to start a new container
+                             |   * the Docker daemon uses *gRPC* (a CRUD style API)
+                             |   * *cntainerd* creates an OCI bundle from the Docker image
+                             |   * Tells *runc* to create a container using the OCI bundle
+                             |   * *runc* interfaces with the OS kernal to get the constructs needed to create a container
+                             |   * this include namespaces, *cgroups*, etc
+                             |   * The container process is started as a child process
+                             |   * Which completes the process and the container is now running
+                             |
+--------------------------------------------------------------------------------
+== Docker Images and Containers ==
+  What are Docker Images?    | Docker images:
+                             |   * Use images to create an instance of a container
+                             |   * Comprised of multiple layers
+                             |   * Build time constructs
+                             |   * Built from the instructions
+                             |
+  Docker Images and Layers   | * Images are made of multiple layers
+                             | * Each layer represents an instruction in the image's Dockerfile
+                             | * Each layer, except the very last one, is read-only
+                             | * Eacy layer is only a set of differences from the layer before it
+                             | * Containers add a new writable layer on top of the underlying layers
+                             | * All changes made to a running container are made to the Container layer
+                             |
+  Container and Layers       | * Top writable layer
+                             | * All changes are stored n the writable layer
+                             | * The writable layer is deleted when the container is deleted
+                             | * the image remains unchanged
+                             |
+--------------------------------------------------------------------------------
+== Docker Commands ==
+  Docker Commands            | Management Commands
+                             | *builder*:Manage Builds
+                             | *config*: Manage Docker configs
+                             | *container*: Manage containers
+                             | *engine*: Manage the docker engine
+                             | *image*: Manage images
+                             | *network*: Manage networks
+                             | *node*: Manage Swarm nodes
+                             | *plugin*: Manages plugins
+                             | *secret*: Manage Docker secrets
+                             | *service*: Manage services
+                             | *stack*: Manage Docker stacks
+                             | *swamr*: Manage Swarm
+                             | *system*: Manage Docker
+                             | *trust*: Manage trust on Docker images
+                             | *volume*: Manages volumes
+                             |
+  docker image               | *ls*: List images
+                             | *pull*: Pull an image or a repo from a registry
+                             | *push*: Push an image or a repo to a registry
+                             | *inspect*: return low-level information on Docker object
+                             | *import*: import the contents from a tarboo to create a filesystem image
+                             |
+  docker container           | *ls*: list containers
+                             | *run*: Run a command in a new container
+                             | *inspect*: Display detailed information on one or
+                             |          more containers
+                             | *top*: Display the running processes of a container
+                             | *restart*: Restart one or more containers
+                             | *Attch*: Attach local standard input, output, and
+                             |        error streams to a running container
+                             |
+  run a command within a     | docker container exec -it <contaner id> <command>
+  Docker container           | docker container exec -it f8d9c /bin/bash
+                             |
+--------------------------------------------------------------------------------
+== Creating Containers ==
+  Creating Containers        | Command: docker container
+                             |
+                             | *run*: Run a command in a new container
+                             |      Example: docker container run busybox
+                             |
+                             | *Flags*
+                             | *--help*: Print usage
+                             | *--rm*: Automatically remove the container when it exists
+                             | *-d, --detach*: Run container in the backgroud and print container ID
+                             | *-i, --interactive*: Keep STDIN open even if not attached
+                             | *--name string*: Assign a name to the container
+                             | *-p, --publish list*: Publish a container's port(s) to the host
+                             | *-t, --tty*: Allocate a pseudo-TTY
+                             | *-v, --volume list*: Bind mount  a volume
+                             | --mount, mount: Attach a filesystem mount to the container
+                             | --network string: Connect a container to a network (default "default")
+                             |
+                             |   Examples
+                             |     docker container run --rm busybox
+                             |     docker container run -it busybox
+                             |     docker container run -d busybox
+                             |     docker container run -d --name myContainer busybox
+                             |
+--------------------------------------------------------------------------------
+== Explosing and Publishing Container Ports ==
+  Exposing and Publishing    | Expose:
+  Ports                      |   * Expose a port or a range of porst
+                             |   * This does not publish the port
+                             |   * Use *--expose <PORT>*
+                                 Example
+                             |     *docker container run --expose 1234 <IMAGE>*
+                             |
+                             | Publish:
+                             |   * Maps a container's port to a host's port
+                             |   * *-p, --publish*: Used ot list a published container's port(s) to the host
+                             |   * *-P, --publish-all*: Used to publish all exposed ports to random ports
+                             |   Example
+                             |     docker container run -d --expose 3000 -p 80:3000 nginx
+                             |         (runs detached, exposes 3000 and binds internal container port (80) with host port (3000)
+                             |     docker container run -d --expose 3000 -p 8081:80/tcp -p 8081:80/udp nginx
+                             |
+--------------------------------------------------------------------------------
+== Executing Container Commands ==
+  Executing Container        |   * Dockerfile
+  commands                   |   * During a Docker run
+                             |   * Using the *exec* command
+                             |
+                             | Commands can be:
+                             |   * One and done commands
+                             |   * Long-running Commands
+                             |
+  Starting a container with  | docker container run <IMAGE> <CMD>
+  a command:                 |
+                             |
+  Executing a command on a   | docker container exec -it <NAME> <CMD>
+  containerk                 |
+                             |
+--------------------------------------------------------------------------------
+== Container Logging ==
+  Container Logging          | Show information logged by a running container:
+                             | *docker service logs <NAME>*
+                             |
+                             | Show information logged by all containers
+                             | participating in a service:
+                             | *docker services logs <SERVICE>*
+                             |
+                             | Logs need to be output to *STDOUT* and *STDERR*
+                             |
+                             | Nginx Example:
+                             | RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+                             |     && ln -sf /dev/stderr /var/log/nginx/error.log
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------

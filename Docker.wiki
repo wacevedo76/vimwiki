@@ -2,3 +2,5 @@
   * [[Docker/Docker and Kubernetes-old|Old Docker and Kubernetes]]
   * [[Docker/Docker in Practice|Docker in Practice]]
   * [[DockerNotes]]
+  * [[Docker/ACloudGuru_Docker_Deep_Dive|ACloudGuru - Docker Deep Dive]]
+  * [[Docker/ACloudGuru_Learn_Docker_by_Doing|ACloudGuru - Learn Docker By Doing]]
