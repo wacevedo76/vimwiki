@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 = A Cloud Guru - Docker Deep Dive =
 --------------------------------------------------------------------------------
-= Installation and Configuration (Centos) =
+== Installation and Configuration (Centos) ==
   Remove previous installs   | yum remove -y docker docker-client docker-client-latest \
                              |               docker-common docke-latest docker-latest-logrotate \
                              |               docker-logrotate docker-engine
@@ -283,6 +283,59 @@
                              | Nginx Example:
                              | RUN ln -sf /dev/stdout /var/log/nginx/access.log \
                              |     && ln -sf /dev/stderr /var/log/nginx/error.log
+                             |
+--------------------------------------------------------------------------------
+== Networking Overview ==
+  Docker Networking 101      | Docker Networking
+                             |   * Container Network Model (CNM)
+                             |   * The libnetwork implements CNM
+                             |   * Driver extend the model by network topologies
+                             |
+                             | Network Drivers:
+                             |   * bridge
+                             |   * host
+                             |   * overlay
+                             |   * macvlan
+                             |   * none
+                             |   * Network plugins
+                             |
+  Container Network Model    | Defines three building blocks:
+                             |   * Sandboxes
+                             |   * Endpoints
+                             |
+--------------------------------------------------------------------------------
+== Networking Commands ==
+  List Networks              | docker network ls
+                             |
+  Getting detailed info on   | docker network inspect <NAME>
+  a network                  |
+                             |
+  Create a newtork           | docker network create <NAME>
+                             |
+  Remove a network           | docker network rm <NAME>
+                             |
+  Remove all unused networks | docker network prune
+                             |
+  Adding a container to a    | docker network connect <NETWORK> <CONTAINER>
+  network                    |
+                             |
+  Remving a container from   | docker network disconnect <NETWORK> <CONTAINER>
+  a network                  |
+                             |
+--------------------------------------------------------------------------------
+== Networking Containers ==
+  Create a network with a    | docker network create --subnet <SUBNET> --gateway <GATEWAY> <NAME>
+  Subnet and Gateway         |
+                             | docker network create --subnet <SUBNET> --gateway <GATEWAY> --ip-range=<IP_RANGE> --driver=<DRIVER>
+                             |
+  Removing a network         | docker network rm <NAME>
+                             |
+  Assigning an IP to a       | docker container run -name <NAME> --it --network <NETWORK> --ip <IP> <IMAGE> <CMD>
+  container                  |
+                             |
+  Adding a container to a    | docker network connect <NETWORK> <CONTAINER>
+  network                    |
+                             |
                              |
                              |
                              |
