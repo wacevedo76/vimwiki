@@ -10,3 +10,6 @@ Linux Sys Admin and Certification Training
 * [[linuxbootcamp|Linux Bootcamp]]
 * [[linuxGeneralConcepts/commonCommands|Common Commands]]
 * [[linuxGeneralConcepts/lightdm|lightdm]]
+
+Distro Specific Notes
+* [[Linux/package_management|Package Management]]
