@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 --------------------------------------------------------------------------------
-Interesting commands (move to appropriate sections when comfortable)
+== Interesting commands (move to appropriate sections when comfortable) ==
   uname                      |
   lsof                       |
   netstat                    |
@@ -13,20 +13,23 @@ Interesting commands (move to appropriate sections when comfortable)
   run a command periodically | watch
   to watch changes           |
                              |
---------------------------------------------------------------------------------
-supper commands
   Open an editor to run a    | ctrl+x+e
-  a command                  |
+  command                    |
                              |
-  Create a super fast ram    | mkdir -p /mnt/ram
-  disk                       | mount -t tmpfs tmpfs /mnt/ram -o size=<enter size>
+  Create a fast ram disk     | mkdir -p /mnt/ram
+                             | mount -t tmpfs tmpfs /mnt/ram -o size=2048M
                              |
-  Tunnel with ssh (local port| ssh -L 3337:127.0.0.1:6379 root@emkc.org -N
-  3337 -> remote host's      |
-  127.0.0.1 on port 6397     |
+  Fix a long command         | fc
                              |
-  exit terminal but leave    | disown -a && exit
+  Create a tunnel with ssh   | (local port 3337 -> remote host's 127.0.0.1 on port 6379, connect using credentails root@emkc.org)
+                             | ssh -L 3337:127.0.0.1:6379 root@emkc.org -N
+                             |
+  Intercept stdout and log   | cat file | tee -a log | cat > /dev/null
+  to file                    |
+                             |
+  Exit terminal but leave    | disown -a && exit
   all processes running      |
+                             |
 --------------------------------------------------------------------------------
 == Variables ==
   set                        | Displays all shell variables and function
@@ -41,7 +44,7 @@ supper commands
   `$((...))` or `$[...]`         | Perform an Arithmetic operation on the contents of
                              | variables and retun its results
                              |
-  `$?`                         | "Return" or "exit" value of the previously executed
+  `$?`                         |"Retur" the exit value of the previously executed
                              | command
                              |
   `$0`                         | Name of the command being executed
@@ -54,7 +57,7 @@ Interactively (from cli)     |
   !:0, !:1, !:2, etc         | returns portions of the previous command
                              |
 --------------------------------------------------------------------------------
-commands to grokk
+== commands to grokk ==
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
                              |
@@ -65,7 +68,7 @@ commands to grokk
 == Group and expand expressions ==
                              |
   Group commands - subshell  | ()
-                             | Grouping a (list of commands) in parentheses
+                             | Grouping a list of commands in parentheses
                              | causes them to be executed as if they were a single
                              | unit. When commands are pre grouped redirections
                              | can be applied to the entire command lits. for
@@ -159,7 +162,7 @@ commands to grokk
                              |
                              | read -p "text added as a prompt" var_assigned
                              |
-  defaule variable set with| $REPLY
+  defaule variable set with  | $REPLY
   read                       |
                              |
   testing for default        | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
@@ -385,7 +388,6 @@ Globbing and the loop        |
                              | 30 * * * *         ddJK:WQJ
                              |
 --------------------------------------------------------------------------------
-== Command line Arguments ==
 === Command line switches ===
 `  Filtering command line     | #!/bin/bash`
 `  switches with case statment| echo`
@@ -441,3 +443,4 @@ Globbing and the loop        |
                              | -x: Exclude object.
                              | -y: Answer "yes" to all questions.
                              |
+--------------------------------------------------------------------------------
