@@ -241,7 +241,7 @@
   Ports                      |   * Expose a port or a range of porst
                              |   * This does not publish the port
                              |   * Use *--expose <PORT>*
-                                 Example
+                             |   Example
                              |     *docker container run --expose 1234 <IMAGE>*
                              |
                              | Publish:
@@ -336,19 +336,112 @@
   Adding a container to a    | docker network connect <NETWORK> <CONTAINER>
   network                    |
                              |
+--------------------------------------------------------------------------------
+== Storage Overview ==
+  Categories of data storage | * Non-persistent
+                             |   * Data that is ephemeral
+                             |   * Every container has it
+                             |   * Tied to the lifecycle of the container
                              |
+                             | * Persistent
+                             |   * Volumes
+                             |   * Volumes are decoupled from containers
                              |
+  Non-persistent Data        | * By default all containers use local storage
+                             | * Storage locations:
+                             |   * Linux: /var/lib/docker/<STORAE-DRIVER>/
+                             |   * Windows: c:\ProgramData\Docker\windowsfilter\
                              |
+                             | * Storage Drivers:
+                             |   * RHEL uses overlay2
+                             |   * Ubuntu uses overlay2 or aufs
+                             |   * Windows uses it's own
                              |
+  Persistent Data Using      | Volumes
+  Volumes                    |   * user a volume for persistent data
+                             |     1. Create the volume
+                             |     2. Create your container
                              |
+                             |   * Mounted to a directory in the container
+                             |   * Data is written to the volume
+                             |   * Deleting a container does not delete the volume
+                             |   * First-class citizens
+                             |   * Uses the local driver
                              |
+                             |   * Third party drivers
+                             |     * Block storage
+                             |     * File storage
+                             |     * Object storage
                              |
+                             |   * Storage locations
+                             |     * Linux: /var/lib/docker/volumes
+                             |     * Windows: c:\ProgramData\Docker\volumes
                              |
+--------------------------------------------------------------------------------
+== Volume Commands ==
+  List all Docker volume     | docker volume -h
+  commands                   |
                              |
+  List all volumes on a host | docker volume ls
                              |
+  Creating volumes           | docker volume create <NAME>
                              |
+  inspecting a volume        | docker volume inspect <NAME>
                              |
+  Deleting a volume          | docker volume prune
                              |
+  Removing all unused        | Removing all unused volumes
+  volumes                    | docker volume prune
+                             |
+--------------------------------------------------------------------------------
+== Using Bind Mounts ==
+  Using Bind Mounts          | Bind mounts have been around since the early days
+                             | of Docker.
+                             |
+                             | They have limited functionality compared to volumes
+                             |
+                             | With bind mount, a file or directory on the host
+                             | machines is mounted into a container.
+                             |
+                             | Volumes use a new directory that is created witin
+                             | Docker's storage directory on the host machine,
+                             | and Docker manages that directory's contents
+                             |
+  Using the mount flag       | docker container run -d --name <NAME> --mount type=bind,source=<SOURCE>,target=<TARGET> <IMAGE>
+                             |
+  Using the volume flag:     | docker container run -d --name <NAME> -v <SOURCE>:<TARGET> <IMAGE>
+                             |
+                             | Example
+                             |   docker container run -d --name nginx-bind-mount --mount type=bind,source="$(pwd)"/target,target=/app nginx
+                             |
+--------------------------------------------------------------------------------
+== Using Volumes for Storage ==
+                             | Volumes are easier to back up or migratethan bind
+                             | mounts.
+                             |
+                             | You can manage volumes using Docker CLI commands
+                             | or the Docker API.
+                             |
+                             | Volumes work on both Linux and Windows containers.
+                             |
+                             | Volumes can be more safely shared among multipl
+                             | containers.
+                             |
+                             | Volume drivers let you store volumes on remote
+                             | hosts or cloud providers, to encrypt the contents
+                             | of volumes, or to add other functionality.
+                             |
+                             | New volumes can have their content pre-populated
+                             | by a container.
+                             |
+  Create a new volume for a  | docker volume create html-volume
+  Nginx contaier:            |
+                             |
+  Using the mount flag:      | docker container run -d --name <NAME> --mount type=volume,source=<SOURCE>{,readonly}},target=<TARGET> <IMAGE>
+  (can also be readonly)     |
+                             |
+  Creating a volume using    | docker container run -d --name <NAME> -v <VOLUME-NAME>:<TARGET> <IMAGE>
+  that volume flag           |
                              |
                              |
                              |
