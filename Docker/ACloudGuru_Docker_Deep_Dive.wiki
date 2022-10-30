@@ -445,12 +445,139 @@
                              |
 --------------------------------------------------------------------------------
 == Introduction to the Dockerfile ==
+  What is a Dockerfile?      | Dockerfiles are instructions on how to build an
+                             | image
+                             |
+                             | The file contains all commands used to start a
+                             | Container:
+                             |   * Docker image consists of read-only layers
+                             |   * Each layer represents a Dockerfile instruction
+                             |   * Layers are stacked
+                             |   * Each layer is a delta of the changes from the
+                             |     previous layer
+                             |   * Images are built using the docker image build
+                             |     command
+                             |
+  Dockerfile Layers          | *Dockerfile*
+                             | FROM ubuntu:15.04
+                             | COPY . /app
+                             | RUN make /app
+                             | CMD python /app/app.py
+                             |
+                             | *Layers*:
+                             |   * *FROM* creates a layer from the ubuntu:15.04 Docker image
+                             |   * *COPY* adds files from your Docker client's current directory
+                             |   * *RUN* builds your application with make
+                             |   * *CMD* specifies what command to run within the container
+                             |
+  Best Practices             | General guidelines
+                             |   * Keep containers as ephemeral as possible
+                             |   * Follow Principle 6 of the 12 Factor App.
+                             |   * Avoid including unnecessary files.
+                             |   * User *.dockerignore*
+                             |   * Use multi-stage builds
+                             |   * Don't install unnecessary packages
+                             |   * Decouple applications
+                             |   * Minimize the number of layers
+                             |   * Sort multi-line arguments
+                             |   * Leverage the build cache
                              |
 --------------------------------------------------------------------------------
 == Working with Instructions ==
+  Common Instructions        |
+      FROM                   | *FROM:*     Initializes a new build stage and sets
+                             |           the Base Image.
+                             |
+      RUN                    | *RUN:*      Will execute any commands in a new layer.
+                             |
+      CMD                    | *CMD:*      Provides a defalt for an executing container.
+                             |           There can only be *one* *CMD* instruction in
+                             |           a docker file.
+                             |
+      LABEL                  | *LABEL:*    Adds metadate to an image.
+                             |
+      EXPOSE                 | *EXPOSE:*   Informs Docker tha tthe container listens
+                             |           to the specified network ports at runtime
+                             |
+      ENV                    | *ENV:*      Sets the environment variable *<key>* to the value *<value>*
+                             |
+      ADD                    | *ADD:*      Copies new files, directories, or remote
+                             |           file URLs from *<src>* and adds them to the
+                             |           filesystem of the image at the path *<dest>*
+      WORKDIR                | *WORKDIR:*  Sets the working directory for any
+                             |           *RUN* *CMD* *ENTRYPOINT* *COPY* and *ADD* instructions
+                             |           that follow it in the Dockerfile.
+                             |
+      ARG                    | *ARG:*      Defines a variable that users can pass at
+                             |           build time to the builder with the docker
+                             |           *build* command using the *--build-arg <varname>=<value>*
+                             |           flag.
+                             |
+      ONBUILD                | *ONBUILD:*  Adds a trigger instructions to the image
+                             |           that executes when the image is used as
+                             |           the base for another build.
+                             |
+      HEALTHCHECK            | *HEALTHCHECK:* Tells Docker ow to test a container
+                             |              to check that it is still working
+                             |
+      SHELL                  | *SHELL:*    Allows the default shell used for the
+                             |           shell form of commands to be overridden
+                             |
+  Working wit Instructions   | Example Dockerfile:
+                             |
+                             | FROM node
+                             | LABEL org.label-schema.version=v1.1
+                             | RUN mkdir -p /var/node
+                             | ADD src/ /var/node
+                             | Run npm install
+                             | Expose 3000
+                             | CMD ./bin/www
+                             |
+  Build the weather-app      | docker image build -t
+  image                      | linuxacademy/weather-app:v1
                              |
 --------------------------------------------------------------------------------
 == Environment Variables ==
+  Environment Variables      | use the *--env* flat to pass an environment variable
+                             | when building an image
+                             |   *--env <KEY><VALUE>*
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 == Build Arguments ==
@@ -468,7 +595,7 @@
 == Entrypoint vs. Command ==
                              |
 --------------------------------------------------------------------------------
-= Using .dockerignore =
+== Using .dockerignore ==
                              |
 --------------------------------------------------------------------------------
 == Building Images ==
