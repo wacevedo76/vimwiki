@@ -542,54 +542,81 @@
                              | when building an image
                              |   *--env <KEY><VALUE>*
                              |
+                             | Use the *ENV* instruction in the Dockerfile:
+                             |   *ENV <KEY>=<VALUE>*
+                             |   *ENV <KEY> <VALUE>*
                              |
+  Dockerfile example         | *Dockerfile*
+                             | FROM node
+                             | LABEL org.label-schema.version=v1.1
+                             | ENV NODE_ENV="development"
+                             | ENV PORT 3000
+                             | RUN mkdir -p /var/node
+                             | ADD src/ /var/node/
+                             | WORKDIR /var/node
+                             | RUN npm install
+                             | EXPOSE $PORT
+                             | CMD ./bin/www
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  Pass in ENV Variables at   | docker container run -d -name \
+  command line               | weather-app2 -p 8082:3001 \
+                             | --env PORT=<PORT> /
+                             | --env NODE_ENV=<NODE_ENV>
+                             | \linuxacademy/weather-app:v2
                              |
 --------------------------------------------------------------------------------
 == Build Arguments ==
+  Use the --build-arg flag   | --build-arg <NAME>=<VALUE>
+  when building an image:    |
+                             |
+  Use the *ARG* instructions   | ARG <NAME>=<DEFAULT_VALUE>
+  in the Dockerfile          |
+                             |
+  Example Dockerfile         | Dockerfile:
+                             | FROM node
+                             | LABEL org.label-schema.verson=v1.1
+                             | ARG SRC_DIR=/var/node
+                             | RUN /kdir -p $SRC_DIR
+                             | ADD src/ $SRC_DIR
+                             | WORKDIR $SRC_DIR
+                             | RUN npm install
+                             | EXPOSE 3000
+                             | CMD ./bin/www
                              |
 --------------------------------------------------------------------------------
 == Working with Non-privileged User ==
+  Example Dockerfile using   | Dockerfile:
+  non-privilaged user        | FROM centos:latest
+                             | RUN useradd -ms /bin/bash cloud_user
+                             | USER cloud_user
+                             |   -> *NOTE:* this throws an error because *WORKDIR* was never defined
                              |
---------------------------------------------------------------------------------
-== Order of Execution ==
+                             |
+                             |
+  Build the new image:       | docker image build -t centos7/nonroot:v1
+                             |
+  Create a container using   | docker container run -it --name test-build centos7/nonroot:v1 /bin bash
+  the new image              |
+    (will enter and new user)|
+                             |
+  enter container as root    | docker container exec -u 0 -it test-build /bin/bash
+  (while container is up)    |   (user flat *-u* root user *0*)
                              |
 --------------------------------------------------------------------------------
 == Using the Volume Instructions ==
+                             | The VOLUME instruction allows ut to go ang create
+                             | a mountpoint for a specified directory. This
+                             | means when you create a container using the image,
+                             | it's going to automatically have a vlume attached
+                             | to it.
+                             |
+  Example docker file        | FROM nginx:latest
+                             | VOLUME ["/usr/share/nginx/html"]
+                             |
+  Build the new image        | docker image build -t linuxacademy/nginx:vi .
+                             |
+  Create a continer using    | docker container run -d --name nginx-volume linuxacademy/nginx:v1
+  the new image              |
                              |
 --------------------------------------------------------------------------------
 == Entrypoint vs. Command ==
