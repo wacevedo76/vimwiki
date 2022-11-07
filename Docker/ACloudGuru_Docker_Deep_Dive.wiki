@@ -620,21 +620,128 @@
                              |
 --------------------------------------------------------------------------------
 == Entrypoint vs. Command ==
+  *CMD*                        | *CMD* defines a default command for a container
+                             |
+                             | It's best used for setting a default command
+                             |
+                             | It can be easily overridden
+                             |
+                             | The main usage of *CMD* is that you use it to set
+                             | a default command with the expectation that it
+                             | will be overwritten
+                             |
+  *ENTRYPOINT*                 | *ENTRYPOINT* defines a container with a specific
+                             | executable
+                             |
+                             | It cannot be overridden when starting the
+                             | containers without using the *--entrypoint* flag
+                             |
+                             | Use *ENTRYPOINT* to specify an executable and *CMD*
+                             | to easily set environment variables
+                             |
+  Example Dockerfile         | # Create an image for the weather-app
+                             | FROM node
+                             | LABEL org.label-schema.version=v1.1
+                             | ENV NODE_ENV="production"
+                             | ENV PORT 3001
+                             |
+                             | RUN mkdir -p /var/node
+                             | ADD src/ /var/node/
+                             | WORKDIR /var/node
+                             | RUN npm install
+                             | EXPOSE $PORT
+                             | ENTRYPOINT ./bin/www
                              |
 --------------------------------------------------------------------------------
 == Using .dockerignore ==
+                             | Create the *.dockerignore* file:
+                             |   vi .dockerignore
+                             |
+                             | Add the following to *dockerignore*
+                             | .dockerignore
+                             |
+                             |     `*/*.md`
+                             |     `*/.git`
+                             |     `src/docs/`
+                             |     `*/tests/`
+                             |
+                             | Create and build the image:
+                             |   docker image build -t linuxacademy/weather-app:v4 .
                              |
 --------------------------------------------------------------------------------
 == Building Images ==
+  Building an image          | docker image build -t <NAME>:<TAG>
+                             |
+  Useful flags               | *-f, --file string*: Name of the Dockerfile
+                             |
+                             | *--force-rm*: Awayls remove intermediate containers
+                             |
+                             | *--label*: Sets metadate for an image
+                             |
+                             | *--rm*: Removes intermediate containers after a
+                             |       successful build
+                             |
+                             | *--ulimit*: Ulimit options
+                             |
+  Building and image by      |
+  piping the Dockerfile      |
+  through *stdin*:             | docker image build -t <NAME>:<TAG> -<<EOF
+                             | Build instructions
+                             | EOF
+                             |
+  Three ways to build an     | * docer image build -t <NAME>:<TAG> <GIT_URL>#<REF>
+  image using URL:           |
+                             | * docker image build -t <NAME>:<TAG> <GIT_URL>#:<DIRECTORY>
+                             |
+                             | * docker image build -t <NAME>:<TAG> <GIT_URL>#<REF>:<DIRECTORY>
+                             |
+  Building an image from a   | docker image build -t <NAME>:<TAG> - < <FILE>.tar.gz
+  zip file                   |
                              |
 --------------------------------------------------------------------------------
 == Using Multi-Stage Builds ==
+                             | * By Default, the stages are not named
+                             | * Stages are interger numbers
+                             | * Starting with 0 for the first *FROM* instruction
+                             | * Name the stage by adding *AS <NAME>* to the *FROM* instruction
+                             | * Reference the stage name in the *COPY* instruction
+                             |
+  Example Dockerfile         | Dockerfile:
+                             | FROM node AS build
+                             | RUN mkdir -p /var/node
+                             | ADD src/ /var/node/
+                             | WORKDIR /var/node
+                             | RUN npm install
+                             |
+                             | FROM node:alpine
+                             | ARG VERSION=V1.1
+                             | LABEL org.label-schema.version=$VERSION
+                             | ENV NODE_ENV="production"
+                             | COPY --from=build /var/node /var/node
+                             | WORKDIR /var/node
+                             | EXPOSE 3000
+                             | ENTRYPOINT ["./bin/www"]
                              |
 --------------------------------------------------------------------------------
 == Tagging ==
+                             | *-t, --tag* adds a name and an optional tag in
+                             | the *name:tag* format:
+                             |
+                             | docker image build -t <name>:<tag>
+                             | docker image build --tag <name>:<tag>
+                             |
+  Use the commit hash Git as | git log -1 --pretty=%H
+  the image tag              |
+                             |
+  Use *docker image tag* to    | docker image tag <SOURCE_IMAGE><:TAG> <TARGET_IMAGE>:<TAG>
+  create a new tagged image  |
                              |
 --------------------------------------------------------------------------------
 == Distributing Images on Docker Hub ==
+  Docker Push                | docker image push <USERNAME>/<IMAGE_NAME>:<TAG>
+                             |
+  Creating an image for      | docker image tag <IMAGE_NAME>:<TAG> <USERNAME>/<IMAGE_NAME>:<TAG>
+  Docker Hub:                |
                              |
 --------------------------------------------------------------------------------
 == Image History ==
@@ -706,3 +813,42 @@
 == Working with Secrets ==
                              |
 -------------------------------------------------------------------------------
+== Lab notes ==
+  first lab                  | FROM node AS source
+                             | RUN mkdir -p /node/weather-app
+                             | ADD src/ /node/weather-app
+                             | WORKDIR /node/weather-app
+                             | RUN npm install
+                             |
+                             | FROM node:alpine
+                             | ARG APP_VERSION=V1.1
+                             | LABEL org.label-schema.version=$APP_VERSION
+                             | ENV NODE_ENV="production"
+                             | COPY --from=source /node/weather-app /node/weather-app
+                             | WORKDIR /node/weather-app
+                             | EXPOSE 3000
+                             | ENTRYPOINT ["./bin/www"]
+                             |
+                             | cd src
+                             | git log -1 --pretty=%H
+                             | cd ../
+                             |
+                             | sudo docker container run -d --name weather-app -p 8080:3000 linuxacademy/weather-app:<HASH>
+                             |
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
