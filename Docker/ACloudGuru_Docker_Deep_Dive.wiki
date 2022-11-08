@@ -745,27 +745,89 @@
                              |
 --------------------------------------------------------------------------------
 == Image History ==
+  Show the history of an     | docker image history <IMAGE>
+  image                      | docker image history --no-trunc <IMAGE>
+                             | docker image history --quiet <IMAGE>
+                             | docker image history --quiet --no-trunc <IMAGE>
                              |
 --------------------------------------------------------------------------------
 == Saving and Loading Images ==
+  Save one or mor images to  | docker image save <IMAGE> > <FILE>.tar
+  a tar archive:             | docker image save <IMAGE> -o <FILE>.tar
+                             | docker image save <IMAGE> --output <FILE>.tar
+                             |
+  Load an image from a tar   | docker image load < <FILE>.tar
+  archive                    | docker image load -i <FILE>.tar
+                             | docker image load --input <FILE>.tar
                              |
 --------------------------------------------------------------------------------
 == Inspecting Container Processes ==
+  Docker top:                | Display the running processes of a container
+                             |   docker container top <NAME>
+                             |
+  Docker stats:              | Display a live stream of container(s) resource
+                             | usage statistics
+                             |   docker container stats <NAME>
                              |
 --------------------------------------------------------------------------------
 == Having Containers Start Automatically ==
+  Auto-restarting            | To configure the restart policy for a container,
+                             | use the *--restart* flag:
+                             |
+                             | * *no*: The default. Do not automatically restart
+                             |       the container
+                             |
+                             | * *on-failuer*: Restart the container if it exits
+                             |       due to an error, which manifests as a
+                             |       non-zero exit code
+                             |
+                             | * *always*: Aways restart the container if it stops
+                             |
+                             | * *unless-stopped*: Similar to always, except that
+                             |       when the container is stopped, it is not
+                             |       restated even after the Docker daemon restarts
+                             |
+  Automatically restarting a | docker container run -d --name <NAME> --restart <RESTART> <IMAGE>
+  container (example)        |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 == Docker Events ==
+  Get real-time events from  | docker system events
+  the server                 | docker system events --since '<TIME_PERIOD>'
+                             |
+  Filter events              | docker system events --filter <FILTER_NAME>=<FILTER>
                              |
 --------------------------------------------------------------------------------
 == Managing Stopped Containers ==
+  Remove one or more         | docker container rm <NAME>
+  Containers                 |
                              |
+  List the rm flags          | docker container rm -h
+                             |
+  Start one or more stopped  | docker container start <NAME>
+  containers                 |
+                             |
+  Remove all stopped         | docker container prune
+  containers                 |
 --------------------------------------------------------------------------------
 == Managing Docker with Portainer ==
+  Create a volume for        | docker volume create portainer_data
+  Portainer's data           |
+                             |
+  Create the Portainer       | `docker container run -d --name portainer -p 8080:9000 \`
+  container                  | `-v /var/run/docker.sock:/var/run/docker.sock \`
+                             | `-v portainer_data:/data portainer/portainer`
                              |
 --------------------------------------------------------------------------------
 == Updating Containers with Watchtower ==
+  Create a Watchtower        | docker run -d --name watchtower --restart always \
+  container                  | -v /var/run/docker.sock:/var/run/docker.sock \
+                             | v2tech/watchtower -i 15
+                             |
+                             |    *-i 15* -> Intervale - will perform its
+                             |             action every 15 seconds
                              |
 --------------------------------------------------------------------------------
 == Installing Docker Compose ==
@@ -836,19 +898,3 @@
                              | sudo docker container run -d --name weather-app -p 8080:3000 linuxacademy/weather-app:<HASH>
                              |
 -------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
