@@ -75,6 +75,13 @@ Interactively (from cli)     |
                              | example, the output of all the commands in the list
                              | can be redirected to a single stream
                              |
+  Double Parenthesis         | (()) is for arithmetic operation
+                             |
+  Single Square Brackets     | [] is the syntax for the POSIX *test*
+                             |
+  Double Square Brackets     | `[[]]` is the syntax for the bash conditional
+                             |      (similar to *test*, but more powerfull)
+                             |
   Current shell - group comm | {}
                              |
   Command substitution       | $(command(s))
@@ -82,8 +89,24 @@ Interactively (from cli)     |
   parameter substitution     | ${parameter(s)}
                              |
                              |
+  *Alternate explaination*     |
                              |
+    Single Brackets *[]*       | Single Brackets are used for comparison operations.
+                             | In the past *[* was  a command line the Unix test
+                             | command
                              |
+    Double brackets *[[]]*     | Double brackets are also used for comparisons, but
+                             | they expose a richer syntax which enables more
+                             | testing and comparison operations
+                             |
+    Single parenthesis *()*    | Single parenthesis call a sub-shell
+                             |
+    Double parenthesis *(())*  | Double parenthesis are used for arithmetic                             |
+                             |
+    Single Braces *{}*         | Single Braces can be used to:
+                             |   * Unambiguously identify variables
+                             |   * Define a sequence of commands for the current
+                             |     shell context
                              |
 --------------------------------------------------------------------------------
 == Top level directories ==
