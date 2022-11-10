@@ -971,26 +971,157 @@
   List the nodes in the      | docker node ls
   swarm                      |
                              |
-                             |
-                             |
+  To add a manager to this   | docker swarm join-token manager
+  swarm, run:                |
                              |
 --------------------------------------------------------------------------------
 == Managing Swarm Nodes ==
+  Listing nodes              | docker node ls
+                             |
+  Inspecting a node          | docker node inspect [NODE_NAME]
+                             |
+  Promoting a worker to a    | docker node promote [NODE_NAME]
+  manager                    |
+                             |
+  Demoting a manager to a    | docker node demote [NODE_NAME]
+  worker                     |
+                             |
+  Removing a node from the   | docker node -rm -f [NODE_NAME]
+  swarm                      |
+                             |
+  Have a node leave the      | docker swarm leave
+  swarm                      |
+                             |
+  Getting the *join-token*     | docker swarm join-token [worker | manager]
+                             |
+  Have the node rejoing the  | docker swarm join --token [TOKEN] [PRIVATE_IP]:2377
+  swarm                      |
                              |
 --------------------------------------------------------------------------------
 == Working with Services ==
+  Creating a service         | docker service create -d --name [NAME] -p [HOST_PORT]:[CONTAINER_PORT] \
+                             | --replicas [REPLICAS] [IMAGE] [CMD]
+                             |
+  List services              | docker service ls
+                             |
+  Inspecting a service       | docker service inspect [NAME]
+                             |
+  Getting logs for a service | docker service logs [NAME]
+                             |
+  List all tasks of a        | docker service ps [NAME]
+  service                    |
+                             |
+  Updating a service         | docker service update [OPTIONS] [NAME]
                              |
 --------------------------------------------------------------------------------
 == Using Networks in Swarm Mode ==
+  create an overlay network  | docker network create -d overlay [NAME]
+                             |
+  Create a service with an   | docker service create -d --name [NAME] --network [NETWORK] \
+  overlay network            | -p [HOSTPORT]:[CONTAINER_PORT] --replicas [REPLICAS] \
+                             | [IMAGE] [CMD]
+                             |
+  Adding a service to a      | docker service update --network-add [NETWORK] [SERVICE]
+  network                    |
+                             |
+                             | docker network create -d overlay --opt encrypted encrypted_overlay
+                             |
+  Removing a service from a  | docker service update --network-rm [NETWORK] [SERVICE]
+  network:                   |
                              |
 --------------------------------------------------------------------------------
 == Using Volumes in Swarm Mode ==
+  Adding Plugins:            | docker plugin install [PLUGIN] [OPTIONS]
+                             |
+  Listing plugins            | docker plugin ls
+                             |
+  Volume Plugins:            | * Hedvig
+                             | * Pure Storage
+                             | * HPE Nimble Storage
+                             | * Nutanix DVP
+                             | * Blockbridge
+                             | * NexentaStor
+                             | * StorageOS
+                             | * Rex-Ray
+                             |
+  Digital Ocean example      | docker plugin install rexray/dobs DOBS_REGION=<DO_REGION> \
+                             | DOBS_TOKEN=<DIGITAL_OCEAN_TOKEN> \
+                             | DOBS_CONVERTUNDERSCORES=true
+                             |
+  Createing a volume using a | docker volume create -d [DRIVER] [NAME]
+  driver                     | docker service create -d --name [NAME] --mount type=[TYPE],src=[SOURCE],dst=[DESTINATION] \
+                             | -p [HOST_PORT]:[CONTAINER_PORT] --replicas [REPLICASE] [IMAGE] [CMD]
                              |
 --------------------------------------------------------------------------------
 == Deploying Stacks in Docker Swarm ==
+  Creating the prometheus    | vi prometheus.yml
+  .yml file:                 |
+                             |
+  Create a compose file      | vi docker-compose.yml
+                             |
+  Deploy the stack:          | docker stack deploy [NAME]
+                             |
+  Fix the volume permissions | sudo chown nfsnobody:nfsnobody -R /var/lib/docker/volumes/prometheus_data
                              |
 --------------------------------------------------------------------------------
 == Introduction to Docker Security ==
+  Docker Security 101        |                   `+--------------------------------+`
+                             |                   `| ------------------------------ |`
+                             |                   `| |     Secrets Management     | |`
+                             |                   `| ------------------------------ |`
+                             |                   `| ------------------------------ |`
+                             |                   `| |    Docker Content Trust    | |`
+                             | *Docker Platform*   `| ------------------------------ |`
+                             |   *Technologies*    `| ------------------------------ |`
+                             |                   `| |     Security Scanning      | |`
+                             |                   `| ------------------------------ |`
+                             |                   `| ------------------------------ |`
+                             |                   `| |         Swam Mode          | |`
+                             |                   `| ------------------------------ |`
+                             |                   `+--------------------------------+`
+                             |
+                             |                   `+--------------------------------+`
+                             |                   `| ------------------------------ |`
+                             |                   `| |          Seccomp           | |`
+                             |                   `| ------------------------------ |`
+                             |                   `| ------------------------------ |`
+                             |                   `| |  Mandatory Access Control  | |`
+                             |                   `| ------------------------------ |`
+                             |                   `| ------------------------------ |`
+                             |                   `| |        Capabilities        | |`
+                             |      *OS (Linux)*   `| ------------------------------ |`
+                             |     *Technologies*  `| ------------------------------ |`
+                             |                   `| |       Control Groups       | |`
+                             |                   `| ------------------------------ |`
+                             |                   `| ------------------------------ |`
+                             |                   `| |     Kernel Namespaces      | |`
+                             |                   `| ------------------------------ |`
+                             |                   `+--------------------------------+ `
+                             |
+  Name Spaces                | * Docker on Linux Namspaces:
+                             |   * Process ID (pid)
+                             |     - The PID ID namespace isolates the process free of each container
+                             |       It prevents the container from seeing or accessing the process
+                             |       tree of other containers, or the host that it's running on.
+                             |   * Network (net)
+                             |     - The net namespace provides each container with its own isolated
+                             |       network stack. This includes things such as the network interface,
+                             |       IP addresses, port ranges, and route tables.
+                             |   * Filesystem/mount (mount)
+                             |     - The mount namespace give every container its own unique isolated
+                             |       file system. This prevents the container from accessing mount
+                             |       namespaces of the Linux host or other containers.
+                             |   * Inter-process Communication (ipc)
+                             |     - The IPC namespace is used for sharing memory access within a
+                             |       container and also isolates it from other containers.
+                             |   * User (user)
+                             |     - The user namespace allow you to go and map a user inside of a
+                             |       container to a different uer on the host. a good example of this
+                             |       is mapping the root user of a container to a non-root user on
+                             |       the host.
+                             |   * UTS (uts)
+                             |     - The UTS namespace provides each container with its own unique
+                             |       hostname
                              |
 -------------------------------------------------------------------------------
 == Working with Docker Security ==
