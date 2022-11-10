@@ -831,21 +831,148 @@
                              |
 --------------------------------------------------------------------------------
 == Installing Docker Compose ==
+  Download the latest version| sudo curl -L "https://github.com/docker/compose/release/download/1.23.2/docker-compost-$(uname -s)-$(uname -m)" \
+  of Docker Compose          | -o /usr/local/bin/docker-compose
+                             |
+  Apply executable           | sudo chmod +x /usr/local/bin/docker-compose
+  permissions:               |
+                             |
+  Test Docker Compose        | docker-compose --version
                              |
 --------------------------------------------------------------------------------
 == Compose Commands ==
+  Management Commands        | * *up*: Create and start containers
+                             | * *ps*: List containers
+                             | * *stop*: Stop services
+                             | * *start*: Start services
+                             | * *restart*: Restart services
+                             | * *down*: Stop and remove containers, networks, images,
+                             |       and volumes
+                             |
+  Create a compose service   | docker-compose up -d
+                             | docker-compose -f <COMPOSe_FILE_PATH>.yml ps
+                             |
+  List the containers created| docker-compse ps
+  by compose                 |
+                             |
+  Stop a compose service     | docker-compose stop
+                             |
+  Start a compose service    | docker-compose start
+                             |
+  Restart a compose service  | docker-compose restart
+                             |
+  Get a list of docker       | docker-compose -h
+  compose commands           |
                              |
 --------------------------------------------------------------------------------
 == Creating a Compose File ==
+  docker-compose.yml         | version: '3'
+                             | services:
+                             |   weather-app:
+                             |     build:
+  where to find the          |       context: .
+  Dockerfile                 |       args:
+                             |         - VERSION=v2.0
+                             |     ports:
+                             |       - "8081:3000"
+                             |     environment:
+                             |       - NODE_ENV=production
+                             |
+  Rebuilding image before    | docker-compose build
+  bringing up app            |
+                             |
+  Rebuilding image without   | docker-compose build --no-cache
+  using cached layers        |
                              |
 --------------------------------------------------------------------------------
 == Using Volumes and Networking with Compse ==
+  Example docker-compose.yml | version: '3'
+  file                       | services:
+                             |   ghost:
+                             |     container_name: ghost
+  Define the image           |     image: ghost:latest
+  Map the ports              |     ports:
+                             |       - "80:2368"
+  setting environment        |     environment:
+  variables                  |       `- database__client=mysql`
+                             |       `- database__connection__host=mysql`
+                             |       `- database__connection__user=root`
+                             |       `- database__connection__password=P4SSw0rd0!`
+                             |       `- database__connection__database=ghost`
+  Mapping volumes to the     |     volumes:
+    container (service)      |       - ghost-volume:/var/lib/ghost
+  Mapping networks to the    |     networks:
+    container (service)      |       - ghost_network
+                             |       - mysql_network
+  relies on mysql to         |     depends_on:
+  create service             |       - mysql
+                             |
+                             |   mysql:
+                             |     container_name: mysql
+                             |     image: mysql:5.7
+                             |     environment:
+                             |       - MYSQL_ROOT_PASSWORD=P4SSw0rd0!
+                             |     volumes:
+                             |       - mysql-volume:/var/lib/mysql
+                             |     networks:
+                             |       - mysql_network
+                             |
+  Define (create) volumes    | volumes:
+                             |   ghost-volume:
+                             |   mysql-volume:
+  Define (create) networks   | networks:
+                             |   ghost_network:
+                             |   mysql_network:
                              |
 --------------------------------------------------------------------------------
 == Indtroduction to Docker Swarm ==
+  Swarm 101                  | Swarm has two major components:
+                             |   * an enterprise-grade secure cluster:
+                             |     * Manage one or more Docker nodes as a cluster
+                             |     * Encrypted distributed cluster store
+                             |     * Encrypted networks
+                             |     * Secure join tokens
+                             |   * An orchestration engine for creating microservics:
+                             |     * API for depolying and managng microservices
+                             |     * Define apps in a declarative manifest file
+                             |     * Perform rolling updates, rollbacks, and scale applications
+                             |
+                             |   * Swarm was initially a separate product layered on Docker
+                             |   * Since Docker 1.12, it became a part of the engine
+                             |
+  The Cluster                | * A swarm consists of one or more Docker nodes
+                             | * Nodes are either a manager or a worker
+                             | * Managers:
+                             |   * Manage the state of the cluster
+                             |   * Dispatches tasks to workers
+                             | * Workers:
+                             |   * Accepts and executes tasks
+                             | * State is held in etcd
+                             |
+                             | * Swam uses Transport Layer Security (TLS)
+                             |   * Encrypted communication
+                             |   * Authenticate Nodes
+                             |   * Authorize roles
+                             |
+  Orchestration              | * The atomic unit of scheduling is a swarm service
+                             | * The service construct adds the following to a container:
+                             |   * scaling
+                             |   * rolling updates
+                             |   * rollback
+                             | * A container wrapped in a service is a task or a replica
                              |
 --------------------------------------------------------------------------------
 == Running Docker in Swarm Mode ==
+  Initialize the manager     | docker swam init --advertise-addr [PRIVATE_IP]
+                             |
+  Add the worker to the      | docker swarm join --token [TOKEN] [PRIVATE_IP]:2377
+  cluster                    |
+                             |
+  List the nodes in the      | docker node ls
+  swarm                      |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 == Managing Swarm Nodes ==
