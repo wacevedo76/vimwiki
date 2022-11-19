@@ -187,7 +187,7 @@
                              | *secret*: Manage Docker secrets
                              | *service*: Manage services
                              | *stack*: Manage Docker stacks
-                             | *swamr*: Manage Swarm
+                             | *swarm*: Manage Swarm
                              | *system*: Manage Docker
                              | *trust*: Manage trust on Docker images
                              | *volume*: Manages volumes
@@ -267,7 +267,7 @@
   a command:                 |
                              |
   Executing a command on a   | docker container exec -it <NAME> <CMD>
-  containerk                 |
+  running container          |
                              |
 --------------------------------------------------------------------------------
 == Container Logging ==
@@ -504,6 +504,7 @@
       ADD                    | *ADD:*      Copies new files, directories, or remote
                              |           file URLs from *<src>* and adds them to the
                              |           filesystem of the image at the path *<dest>*
+                             |
       WORKDIR                | *WORKDIR:*  Sets the working directory for any
                              |           *RUN* *CMD* *ENTRYPOINT* *COPY* and *ADD* instructions
                              |           that follow it in the Dockerfile.
@@ -942,10 +943,12 @@
                              |
   The Cluster                | * A swarm consists of one or more Docker nodes
                              | * Nodes are either a manager or a worker
-                             | * Managers:
+                             |
+                             | * *Managers*:
                              |   * Manage the state of the cluster
                              |   * Dispatches tasks to workers
-                             | * Workers:
+                             |
+                             | * *Workers*:
                              |   * Accepts and executes tasks
                              | * State is held in etcd
                              |
@@ -999,8 +1002,21 @@
                              |
 --------------------------------------------------------------------------------
 == Working with Services ==
+  Services                   | An application that is deployed out to a Docker
+                             | host running in swarm mode is deployed out as a
+                             | service. When a service is created, it is accepted
+                             | by the swarm manager and the service definition
+                             | represents the desired state. Based on the number
+                             | of replicas, the swarm will schedule replica tasks,
+                             | and each task invokes a single container, and these
+                             | containers run in isolation.
+                             |
   Creating a service         | docker service create -d --name [NAME] -p [HOST_PORT]:[CONTAINER_PORT] \
-                             | --replicas [REPLICAS] [IMAGE] [CMD]
+                             | --replicas [REPLICAS] [IMAGE] {CMD}
+                             |
+                             | example:
+                             |   docker service create -d --name nginx_service -p 8080:80 --replicase 2 nginx:latest
+                             |
                              |
   List services              | docker service ls
                              |
@@ -1011,11 +1027,28 @@
   List all tasks of a        | docker service ps [NAME]
   service                    |
                              |
+  Scaling a service up and   | docker service scale [NAME]=[REPLICAS]
+  down                       |
+                             |
   Updating a service         | docker service update [OPTIONS] [NAME]
                              |
 --------------------------------------------------------------------------------
 == Using Networks in Swarm Mode ==
+  Overlay network driver     | The overlay network drive creates a distributed
+                             | network across multiple Docker nodes. It sits on
+                             | top of a the host-specific network, and his allows
+                             | containers to go and communicate securely. Docker
+                             | handles the routing of packets to the correct Docker
+                             | host and to the correct container. This allows us
+                             | to use the public IP of our swarm manager to go
+                             | and access the service. And then, it's going to go
+                             | route that traffic to the correct Docker host and
+                             | to the correct correct container
+                             |
   create an overlay network  | docker network create -d overlay [NAME]
+                             |
+  Create an encrypted overly | docker network create -d overlay --opt encrypted encrypted_overlay
+  network                    |
                              |
   Create a service with an   | docker service create -d --name [NAME] --network [NETWORK] \
   overlay network            | -p [HOSTPORT]:[CONTAINER_PORT] --replicas [REPLICAS] \
@@ -1024,13 +1057,17 @@
   Adding a service to a      | docker service update --network-add [NETWORK] [SERVICE]
   network                    |
                              |
-                             | docker network create -d overlay --opt encrypted encrypted_overlay
-                             |
   Removing a service from a  | docker service update --network-rm [NETWORK] [SERVICE]
   network:                   |
                              |
 --------------------------------------------------------------------------------
 == Using Volumes in Swarm Mode ==
+                             | When it comes to using volumes in Swarm mode, you
+                             | will need to use a volume plugin as the native
+                             | driver for volumes is local (if you create a volume
+                             | it's only going to be created locally to where
+                             | that command was executed.
+                             |
   Adding Plugins:            | docker plugin install [PLUGIN] [OPTIONS]
                              |
   Listing plugins            | docker plugin ls
@@ -1123,8 +1160,49 @@
                              |     - The UTS namespace provides each container with its own unique
                              |       hostname
                              |
+  Docker Swarm               | * Cryptographic noe ids
+                             | * Mutual authentication via TLS
+                             | * Secure join tokens
+                             | * CA configuration with automatic certificate rotation
+                             | * Encrypted cluster store
+                             | * Encrypted cluster store
+                             | * Enccrypted networks
+                             |
+  Docker Secrets             | Secrets Workflow:
+                             | * A secret is created and posted to the Swarm
+                             | * The secret is encrypted and stored
+                             | * A service is created and the secret is attached
+                             | * Secrets are encrypted in-flight
+                             | * The secret is mounted into the container of a service
+                             | * Whe the task is complete, the in-memory is torn down
+                             |
+                             |
+                             |
+                             |
+                             |
 -------------------------------------------------------------------------------
 == Working with Docker Security ==
+  Seccomp Profiles           | Testing Seccomp:
+                             |   Docker container run -rm -it alpine sh
+                             |   whoami
+                             |   mount /dev/sda1 /tmp
+                             |   swapoff -a
+                             |
+  Using a customer Seccomp   | docker container run --security-opt seccomp=[PROFILE] [IMAGE] [CMD]
+  profile                    |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 -------------------------------------------------------------------------------
 == Docker Content Trust ==
@@ -1155,4 +1233,4 @@
                              |
                              | sudo docker container run -d --name weather-app -p 8080:3000 linuxacademy/weather-app:<HASH>
                              |
--------------------------------------------------------------------------------
+[[-------------------------------------------------------------------------------]]
