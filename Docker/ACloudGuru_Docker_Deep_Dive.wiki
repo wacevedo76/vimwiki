@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------
+---------------------------------------------------- to load folds:  :loadview -
 = A Cloud Guru - Docker Deep Dive =
 --------------------------------------------------------------------------------
 == Installation and Configuration (Centos) ==
@@ -1191,24 +1191,126 @@
   Using a customer Seccomp   | docker container run --security-opt seccomp=[PROFILE] [IMAGE] [CMD]
   profile                    |
                              |
+  Capabilities               | Dropping Capabilities:
+    Drop a capability        |   docker container run --cap-drop=[CAPABILITY] [IMAGE] [CMD]
+    Add a capability         |   docker container run --cap-add=[CAPABILITY] [IMAGE] [CMD]
                              |
+                             | Test MKNOD:
+                             |   docker container run --rm -it alpine sh
+                             |   mknod /dev/random2 c 1 8
                              |
+                             | Disable MKNOD:
+                             |   docker container run --rm -it --cap-drop=MKNOD alpine sh
+                             |   mknod /dev/random2 c 1 8
                              |
+  Control Groups             | Limiting CPU and Memory
+                             |   docker container runi -it --cpus=[VALUE] --memory=[VALUE] [SIZE] --memory-swap [VALUE][SIZE] [IMAGE] [CMD]
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  Running                    | docker container run --rm -it --network host --pid host --userns host --cap-add audit_control \
+    docker-bench-security    | -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
+                             | -v /var/lib:/var/lib \
+                             | -v /var/run/docker.sock:/var/run/docker.sock \
+                             | -v /usr/lib/systemd:/usr/lib/systemd \
+                             | -v /etc:/etc --label docker_bench_security \
+                             | docker/docker-bench-security
                              |
 -------------------------------------------------------------------------------
 == Docker Content Trust ==
+  Creating a Key             | docker trust key generate [NAME]
+                             |
+  Importing a key            | docker trust key load [PEM] --name [NAME]
+                             |
+  Add signer                 | docker trust signer add --key [PEM] [NAME] [REPOSITOR]
+                             |
+  Remove signer              | docker trust signer remove [NAME] [REPOSITORY]
+                             |
+  Signing an Image           | docker trust sign [IMAGE]:[TAG]
+                             |
+  Temporaraly enabling DCT   | export DOCKER_CONTENT_TRUST=1
+                             |
+  Permanently enabling DCT   | vi /etc/docker/daemon.json
+                             |
+                             |     {
+                             |         "content-trust": {
+                             |             "mode": "enforced"
+                             |         }
+                             |     }
                              |
 -------------------------------------------------------------------------------
 == Working with Secrets ==
+  createing a secret using   | STDIN | docker secret create [NAME] -
+  STDIN                      | *Example*
+                             | > openssl rand -base64 20 | docker secret create my_secret_data -
+                             |
+  Creating a secret using a  | docker secrete create [NAME] [FILE]
+  file                       |
+                             |
+  List secrets               | docker secret ls
+                             |
+  inspecting a secret        | docker secret inspect [NAME]
+                             |
+  Using a secret:            | docker service create --name [NAME] --secret [SECRET] [IMAGE]
+                             |
+  Deleteing a secret         | docker secret rm [NAME]
+                             |
+  Secrets location on        | /run/secrets
+  container                  |
+                             |
+                             |
+  *Example*                    | version: '3.1'
+  docker-compose.yml file    |
+                             | services:
+                             |   db:
+                             |     image: mysql:5.7
+                             |     volumes:
+                             |       - db_data:/var/lib/mysql
+                             |     networks:
+                             |       mysql_internal:
+                             |         aliases: ["db"]
+                             |     environment:
+                             |       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+                             |       MYSQL_DATABASE: wordpress
+                             |       MYSQL_USER: wordpress
+                             |       MYSQL_PASSWORD_FILE: /run/secrets/db_password
+                             |     secrets:
+                             |       - db_root_password
+                             |       - db_password
+                             |
+                             |   wordpress:
+                             |     depends_on:
+                             |       - db
+                             |     image: wordpress:latest
+                             |     networks:
+                             |       mysql_internal:
+                             |         aliases: ["wordpress"]
+                             |       wordpress_public:
+                             |     ports:
+                             |       - "8001:80"
+                             |     environment:
+                             |       WORDPRESS_DB_HOST: db:3306
+                             |       WORDPRESS_DB_USER: wordpress
+                             |       WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+                             |     secrets:
+                             |       - db_password
+                             |
+                             | secrets:
+                             |   db_password:
+                             |     file: db_password.txt
+                             |   db_root_password:
+                             |     file: db_root_password.txt
+                             |
+                             | volumes:
+                             |   db_data:
+                             | networks:
+                             |   mysql_internal:
+                             |     driver: "overlay"
+                             |     internal: true
+                             |   wordpress_public:
+                             |     driver: "overlay"
+                             |
+  Deploy the stack           | docker stack deploy --compose-file docker-compose.yml [NAME]
+                             |   *NOTE:* the secrets' files must be in the same
+                             |         directory as the docker-compose.yml file
                              |
 -------------------------------------------------------------------------------
 == Lab notes ==
