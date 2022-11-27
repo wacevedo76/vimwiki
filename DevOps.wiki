@@ -5,6 +5,7 @@ DevOps
   * [[Azure]]
   * [[DevOps/ACloudGuru-DevOps_Essential_Training|acloudguru - DevOps Essential Training]]
   * [[DevOps/ACloudGuru-DevSecOps_Essential_Training|acloudguru - DevSecOps Essential Training]]
+  * [[DevOps/ACloudGuru-Jenkins_quick_start|Jenkins Quick Start]]
 --------------------------------------------------------------------------------
 == Concepts ==
   * [[DevOps/Concepts/Orchestration_and_containers|Orchestration and Containers]]
