@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------
+= A Cloud Guru - Implementing a Full CI/CD Pipeline =
+--------------------------------------------------------------------------------
+== ch-2.2 Installing Git ==
+  Common configuration       | git config --global user.name "<your name>"
+  Options                    | git config --global user.email <your email>
+                             |
+  Generate an ssh keypair    | ssh-keygen -t rsa -b 4096
+                             |
+--------------------------------------------------------------------------------
+== Gradle ==
+  Installing Gradle Wrapper  | If you already have a normal Gradle install on
+                             | your system, you can use it to easily install the
+                             | wrapper:
+                             |   * cd to the project root directory
+                             |   * gradle wrapper
+                             |
+                             | You should also add the line *.gradle* to your *.gitignore* file
+                             |
+                             | Run Gradle commands against your project like this:
+                             |   * cd to the project root directory
+                             |   * ./gradelw build
+                             |
+--------------------------------------------------------------------------------
+== Gradle Builds ==
+  Gradle Basics              | A gradle build is defined in a groovy script called
+                             | *build.gradle*, located in the root directory of
+                             | your project.
+                             |
+                             | Use *gradle init* to initialize a new project.
+                             | This also sets up the gradle wrapper for you.
+                             |
+  Running a gradle Build     | Gradle builds consist of a set of tasks that you
+                             | call from the command line:
+                             |   ./gradlew someTask someOtherTask
+                             |
+                             | This command will run a task named someTask, and
+                             | a task named someOtherTask
+                             |
+  Defining Tasks             | The *build.gradle* file controls what tasks are
+                             | available for your project
+                             |
+                             | You can define your own tasks with custom code in
+                             | *build.gradle*
+                             |   task myTask{
+                             |     printlin 'Hello, World!'
+                             |   }
+                             |
+  Task Dependencies          | Gradle uses the concept of task dependencies to
+                             | determine what tasks need to be run for a particular
+                             | build command
+                             |   * If you run a task, any other tasks that depend
+                             |     on it will also be run
+                             |
+                             | Task Dependencies also determine the order in
+                             | which tasks gets run:
+                             |   * A task's dependencies will always run before
+                             |     that task
+                             |
+                             | You can define a dependency relationship between
+                             | tasks in *build.gradle* like this:
+                             |   * taskA.dependsOn taskB
+                             |
+  Plugins                    | Gradel has a huge variety of plugins available,
+                             | many of them contributed by the community.
+                             |
+                             | Plugins add all kinds of functionality to Gradle.
+                             | They usually include pre-built tasks that you can
+                             | configure to do what you need.
+                             |
+                             | You can include plugins in your *build.gradle*
+                             | like this:
+                             |   plugins{
+                             |     id "<plugin id>" version "<plugin version>"
+                             |   }
+                             |
