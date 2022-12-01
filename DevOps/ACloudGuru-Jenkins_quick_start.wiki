@@ -48,12 +48,35 @@
    builds without entering   |
    a password)               |
                              |
-  Generate ssh-keys for the  |
-  Jenkins user and copy the  |
-  keys to local host         |
+  Generate ssh-keys for the  | (since the jenkins user does not have a default
+  Jenkins user and copy the  |  home directory, you will copy the ssh pub key
+  keys to local host         |  to local host)
+                             |
+                             | ssh-copy-id localhost
+                             |
                              |
 --------------------------------------------------------------------------------
 == Plugin Management and Builds ==
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 == Creating Scheduled Builds ==
