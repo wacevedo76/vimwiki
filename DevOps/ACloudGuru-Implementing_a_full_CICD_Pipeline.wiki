@@ -2,14 +2,14 @@
 = A Cloud Guru - Implementing a Full CI/CD Pipeline =
 --------------------------------------------------------------------------------
 == ch-2.2 Installing Git ==
-  Common configuration       | git config --global user.name "<your name>"
-  Options                    | git config --global user.email <your email>
+  *Common configuration*       | git config --global user.name "<your name>"
+  *Options*                    | git config --global user.email <your email>
                              |
-  Generate an ssh keypair    | ssh-keygen -t rsa -b 4096
+  *Generate an ssh keypair*    | ssh-keygen -t rsa -b 4096
                              |
 --------------------------------------------------------------------------------
 == Gradle ==
-  Installing Gradle Wrapper  | If you already have a normal Gradle install on
+  *Installing Gradle Wrapper*  | If you already have a normal Gradle install on
                              | your system, you can use it to easily install the
                              | wrapper:
                              |   * cd to the project root directory
@@ -23,21 +23,21 @@
                              |
 --------------------------------------------------------------------------------
 == Gradle Builds ==
-  Gradle Basics              | A gradle build is defined in a groovy script called
+  *Gradle Basics*              | A gradle build is defined in a groovy script called
                              | *build.gradle*, located in the root directory of
                              | your project.
                              |
                              | Use *gradle init* to initialize a new project.
                              | This also sets up the gradle wrapper for you.
                              |
-  Running a gradle Build     | Gradle builds consist of a set of tasks that you
+  *Running a gradle Build*     | Gradle builds consist of a set of tasks that you
                              | call from the command line:
                              |   ./gradlew someTask someOtherTask
                              |
                              | This command will run a task named someTask, and
                              | a task named someOtherTask
                              |
-  Defining Tasks             | The *build.gradle* file controls what tasks are
+  *Defining Tasks*             | The *build.gradle* file controls what tasks are
                              | available for your project
                              |
                              | You can define your own tasks with custom code in
@@ -46,7 +46,15 @@
                              |     printlin 'Hello, World!'
                              |   }
                              |
-  Task Dependencies          | Gradle uses the concept of task dependencies to
+  *example from tutorial*      | task sayHello << {
+  *(<< has been depricated*    |   println 'Hello, World!'
+   *in current version)*       | }
+                             |
+                             | task anotherTask << {
+                             |   println 'This is another task'
+                             | }
+                             |
+  *Task Dependencies*          | Gradle uses the concept of task dependencies to
                              | determine what tasks need to be run for a particular
                              | build command
                              |   * If you run a task, any other tasks that depend
@@ -61,7 +69,7 @@
                              | tasks in *build.gradle* like this:
                              |   * taskA.dependsOn taskB
                              |
-  Plugins                    | Gradel has a huge variety of plugins available,
+  *Plugins*                    | Gradel has a huge variety of plugins available,
                              | many of them contributed by the community.
                              |
                              | Plugins add all kinds of functionality to Gradle.
@@ -74,3 +82,63 @@
                              |     id "<plugin id>" version "<plugin version>"
                              |   }
                              |
+--------------------------------------------------------------------------------
+== Automated Testing ==
+  *Types of Automated Tests*   | There are multiple types of automated test:
+                             |   * Unit Tests - focus on testing small pieces of
+                             |     code in isolation. Usually a single method or
+                             |     function
+                             |
+                             |   * Integration Tests - test larger portions of
+                             |     an application that are integrated with each
+                             |     other.
+                             |
+                             |   * Soke Test/Sanity Tests - these are high-level
+                             |     integration tests that verify basic, large-scale
+                             |     things like whether or not the application runs,
+                             |     whether application endpoints return http 500
+                             |     erros, etc.
+                             |
+  *Running Automated Tests*    | How the tests are run depends on what type of
+  *in Gradel*                  | tests you have and the technology used to build them.
+                             | Generally, automated tests will be run in Gradle
+                             | as a task that gets executed as part of the build
+                             | process:
+                             |   * task build
+                             |   * task test
+                             |   * build.dependsOn test
+                             |
+--------------------------------------------------------------------------------
+== CI Overview ==
+  *Continuous Integration*     | Continuous Integration (CI): the practice of
+                             | frequently merging code changes.
+                             |
+                             | But frequent merges cause difficulties:
+                             |   * What if the coe doesn't compile after a merge?
+                             |   * What if someone broke something?
+                             |   * It would be a lot of work to check these things
+                             |     on every merge.
+                             |
+  *How CI works*               | A CI server executes a build that automatically
+                             | prepares/compiles the code and runs automated
+                             | tests.
+                             |
+                             | If something is wrong, the build fails. The team
+                             | can get immediate feedback if their change broke
+                             | something.
+                             |
+                             | Merging frequently throughout the day and getting
+                             | quick feedback means that if you broke something,
+                             | you broke it with your changes within the last
+                             | couple of hours. This is much easier to fix than
+                             | if you broke something with your changes from a
+                             | week ago.
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
