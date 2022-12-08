@@ -134,6 +134,75 @@
                              | if you broke something with your changes from a
                              | week ago.
                              |
+--------------------------------------------------------------------------------
+== Installing Jenkins ==
+  Installation documentation | https://jenkins.io/doc/book/installing
+                             |
+                             | There are several installation options:
+                             |   * Docker container
+                             |   * WAR file
+                             |   * Packages for various OSes
+                             |
+--------------------------------------------------------------------------------
+== Triggering Builds with Git Hooks ==
+  *Webhooks*                   | Webhooks are event notifications made from one
+                             | application to another over http.
+                             |
+                             | In Jenkins, we can use webhooks to have GitHub
+                             | notify Jenkins whenever the coe in GitHub changes.
+                             | Jenkins can respond by automatically running the
+                             | build to implement any changes
+                             |
+                             | We can configure Jenkis to automatically create
+                             | and manage webhooks in GitHub as necessary.
+                             |
+  *Setting up GitHub*          | Configuring webhooks in Jenkis is relatively easy:
+  *Webhooks in Jenkins*        |   * Create an access token in GitHub that has
+                             |     permissions to read and create webhooks
+                             |   * Add a GitHub server in Jenkins for GitHub.com
+                             |   * Create a Jenkins credential with the token and
+                             |     configure the GitHub server configuration to use it
+                             |   * Check "Manage Hooks" for the GitHub server
+                             |     configuration
+                             |   * In the project configuration, under "Build triggers",
+                             |     select "GitHub hook trigger for GITScm polling"
+                             |
+--------------------------------------------------------------------------------
+== Jenkins Pipelines ==
+  *What is Jenkins Pipelines?* | Jenkins Pipelines is a set of Jenkis plugins that
+                             | support doing continuous delivery in Jenkins
+                             |
+                             | A Jenkis Pipeline is a na utomated process built
+                             | on these tools. It takes source code through a
+                             | "pipeline" from the source code creation all the
+                             | way to production deployment.
+                             |
+                             | You can find the Jenkis Pipelines documentation
+                             | at https://jenkis.io/doc/book/pipeline
+                             |
+  *How do you create a*        | Pipelines adheres to the best practice of
+  *Jenkis Pipelien?*           | infrastructure as code.
+                             |
+                             | Therefore, a pipelne is implemented in a file that
+                             | is kept in source control along with the rest of
+                             | the application code. This file is called a *Jenkinsfile*.
+                             |
+                             | To create a Pipeline, simply create a file called
+                             | Jenkinsfile and add it to your source control repo.
+                             |
+                             | When creating the Jenkins project, choose the
+                             | "Pipeline" or "Multibranch Pipeline" project type
+                             |
+  *What Goes in a*            | Pipelines has a domain-specific-language (DSL) that
+  *Jenkinsfile?*              | is used to define the pipeline logic.
+                             |
+                             | There are two styles of Pipeline syntax you can use
+                             | (you must choose one or the other):
+                             |   * *Scripted* - A bit more like procedural code
+                             |   * *Declarative* - Syntax describes the Pipeline logic
+                             |
+                             |
+                             |
                              |
                              |
                              |
