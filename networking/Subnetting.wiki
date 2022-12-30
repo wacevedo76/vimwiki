@@ -7,6 +7,19 @@
                              |   - 1st Host
                              |
 --------------------------------------------------------------------------------
+== IP Address classes ==
+                             | *Quick Overview*
+                             |
+                             |` Address | Value in    | Classful Mask  | Classful Mask`
+                             |` class   | first octet | Dotted Decimal | Prefix Notationk`
+                             | Class A   1 - 126       255.0.0.0        /8
+                             | Class B   128 - 191     255.255.0.0      /16
+                             | Class C   192 - 223     255.255.255.0    /25
+                             | Class D   224 - 239     n/a              n/a
+                             |
+                             | * 127 block is skipped as it is a reserved block for
+                             |   the loopback address
+                             |
 == Class A Address ==
                              | * Uses only the first octet to identify the netwok
                              |   number, the remaining three for the host
@@ -65,6 +78,41 @@
                              |   10.x.x.x - Any IP addresse beginning with 10
                              |   172.16.x.x - Any IP starting with 172.16 to 172.31 inclusive
                              |   192.168.x.x - any IP address starting with 192.168
+                             |
+= Non-routable ip ranges =
+                             | Address    | Address                       | Default
+                             | Class      | Range                         | Subnet Mask
+                             | Class A      10.0.0.0 - 10.255.255.255       255.0.0.0
+                             | Class B      172.16.0.0 - 172.31.255.255     255.255.0.0
+                             | Class C      192.168.0.0 - 192.168.255.255   255.255.255.0
+                             |
+== specialized IPs ==
+  Loopback addresses         | * Referes to the device itself and used for testing
+  (127.x.x.x range)          | * Most commonly used as 127.0.0.1
+                             |
+  Automatic Private IP       | * Dynamically assigned by OS when DHCP server is
+  Addresses (APIPA)          |   unavailable and address not assigned manualy
+                             | * Range of 169.254.x.x
+                             |
+                             | Loopback | Class A | 127.0.0.1 - 127.255.255.255   | 255.0.0.0
+                             | APIPA    | Class B | 169.254.0.0 - 169.254.255.255 | 255.255.0.0
+                             |
+Chart of subnets per CIDR
+                             | CIDR | # Subnets | # IPs
+                             | /30    64          4
+                             | /29    32          8
+                             | /28    16          16
+                             | /27    8           32
+                             | /26    4           64
+                             | /25    2           128
+                             | /24    1           256
+                             | /23    128         2
+                             | /22    64          4
+                             | /21    32          8
+                             | /20    16          16
+                             | /19    8           32
+                             | /18    4           64
+                             | /17    2           128
                              |
 --------------------------------------------------------------------------------
 == Subnetting Basic Method ==

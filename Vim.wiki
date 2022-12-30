@@ -31,6 +31,9 @@ key-notation                 |
                              |
   J                          | join lines (with spaces)
   gJ                         | join lines (without spaces)
+                             |
+  Auto increment numers      |  select the numbers (cntr-v) and press g,  cntr-a
+                             |
 --------------------------------------------------------------------------------
 == Useful movements ==
   Normal-Mode
