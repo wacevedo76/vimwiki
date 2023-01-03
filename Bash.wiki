@@ -57,6 +57,68 @@ Interactively (from cli)     |
   !:0, !:1, !:2, etc         | returns portions of the previous command
                              |
 --------------------------------------------------------------------------------
+== Variable Expansion ==
+  To reference the value     | echo `$variable | echo ${variable}`
+  of a variable (parameter)  |
+                             |
+  set the first letter of    | echo ${variable,}
+  the referenced value to    |
+  lowercase                  |
+                             |
+  set the whole value to     | echo ${variable,,}
+  lowercase                  |
+                             |
+  set the first letter of    | echo ${variable^}
+  the referenced value to    |
+  uppercase                  |
+                             |
+  set the whole value to     | echo ${variable^&}
+  uppercase                  |
+                             |
+  return the length of a     | echo ${#variable}
+  parameter                  |
+                             |
+  Substring expansion        | ${parameter:offset:length}
+                             |
+--------------------------------------------------------------------------------
+== Command Substitution ==
+  Retrieve the result of     | $(command)  -> uses parenthesis
+  one or more commands       |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+== Brace Expansion ==
+  Expand string lists        | echo {a,19,z,barry,42}         <- the comma
+                             | echo {jan,feb,mar,apr,may,jun}    separated values
+                             |                                   must not contain
+                             |                                   spaces
+                             |
+  Expand range lists         | {start..end..jump}   <- can only work with direct
+                             | echo {1..10}            sequence of characters
+                             | echo {10..1}
+                             | echo {a..z}
+                             | echo {1..1000..3}
+                             | echo {01..12}        <- can add leading zeros
+                             |
+                             |
+--------------------------------------------------------------------------------
 == commands to grokk ==
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
