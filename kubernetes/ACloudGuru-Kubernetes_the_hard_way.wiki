@@ -1,0 +1,101 @@
+--------------------------------------------------------------------------------
+= Kubernetes the Hard Way =
+--------------------------------------------------------------------------------
+== Kubernets Project architecture ==
+                  - Controller 1 ------------------------------+------------ Controller 2
+                    * etcd                                     |             * etcd
+                    * kube-apiserver                           |             * kube-apiserver
+                    * NGINX - :80/healthz > :6443/healthz      |             * NGINX - :80/healthz > :6443/healthz
+                    * Kube-controller-manager                  |             * Kube-controller-manager
+                    * Kube-scheduler                           |             * Kube-scheduler
+                                                               |
+Remote KUBECTL---------------------------------------Kube API Load Balancer
+                                                            * NGINX
+                                                               |
+                  - Worker 1 ----------------------------------+----------- Worker 1
+                    * containerd                                            * containerd
+                    * kubelet                                               * kubelet
+                    * kube-proxy                                            * kube-proxy
+
+--------------------------------------------------------------------------------
+== Client Tools ==
+  cfss                       | Tools used to manage certificates
+                             |
+  kubectl                    | The Kubernetes client used to interact with the
+                             | cluster
+                             |
+--------------------------------------------------------------------------------
+== Why Do We Need a CA and TLS Certificates? ==
+  The Certificate Authority  | A certificate authority (CA) is used to generate
+  and Certificates           | certificates
+                             |
+  Certificates               | Certificates are used to confirm (authenticate)
+                             | identity. They are used to prove that you are who
+                             | you say you are
+                             |
+  Certificate Authority (CA) | A Certificate Authority provieds the ability to
+                             | confirm that a certificate is valid. A certificate
+                             | authority can be used to validate any certificate
+                             | that was issued using that certificate authority
+                             |
+                             | Kubernetes uses certificates for a variety of
+                             | security functions, and the different parts of
+                             | our cluste rwill validate certificates using the
+                             | certificate authority.
+                             |
+  What Certificates do we    | After the certificate authority is provisioned,
+  need?                      | the following certificates will need to be
+                             | generated
+                             |
+                             | * *Client Certificates* - These certificates provide
+                             |   client authentication for varous users: admin,
+                             |   kube-controller-manager, kube-proxy, kube-scheduler,
+                             |   and the kubelet client on each worker node
+                             |
+                             | * *Kubernetes API Server Certificate* - This is the
+                             |   TLS certificate for the Kubernetes API
+                             |
+                             | * *Service Account Key Pair* - Kubernetes uses a
+                             |   certificate to sign service account tokens, so
+                             |   we need to provide a certificate for that purpose
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
