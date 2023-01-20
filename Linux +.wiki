@@ -2,10 +2,73 @@
 = CompTia Linux + =
 --------------------------------------------------------------------------------
 == General Notes ==
-  visudo                     | * Specific versions of vi intended to edit
-                             |   /ect/sudoers file
+  visudo                    | * Specific versions of vi intended to edit
+                            |   /ect/sudoers file
 --------------------------------------------------------------------------------
-File Redirection
+== Linux Filesystem Hierarchy Standard ==
+  Linux directories defined  |
+  by the FHS                 |
+                             |
+  /bin                       | Contains binary commands for use by all users (on
+                             | most Linux systems, this directory is a shortcut
+                             | to /usr/bin)
+                             |
+  /boot                      | Contains the Linux kernel and files used by the
+                             | boot laoader
+                             |
+  /dev                       | Contains device files
+                             |
+  /etc                       | Contains system-specific configuration files
+                             |
+  /home                      | Is the default location for user home directories
+                             |
+  /lib                       | Contains shared program libraries (used by the
+                             | commands in /bin and /sbin) as well as kernel
+                             | modules
+                             |
+  /media                     | A director that containes subdirectories used for
+                             | accessing (mounting) filesystems on removable
+                             | media devices such as floppy disks, DVDs, and USB
+                             | flash drives
+                             |
+  /opt                       | Stores additional software programs
+                             |
+  /proc                      | Contains process and kernel information
+                             |
+  /root                      | Is the root user's home directory
+                             |
+  /sbin                      | Contains system binary commands (used for
+                             | administration)
+                             |
+  /sys                       | Contains configuration information for hardward
+                             | devices on the system
+                             |
+  /tmp                       | Holds temporary files create by programs
+                             |
+  /usr                       | Contains most system commands and utilities -
+                             | contains the following directories
+                             |
+                             | /usr/bin - User binary commands
+                             | /usr/games - Educational programs and games
+                             | /usr/include - C program header files
+                             | /usr/lib - Libraries
+                             | /usr/local - Local programs
+                             | /usr/sbin - System binary commands
+                             | /usr/share - Files that are architecture independent
+                             | /usr/src - Source code
+                             | /usr/X11R6 - The X Window System (somtimes
+                             |              replaced by /etc/X11)
+                             |
+  /usr/local                 | Is the location for most additional programs
+                             |
+  /var                       | Contains log files and spools
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+== File Redirection ==
   Redirecting only errors    | 2>   Overwrite all content with error stream
                              | 2>>  Appending error stream
                              |
@@ -77,7 +140,7 @@ File Redirection
   Assign group administrator | gpasswd -A <user name> <group>
                              |
 --------------------------------------------------------------------------------
-Files types
+= Files types =
   Regular file: -            | Normal files such as text, data, or executable
   Directory:    d            | Files which are lists of other files
   Link:         l            | A shortcut which points to the location of the actual file
@@ -93,10 +156,113 @@ Files types
                              |
   chown                      | change the user and group of a file
 --------------------------------------------------------------------------------
+== Linking Files ==
+  Understanind how files     | To better understand how files are linked, you
+  are linked                 | must understand how files are stored on a
+                             | filesystem. On a structural level, a filesystem
+                             | has three main sections:
+                             |   * Superblock
+                             |   * Inode table
+                             |   * Data blocks
+                             |
+  Superblock                 | The superblock is the section that contains
+                             | information about the filesystem in general,
+                             | such as the number of inodes and data blacks, as
+                             | well as homw much data a data block stores
+                             |
+  Inode table                | The inode table consists of several inodes
+                             | (information noes); each inode describes one file
+                             | or directory on the filesystem, and contains a
+                             | unique inode number for identification. What is
+                             | more important, the inode stores information such
+                             | as the file size, data block locations, last date
+                             | modified, permissions, and ownership. When a file
+                             | is deleted, only its inode (which serves as a
+                             | pointer to the actual data) is deleted.
+                             |
+  Data blocks                | The data that makes up the contents of the file
+                             | as well as the filename are stored in data blocks,
+                             | which are feferenced by the inode. In filesystem-
+                             | neutral terminology, blocks are known as allocation
+                             | units because they are the unit by which disk space
+                             | is allocated for storage
+                             |
+  Hard-Linked files          | Hard-linked files share the same inode and inode
+                             | number. As a result, they share the same inode
+                             | number and data blocks, but the data blocks allow
+                             | for multiple filenames. Thus, when one hard-linked
+                             | file is modified, the other hard-linked files are
+                             | updated as well.
+                             |
+  Symboli links              | Symbolic links are different from hard links because
+                             | they do not share the same inode and data blocks with
+                             | their target file; one is merely a pointer to the
+                             | other, thus both files have different sizes. The data
+                             | blocks in a symbolically lined file contain only
+                             | the pathname ot the target file. When a user edits
+                             | a symbolically linked file, she is actually editing
+                             | target file. Thus, if the target file is deleted,
+                             | the symbolic link serves no function.
+                             |
+--------------------------------------------------------------------------------
+== Special Permissions ==
+                             | Read, write, and execute are the regular file
+                             | permissions that you would use to assign security
+                             | to files; however, you can optionally use three
+                             | more special permissionson files and directories:
+                             |
+                             | * SUID (set User ID)
+                             | * SGID (set Group ID)
+                             | * Sticky bit
+                             |
+  Definind Special           |
+                             |
+  SUID                       | The SUID has not special function when set on a
+                             | directory; however, if the SUID is set on a file
+                             | and that file is executed, the person who executed
+                             | the file temporarily becomes the owner of the file
+                             | while it is executing. Many commands on a typical
+                             | Linux system have this special permission set; the
+                             | passwd command that is used to change your password
+                             | is one such file.
+                             |
+  SGID                       | The SGID has a function when applied to both files
+                             | and directories. Just as the SUID allows regular
+                             | users to execute a binary copiled program and
+                             | become the owner of the file for the duration of
+                             | execution, the SGID allows regular users to
+                             | execute a binary compiled program and become a
+                             | member of the group that is attached to the file.
+                             | When a user creates a file, recall that the user's
+                             | name and primary group become the owner and group
+                             | owner of the file, respectively. However, if a user
+                             | creates a file in a directory that has the SGID
+                             | permission set, that user's name become the owner
+                             | of the file and the directory's group become the
+                             | group owner of the file.
+                             |
+  Sticky Bit                 | The sticky bit was used on files in the past to
+                             | lock them in memory; however, today the sticky bit
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+  == ACL ==
   ACL                        | setfacl -m O::
                              | getfacl
 --------------------------------------------------------------------------------
-Disk Partitinns and File System
+== Disk Partitinns and File System ==
   Logical Volumes            |
 --------------------------------------------------------------------------------
 == Locating & Manipulating Files ==
@@ -113,8 +279,7 @@ Disk Partitinns and File System
 == Boot Process & Kernel ==
                              |
 --------------------------------------------------------------------------------
-
-Introduction to Linux & the Command Line
+== Introduction to Linux & the Command Line ==
 Managing Users and Groups
 File Access and Permissions
 Disk Partitions & File Systems
@@ -164,28 +329,4 @@ Describing the boot process
 == Managing Services ==
   == Configuring Services with systemd ==
   Unit file location         | /lib/systemd/system
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
