@@ -244,23 +244,84 @@
   Sticky Bit                 | The sticky bit was used on files in the past to
                              | lock them in memory; however, today the sticky bit
                              |
+  Setting special permissions| You set special permissions with the *chmod* command.
+                             | The first octet is used to seth the one or more
+                             | options:
                              |
+                             |   4 - SUID
+                             |   2 - SGID
+                             |   1 - Sticky Bit
                              |
+                             | the math is the same as when setting read, write,
+                             | and execute permissions with the *chmod* command
                              |
+                             | examples:
                              |
+                             |   chmod 4755 foo.txt  ->  sets the SUID, U+rwx, G+rx, O+rx
+                             |   chmod 5740 foo.txt  ->  sets the SUID+Sticky Bit, U+rwx, G+r, O nothing
                              |
+                             | YOu can also use symbols to set special permissions
+                             | on a file or directory.
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             |   chmod u+s,g+s foo.txt  -> add the SUID and the SGID to the file
+                             |   chmod o+t              -> add the sticky bit to file
                              |
 --------------------------------------------------------------------------------
   == ACL ==
-  ACL                        | setfacl -m O::
-                             | getfacl
+  Setting Custom Permissions | An access control list (ACL) is a list of users
+  in the Access Control      | or groups that you can assign permissions to.
+  list (ACL)                 | The default ACL used in Linux consists of three
+                             | entities: user, group, and other. However, there
+                             | may be situations where you need to assign a
+                             | specific set of permissions on a file or directory
+                             | to an individual user or group.
+                             |
+  Set File Access Control    |
+  List *setfacl*               | setfacl -m u:bob:r-- foo.txt  -> sets read permissions for bob
+                             | setfacl -m g:smbusers:rwx ./foodir/  -> sets read,write,execute permissions for the subusers' group
+                             |
+  View ACL Specific          | when using *ls -l*, additional *acl* permissions
+  permissions                | will appear as an additional *+* symbol at the
+                             | end of the permissions list
+                             |
+                             |   > *ls -l* foo.txt
+                             |       -rw-rw----+   1 user1    acctg    0 May 2 22:01 foo.txt
+                             |
+    getfacl                  | *getfacl* command will display the additional
+                             | permissions.
+                             |
+--------------------------------------------------------------------------------
+== Managing Filesystem Attributes ==
+                             | As with the Windows Operating system, Linux has
+                             | file attributes that can be set, if necessary.
+                             | These attributes work outside Linux permissions
+                             | and are filesystem-specific. This section for the
+                             | ext4 filesystem that you can configure
+                             |
+  lsattr (list attributes)   | > lsattr foo.txt
+                             |     --------------e----  foo.txt
+                             |
+                             | By default, all files have the *e* attribute,
+                             | which writes to the file in "extent" blocks
+                             | (rather than immediately in a byte-by-byte fasion).
+                             | If you would like to add or remove attributes,
+                             | you can use the chattr (change attributes) command
+                             | The following example assigns the immutable (i) to
+                             | the foo.txt file and displays the results:
+                             |
+                             | > *chattr* +i foo.txt
+                             |     ----i---------e----  foo.txt
+                             |
+                             | The immutable attribure is the most commonly used
+                             | filesystem attribure and prevents the file from
+                             | being modified in any way. Because attributes are
+                             | applied at the filesystem level, not even the root
+                             | user can modify a file that has the immutable
+                             | attribute set.
+                             |
+                             | (a full listing of filesystem attributes can be
+                             |  viewed in the *chattr* man page)
+                             |
 --------------------------------------------------------------------------------
 == Disk Partitinns and File System ==
   Logical Volumes            |
