@@ -243,19 +243,23 @@
                              |
   Sticky Bit                 | The sticky bit was used on files in the past to
                              | lock them in memory; however, today the sticky bit
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | performs a useful function only on directories. As
+                             | explained earlier in this chapter, the write
+                             | permission applied to a directory allows you to
+                             | add and remove any file to and from that directory.
+                             | Thus, if you have a write permission to a certain
+                             | directory but no permission to files with it, you
+                             | could delete all of those files. Consider a company
+                             | that requires a common directory that gives all
+                             | employees the ability to add files; this directory
+                             | mustgive everyone the write permission. Unfortunately,
+                             | the write permission also gives all employees the
+                             | ability to delet all files and directories within,
+                             | including the ones that others have added to the
+                             | directory. If the sticky bit is applied to this
+                             | common directory in addition to the write permission,
+                             | employees can add files to the directory but only
+                             | delete those fils that they have added and not others
                              |
 --------------------------------------------------------------------------------
   == ACL ==
