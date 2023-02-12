@@ -1,5 +1,4 @@
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 == AWS Global Infrastructure ==
   (Geographic) Regions       |
   Availability Zones         |
@@ -9,20 +8,66 @@
   Ground Station             |
   Project Kuiper             |
 --------------------------------------------------------------------------------
-  Availability Zones         | * Each AWS Region has multiple physically isolated
+  Availability Zones         | An Availability Zone (AZ) is one or more discrete
+                             | data centes wit redundant power, networking, and
+                             | connectivity in an AWS Region
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             | * Each AWS Region has multiple physically isolated
                              |   Availability Zones.
                              | * Connected to each other with fast, private fiber-
                              |   optic networking.
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
   Local Zones                | * Clost to large population, industry, and IT
                              |   centers.
                              | * Are an extension of an AWS Region
                              |
-  Edge locations             | * there are over 100 Edge locations which are used
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+  Edge locations             | Edge locations are AWS data centers designed to
+                             | Deliver services with the lowest latency possible.
+                             | they are often in major cities
+                             |
+    Use cases of Edge        | * caching. Delivering content to users faster
+    Locations                | * Firewall and DDOS protection
+                             | * Leverage AWS global network
+                             | * there are over 100 Edge locations which are used
                              |   for the CloudFront Delivery network
                              | * CloudFront CDN cached content at edge locations
                              |   for high performance delivery of content.
-                             | * Also provides DDOS protection
                              |
   AWS Wavelength             | * Allows parts of your application to use AWS
                              |   compute and storage services that are embedded
@@ -46,6 +91,26 @@
                              |   communities around the world
                              | * Will extend low latency acess to the AWS cloud
                              |   from all areas of the world.
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 -- Other Terms -----------------------------------------------------------------
   Virtual Private Cloud (vpc)| * The space within AWS cloud that contain servers
