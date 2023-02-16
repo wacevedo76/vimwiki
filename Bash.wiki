@@ -31,13 +31,95 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
   all processes running      |
                              |
 --------------------------------------------------------------------------------
+The set command
+  Description                | The set command is used to change the values of
+                             | shell options and display variables in Bash
+                             | scripts. It can also be used to debug Bash scrips,
+                             | export values from shell scripts, terminate
+                             | programs when they fail, and handle expressions
+                             |
+  -e (stop on error)         | When a query returns a non-zero status, the -e
+                             | flag stops the script
+                             |
+  -C (type of write protect) | The -C flag ensures that we cannot overwrite an
+                             | existing file with the same name
+                             |
+  -f (stop globbing)         | The -f prevenst us from using wildcards to search
+                             | for filenames or strings
+                             |
+  -x (type of debuggin)      | The -x parameter is used when debugging scripts
+                             | to determin the output of individual commands
+                             |
+  -a (var and func export)   | This flag can be used to export variables or
+                             | functions
+                             |
+  -u                         | This flag is used to ensure that Bash does not
+                             | overlook the non-existent variables in our script
+                             | as in normal circumstances, Bash ignores unassigned
+                             | variables
+                             |
+  +[argument]                | Running a set command with the +[argument] unsets
+                             | the option's functionality, in essense, nullifying
+                             | the effect of the -[argument] option
+                             |
+  -b                         | It is used to notify of job termination immediately.
+                             |
+  -h                         | It is used to save the location of commands where
+                             | they looked up.
+                             |
+  -k                         | It is used to place all assignment arguments in
+                             | the environment variable of a command, except
+                             | those that precede the command name.
+                             |
+  -m                         | It is used to enable Job control.
+                             |
+  -n                         | It is used to read commands.
+                             |
+  -o                         | It is used for option-name.
+                             |
+  -p                         | It is used to disable the processing of the '$
+                             | ENV' file and import shell functions. It is
+                             | turned on whenever the real and effective user
+                             | ids do not match. Turning off this option may
+                             | cause the working uid and gid to be set as the
+                             | authorized uid and gid.
+                             |
+  -t                         | It is used to exit from the command after
+                             | executing one command.
+                             |
+  -u                         | It is used to treat unset variables as an error
+                             | when substituting.
+                             |
+  -v                         | It is used to print shell input lines.
+                             |
+  -x                         | It is used to print commands and their arguments
+                             | in a sequential way (as they are executed).
+                             |
+  -B                         | It is used to perform brace expansion by the Shell.
+                             |
+  -C                         | It is used to disallow existing regular files to
+                             | be overwritten by redirection of output.
+                             |
+  -E                         | It is used if the ERR trap is inherited by the
+                             | shell functions.
+                             |
+  -H                         | It is used to enable style history substitution.
+                             | By default, it is on when the shell is interactive.
+                             |
+  -P                         | It is used if we do not want to follow symbolic
+                             | links when executing commands.
+                             |
+  -T                         | If this flag is set, the DEBUG trap is inherited
+                             | by the shell functions.
+                             |
+--------------------------------------------------------------------------------
 == Variables ==
   set                        | Displays all shell variables and function
                              |
   env                        | Displays only environment variables
                              | (i.e. variables with -x attribute set)
                              |
-  $$ or ${...}                 | Reference a value stored in a variable
+  $$ or ${...}               | Reference a value stored in a variable
                              |
   `...`  or $(...)             | Execute command(s) and return the output as input
                              | for another command
