@@ -31,7 +31,7 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
   all processes running      |
                              |
 --------------------------------------------------------------------------------
-The set command
+== The set command ==
   Description                | The set command is used to change the values of
                              | shell options and display variables in Bash
                              | scripts. It can also be used to debug Bash scrips,
