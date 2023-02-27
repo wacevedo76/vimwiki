@@ -73,6 +73,38 @@ Modules: pathlib, os
                              |
                              |
 --------------------------------------------------------------------------------
+Python logging library
+--------------------------------------------------------------------------------
+  Import                     | import logging
+                             |
+  setting configuration      | logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w",
+  and format                 |                     format="%(asctime)s - %(levelname)s - %(message)s")
+                             |
+  Log Levels                 | logging.debug(f"debug {testval}")
+                             | logging.info(f"info {testval}")
+                             | logging.warning(f"warning {testval}")
+                             | logging.error(f"error {testval}")
+                             | logging.critical(f"critical {testval}")
+                             |
+  Definine custom loggers    | # <-- `__name__` specifies that you are current modules name as the name for this specific logger
+                             | logger = logging.getLogger(__name__)
+                             |
+                             | # Set location and name of log file
+                             | handler = logging.FileHandler('test.log')
+                             |
+                             | # Create the formatter string
+                             | formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+                             |
+                             | # set formatter on handler
+                             | handler.setFormatter(formatter)
+                             |
+                             | # add Handler to logger
+                             | logger.addHandler(handler)
+                             |
+                             | # Now the custom logger will be able to use and log specific log levels
+                             | logger.info("Test custom logger")
+                             |
+--------------------------------------------------------------------------------
 === Modern Python 3 Notes ===
 --------------------------------------------------------------------------------
   Data types
