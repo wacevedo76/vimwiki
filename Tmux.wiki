@@ -19,13 +19,13 @@ Attach session               | tmux attach -t <session name>
                              |
 Select window                | tmux select-window -t <session name>:1
                              |
-split window                 | tmux split-window -h 
+split window                 | tmux split-window -h
                              |
 Send commands to tmux        | tmux send-keys 'command ; another command' C-m
                              |   (notice C-m -> sent enter keystroke)
                              |
 Attach to session            | tmux attach -t <session name>
                              |
-                             |
-                             |
+synconize commands on all    | :set synchronize-panes (off)
+panes                        |
                              |
