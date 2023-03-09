@@ -52,6 +52,54 @@
 `                         +-------------------------+   +-------------------------+`
 
 Notes:
+OSI Model Layers and descriptions
+  7 - Application            | Specifies methods for accomplishing some user-
+                             | initiated task. Application-layer protocols
+                             | tend to be devised and implemented by
+                             | application developers. Exmaples include FTP,
+                             | Skype, etc
+                             |
+  6 - Presentation           | Specifies methods for expressing dat aformats
+                             | and translation rules for applications. A
+                             | standard example would b conversion of EBCDIC
+                             | to ASCII coding for characters (but of little
+                             | concern today). Encryption is somtimes
+                             | associated with this layer but can also be
+                             | found in other layers
+                             |
+  5 - Session                | Specifies methods for multiple connections
+                             | constituting a communication session. These may
+                             | include closing connectins, restarting
+                             | connectins, and checkpointing progress. ISO
+                             | X.225 is a session-layer protocol.
+                             |
+  4 - Transport              | Specifies methods for conections or
+                             |  associations between multiple programs running
+                             |  on the same computer system . This layer may
+                             |  alos implement reliable delivery if not
+                             |  implemented elsewhere(e.g., Internet TCP, ISO
+                             |  TP4)
+                             |
+  3 - Network or Internetwork| Specifies methods for communicating in a
+                             | multihop fashion across potentially different
+                             | type of link networks. For packet networks,
+                             | describes an abstract packet format and its
+                             | standard addressing structure (e.g., IP datagram
+                             | , x.25 PLP, ISO CLNP)
+                             |
+  2 - Link                   | Specifies methods for communication across a
+                             | single link, incuding "media access" control
+                             | protocols when multiple systems share the same
+                             | media. Error detection is commonly included at
+                             | this layer, along with link-layer address
+                             | formats (e.g., Ethernet, Wi-Fi, IS 13239/HDLC).
+                             |
+  1 - Physical               | Specifies connectors, data rates, and how bits
+                             | are encoded on some media. Also describes low-
+                             | level error detection and correction, plus
+                             | frequency assignments. Examples include V.92,
+                             | Ethernet 1000BASE-T, SONET/SDH
+                             |
 
 Layer 2 (Data Link) notes:
   data type: Frames          |
