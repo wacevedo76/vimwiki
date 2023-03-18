@@ -3,6 +3,14 @@
 --------------------------------------------------------------------------------
 == Wired and Wireless Network Topologies ==
 --------------------------------------------------------------------------------
+  A Bridge is a virtual network interface that connects multiple physical
+  network interfaces together, allowing them to communicate as if they were on
+  the same physical network. A Bond is a type of bridge that combines multiple
+  physical network interfaces into a single virtual interface, allowing for
+  increased throughput and redundancy. A VLAN is a virtual local area network
+  that allows multiple networks to be logically separated on the same physical
+  network. VLANs are used to segment networks into smaller, more secure segments.
+
 === Topology ===
   Topology                   | Physical: The actual layout of the computer
                              |   cables and other network devices
