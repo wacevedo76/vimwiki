@@ -121,11 +121,18 @@ Python logging library
 --------------------------------------------------------------------------------
 === General Notes ===
 --------------------------------------------------------------------------------
+  Converting a character to  |
+  ascii                      |
+                             |
   ord()                      | returns the numerical value of a letter
                              | ord('a') --> 97
                              |
   chr()                      | returns the letter value of a number
                              | char(97) --> 'a'
+                             |
+  divmod                     | divmod divides two numbers and returns
+                             | a tuple containing both the whole value and remander
+                             |
 --------------------------------------------------------------------------------
 === General Class construction ===
   [[programmingConcepts/oop]]
