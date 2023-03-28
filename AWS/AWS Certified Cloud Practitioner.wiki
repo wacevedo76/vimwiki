@@ -7,8 +7,192 @@
   Wavelength                 |
   Ground Station             |
   Project Kuiper             |
+
 --------------------------------------------------------------------------------
-  Availability Zones         | An Availability Zone (AZ) is one or more discrete
+== Cloud Computing Modes ==
+ Infrafrastructure as a      | Contains the basic building blocks for cloud IT
+ Service (IaaS)              |   Eg. VPC, EC2, EBS
+                             |
+                             | can be defined as a type of cloud computing which
+                             | provides virtualized computing resources over the
+                             | internet
+                             |
+ Platform as a Service (PaaS)| AWS manages the underlying infrastructure
+                             |   (usually hardware and operating systems)
+                             |   Eg. RDS, EMR, ElasticSearch
+                             |
+                             | Platform as a service is a complete development
+                             | and deployment environment in the cloud, with
+                             | resources that enable you to deliver everything
+                             | from simple cloud based apps to sophisticated,
+                             | cloud enabled enterprise applications.
+                             |
+ Software as a Service (SaaS)| Completed product that is run and managed by the
+ (Serverless Computing)      |   service provider. Mostly referes to end-user
+                             |   applications:
+                             |     Eg, Web-based email, Office 365, Salesforce.com
+                             |
+                             | SaaS is a method of software delivery and
+                             | licensing n which software is accessed online
+                             | via a subscription rather than bought and
+                             | installed on individual computers
+
+*Scope of Responsibility*
+  Terms
+    Application and Data     | Application and the dat athat are taken from users
+                             |
+    Runtime                  | The environments in which our code runs
+                             |
+    Middleware               | The interface for our software
+                             |
+    Operating System         | The operating system that is running on the
+                             | virtualization software
+                             |
+    Virtualization           | With virtualization, we can manage resources,
+                             | privacy and security of users using the same
+                             | hardware.
+                             |
+    Servers, storage and     | The hardware that we need and the interconnections
+    networking.              | between them
+                             |
+
+  On premise is a computing model where all of the necessary components are
+  managed by those whom implement.
+
+  IAAS, PASS and SAAS are computing (cloud) models where certain aspects of
+  the infrustructure are managed by you, and others are managed by the model's.
+  provider.  If an aspect is not included in the model, it means that it is
+  managed by the provider and outside the scope of responsibility of the user.
+
+ On Premise          IAAS                PAAS                SAAS
+`+----------------+  +----------------+  +----------------+  +----------------+`
+`|  Application   |  |  Application   |  |  Application   |  |                |`
+`|    Data        |  |    Data        |  |    Data        |  |                |`
+`|  Runtime       |  |  Runtime       |  |                |  |                |`
+`|  Middleware    |  |  Middleware    |  |                |  |                |`
+`|    O/S         |  |    O/S         |  |                |  |                |`
+`| Virtualization |  |                |  |                |  |                |`
+`|   Servers      |  |                |  |                |  |                |`
+`|   Storage      |  |                |  |                |  |                |`
+`| Networking     |  |                |  |                |  |                |`
+`+----------------+  +----------------+  +----------------+  +----------------+`
+
+--------------------------------------------------------------------------------
+== Deployment Models of the Cloud ==
+  Private Cloud              | A private cloud, also known as internal or
+                             | corporate cloud, is dedicated to the needs and
+                             | goals of a single organization
+                             |
+                             | It is owned by the company which implemented it.
+                             |
+                             | This allows the organization to manage their
+                             | sensitive data themselves, rather than b a third
+                             | party
+                             |
+                             | These organizations coube be financial
+                             | institutions, hospitals, security agencies,
+                             | government establishments and so on.
+                             |
+                             | The private cloud is managed directly in the data
+                             | center provided by the organization, in some
+                             | other cases, it is provided by a third party
+                             | cloud platform like AWS or google cloud platform
+                             |
+    Advantages               | * It is more secure
+                             | * There is more control over all the resources
+                             | * Performance level is also high as no resources
+                             |   aren't being shared
+                             |
+  Public Cloud               | They are cloud resources wone and operated by a
+                             | third part cloud service provider and they
+                             | deliver their services over the internet
+                             |
+                             | It is a multi tenant environment
+                             |
+    Advantages               | * Easy access to new technology
+                             | * It is cheap (in comparison to the private cloud model)
+                             | * Easy to scale globally in a very hsort period of time
+                             |
+  Hybrid Cloud               | A combination of the private and public cloud
+                             |
+                             | Companies have the benefit of managing their
+                             | sensitive data on premise and also benefit from
+                             | different services offered by third party cloud
+                             | platforms
+                             |
+--------------------------------------------------------------------------------
+== Introduction to Cloud Design Principles ==
+  * Elasticity
+  * Servers and other resources are disposable
+  * Automation
+  * Design for failure
+  * Loose Coupling
+  * Parallelism
+  * Build security at all layers
+
+  *Think Elastic*              | Elasticity means the ability to increase and
+                             | decrease resources as needed. It can be started
+                             | with the minimum necessary resources, and as the
+                             | application grows, the resources can be scaled as
+                             | needed.
+                             |
+                             | Scaling can be horizontal or vertical.
+                             |
+    Horizontal Scaling       | Increase in the number of resources (Servers, hard disks)
+                             | * Horizontal Scaling is more of a long term solution
+                             |
+    Vertical Scaling         | Increase the capacity of a given resoure
+                             | (increaseing the ram of a server)
+                             | * Vertical Scaling is for short term, because
+                             | there is a limit on how much the capacity of a
+                             | given machine can be increased
+                             |
+                             |
+  *Servers and other resources*| All the resources served through the cloud are
+  *are disposable*             | virtualized. This allows for more experimentation
+                             | as resources can be used and freed at will
+                             |
+  *Automoation*                | Since all resources are virtualized, Everything
+                             | that can be though of can be automated. With this
+                             | we can create a system that can care for itself.
+                             | The creating and destruction of servers, restarting
+                             | Servers due to error(s), backing up databases,
+                             | responding to attacks, self healing and monitoring
+                             | can be automated, and respond to feedback from
+                             | automation
+                             |
+  *Design for Failure*         | Assume any part can fail and cater for the
+                             | potential failure. Set up automatic recovery and
+                             | alerts.
+                             |
+  *Loose Coupling*             | Complexity grows with the size of the software
+                             | we are building. Loose coupling makes it easy to
+                             | cope with this complexity as an application can
+                             | be seperated into indepedent parts which
+                             | interacte with the whole. Meaning that they can
+                             | be developed and managed by seperate teams.
+                             |
+                             | Failure of a part should not be ther failure of
+                             | the whole application
+                             |
+                             | It is important to alwasy implement loose
+                             | coupling at the early stage of a project.
+                             |
+  *Parallelism*                | Parallelism means many things can be handled at
+                             | the same time which would save time. An example
+                             | of this is request handling, A high load of
+                             | requests can be divided between multiple servers.
+                             |
+  *Build Security in Every*    | Security of the layers that we are managing
+  *Layer*                      | should be provided
+                             |
+                             | For example, in IAAS, security must be provided
+                             | for the application, the data in transit and at
+                             | rest.
+                             |
+--------------------------------------------------------------------------------
+= Availability Zones =
+                             | An Availability Zone (AZ) is one or more discrete
                              | data centes wit redundant power, networking, and
                              | connectivity in an AWS Region
                              |
@@ -92,26 +276,6 @@
                              | * Will extend low latency acess to the AWS cloud
                              |   from all areas of the world.
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
 -- Other Terms -----------------------------------------------------------------
   Virtual Private Cloud (vpc)| * The space within AWS cloud that contain servers
                              |   and will also contain EBS block devices
@@ -120,19 +284,6 @@
                              |   Hosted within the VPC. Examples are: S3 and
                              |   S3 Glacier
                              |
-
-== Cloud Computing Modes ==
- Infrafrastructure as a      | Contains the basic building blocks for cloud IT
- Service (IaaS)              |   Eg. VPC, EC2, EBS
-                             |
- Platform as a Service (PaaS)| AWS manages the underlying infrastructure
-                             |   (usually hardware and operating systems)
-                             |   Eg. RDS, EMR, ElasticSearch
-                             |
- Software as a Service (SaaS)| Completed product that is run and managed by the
- (Serverless Computing)      |   service provider. Mostly referes to end-user
-                             |   applications:
-                             |     Eg, Web-based email, Office 365, Salesforce.com
 
 == Serverless Computing ==
                              | Allows you to build and run applications and
@@ -281,10 +432,4 @@ AWS Database Services
                              |
   API Gateway                | fully managed service that allows to create and deploy
                              | APIs at any scale
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+------------------------------------------------------------------------------------------
