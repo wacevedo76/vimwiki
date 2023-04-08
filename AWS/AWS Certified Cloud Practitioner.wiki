@@ -7,7 +7,27 @@
   Wavelength                 |
   Ground Station             |
   Project Kuiper             |
-
+                             |
+  Availability Zone          | * AWS Data Centers are organized into Availability
+                             |   Zones
+                             |
+                             | * Each availability zone is located at low-risk
+                             |   locations.
+                             |
+                             | * There are multiple AZ and each of them is
+                             |   separate by geographic regions
+                             |
+                             | * Each AZ is designed for independent failure zone
+                             | * Thus, they are physically separated
+                             | * The AZ are interconnected with high speed private links
+                             |
+  AWS Regions                | * Each region contains two or more availability zones
+                             | * AWS has 22 regions worldwide and increasing
+                             |
+                             |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 == Cloud Computing Modes ==
  Infrafrastructure as a      | Contains the basic building blocks for cloud IT
@@ -276,7 +296,8 @@
                              | * Will extend low latency acess to the AWS cloud
                              |   from all areas of the world.
                              |
--- Other Terms -----------------------------------------------------------------
+--------------------------------------------------------------------------------
+== Other terms ==
   Virtual Private Cloud (vpc)| * The space within AWS cloud that contain servers
                              |   and will also contain EBS block devices
                              |

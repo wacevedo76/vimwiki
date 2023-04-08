@@ -10,6 +10,9 @@ Linux Sys Admin and Certification Training
 * [[linuxbootcamp|Linux Bootcamp]]
 * [[linuxGeneralConcepts/commonCommands|Common Commands]]
 * [[linuxGeneralConcepts/lightdm|lightdm]]
+* [[linuxGeneralConcepts/iptables|iptables]]
+
 
 Distro Specific Notes
 * [[Linux/package_management|Package Management]]
+* [[Linux/centos8|Centos8]]

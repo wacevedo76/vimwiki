@@ -10,6 +10,72 @@
                              |    the other config files are located)
                              |
 --------------------------------------------------------------------------------
+== Ansible Architecture ==
+  Ansible Inventory          | The Ansible inventory is a file or script that
+                             | will provide the details about the managed noeds,
+                             | including the hostname, connection methods,
+                             | credentials to use and many other details
+                             |
+                             | It is possible to pass the inventory to Ansible
+                             | using static inventory files, dynamic inventory
+                             | scripts, or using the Configuration managmen
+                             | database (CMDB)
+                             |
+  Ansile Plugins             | Ansible plugins are small pieces of code that
+                             | help to enable a flexible and expandable
+                             | architechture.
+                             |
+                             | There are different types of of plugins in
+                             | Ansible such as:
+                             |   * Connection plugins,
+                             |   * Action plugins,
+                             |   * Become plugins,
+                             |   * Inventory plugins
+                             |
+  Ansible modules            | An Ansible module is a piece of reusable and
+                             | standalone script that can be used to achieve
+                             | some specific tasks.
+                             |
+                             | An Ansible module is a piece of reusable and
+                             | standalone cripts that can be used to achieve
+                             | some specific taksks. Modules provide a defined
+                             | interface with options to accept arguments and
+                             | return information to Ansible in JSON format.
+                             |
+  Ansible content collections| Ansible modules are separated from the Ansible
+                             | base and distributed as *Ansible content collections*
+                             | or simply *Ansible Collections*
+                             |
+  Ansible playbook           | The Ansible playbook is a simple file written in
+                             | YAML format with the instruction list of
+                             | automation tasks.
+                             |
+                             | Example:
+                             |
+                             |           Playbook
+                             | ---
+                             | - name: Enable Intranet Services            | # First play
+                             |   hosts: node1                              |
+                             |   become: yes                               |
+                             |     - name: Install httpd package           | #   First task
+                             |       yum:                                  |
+                             |         name: httpd                         |
+                             |         state: latest                       |
+                             |     - name: Start httpd service             | #   Second task
+                             |         name: httpd                         |
+                             |         enabled: true                       |
+                             |         state: started                      |
+                             |                                             |
+                             | - name: Test intranet web server            | # Second play
+                             |   hosts: localhost                          |
+                             |   become: no                                |
+                             |   tasks:                                    |
+                             |     - name: connect to intranet webserver   | #   First task in second play
+                             |       uri:                                  |
+                             |         url: http://node1                   |
+                             |         status_code: 200
+                             |
+--------------------------------------------------------------------------------
 == Documentation ==
   Built-in Ansible document- | ansible-doc -s <module name>
   ation                      |
