@@ -10,15 +10,23 @@
                              |    the other config files are located)
                              |
 --------------------------------------------------------------------------------
+== Misc commands ==
+                             |
+  Running ansible plays      | ansible-playbook myplaybook.yml
+                             | ansible-playbook myplaybook.yml --syntax-check
+                             | ansible-playbook myplaybook.yml --list-hosts
+                             | ansible-playbook myplaybook.yml --list-tasks
+                             |
+--------------------------------------------------------------------------------
 == Ansible Architecture ==
   Ansible Inventory          | The Ansible inventory is a file or script that
-                             | will provide the details about the managed noeds,
+                             | will provide the details about the managed nodes,
                              | including the hostname, connection methods,
                              | credentials to use and many other details
                              |
                              | It is possible to pass the inventory to Ansible
                              | using static inventory files, dynamic inventory
-                             | scripts, or using the Configuration managmen
+                             | scripts, or using the Configuration managment
                              | database (CMDB)
                              |
   Ansile Plugins             | Ansible plugins are small pieces of code that
@@ -53,27 +61,28 @@
                              | Example:
                              |
                              |           Playbook
-                             | ---
-                             | - name: Enable Intranet Services            | # First play
-                             |   hosts: node1                              |
-                             |   become: yes                               |
-                             |     - name: Install httpd package           | #   First task
-                             |       yum:                                  |
-                             |         name: httpd                         |
-                             |         state: latest                       |
-                             |     - name: Start httpd service             | #   Second task
-                             |         name: httpd                         |
-                             |         enabled: true                       |
-                             |         state: started                      |
-                             |                                             |
-                             | - name: Test intranet web server            | # Second play
-                             |   hosts: localhost                          |
-                             |   become: no                                |
-                             |   tasks:                                    |
-                             |     - name: connect to intranet webserver   | #   First task in second play
-                             |       uri:                                  |
-                             |         url: http://node1                   |
-                             |         status_code: 200
+                             |` ---
+                             |` - name: Enable Intranet Services            | # First play`
+                             |`   hosts: node1                              |`
+                             |`   become: yes                               |`
+                             |`     tasks:                                  |`
+                             |`     - name: Install httpd package           | #   First task`
+                             |`       yum:                                  |`
+                             |`         name: httpd                         |`
+                             |`         state: latest                       |`
+                             |`     - name: Start httpd service             | #   Second task`
+                             |`         name: httpd                         |`
+                             |`         enabled: true                       |`
+                             |`         state: started                      |`
+                             |`                                             |`
+                             |` - name: Test intranet web server            | # Second play`
+                             |`   hosts: localhost                          |`
+                             |`   become: no                                |`
+                             |`   tasks:                                    |`
+                             |`     - name: connect to intranet webserver   | #   First task in second play`
+                             |`       uri:                                  |`
+                             |`         url: http://node1                   |`
+                             |`         status_code: 200`
                              |
 --------------------------------------------------------------------------------
 == Documentation ==
@@ -254,6 +263,7 @@
                              |
     Modify service state     | ansible centos7-02 -b -m service -a "name=httpd state=started"
                              |
+                             |
 --------------------------------------------------------------------------------
 == Modules ==
   System                     | - User
@@ -380,6 +390,31 @@
                              |
 --------------------------------------------------------------------------------
 == Roles ==
+  An Ansible role is a collection of tasks, handlers, templates, and variables
+  for configuring the target system so that it meets the desired state.
+  Sample File Structure:
+    Defaults/main.yml        | This contains variables for the rol that can be
+                             | overwritten when the role is used
+                             |
+    tasks/main.yml           | This containes the main list of tasks to be
+                             | executed when using the role.
+                             |
+    vars/main.yml            | This containes internal variables for the role.
+                             |
+    files                    | This contains static files that can be referenced
+                             | from this role.
+                             |
+    templates                | This is the jinja2 templates that can be used via
+                             | this role.
+                             |
+    Handlers/main.yml        | This contains the handler definitions
+                             |
+    meta/main.yml            | This defines some metadata for this role, such as
+                             | the author, license, platform, and dependencies
+                             |
+    tests                    | This is an inventory. test.yml file that can be
+                             | used to ttest this role
+                             |
   used to modularize         | # Sample Ansible Playbook1.ym
   playbooks                  | -
                              |   name: Set Firewall Configuration
