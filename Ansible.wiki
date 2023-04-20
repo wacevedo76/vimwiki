@@ -362,8 +362,60 @@
                              |  tasks:
                              |     - lineinfile:
                              |         path: /etc/resolv.com
- `                            |          line: 'nameserver {{ dns_server }}'`
+ `                            |          line: 'nameserver {{ dns_server }}'
                              |           <-- variables are called within double brackets
+                             |
+  Per-task environment vars  | You can also set the environment for just one
+                             | task, using the *environment* option for that task
+                             |
+                             | Example:
+                             | - name: Download a file, using example-prox as a proxy
+                             |   get_url:
+                             |     url: http://www.example.com/file.tar.gz
+                             |     dest: ~/Downloads
+                             |   environment:
+                             |     http_proxy: http://example-proxy:80/
+                             |
+                             | or you can pass an environment in va a variable in
+                             | via a variable in your playbooks' *vars* secont
+                             |
+                             | Example:
+                             |
+                             | vars:
+                             |   proxy_vars:                  <---
+                             |     http_proxy: http://example-proxy:80/
+                             |     https_proxy: https://example-proxy:443/
+                             |
+                             | tasks:
+                             | - name: Download a file, using example-proxy as a proxy
+                             |   get_url:
+                             |     url: http://www.example.com/file.tar.gz
+                             |     dest: ~/Downloads/
+                             |   environment: proxy_vars      <----
+                             |
+                             | If a proxy needs to be set system-wide (as is the
+                             | case behind many corporate firewalls), it can be
+                             | done using the global /etc/environment file
+                             |
+                             | Example:
+                             |
+                             | # In the *vars* section of the playbook (set to 'absent' to remove):
+                             | proxy_state: present
+                             |
+                             | # In the 'tasks' secon of the playbook:
+                             | - name: Configure the proxy
+                             |   inlinfile:
+                             |     dest: /ect/environment
+                             |     `regexp: "{{ item.regexp }}"`
+                             |     `line: "{{ item.line }}"`
+                             |     `state: "{{ proxy_state }}"`
+                             |   with_items:
+                             |     - regexp: "^http_proxy="
+                             |       line: "http_proxy=http://example-proxy:80/"
+                             |     - regexp: "^https_proxy="
+                             |       line: "https_proxy=https://example-proxy:443/"
+                             |     - regexp: "^ftp_proxy="
+                             |       line: "ftp_proxy=http://example-proxy:80/"
                              |
 --------------------------------------------------------------------------------
 == Loops ==
@@ -482,6 +534,14 @@ Roles best practices         |
                              |
                              | This mechanism is known as a *handler* in Ansible
                              |
+                             | A handler may be defined similarly to tasks:
+                             | handlers:
+                             | - name: restart memcached
+                             |   service:
+                             |     name: memcached
+                             |     state: restarted
+                             |   listen: "restart chae services""
+                             |
                              | A handler may be called using the *notify* keyword:
                              | - name: template configuration file
                              |   template:
@@ -496,12 +556,5 @@ Roles best practices         |
                              | *notify* will only flag a handler if a task block
                              | makes changes.
                              |
-                             | A handler may be defined similarly to tasks:
-                             | handlers:
-                             | - name: restart memcached
-                             |   service:
-                             |     name: memcached
-                             |     state: restarted
-                             |   listen: "restart chace services""
                              |
 --------------------------------------------------------------------------------
