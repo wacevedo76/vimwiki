@@ -362,7 +362,7 @@
                              |  tasks:
                              |     - lineinfile:
                              |         path: /etc/resolv.com
- `                            |          line: 'nameserver {{ dns_server }}'
+ `                            |          line: 'nameserver {{ dns_server }}'`
                              |           <-- variables are called within double brackets
                              |
   Per-task environment vars  | You can also set the environment for just one
@@ -556,5 +556,61 @@ Roles best practices         |
                              | *notify* will only flag a handler if a task block
                              | makes changes.
                              |
+--------------------------------------------------------------------------------
+== Jinja ==
+  With Conditionals          | when
+                             | changed_when
+                             | faile_when
+                             |
+      Literals               | * Strings: 'string'
+                             | * integers: 42
+                             | * floats: 42.33
+                             | * lists: [1, 2, 3]
+                             | * dictionaries: {key: value, key2, value2}
+                             | * booleans: true, false
+                             |
+      Math operations        | addition, subtraction, multiplication and division
+      Comparisons            | ==, != >=, <=
+      Logicat operators      | and, or, not
+                             |
+      Examples: true         | 1 in [1, 2, 3]
+                             | 'see' in 'Can you see me'
+                             | foo != bar
+                             | (1 < 2) and ('a' not in 'best')
+                             |
+      Examples: false        | 4 in [1, 2, 3]
+                             | foo == bar
+                             | (foo != foo) or (a in [1, 2, 3])
+                             |
+      Other checks           | *undefined* (the opposite of *defined*)
+                             | *equalto* (works like ==)
+                             | *even*
+                             | *iterable* (if you can iterate over the object)
+                             |
+  register                   | Any play can 'register' a variable, and once
+                             | registered, that variable will be available to
+                             | all subsequent tasks
+                             |
+                             | Many times, you may need to output (stdout or stderr)
+                             | of a shell command, and you can get that in a
+                             | variable using the following syntax:
+                             |
+                             | - shell: my_command_here
+                             |   register: my_command_result
+                             |
+                             | You can now access stdout (as a string) with
+                             | *my_command_result.stout* and *my_command_result.stderr*
+                             |
+  when                       | *when* is even more powerful if used in conjunction
+                             | with variables registered by previous tasks. As an
+                             | example, we want to check the status of a running
+                             | application and run a play only when that app
+                             | reporst it is 'ready' in its output:
+                             |
+                             | - command: my-app --status
+                             |   regester: myapp_result
+                             |
+                             | - command: do-something-to-my-app
+                             |   when: "'ready' in myapp_result.stdout"
                              |
 --------------------------------------------------------------------------------
