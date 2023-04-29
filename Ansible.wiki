@@ -61,7 +61,7 @@
                              | Example:
                              |
                              |           Playbook
-                             |` ---
+                             |` ---`
                              |` - name: Enable Intranet Services            | # First play`
                              |`   hosts: node1                              |`
                              |`   become: yes                               |`
@@ -365,6 +365,33 @@
  `                            |          line: 'nameserver {{ dns_server }}'`
                              |           <-- variables are called within double brackets
                              |
+  Environment variables      | If you need to set some environment variables for
+                             | your remote user accoutn, you can do that by adding
+                             | lines to the remote user's .bash_provile
+                             |
+                             | - name: Add an environment variable to the remote user's shell
+                             |   lineinfile:
+                             |     dest: ~/.bash_profile
+                             |     regexp: '^ENV_VAR='
+                             |     line: "ENV_VAR=value'
+                             |
+                             | - name: Get the value of the environment variable we just added
+                             |   shell: 'source ~/.bash_profile && echo $ENV_VAR'              <-- environment variables can only be used by the shell module
+                             |   register: foo                                                 <-- using the register option to store the variables value
+                             |
+                             | - name: Print the value of the environment variable
+                             |   debug:
+                             |     msg: "The variable is `{{ foo.stdout }}`"                   <-- using the stored register value from the previous task
+                             |
+                             | Linux will also read global environment variables added to /etc/environment
+                             |
+                             | - name: Add a global environment variable
+                             |   lineinfile:
+                             |     dest: /etc/environment
+                             |     regexp: '^ENV_VAR='
+                             |     line: "ENV_VAR=value"
+                             |   become: yes
+                             |
   Per-task environment vars  | You can also set the environment for just one
                              | task, using the *environment* option for that task
                              |
@@ -547,8 +574,9 @@ Roles best practices         |
                              |   template:
                              |     src: foo.conf
                              |     dest: /etc/foo.conf
-                             |   notify:
-                             |   - restart memcached
+                             |   notify:                        <-- Handler caller
+                             |   - restart memcached            <-- must be the same name
+                             |   - restart someotherservice     <-- can be used to call multiple handers
                              |
                              | No matter how many times a handler is flagged in a
                              | play, it only runs during a play's final phase.
