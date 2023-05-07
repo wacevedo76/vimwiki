@@ -13,7 +13,6 @@ Linux Sys Admin and Certification Training
 * [[linuxGeneralConcepts/iptables|iptables]]
 * [[linuxGeneralConcepts/systemd|Systemd]]
 
-
 Distro Specific Notes
 * [[Linux/package_management|Package Management]]
 * [[Linux/centos8|Centos8]]

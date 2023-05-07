@@ -140,7 +140,7 @@
   Assign group administrator | gpasswd -A <user name> <group>
                              |
 --------------------------------------------------------------------------------
-= Files types =
+== Files types ==
   Regular file: -            | Normal files such as text, data, or executable
   Directory:    d            | Files which are lists of other files
   Link:         l            | A shortcut which points to the location of the actual file
@@ -167,11 +167,11 @@
                              |
   Superblock                 | The superblock is the section that contains
                              | information about the filesystem in general,
-                             | such as the number of inodes and data blacks, as
+                             | such as the number of inodes and data blocks, as
                              | well as homw much data a data block stores
                              |
   Inode table                | The inode table consists of several inodes
-                             | (information noes); each inode describes one file
+                             | (information nodes); each inode describes one file
                              | or directory on the filesystem, and contains a
                              | unique inode number for identification. What is
                              | more important, the inode stores information such
@@ -401,3 +401,4 @@ Describing the boot process
   == Configuring Services with systemd ==
   Unit file location         | /lib/systemd/system
                              |
+--------------------------------------------------------------------------------
