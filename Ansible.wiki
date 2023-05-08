@@ -457,6 +457,40 @@ Running ansible plays      | ansible-playbook myplaybook.yml
                              |       line: "ftp_proxy=http://example-proxy:80/"
                              |
 --------------------------------------------------------------------------------
+== Includes ==
+  Including var files        | - hosts: all
+                             |
+                             |   vars_files:
+                             |     - vars.yml
+                             |
+    Import tasks             | tasks:
+                             |   -import_tasks: imported-tasks.yml
+                             |
+    Dynamically Include      | - include_tasks: log_paths.yml
+    tasks                    |
+                             |
+  Dynamic includes           | # Include extra tasks file, only if it's present at runtime
+                             | - name: Check if extra_tasks.yml is present
+                             |   stat:  `                                   +-- `with *stat*
+                             |     path: tasks/extra-tasks.yml             |   Check this file and
+                             |   register: extra_tasks_file          <-----+   save the results in this variable
+                             |   connection: local
+                             |
+                             |  ...
+                             |
+                             | - include_tasks: tasks/extra-tasks.yml
+                             |   when: extra_tasks_file.stat.exists        <-- Check to see if the file exists
+                             |
+  Playbook imports           | - hosts: all
+                             |   remote_user: root
+                             |
+                             |   tasks:
+                             |     [...]
+                             |
+                             | - *import_playbook*: web.yml
+                             | - *import_playbook*: db.yml
+                             |
+--------------------------------------------------------------------------------
   == Playbook - beyond basics ==
   When                       | One of the most helpful extr keys you can add to
                              | a play is a *when* statement. Lets take a look at
