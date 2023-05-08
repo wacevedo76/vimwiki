@@ -77,7 +77,7 @@ textwidth                    | set width of line
      Incr/decr by 1          | <c-w>+ / <c-w>-
       Incr/decr by amount    | <c-w>10+ / <c-w>10-
 --------------------------------------------------------------------------------
-  Abbreviations
+  == Abbreviations ==
                              | {mode}abbrev {char sequence} <output>
                              | :iabbrev adn and
                              |
@@ -94,11 +94,11 @@ textwidth                    | set width of line
                              |`          The "event" to watch for`
                              |
     Bind single autocmd to   |
-    multiple events          | :autocmd BufWritePre,BufRead *.html :normal gg=G
+    multiple events          | :autocmd BufWritePre,BufRead `*`.html :normal gg=G
       Autocommand triggers   |
       on both commands       |
                              |
-      common idiom           | :autocmd BufNewFile,BufRead *.html setlocal nowrap
+      common idiom           | :autocmd BufNewFile,BufRead `*`.html setlocal nowrap
                              | (This will turn line wrapping off whenever you'r
                              | regardless of whether the file happens to already
                              | exist, or not
@@ -154,7 +154,7 @@ textwidth                    | set width of line
   ]z                         | move to end of open fold.
                              |
 --------------------------------------------------------------------------------
-= Telescope =
+== Telescope ==
                              | Telescope.nvim
                              | Telescope.setup
                              | Telescope.builtin
