@@ -1,32 +1,14 @@
 --------------------------------------------------------------------------------
-== AWS Global Infrastructure ==
-  (Geographic) Regions       |
-  Availability Zones         |
-  Local Zones                |
-  Edge Locations (CloudFront)|
-  Wavelength                 |
-  Ground Station             |
-  Project Kuiper             |
+== Cloud Concepts ==
+  The six advantages of      | * Trade fixed expense for variable expense
+  cloud computing            | * Benefit from massive economies of scale
+                             | * Stop guiessing capacity
+                             | * Increase speed and agility
+                             | * Stop spending money running and maintaining data centers
+                             | * Go global in minutes
                              |
-  Availability Zone          | * AWS Data Centers are organized into Availability
-                             |   Zones
-                             |
-                             | * Each availability zone is located at low-risk
-                             |   locations.
-                             |
-                             | * There are multiple AZ and each of them is
-                             |   separate by geographic regions
-                             |
-                             | * Each AZ is designed for independent failure zone
-                             | * Thus, they are physically separated
-                             | * The AZ are interconnected with high speed private links
-                             |
-  AWS Regions                | * Each region contains two or more availability zones
-                             | * AWS has 22 regions worldwide and increasing
-                             |
-                             |
-                             |
-                             |
+    Terms associated         | * Capital Expense (CAPEX)
+                             | * Variable expense / Operating expense (OPEX)
                              |
 --------------------------------------------------------------------------------
 == Cloud Computing Modes ==
@@ -56,9 +38,8 @@
                              | licensing n which software is accessed online
                              | via a subscription rather than bought and
                              | installed on individual computers
-
-*Scope of Responsibility*
-  Shared Responsibility Model
+  Scope of Responsibility    |
+  Shared Responsibility Model|
   Terms                      |
     Application and Data     | Application and the dat athat are taken from users
                              |
@@ -98,6 +79,71 @@
 `| Networking     |  |                |  |                |  |                |`
 `+----------------+  +----------------+  +----------------+  +----------------+`
 
+--------------------------------------------------------------------------------
+== AWS Global Infrastructure ==
+  (Geographic) Regions       |
+  Availability Zones         |
+  Local Zones                |
+  Edge Locations (CloudFront)|
+  Wavelength                 |
+  Ground Station             |
+  Project Kuiper             |
+                             |
+  AWS Regions                | * An AWS Region is a physical location where AWS
+                             |   will host a cluster of data centers
+                             | * Within a given Regioj, these data centers are
+                             |   built such that small groups of the larger
+                             |   clusters are logically and physically separated
+                             |   from each other by a distance that falls within
+                             |   100 kilometers of each other
+                             | * Each region contains two or more availability zones
+                             | * AWS has 22 regions worldwide and increasing
+                             |
+  AWS's Multi-Region         | AWS's multi-Region strategy enables you (the
+  strategy                   | customer) to derive the follwing benefits:
+                             | * Identify inrastructure resources closer to your
+                             |   end users, where you can host your application
+                             |   and reduce network latency
+                             | * Identify infrastructure within political and
+                             |   national borders to adhere to strict data
+                             |   sovereignty and compliance regulations
+                             | * Isolate groups of resources from each other to
+                             |   allow you to fulfill any failover or DR
+                             |   scenarios in j
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+  Availability Zone          | * AZs are the logical and physical grouping of
+                             |   data centers within a given Region
+                             |
+                             | * AWS Data Centers are organized into Availability
+                             |   Zones
+                             |
+                             | * Each availability zone is located at low-risk
+                             |   locations.
+                             |
+                             | * There are multiple AZ and each of them is
+                             |   separate by geographic regions
+                             |
+                             | * Each AZ is designed for independent failure zone
+                             | * Thus, they are physically separated
+                             | * The AZ are interconnected with high speed private links
+                             |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 == Deployment Models of the Cloud ==
   Private Cloud              | A private cloud, also known as internal or
