@@ -142,7 +142,7 @@ Running ansible plays      | ansible-playbook myplaybook.yml
                              | * ansible_user - root/administrator
                              | * ansible_ssh_pass - Password
                              |
-** Check connectivity to host| > ansible <target host name> -m ping -i <inventory file>   <-- -m for module
+ Check connectivity to host  | > ansible <target host name> -m ping -i <inventory file>   <-- -m for module
                              | > ansible target01 -m ping -i inventory.txt
                              |
 --------------------------------------------------------------------------------
@@ -457,7 +457,7 @@ Running ansible plays      | ansible-playbook myplaybook.yml
                              |       line: "ftp_proxy=http://example-proxy:80/"
                              |
 --------------------------------------------------------------------------------
-== Includes ==
+== Imports and Includes ==
   Including var files        | - hosts: all
                              |
                              |   vars_files:
@@ -465,6 +465,21 @@ Running ansible plays      | ansible-playbook myplaybook.yml
                              |
     Import tasks             | tasks:
                              |   -import_tasks: imported-tasks.yml
+                             |
+    Import task with vars    | tasks:
+                             |   - import_tasks: user.yml
+                             |     vars:
+                             |       username: johndoe
+                             |       ssh_private_keys:
+                             |         - { src: /path/to/johndoe/key1, dest: id_rsa }
+                             |         - { src: /path/to/johndoe/key2, dest: id_rsa_2 }
+                             |
+                             |   - import_tasks: user.yml
+                             |     vars:
+                             |       username: janedoe
+                             |       ssh_private_keys:
+                             |         - { src: /path/to/johndoe/key1, dest: id_rsa }
+                             |         - { src: /path/to/johndoe/key2, dest: id_rsa_2 }
                              |
     Dynamically Include      | - include_tasks: log_paths.yml
     tasks                    |
@@ -480,6 +495,9 @@ Running ansible plays      | ansible-playbook myplaybook.yml
                              |
                              | - include_tasks: tasks/extra-tasks.yml
                              |   when: extra_tasks_file.stat.exists        <-- Check to see if the file exists
+                             |
+  Handler Imports            | Handlers:
+                             |   - import_tasks: handlers.yml
                              |
   Playbook imports           | - hosts: all
                              |   remote_user: root
@@ -750,6 +768,15 @@ Running ansible plays      | ansible-playbook myplaybook.yml
   An Ansible role is a collection of tasks, handlers, templates, and variables
   for configuring the target system so that it meets the desired state.
   Sample File Structure:
+                             | There are only two directories required to make a
+                             | working Ansible role
+                             |
+                             | role_name/
+                             |   meta/
+                             |     main.yml
+                             |   tasks/
+                             |     main.yaml
+                             |
     Defaults/main.yml        | This contains variables for the rol that can be
                              | overwritten when the role is used
                              |
