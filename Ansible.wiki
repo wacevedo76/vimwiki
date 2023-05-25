@@ -777,6 +777,27 @@ Running ansible plays      | ansible-playbook myplaybook.yml
                              |   tasks/
                              |     main.yaml
                              |
+  How to run an Ansible role | If you create a directory structure like the one
+                             | shown above, with a *main.yml* file in each directory
+                             | , Ansible will run all the tasks defined in *tasks
+                             | /main.yml* if you call the role from your playbook
+                             | using the following syntax:
+                             |
+                             | ---
+                             | - hosts: all
+                             |   roles:
+                             |     - role_name
+                             |
+  Build role scaffolding     | ansible-galaxy role init role_name
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
     Defaults/main.yml        | This contains variables for the rol that can be
                              | overwritten when the role is used
                              |
@@ -945,47 +966,5 @@ Roles best practices         |
                              |
                              | - command: do-something-to-my-app
                              |   when: "'ready' in myapp_result.stdout"
-                             |
---------------------------------------------------------------------------------
-== Roles ==
-  File structure             | There are only wo directories required to make a
-                             | working role:
-                             |
-                             |   role_name/
-                             |     meta/
-                             |     tasks/
-                             |
-                             | If you create a directory structure like this one
-                             | with a *main.yml* in each directory, Ansible will
-                             | run all the tasks defined in *tasks/main.yml* if
-                             | you call the role form your playbook using the
-                             | following syntax:
-                             |
-                             | ---
-                             | - hosts: all
-                             |   roles:
-                             |     - role_name
-                             |
-  Build role scaffolding     | ansible-galaxy role init role_name
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
 --------------------------------------------------------------------------------
