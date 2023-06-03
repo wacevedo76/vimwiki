@@ -31,6 +31,9 @@
 == exception handling ==
   [[programmingConcepts/Error_handling|Error Handling]]
 --------------------------------------------------------------------------------
+== Web Scraping ==
+  [[Python/web_scraping.wiki|Web Scraping]]
+--------------------------------------------------------------------------------
 == List Comprehensions ==
   numbers = [1, 2, 3, 4, 5]
   * List comprehension
@@ -53,7 +56,26 @@
 In your project directory, create a 'requirements.txt' file listing
 all the modules you need on install and run:
     pip install -r requirements.txt
-
+                             |
+  Set Environmental key      | os.environ['name_of_variable'] = 'value of variable'
+  retrieve Environmental key | os.getenv('name_of_variable')
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 === Reading and Writing files ===
 Modules: pathlib, os
@@ -66,15 +88,13 @@ Modules: pathlib, os
                              |
 --------------------------------------------------------------------------------
 === Working with Excel Spreadsheets ===
---------------------------------------------------------------------------------
   needed 3rd party module    | openpyxl
                              |
                              |
                              |
                              |
 --------------------------------------------------------------------------------
-Python logging library
---------------------------------------------------------------------------------
+= Python logging library =
   Import                     | import logging
                              |
   setting configuration      | logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w",
@@ -106,7 +126,6 @@ Python logging library
                              |
 --------------------------------------------------------------------------------
 === Modern Python 3 Notes ===
---------------------------------------------------------------------------------
   Data types
     None (null)              | None  <-- (case sensitive) - (class 'NoneType')
   [[String]] interpolation
@@ -120,7 +139,6 @@ Python logging library
     not                      |
 --------------------------------------------------------------------------------
 === General Notes ===
---------------------------------------------------------------------------------
   Converting a character to  |
   ascii                      |
                              |
@@ -140,3 +158,4 @@ Python logging library
 === Creating a new virtual environment ===
   [[programmingConcepts/virtual_environment]]
                              |
+--------------------------------------------------------------------------------
