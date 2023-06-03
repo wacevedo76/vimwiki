@@ -1,4 +1,6 @@
 --------------------------------------------------------------------------------
+= AWS Certified Cloud Practitioner Exam Notes =
+--------------------------------------------------------------------------------
 == Cloud Concepts ==
   The six advantages of      | * Trade fixed expense for variable expense
   cloud computing            | * Benefit from massive economies of scale
@@ -41,7 +43,7 @@
   Scope of Responsibility    |
   Shared Responsibility Model|
   Terms                      |
-    Application and Data     | Application and the dat athat are taken from users
+    Application and Data     | Application and the data that are taken from users
                              |
     Runtime                  | The environments in which our code runs
                              |
@@ -91,7 +93,7 @@
                              |
   AWS Regions                | * An AWS Region is a physical location where AWS
                              |   will host a cluster of data centers
-                             | * Within a given Regioj, these data centers are
+                             | * Within a given Region, these data centers are
                              |   built such that small groups of the larger
                              |   clusters are logically and physically separated
                              |   from each other by a distance that falls within
@@ -111,20 +113,6 @@
                              |   allow you to fulfill any failover or DR
                              |   scenarios in j
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
   Availability Zone          | * AZs are the logical and physical grouping of
                              |   data centers within a given Region
                              |
@@ -140,6 +128,82 @@
                              | * Each AZ is designed for independent failure zone
                              | * Thus, they are physically separated
                              | * The AZ are interconnected with high speed private links
+                             |
+  Edge Locations             | * In addition to Regions and AZs, AWS also offers
+                             |   Another type of hosting service, called *Edge Locations*.
+                             |   These Edge locations also host a the physical
+                             |   Server infrastructure, masive amounts of storage
+                             |   Devices, and high-bandwidth networking equipment
+                             |    In addition, AWS edge computing services provide
+                             |   Infrastructure and software that enable data to
+                             |   Be processed and analyzed closer to the end customer
+                             |   This includes deploying AWS0managed hardware and
+                             |   Software to locations outside AWS data centers, and
+                             |   Even onto customer-owned devices themselves.
+                             |
+                             | * With Edge locations, you can cache frequently
+                             |   accessed files on servers located closer to users
+                             |
+                             | * Edge locations are connected to AWS Regions through
+                             |   the AWS backbone entwork. This comprises fully redundant
+                             |   multiple 100 Gigabit Ethernet parallel fiber connections.
+                             |
+  Regional Edge Caches       | * Regional Edge Caches have more storage and offer
+                             | large cache sizes.
+                             |
+  CloudFront                 | Amazon's CloudFront is a CDN service designed to
+                             | help you create distribution points for your content
+                             |  The distribution points are created at thes Edge
+                             | Locations in each Region.
+                             |
+*Global Services*              | Although most services are Region-based, there
+                             | are some services that fall under the category of
+                             | global services:
+                             |
+  Identity and Access        | A service offered by AWS to enable you to grant
+  Management (IAM)           | access to services and resources in your AWS Account
+                             | AWS IAM allows you to create IAM users for your
+                             | staff who need to access to those services, define
+                             | permissions, configure groups, and set up roles
+                             |
+  Amazon CloudFront          | A CDN service that allows you to create distribution
+                             | points for your content for a specific origin server.
+                             |
+  Amazon Route 53            | A highly available, scalable, and fully managed
+                             | cloud Domain Name System. You can use Route 53 to
+                             | register new domain names, configure domain records
+                             |  and design global routing policies for various
+                             | use cases, such as an active/passive solution for
+                             | building a highly available solution.
+                             |
+  Amazon S3                  | Although Amazon S3 buckets need to be created in
+                             | each Region and those buckets are therefore Region
+                             | specific, the service itself is presentd as a global
+                             | service.
+                             |
+*On-premises services*         | Although AWS is a publiccloud vendor, they also
+                             | provide certain services that are hosted at their
+                             | clients' data centers on-premises. On-premises services
+                             | are intended to also facilitate a hybrid cloud deployment
+                             | solution. whereas other on-premises serices can
+                             | be used to help migrate data from local data centers
+                             | to the AWS cloud via offline routes where bandwidth
+                             | constraints may be an issue.
+                             |
+  Amazon Snow Family         | These are physical enclosure units that contain
+                             | solid-state drives, compute hardware, and networking
+                             | components that are shipped to client sites.
+                             |
+                             | The AWS Snow Family ccomprises of:
+                             | * Snowball Edge Devices
+                             | * Snow
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
