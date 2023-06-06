@@ -15,7 +15,76 @@
 
 [[certs/rhcsa/review-questions|Review Questions]]
 --------------------------------------------------------------------------------
-** Man
+Chapter 5 - Connecting to RedHat Enterpirse Linux 8
+  Terms                      |
+  Console                    | A Console is the environment the user is looking
+                             | at
+                             |
+  Terminal                   | A Terminal is an environment that is opened on
+                             | the console and provides access to a text shell,
+                             | which is the command-line environment that can be
+                             | used to type commands
+                             |
+                             | You can have multiple terminals open on a
+                             | console, but you cannot have multiple consoles
+                             | open in one terminal
+                             |
+  Virtual Terminals          | To open these terminal windows, you can use the
+                             | key sequences Alt-F1 through Alt-F6
+                             |
+                             | *F1*: Gives access to the GNOME Display Manager
+                             | (GDM) graphical login. --> */dev/tt1*
+                             |
+                             | *F2*: Provides access to the current graphical
+                             | console  --> */dev/tt2*
+                             |
+                             | *F3*: Gives access back to the current graphical
+                             | session  --> */dev/tt3*
+                             |
+                             | *F4-F6*: Gives access to nongraphical consoles
+                             | */dev/tt4 - /dev/tt6*
+                             |
+                             | A convenient alternative to using the Alt-
+                             | Function key sequence is offered by the *chvt*
+                             | command.
+                             |
+  Shutting down              | systemctl reboot or reboot
+                             | systemctl halt or halt
+                             | systemctl poweroff or poweroff
+                             |
+                             | If the above don't work
+                             | echo b > /proc/sysrq-trigger
+                             |
+  SSH                        |
+  Starting graphical apps    | There are two requirements:
+  through sssh               | * An X server must be running on the client
+                             |   computer. The X server is the software
+                             |   component that creates the graphical
+                             |   screens.
+                             |
+                             | * The remote host must be allowd to display
+                             |   screens on the local computer
+                             |
+    Options                  | -v : Verbose; Shows the detail what is happening
+                             |      while establishing the connection
+                             |
+                             | -Y : Enables support for graphical applications
+                             |
+  rsync                      | Options:
+                             | -r : Synchronizes the entire directory tree
+                             | -l : Also synchronizes symbolic links
+                             | -p : Preserves symbolic links
+                             | -n : Performs only a dry run, not actual
+                             |      synchronizing anything
+                             | -a : Users archive mode, thus ensuring that
+                             |      entire subdirectory trees and all file
+                             |      properties will be synchronized
+                             | -A : Uses archive mode, and in addition
+                             |      synchronizes ACLs
+                             | -X : Synchronizes SELinux context as well
+                             |
+--------------------------------------------------------------------------------
+ Man
 Manpage types                | 1   Executable programs or shell commands
                              | 2   System calls (functions provided by the kernel)
                              | 3   Library calls (functions within program libraries)
@@ -89,3 +158,4 @@ View YUM Repos               | yum repolist
                              | 027            -rw-r-----          drwxr-x---
                              | 077            -rw-------          drwx------
                              |
+--------------------------------------------------------------------------------
