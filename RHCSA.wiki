@@ -15,7 +15,7 @@
 
 [[certs/rhcsa/review-questions|Review Questions]]
 --------------------------------------------------------------------------------
-Chapter 5 - Connecting to RedHat Enterpirse Linux 8
+== Chapter 5 - Connecting to RedHat Enterpirse Linux 8 ==
   Terms                      |
   Console                    | A Console is the environment the user is looking
                              | at
@@ -82,6 +82,95 @@ Chapter 5 - Connecting to RedHat Enterpirse Linux 8
                              | -A : Uses archive mode, and in addition
                              |      synchronizes ACLs
                              | -X : Synchronizes SELinux context as well
+                             |
+--------------------------------------------------------------------------------
+== Chapter 6 - User and Group Management ==
+  Get information on a user  | id <USERNAME>
+                             |
+  Methods to Run tasks with  | su - opens a subsheel as a different user, with
+  elevated permissions       |      the advantage that commands are executed as
+                             |      root only in the subshell
+                             |
+                             | sudo - Enables you to set up an environment where
+                             |        specific tasks are executed with
+                             |        administrative privileges
+                             |
+                             | PolicyKit - Enables you to set up graphical
+                             |             utilities to run with administrative
+                             |             privileges
+                             |
+  /etc/passwd                | Field summary
+                             | * Username
+                             | * Password
+                             | * UID
+                             | * GID
+                             | * Comment Field
+                             | * Directory (home directory)
+                             | * Shell
+                             |
+  /etc/shadow                | Field Summary
+                             | * Login name
+                             | * Encrypted password
+                             | * Days since Jan. 1, 1970, that the password was last changed
+                             | * Days before password may be changed
+                             | * Days after which password must be changed
+                             | * Days after password expires that account is disabled
+                             | * Days since Jan. 1, 1970, that account is disabled
+                             | * A reserved field, which was once added "for future use"
+                             |
+  Create users               | Here are some ways to create users
+                             | * vipw - used to edit /etc/password and /etc/shadow
+                             | * useradd
+                             |
+                             | Example:
+                             | useradd -m -u 1201 -G sales,ops linda
+                             |
+  Remove users               | * userdel (-r to remove a user and the complete user environment)
+                             |
+  Configuration files for    | When you're working with tools such as useradd,
+  user management defaults   | some default values are assumed. These default
+                             | values are set in two configuration files:
+                             | * /etc/login.defs
+                             | * /etc/default/useradd
+                             |
+  defaults in                | * MOTD_FILE: Defines the file that is used as
+  /etc/login.defs            |   the "message of the day" file. In this file,
+                             |   you can include messages to be displayed after
+                             |   the user has successflly logged in to the sever.
+                             |
+                             | * ENV_PATH: Defines the $PATH variable,
+                             | * PASS_MAX_DAYS, PASS_MIN_DAYS, PASS_WARN_AGE:
+                             |   Define the default password expiration
+                             |   properties when creating new users
+                             | * UID_MIN: Indicates the first UID to use when
+                             |   creating new users
+                             |
+  Managing Password          | passwd
+  Properties                 |   Example: passwd -n 30 -w 3 -x 90 lind
+                             |     sets the password to a minimal usage period
+                             |     of 30 days and an expiry after 90 days, where
+                             |     a warning is generated 3 days before expiry
+                             |
+                             | chage:
+                             |   Example: chage -E 2025-12-31 bob
+                             |     -E = expiration date
+                             |     -I = interactive
+                             |
+  Creating a User Environment| Files used in creating a user environment
+                             | * /etc/profile: Used for default settings for
+                             |      all users when starting a login shell
+                             | * /etc/bashrc: Used to define defaults for all
+                             |      users when starting a subshell
+                             | * ~/.profile: Specific settings for one user
+                             |     applied when starting a login shell
+                             | * ~/.bashrc: Specific settings for one user applied when starting a subshell
+                             |
+  Createing groups           | vigr
+                             |
+    /etc/group fields        | * Group name:
+                             | * Group password
+                             | * Group ID
+                             | * Members j
                              |
 --------------------------------------------------------------------------------
  Man
