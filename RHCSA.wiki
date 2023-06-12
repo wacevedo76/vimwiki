@@ -7,7 +7,7 @@
 --------------------------------------------------------------------------------
 [[certs/rhcsa/exam-taking-notes|Notes on taking the Exam]]
 
-== Chapter 1 Local Installation ==
+== Chapter 1 - Local Installation ==
 === Installation Logs ===
 [[certs/rhcsa/installation-logs|Installation Logs]]
 === Virtual console Screens (during installation) ===
@@ -99,6 +99,13 @@
                              |             utilities to run with administrative
                              |             privileges
                              |
+  Elevating privileges for   | using *visudo*
+  specific commands for a    | (username) ALL=/usr/bin/useradd,/usr/bin/passwd
+  user                       |
+                             |
+  PolicyKit                  | Associated man pages:
+                             | *pkexec*, *polkit*
+                             |
   /etc/passwd                | Field summary
                              | * Username
                              | * Password
@@ -122,10 +129,14 @@
                              | * vipw - used to edit /etc/password and /etc/shadow
                              | * useradd
                              |
-                             | Example:
-                             | useradd -m -u 1201 -G sales,ops linda
+    Example                  | useradd -m -u 1201 -G sales,ops linda
                              |
-  Remove users               | * userdel (-r to remove a user and the complete user environment)
+  Remove users               | * userdel (-r to remove a user and the complete user
+                             |   environment)
+                             |
+  Managing User Properties   | For changing user properties, you can either
+                             | work directly in the configuration files uise
+                             | *vipw* or use can user *usermod*
                              |
   Configuration files for    | When you're working with tools such as useradd,
   user management defaults   | some default values are assumed. These default
@@ -133,8 +144,14 @@
                              | * /etc/login.defs
                              | * /etc/default/useradd
                              |
-  defaults in                | * MOTD_FILE: Defines the file that is used as
-  /etc/login.defs            |   the "message of the day" file. In this file,
+  defaults in                | In the file /etc/login.defs, different login related
+  /etc/login.defs            | variables are set. This file ise used by different
+                             | commands, and it relates to setting up the
+                             | appropriate environment for new users. Here is a
+                             | list of some of the most significant properties
+                             |
+                             | * MOTD_FILE: Defines the file that is used as
+                             |   the "message of the day" file. In this file,
                              |   you can include messages to be displayed after
                              |   the user has successflly logged in to the sever.
                              |
@@ -170,10 +187,74 @@
     /etc/group fields        | * Group name:
                              | * Group password
                              | * Group ID
-                             | * Members j
+                             | * Members
+                             |
+  Using groupadd to Create   | groupadd <name of new group>
+  Groups                     |   - g : specify a group I
+                             |
+  Managing Group Properties  |
+    Change the name or group | groupmod
+    id                       |
+                             |
+    Add members to a group   | usermod -aG
+                             |
+    find out what groups a   | groupmems
+    user is member of        |   example: groupmems -g sales -l
                              |
 --------------------------------------------------------------------------------
- Man
+== Chapter 7 - Permissions Management ==
+  *Displaying ownership*       | ls -l
+                             |
+  list of all files on system| find / -user {username}
+  of a given user or group   | find / -group {groupname}
+                             |
+  *Changing User Ownership*    | chown {who} {what}
+                             | -R    <-- recursively
+                             |
+  *Changing Group Ownership*   | chown .{group} {where}    <--- dot in front of group name
+                             | chown :{group} {where}    <--- colon in front of group name - Produces same as above
+                             |
+    can also change group    | chgrp -r {group} {location}    <--- recursively
+    ownership                |
+                             |
+  *Show current effective*     | groups {username}
+  *group*                      |
+                             |
+  *Change the effective*       | newgrp {name of group}
+  *group for the current*      |
+  *session*                    |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+== Man ==
 Manpage types                | 1   Executable programs or shell commands
                              | 2   System calls (functions provided by the kernel)
                              | 3   Library calls (functions within program libraries)
@@ -188,7 +269,7 @@ search mandb based on keyword| man -k | apropos
 rebuild mandb                | mandb
                              |
 --------------------------------------------------------------------------------
-** Finding Files
+== Finding Files ==
 Search for binaries in PATH  | which
 Search from local db         | locate -> updatedb
 General search               | find
@@ -197,7 +278,7 @@ General search               | find
                              | find / -user student -> search all files owned by student
                              |
 --------------------------------------------------------------------------------
-Globbing
+== Globbing ==
 Glob any number of chars     | *
 Glob 1 of any char           | ?
 Glob 1 of a list of chars    | [hm] -> either h or m
@@ -210,7 +291,7 @@ Glob 1 of a range of numbers | [0-9] -> any number between 0 and 9
                              |
                              |
 --------------------------------------------------------------------------------
-** RPM
+== RPM ==
 Install package              | rpm -i telnet.rpm
 remove package               | rpm -e telent.rpm
 query package                | rpm -q telnet.rpm
@@ -221,7 +302,7 @@ Install package              | yum install ansible
 View YUM Repos               | yum repolist
                              |
 --------------------------------------------------------------------------------
-** Working with Linux Files - Permissions / Links
+== Working with Linux Files - Permissions / Links ==
   Hard / Soft Links          | Hard Link:
                              |   * Additional name for an existing file
                              |   * Can't be created for directories

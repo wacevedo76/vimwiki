@@ -19,5 +19,15 @@ to perform a series of patterns / commands on each like  and output the results
     (run multiple commands)  |   example: sed -n '2,3 {s/are/be/g; p}' <- replaces are with be
                              |                              and only prints 2sn and 3rd line
                              |
+  Delete Specific lines      | sed -i -e '25d' ~/name/of/file
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
