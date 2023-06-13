@@ -11,6 +11,7 @@ Linux Sys Admin and Certification Training
 * [[linuxGeneralConcepts/commonCommands|Common Commands]]
 * [[linuxGeneralConcepts/lightdm|lightdm]]
 * [[linuxGeneralConcepts/iptables|iptables]]
+* [[linuxGeneralConcepts/firewalld|firewalld]]
 * [[linuxGeneralConcepts/systemd|Systemd]]
 
 Distro Specific Notes
