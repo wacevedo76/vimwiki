@@ -224,34 +224,188 @@
   *group for the current*      |
   *session*                    |
                              |
+  Understanding read/write   | *Permission*     *Applied to Files*            *Applied to Directories*
+  permissions                | Read           Open a file                 List contents of directory
+                             | Write          Change contents of a file   Create and delete files
+                             | Execute        Run a program file          Change to the directory
+                             |
+  *Understanding Advanced*     |
+  *Permissions*                |
+                             |
+    Set User ID (sUID)       | On executable files - runs a file with the same
+                             | permissions as the file owner
+                             |
+                             | sets an "s" were "x" would normally be --> -rw*s*r -xr-x root root 33424  Feb 18 2022 /usr/bin/passwd
+                             |
+    Set Group ID (SGID)      | On executable file - it gives the runner of the
+                             | file the group permissions of the file
+                             |
+                             | On directorys - it sets the default group ownership
+                             | of all files created within the directory
+                             |
+                             | sets an "s" were "x" would normally be --> drwxr-*s*r-x. 2  root  account 4096 Apr 30 21:28 account
+                             |
+    Sticky bit               | Prevents users from deleting files that they didn't create
+                             | When using ls -l, you can see sticky bit as a *t*
+                             | at the position where you normally see the execute
+                             | permission for others
+                             |
+                             |   drwxr-sr-t. 2 root account 4096 Apr 30 21:28 account/
+                             |
+  *Applying Advanced*          | * For SUID, use *chmod u+s*
+  *Permissions*                | * For SGID, use *chmod g+s*
+                             | * For sticky bit, use *chmod +t* followe by the
+                             |   name of the file or the directory that you
+                             |   want to set a the permissions on.
+                             |
+                             | Special Permissions summary
+                             |
+                             | *Permissions*    *Numeric Value*   *Relative Value*    *On Files*                    *On Directories*
+                             | SUID           4               u+s               User executes file with     no meaning
+                             |                                                  permissions of file owner
+                             | SGID           2               g+s               User executes file with     Files created in directory get
+                             |                                                  permissions of group owner  the same group owner
+                             | Sticky bit     1               +t                No Meaning                  Prevents users from deleting
+                             |                                                                              files from other users
+  *Managine ACLs*              |
+    Backing up ACLs          | getfacl -R /directory > file.acls
+    Restoring ACLS           | setfacl --restor=file.acl
+                             |
+    Set ACLs                 | setfacl -m(odify) g:<groupname>:<permissions_to_apply> /path/to/file
+                             | setfacl -m u:<username>:<permissions_to_apply> /path/to/file
+                             | setfacl -R(ecursively) -m u:<username>:- /path/to/file (removes all permisions for username to all files in path)
+                             |
+    Set Default ACL          |
+                             |
+    Set ACL so that all      | setfacl -m *d*:g:sales:rx /data (-d = default)
+    permissions are set on   |     (all new files created in this directory will
+    all new files            |     inherit permissions, but do not change pre-
+                             |     existing files)
+                             |
+                             |     setfacl -R -m    --> modify ACLs for current files
+                             |     setfacl -m d:    --> take care of all new items
+                             |
+    disable permissions for  | setfacl -m d:o::- /data
+    'others'                 |     -m (modify) d: (default) o: (others) ::
                              |
                              |
+  *Setting Default*            | The maximu settings for:
+  *Permissions with umask*     | files = 666
+                             | directories = 777
                              |
+  umask values and their     | Value    Applied to Files    Applied to Directories
+  results                    | 0        Read and write      Everything
+                             | 1        Read and write      Read and Write
+                             | 2        Read                Read and execute
+                             | 3        Read                Read
+                             | 4        Write               Write and execute
+                             | 5        Write               Write
+                             | 6        Nothing             Execute
+                             | 7        Nothhing            Nothing
                              |
+  change umask for all users | All users: /etc/profile
+  and individual users       |            /etc/profile.d/umask.sh  <-- correct approach
                              |
+                             | Individual users: ~/.profile        <-- can be set in /etc/skel/.bashrc
                              |
+  *Working with User*-         | chatter (+|- attribute) (file)  <change attribute>
+  *Extended Attributes*        | lsattr (file)                  <list attributes>
                              |
+                             | Brief description of attributes
+                             | *A* - This attribute ensures that the file
+                             |     access time of the file is *not* modified
+                             | *a* - allows a file to be added, but not to be
+                             |     removed
+                             | *c* - if volume level compression is supported,
+                             |     ensurse that file is compressed the first
+                             |     time the compression engine become active
+                             | *D* - changes to files ar ewritten to disk
+                             |     immediately
+                             | *d* - makes sure files will not be backed up
+                             | *I* - enables indexing for the directory where it is enabled
+                             | *i* - makes file immutable
+                             | *j* - On Ext3 file systems, the file is first
+                             |     written to the journal and then to harddrive
+                             | *s* - This attribute overwrites the blocks where the
+                             |     file was store with 0s after the file has been
+                             |     deleted
+                             | *u* - Saves undeleted information
                              |
+--------------------------------------------------------------------------------
+== Chapter 8 - Configuring Networking ==
+  Terms                      |
+    CIDR                     | Classless interdomain Routing Notation: Indicates
+                             |   the number of bits in in the subnet mask
                              |
+  Network Fundamentals       | *IPv4 Addresses* - These are based on 32-bit
+                             |   addresses and have four octets, separated by
+                             |   dots.
                              |
+                             | *IPv6 Addresses* - These are based on 128-bit
+                             |   addresses and are written in eight groups of
+                             |   hexadeimal numbers that are 16-bits each and
+                             |   separated by colons.
                              |
+  Private network Addresses  | * 10.0.0.0/8 (a single Class A Network)
+                             | * 172.16.0.0/12 (16 Class B networks)
+                             | * 192.168.0.0/16 (256 Class C networks)
                              |
+  Variable length subnet     | IP Address (example)
+  masks                      | 212.209l.113.33 = 11010100.11010001.00001010.00100001
                              |
+                             | Subnet mask
+                             | /27 = 11111111.11111111.11111111.11100000
                              |
+  Binary-Decimal Conversion  | *Binary Value      Decimal Value*
+  Overview                   | 00000000         0
+                             | 00100000         32
+                             | 01000000         64
+                             | 01100000         96
+                             | 10000000         128
+                             | 10100000         160
+                             | 11000000         192
+                             | 11100000         224
                              |
+  MAC Addresses              | MAC addresses consists of two parts. The first 6
+                             | bytes is the vendor ID, and the second 6 bytes is
+                             | the unique node ID
                              |
+  *Managing Network*           | In RHEL 8, the default names for network cards are
+  *addresses and Interfaces*   | based on firmware, device topology, and device types.
+                             | This leads  to network card names that always consist
+                             | of the following parts:
+                             | * Ethernet interfaces begin with *en*, WLAN interf-
+                             |   aces begin with *wl*, and WWAN interfaces begin with
+                             |   *ww*
+                             | * The next part of the name represents the type
+                             |   of adapter. An *o* is used for onboard, *s* is for a
+                             |   hotplug slot, and *p* is for a PCI location.
+                             |   Administrators can also use x to create a device
+                             |   name that is based on the MAC address of the
+                             |   network card
+                             | * The follows a number, which is used to
+                             |   represent an index, ID, or port
+                             | * IF the fixed name cannot be determined,
+                             |   traditional names such as eth0 are used.
                              |
+                             | Also, network cards can be named based on the
+                             | BIOS device name as well. In this naming scheme,
+                             | names such as em1 (embedded network card 1) or
+                             | p4p1 (which is PCI slot 4, port 1) can be used.
+                             | To use this kind of naming, the biosdevname
+                             | package must be used
                              |
+  *Validating Network*         |
+  *Configuration*              |
                              |
+    configure/monitory       | ip addr
+    network Addresses        |
                              |
+    configure/monitory       | ip route
+    routing information      |
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+    configure/monitory       | ip link
+    network link staten      |
                              |
 --------------------------------------------------------------------------------
 == Man ==
@@ -284,11 +438,6 @@ Glob 1 of any char           | ?
 Glob 1 of a list of chars    | [hm] -> either h or m
 Exclued 1 of a list of chars | [!hm] -> any char except h or m
 Glob 1 of a range of numbers | [0-9] -> any number between 0 and 9
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
 --------------------------------------------------------------------------------
 == RPM ==
