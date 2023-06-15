@@ -407,6 +407,80 @@
     configure/monitory       | ip link
     network link staten      |
                              |
+    Viewing Netowkr State    | ip a(ddress) s(how)
+                             | -s  (statistics)
+                             |
+    View only link state     | ip -s link show
+                             |
+    Add ip address           | ip a(ddr) a(add) <new_ip_address> dev <interface_name>
+                             |   example: ip a add 10.0.0.10/24 dev ens18
+                             |
+                             |
+    Temporarily bring up     | ip link set dev <device_name> up
+    interface                |   example: ip link set dev ens33 up
+                             |
+    view listening ports     | ss -lt  (t = tcp)
+                             | ss -tul (t = tcp, u = udp)
+                             |
+  *Configuring Network*        |
+  *configuration with nmtui*   |
+  *and nmcli*                  |
+    View NetworkManager      | systemctl status NetworkManager
+    status                   |
+                             |
+    Location of Network card | /etc/sysconfig/network-scripts/
+    configuration scripts    |     (the scripts start with *ifcfg* followed by
+                             |     network card name)
+                             |
+    Difference between       | * A device is a network interface card
+    device and connection    | * A connection is the configuration that is used on a device.
+                             |
+    Tools used to manage     | * nmcli  ---> command line tool
+    network devices and      | * nmtui  ---> same as above, but with text user interface
+    connections              |
+                             |
+    Check permissions to     | nmcli gen permissions
+    change network configu-  |
+                             |
+    Show all connections     | nmcli con show
+                             | nmcli con show <dev_name>  <--- shows more information
+                             |
+    Man page for connection  | man 5 nm-settings
+    settings                 |
+                             |
+    List all devices         | nmcli dev show
+                             |
+    show settings for        | nmcli dev show <device_name>
+    specific device          |
+                             |
+    Create a new network     | nmcli con add <con-name> dhcp type ethernet ifname <iface name> ipv4.method auto
+    connection               | nmcli con add con-name static ifname ens33 autoconnect no type ethernet ip4 10.0.0.10/s4 gw4 10.0.0.1 ipv4.method manual
+                             |
+    nmcli-examples man page  | man nmcli-examples
+                             |
+  *Working with hostnames*     |
+                             |
+   Different ways to change  | * Use *nmtui* and select the option *Change Hostname*
+   the hostname:             | * Use *hostnamectl set-hostname*
+                             | * Edit the contents of the configuration file /etc/hostname
+                             |     example: hostnamectl set-hostnamem myhost.example.com
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
 --------------------------------------------------------------------------------
 == Man ==
 Manpage types                | 1   Executable programs or shell commands
