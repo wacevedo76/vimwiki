@@ -465,6 +465,280 @@
                              | * Edit the contents of the configuration file /etc/hostname
                              |     example: hostnamectl set-hostnamem myhost.example.com
                              |
+  *DNS Name Resolution*        |
+    Add dns server           | nmcli con mod <connection-id> [+]ipv4.dns <ip-of-dns>
+                             |
+    enable/disable auto dns  | nmcli con mod <con-name> ipv4.ignore-auto-dns (yes|no)
+                             |
+    verify hostname          | getent hosts <servername>
+    resolution               |
+                             |
+--------------------------------------------------------------------------------
+== Chapter 9 - Managing Software ==
+  *Managing Subscriptions*     |
+    Register a system        | # subscription-manager register
+    List available subscrip. | # subscription-manager list --available
+    Automatically attach a   | # subscription-manager attach --auto
+      subscription           |
+    Get subscription overview| # subscription-manager --consumed
+    Unregister subscription  | # subscription-manager unregister
+                             |
+  Files important to         | /etc/pki/product - Certificates indicating which
+  subscriptions              |   Red Hat produces are installed
+                             | /etc/pki/consumer - stores certificates identfying
+                             |   the Red Hat account to which the system is registered
+                             | /etc/pki/entitlement - contains information about
+                             |   the subscriptions that are attached to the system
+                             |
+  *Specifying Which*           | To tell your server which repo to use, you need to
+  *Repository to use*          | create a file with the name that ends in *.repo* in
+                             | the directory */etc/yum.repos.d*. In that file you
+                             | need:
+                             |   * [lable] - The .repo file can contain different
+                             |     repositories, each section starting with the
+                             |     a label that identifies the specific repository.
+                             |
+                             |   * name= - Use this to specify the name of the
+                             |     repository you and to use.
+                             |
+                             |   * mirrorlist= - Referes to a URL where information
+                             |       about mirror servers for this server can
+                             |       be obtained. Typically used for big online repos
+                             |
+                             |   * baseurl= This option contains the URL that
+                             |     points to the specific repository location
+                             |
+                             |   * gpgcheck= - Set to 1 if a GNU Privacy Guard (GPG)
+                             |       integrity check needs to be performed on
+                             |       the packages. If set to 1, a GPG key is required
+                             |
+                             |   * gpgkey= - Specifies the location of the GPG
+                             |       key that is used to check package integrity
+                             |
+                             | When you use a URL, two components are included.
+                             | First, the URL identifies the protocol to be used
+                             | and is in the format, protocol://, such as:
+                             |   https://. ftp://, or file://.
+                             | Following the URL is the exact location on that
+                             | URL.
+                             |
+  *Creating your own Repo*     | For this, you will need to have access to th RHEL
+                             | or CentOS installation disk or Iso file
+                             |
+                             | * Insert the installation disk in you vm and make
+                             |   sure it is attached and available
+                             |
+                             | * Type mkdir /repo so that you have a mount point
+                             |   where you can mount the ISO file
+                             |
+                             | * Add the following line to the end of the /etc/fstab
+                             |   file: */dev/sr0 /repo iso9660 defaults 0 0*
+                             |
+                             | * Type *mount -a*, followed by *mount | grep sr0*. You
+                             |   should now see that the optical device is
+                             |   mounted on the directory /repo. At this point,
+                             |   the directory /repo can be used as a repository
+                             |
+                             | * At this point, two repositories are aavailable
+                             |   through the /repo directory. The BaseOS repository
+                             |   provides access to application streams (these
+                             |   repositories provides access to the base packages,
+                             |   and the Application Stream (AppStream) repository
+                             |   provides access to application streams. To make
+                             |   them accessible, you need to add two files to
+                             |   /etc/yum.repos.d direcotry
+                             |
+                             |   *BaseOs.repo*
+                             |
+                             |   [BaseOS]
+                             |   name=BaseOS
+                             |   baseurl=file:///repo/BaseOS
+                             |   gpgcheck=0
+                             |
+                             |   AppStream.repo
+                             |
+                             |   [Appstream]
+                             |   name=AppStream
+                             |   baseurl=file:///repo/AppStream
+                             |
+  *Using yum*                  |
+    Common yum tasks         |
+                             |
+      search                 | * Search for the exact name of a package.
+      [what]provides #/name  | * Perform a deep search in the package to
+                             |   look fopecific files within the package.  (runs in *BASH*)
+      info                   | * Provide more information about the package
+      install                | * Install the package
+      remove                 | * Remove the package
+      list [all | installed] | * List all or installed packages
+      group list             | * List package groups
+      group install          | * install all packages from a group
+      update                 | * Update packages specified
+      clean all              | * Remove all stored metadata
+                             |
+  *Working with yum Package*   |
+  *Groups*                     |
+    List default groups      | yum group list
+    List all groups          | yum group list hidden
+                             |
+    View yum history         | yum history
+    Undo yum action (history)| yum history undo <num_of_action>
+                             |
+  *Managing Package*           |
+                             |
+  *Understanding Modules*      | In the Application Stream repository, content
+                             | with varying lifecycels is provided. This content
+                             | This content is provided as the traditional RPM
+                             | packages, but also as modules.
+                             |
+    Modules                  | A module describes as set of RPM packages that
+                             | belong together. Typically, modules are organized
+                             | aroound a specific version of an application, and
+                             | in a module you'll find module packages, together
+                             | with all of thedependencies for that specific
+                             | version
+                             |
+    Profiles                 | Modules an also have one or more profiles. A
+                             | profiles is a list of packages that are installed
+                             | together for a particular use case
+                             |
+  *Module Streams*             |
+                             |
+    Yum Module Terminology   | *Item*         *Explanation*
+                             | RPM          The default package format. Contains files,
+                             |              as well as metadata that descripts how to
+                             |              install the files. Optionally may contain
+                             |              pre- and post-installation scripts as well
+                             |
+                             | Module       A delivery mechanism to install RPM packages
+                             |              In a module different versions and profiles
+                             |              can be provided.
+                             |
+                             | Application  A specific version of the Module
+                             | stream
+                             |
+                             | Profile      A collectio of packages that are
+                             |              installed together for a particular
+                             |              use case
+                             |
+  *Managing Modules*           |
+                             |
+    List Modules             | yum module list
+                             |
+    List specific streams    | yum module list <modulename>
+      for a module           |
+                             |
+    Get information specific | yum module info <modulename>
+      module profile stream  |
+                             |
+    Install module           | yum module install <modulename[:version]>
+                             |
+                             |
+    Enable module stream     | yum module enable <modulename[:version]>
+                             |
+    Sync module and          | yum distro-sync
+    dependencies             |
+                             |
+                             |
+  *Querying the RPM DB*        |
+    Show a list of all       | rpm -qa <package_name>
+    installed packages       |
+                             |
+    Show a description of    | rpm -qi <package_name>
+    a package                |
+                             |
+    Show a list of all files | rpm -ql <package_name>
+    in a package             |
+                             |
+    Show all documentation   | rpm -qd <package_name>
+    for package              |
+                             |
+    Show all configuration   | rpm -qc <package_name>
+    files for a package      |
+                             |
+    Show the package to which| rpm -qf <file_name>
+    a specific file belongs  |
+                             |
+  *Managing Software Packages* |
+  *with rpm*                   |
+                             |
+    Install rpm package      | rpm -Uvh <package_name>
+    (mostly replaced by yum) |   (When installing packages with rpm, the yum
+                             |    database will not be updated)
+                             |
+    Understanding RPM        | When you'reworking with RPM packagesdirectly, it
+    filenames                | makessense to understand how the RPM filename is
+                             | composed. A typical RPM filenme looks like:
+                             |   autofs-5.0.7-40.el7.x86_64.rpm
+                             | This name consists of several parts:
+                             |   * autofs: The name of the actual package
+                             |   * 5.0.7: The version of the package. This
+                             |     normally corresponds to the name of the
+                             |     pacakge as it was release by its creator
+                             |   * -40: The subersion of the package
+                             |   * el7: The Red Hat version this package was
+                             |     created for
+                             |   * x86_65: The platform this package was created
+                             |     for
+                             |
+  *Querying RPM Package files* |
+    Common RPM Query commands|
+                             |
+      rpm -qf                | Uses a filename as its argument to find the
+                             | specific RPM Package a file belongs to
+      rpm -ql                | Use the RPM database to provide a list of files
+                             | in the RPM package
+                             |
+      rpm -qi                | Usese the RPM database to provide package
+                             | information (eqivalent to yum info)
+                             |
+      rpm -qd                | Uses the RPM database to show all documentation
+                             | that is available in the package
+                             |
+      rpm -qc                | Uses the RPM database to show all configuration
+                             | files that are available in the package
+                             |
+      rpm -q --scripts       | Usese the RPM database to show scripts that are
+                             | used in the package. This is particularly useful
+                             | if combined with the *-p* option
+                             |
+      rpm -qp <pkg>          | The *-p* optin is used with all the previously
+                             | listed opting in the query individual RPM package
+                             | files instead of the RPM package database. Using
+                             | this option before installation helps you to find
+                             | out what is actually in the package before it is
+                             | installed
+                             |
+      rpm -qR                | Shows dependencies for a specific package
+                             |
+      rpm -V                 | Shows which parts of a specific package have been
+                             | changed since installation
+                             |
+      rpm -Va                | Verifies all installed packages and shows which
+                             | parts of the package have been changed since
+                             | installation. This is any easy and convenient way
+                             | to do a package integrity check.
+                             |
+      rpm -qa                | Lists all packages that are installed on this server
+                             |
+  *Using repoquery*            | To query packages from the repositories before
+                             | they have been installed (within the *yum-utils* package)
+                             |
+                             | The *repoquery* command is similar to the rpm -q
+                             | command and uses many similar options, though the
+                             | *--scripts* opting is not available
+                             |
+                             | To thoroughly analyze what an RPM package is
+                             | doing when it is installed, you can download it
+                             | to your machine, which allows you to use the
+                             | *rpm -qp --scripts* command on the package
+                             |
+    Download a package from  | *yumdownloader* (yum-utils)
+    the repo to local machine|
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
@@ -550,5 +824,28 @@ View YUM Repos               | yum repolist
                              | 022            -rw-r--r--          drwxr-xr-x
                              | 027            -rw-r-----          drwxr-x---
                              | 077            -rw-------          drwx------
+                             |
+--------------------------------------------------------------------------------
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
