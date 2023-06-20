@@ -736,7 +736,30 @@
     Download a package from  | *yumdownloader* (yum-utils)
     the repo to local machine|
                              |
+--------------------------------------------------------------------------------
+== Chapter 10 - Managing Processes ==
+  *The three major types of*   | * Shell jobs - commands started from the
+  *processes*                  |   command line. They are associated with
+                             |   the shell that was currentwhen the process
+                             |   wasstarted. Shell jobs are also referred to
+                             |   as *interactive processes*.
                              |
+                             | * Daemons - Processes that provide services. They
+                             |   normally are started when a computer isbooted
+                             |   and often (but certainly not all cases) run
+                             |   with root privileges.
+                             |
+                             | * Kernel thrads - Part of the Linux kernel. You
+                             |   cannot manage them using commong tools, but for
+                             |   monitoring of performance on a system. it's
+                             |   important to keep an eye on them.
+                             |
+  *Threads*                    | When a process is started, it can use multiple
+                             | threads. A *thread* is a task started by a
+                             | process and that a dedicated CPU can service. The
+                             | Linux shell does not offertools to manage
+                             | individual threads. Thread management should be
+                             | taken care of from within the command.
                              |
                              |
                              |
