@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-== Kubernetes ==
+= Kubernetes Index =
 --------------------------------------------------------------------------------
 * [[linkedinK8sTraining|Linkedin Kubernetes Training]]
 * [[./Kubernetes_Essentials|A Cloud Guru - Kubernetes Essentails]]
