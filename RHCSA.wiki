@@ -761,6 +761,138 @@
                              | individual threads. Thread management should be
                              | taken care of from within the command.
                              |
+  *Managing Shell Jobs*        | Job management overview
+                             | *Command*    *Use*
+                             | &          Starts the command immediately in the
+                             |            background
+                             | Ctrl-Z     Stops the job temporarily os that it
+                             |            can be managed. For instance, it can
+                             |            be moved to the background
+                             | Ctrl-D     Sends the Enf Of File (EOF) character
+                             |            to the current job to indicate that it
+                             |            should stop waiting for further input.
+                             | Ctrl-C     Can be used to cancel the current
+                             |            interactive job.
+                             | bg         Continues the job that has been frozen
+                             |            using Ctrl-Z in the background
+                             | fg         Brings back to the foreground the last
+                             |            job that was moved to background
+                             |            execution.
+                             |
+  *Understanding Processes*    | There are two types of background processes
+  *and Threads*                | * Kernel Threads - They are a part of the Linux
+                             |   kernel, and each of them is started with its
+                             |   own process identification number (PID). They
+                             |   are easily recognizable because they have a
+                             |   name that is between square brackets (ps)
+                             |
+                             |   Kernel threads canot be managed, their priority
+                             |   can not be adjusted, neither is it possible to
+                             |   kill them, except by taking down the entire machine
+                             |
+                             | * Daemon Processes
+                             |
+  *Using ps to get process*    |
+  *Information*                |
+                             |
+    ps                       | Without any arguments, it shows only those
+                             | processes that have been started by the current
+                             | user.
+                             |
+    ps aux                   | Displays a short sumary of active processes
+                             |
+    ps -ef                   | Displayes the exact command that was used to
+                             | start the process
+                             |
+    ps fax                   | Shows hierarchical relationships between parent
+                             | and child processes
+                             |
+    pgrep <command>          | shortcut to filter process list
+                             |
+  *Adjusting Process Priority* | All Regular processes are equal and are started
+  *with nice*                  | with the same priority, whic is the priority
+                             | number 20
+                             |
+   nice                      | Start a process with an adjusted priority
+                             |
+   renice                    | Change the priority for a currently active process.
+
+   r (from within *top*)       | Use the *r* command from the *top* utility to
+                             | change the priority of a currently running
+                             | process
+                             |
+   Using nice and renice     | When using *nice* or *renice* to adjust process
+                             | priority, you can select from values ranging
+                             | from -20 to 19. The default niceness of a process
+                             | is set to 0 (which results in the priority value
+                             | of 20). By applying a negative niceness, you
+                             | increase the priority. Use a positive niceness to
+                             | decrease the priority.
+                             |
+   Examples                  | nice -n 5 <command>
+                             | renice -n 10 -p <PId>
+                             |
+                             | Regular users can only decrease the priority of a
+                             | running process. You must be root to give
+                             | processes increased priority
+                             |
+  *Sending Signals to*         | View man 7 signals for a complete overview of
+  *processs with kill, killall*| all available signals. Three of these signals
+  *and pkill*                  | work for all processes:
+                             | * The signal SIGTERM (15) is used to ask a process to stop. (kill -15)
+                             | * The signal SIGKILL (9) is used to force a process to stop. (kill -9)
+                             | * The SIGHP (1) signal is used to hang up a (kill)
+                             |   process. The effect is that the process will
+                             |   reread its configuration files, which makse
+                             |   this a suseful signal to use after making
+                             |   modifications to a process oncifuration file
+                             |
+    Show a list of available | kill -l
+    signals that kill can use|
+                             |
+    pkill                    | Similar to kill but takes a name rather than a PID
+                             |
+    killall                  | Use if multiple processes using the same name
+                             | need to be killed simultaneously.
+                             |
+    Find processes nice level| ps ax -o pid,ni,cmd
+                             |
+  *Using top to manage*        | Linux Process States Overview
+  *processes*                  | *State*            *Meaning*
+                             | Running (R)      The process is currently active
+                             |                  and using CPU time, or in the
+                             |                  queue of runnable processes
+                             |                  waiting to get services.
+                             |
+                             | Sleeping (S)     The process is waiting for an
+                             |                  even to complete
+                             |
+                             | Uninteruptible   The process is in a sleep state
+                             | sleep (D)        that cannot be stopped. This
+                             |                  usually happens while a process is waiting for I/O
+                             |
+                             | Stopped (T)      The process has been stopped,
+                             |                  which typically has happened to
+                             |                  an interactive shell process,
+                             |                  using the Ctrl-Z key sequence.
+                             |
+                             | Zombie (Z)       The process has been stopped but
+                             |                  could not be removed by its
+                             |                  parent, which has put it in an
+                             |                  unmanageable state.
+                             |
+    Find uptime and load     | uptime
+    average                  |
+                             |
+    Find out how many cpus   | lscpu
+    in system (for load avg) |
+                             |
+  *Using tuned to optimize*    | Tuned offers a daemon that monitors system
+  *performance*                | activity and rovides some profiles. In the
+                             | profiles, an administrator can automatically
+                             | tune a system for best possible latency,
+                             | throughput, or power consumption
+                             |
                              |
                              |
                              |
