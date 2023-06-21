@@ -749,8 +749,8 @@
                              |   and often (but certainly not all cases) run
                              |   with root privileges.
                              |
-                             | * Kernel thrads - Part of the Linux kernel. You
-                             |   cannot manage them using commong tools, but for
+                             | * Kernel threads - Part of the Linux kernel. You
+                             |   cannot manage them using common tools, but for
                              |   monitoring of performance on a system. it's
                              |   important to keep an eye on them.
                              |
@@ -768,7 +768,7 @@
                              | Ctrl-Z     Stops the job temporarily os that it
                              |            can be managed. For instance, it can
                              |            be moved to the background
-                             | Ctrl-D     Sends the Enf Of File (EOF) character
+                             | Ctrl-D     Sends the End Of File (EOF) character
                              |            to the current job to indicate that it
                              |            should stop waiting for further input.
                              | Ctrl-C     Can be used to cancel the current
@@ -893,7 +893,47 @@
                              | tune a system for best possible latency,
                              | throughput, or power consumption
                              |
+    Tuned Profile Overview   | *Profile*          *Use*
+                             | balanced         The best compromise between
+                             |                  power usage and performance
                              |
+                             | desktop          Based on the blanced profile,
+                             |                  but tuned for better response to
+                             |                  interactive applications
+                             |
+                             | latency-         Tuned for maximum throughput
+                             | performance
+                             |
+                             | nework-latency   Based on latency-performance,
+                             |                  but with additional options to
+                             |                  reduce network latency
+                             |
+                             | network-         Based on throughput-performance,
+                             |                  optimizes older CPUs for
+                             |                  streaming content
+                             |
+                             | powersave        Tunesfor maximum power saving
+                             |
+                             | throughput-      Tunes for maximum throughput
+                             | performance
+                             |
+                             | virtual-guest    Optimizes Linux for running as a
+                             |                  virtual machine
+                             |
+                             | virtual-host     Optimized Linux for use asa KVM
+                             |                  host
+                             |
+    Start the tuned daemon   | systemctl enable --now tuned
+                             |
+    Find out which profile   | tuned-adm
+    is currenty selected     |
+                             |
+    List available profiles  | tuned-adm list
+                             |
+    Selet another profil     | tuned-adm profile <profile_name>
+                             |
+    Have tuned recommend a   | tuned-adm recommend
+    profile                  |
                              |
                              |
                              |
