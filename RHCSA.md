@@ -1,22 +1,22 @@
 --------------------------------------------------------------------------------
-= Red Hat Certified System Administrator Certification Training notes =
+# Red Hat Certified System Administrator Certification Training notes
 --------------------------------------------------------------------------------
-= LBD RHCSA notes =
+## LBD RHCSA notes
 --------------------------------------------------------------------------------
 [[certs/rhcsa/Exam-objectives|The RHCSA Exam Objectives]]
 --------------------------------------------------------------------------------
 [[certs/rhcsa/exam-taking-notes|Notes on taking the Exam]]
 
-== Chapter 1 - Local Installation ==
-=== Installation Logs ===
+## Chapter 1 - Local Installation
+### Installation Logs
 [[certs/rhcsa/installation-logs|Installation Logs]]
-=== Virtual console Screens (during installation) ===
+## Virtual console Screens (during installation)
 [[certs/rhcsa/installation-virtual-console-screens|Virtual Console Screens]]
 
 [[certs/rhcsa/review-questions|Review Questions]]
 --------------------------------------------------------------------------------
-== Chapter 5 - Connecting to RedHat Enterpirse Linux 8 ==
-  Terms                      |
+## Chapter 5 - Connecting to RedHat Enterpirse Linux 8
+  **Terms**                      |
   Console                    | A Console is the environment the user is looking
                              | at
                              |
@@ -32,20 +32,20 @@
   Virtual Terminals          | To open these terminal windows, you can use the
                              | key sequences Alt-F1 through Alt-F6
                              |
-                             | *F1*: Gives access to the GNOME Display Manager
-                             | (GDM) graphical login. --> */dev/tt1*
+                             | **F1**: Gives access to the GNOME Display Manager
+                             | (GDM) graphical login. --> **/dev/tt1**
                              |
-                             | *F2*: Provides access to the current graphical
-                             | console  --> */dev/tt2*
+                             | **F2**: Provides access to the current graphical
+                             | console  --> **/dev/tt2**
                              |
-                             | *F3*: Gives access back to the current graphical
-                             | session  --> */dev/tt3*
+                             | **F3**: Gives access back to the current graphical
+                             | session  --> **/dev/tt3**
                              |
-                             | *F4-F6*: Gives access to nongraphical consoles
-                             | */dev/tt4 - /dev/tt6*
+                             | **F4-F6**: Gives access to nongraphical consoles
+                             | **/dev/tt4 - /dev/tt6**
                              |
                              | A convenient alternative to using the Alt-
-                             | Function key sequence is offered by the *chvt*
+                             | Function key sequence is offered by the **chvt**
                              | command.
                              |
   Shutting down              | systemctl reboot or reboot
@@ -84,7 +84,7 @@
                              | -X : Synchronizes SELinux context as well
                              |
 --------------------------------------------------------------------------------
-== Chapter 6 - User and Group Management ==
+## Chapter 6 - User and Group Management
   Get information on a user  | id <USERNAME>
                              |
   Methods to Run tasks with  | su - opens a subsheel as a different user, with
@@ -202,7 +202,7 @@
     user is member of        |   example: groupmems -g sales -l
                              |
 --------------------------------------------------------------------------------
-== Chapter 7 - Permissions Management ==
+## Chapter 7 - Permissions Management
   *Displaying ownership*       | ls -l
                              |
   list of all files on system| find / -user {username}
@@ -290,7 +290,7 @@
                              |
                              |
   *Setting Default*            | The maximu settings for:
-  *Permissions with umask*     | files = 666
+  **Permissions with umask**     | files = 666
                              | directories = 777
                              |
   umask values and their     | Value    Applied to Files    Applied to Directories
@@ -308,31 +308,31 @@
                              |
                              | Individual users: ~/.profile        <-- can be set in /etc/skel/.bashrc
                              |
-  *Working with User*-         | chatter (+|- attribute) (file)  <change attribute>
-  *Extended Attributes*        | lsattr (file)                  <list attributes>
+  **Working with User**-         | chatter (+|- attribute) (file)  <change attribute>
+  **Extended Attributes**        | lsattr (file)                  <list attributes>
                              |
                              | Brief description of attributes
-                             | *A* - This attribute ensures that the file
+                             | **A** - This attribute ensures that the file
                              |     access time of the file is *not* modified
-                             | *a* - allows a file to be added, but not to be
+                             | **a** - allows a file to be added, but not to be
                              |     removed
-                             | *c* - if volume level compression is supported,
+                             | **c** - if volume level compression is supported,
                              |     ensurse that file is compressed the first
                              |     time the compression engine become active
-                             | *D* - changes to files ar ewritten to disk
+                             | **D** - changes to files ar ewritten to disk
                              |     immediately
-                             | *d* - makes sure files will not be backed up
-                             | *I* - enables indexing for the directory where it is enabled
-                             | *i* - makes file immutable
-                             | *j* - On Ext3 file systems, the file is first
+                             | **d** - makes sure files will not be backed up
+                             | **I** - enables indexing for the directory where it is enabled
+                             | **i** - makes file immutable
+                             | **j** - On Ext3 file systems, the file is first
                              |     written to the journal and then to harddrive
-                             | *s* - This attribute overwrites the blocks where the
+                             | **s** - This attribute overwrites the blocks where the
                              |     file was store with 0s after the file has been
                              |     deleted
-                             | *u* - Saves undeleted information
+                             | **u** - Saves undeleted information
                              |
 --------------------------------------------------------------------------------
-== Chapter 8 - Configuring Networking ==
+## Chapter 8 - Configuring Networking
   Terms                      |
     CIDR                     | Classless interdomain Routing Notation: Indicates
                              |   the number of bits in in the subnet mask
@@ -371,7 +371,7 @@
                              | the unique node ID
                              |
   *Managing Network*           | In RHEL 8, the default names for network cards are
-  *addresses and Interfaces*   | based on firmware, device topology, and device types.
+  **addresses and Interfaces**   | based on firmware, device topology, and device types.
                              | This leads  to network card names that always consist
                              | of the following parts:
                              | * Ethernet interfaces begin with *en*, WLAN interf-
@@ -474,7 +474,7 @@
     resolution               |
                              |
 --------------------------------------------------------------------------------
-== Chapter 9 - Managing Software ==
+## Chapter 9 - Managing Software
   *Managing Subscriptions*     |
     Register a system        | # subscription-manager register
     List available subscrip. | # subscription-manager list --available
@@ -737,7 +737,7 @@
     the repo to local machine|
                              |
 --------------------------------------------------------------------------------
-== Chapter 10 - Managing Processes ==
+## Chapter 10 - Managing Processes
   *The three major types of*   | * Shell jobs - commands started from the
   *processes*                  |   command line. They are associated with
                              |   the shell that was currentwhen the process
@@ -936,8 +936,8 @@
     profile                  |
                              |
 --------------------------------------------------------------------------------
-== Chapter 11 - Working with Systemd ==
-  *Types of systemd units*     | automount
+## Chapter 11 - Working with Systemd
+  **Types of systemd units**     | automount
                              | device
                              | mount
                              | path
@@ -949,23 +949,25 @@
                              | timer
                              | service
                              |
-  *Where unit files can be*    | * /usr/lib/systemd/system - Contains default unit
-  *found*                      |     files tha thave been installed from RPM
+  **Where unit files can be**    | * /usr/lib/systemd/system - Contains default unit
+  **found**                      |     files tha thave been installed from RPM
                              |     packages. You should never edit these files
                              |     directly
+                             |
                              | * /etc/systemd/system - Contains custom unt
                              |     files. It may also contain include files that
                              |     have been written by an administrator or
                              |     generated by the systemctl edit command.
+                             |
                              | * /run/systemd/system - contains unit files that
                              |     have automatically been generated
                              |
-  *Systemd unit files*         | 1. /run/systemd/system
-  *priority*                   | 2. /etc/systemd/system
+  **Systemd unit files**         | 1. /run/systemd/system
+  **priority**                   | 2. /etc/systemd/system
                              | 3. /usr/lib/systemd/system
                              |
-  *Understanding Systemd*      | Arguably, the most important unit type is the
-  *Service Units*              | service unit. It is used to start processes.
+  **Understanding Systemd**      | Arguably, the most important unit type is the
+  **Service Units**              | service unit. It is used to start processes.
                              | You can start any type of process by using a
                              | service unit, including daemon process and
                              | commands.
@@ -987,7 +989,7 @@
                              | following three sections (other types of unit
                              | files have different sections).
                              |
-                             | * *[Unit]** - Describes the unit and defines
+                             | * **[Unit]** - Describes the unit and defines
                              |   dependencies. This section also contains the
                              |   important *After* statement and optionally
                              |   the *Before* statement. These statemens define
@@ -999,26 +1001,28 @@
                              |   this unit should be started after the unit that
                              |   is specified.
                              |
-                             | * *[Service]** - Describes how to start and stop
+                             | * **[Service]** - Describes how to start and stop
                              |   the service and request status installation.
-                             |   Normally, you can expect and *ExecStart* line,
+                             |   Normally, you can expect and **ExecStart** line,
                              |   which indicates how to start the unit, or an
-                             |   *ExecStop* line, which indicates how to stop
-                             |   the unit. Note the *Type* option, which is used
+                             |   **ExecStop** line, which indicates how to stop
+                             |   the unit. Note the **Type** option, which is used
                              |   to specify how the process should start. The
-                             |   *forking* type is commonly used by daemon
+                             |   **forking** type is commonly used by daemon
                              |   processes, but you can also use other types,
-                             |   such as *oneshot*, which will start any command
-                             |   from a Systemd unit. See *man 5
-                             |   systemd.service* for more details
+                             |   such as **oneshot**, which will start any command
+                             |   from a Systemd unit. See **man 5 systemd.service**
+                             |   for more details
                              |
-                             | * *[Install]** - Indicates in which target this
+                             | * **[Install]** - Indicates in which target this
                              |   unit has to be started.
                              |
   *Understanding Systemd*      | A mount unit specifies how a file system can be
   *Mount Units*                | mounted on a specific directory.
                              |
                              | Exampe: A Mount Unit Files
+                             |
+                             |     tmp.mount unit file
                              |
                              |     [Unit]
                              |     Description=Temporary Directory (/tmp)
@@ -1035,12 +1039,92 @@
                              |     Where=/tmp
                              |     Type=tmpfs
                              |
+                             | This shows some interesting Additional
+                             | configureation options in its sections:
+                             |
+                             | **[Unit]** The **Conflicts** statement is used o
+                             | list units that cannot be used together with this
+                             | unit. Use this statement for mutually exclusinve
+                             | units
+                             |
+                             | **[Mount]** This section definesexactly where the
+                             | mount has to be performed. Here you see the
+                             | arguments that are typically used in any
+                             | **mount** command.
+                             |
+  **Understanding Systemd**      | A socket creates a method for applications to
+  **Socket Units**               | communicate with one another. A socket may be
+                             | defined as a file but also as a port on which
+                             | Systemd will be listening for incoming
+                             | connections. That way, a service doesn't have to
+                             | run continuously but instead will start only if a
+                             | connection is comming in on the socket that
+                             | is specified. Every scoket needs a corresponding
+                             | service file.
+                             |
+                             | Example: cockpit.socket
+                             |
+                             |   [Unit]
+                             |   Description=Cockpit Web Service Socket
+                             |   Documentation=man:cockpit-ws(8)
+                             |   Wants=cockpit-motd.service
+                             |
+                             |   [Socket]
+                             |   ListenStream=9090
+                             |   ExecStartPost=-/usr/share/cockpit/motd/update-motd '' localhost
+                             |   ExecStartPost=-/bin/ln -snf active.motd /run/cockpit/motd
+                             |   ExecStopPost=-/bin/ln -snf /usr/share/cockpit/motd/inactive.motd /run/cockpit/motd
+                             |
+                             |   [Install]
+                             |   WantedBy=sockets.target
+                             |
+                             | The important option from above is
+                             | **ListenStream**. This option defines the TCP
+                             | port that Systemd should be listening to for
+                             | incoming connections. Sockets can also be created
+                             | for UDP ports, in which case you would use
+                             | **ListenDatagram** instead of **ListenStream**.
+                             |
+  **Understanding Systemd**      | Targets can have dependencies on other
+  **Target Units**               | targets. These dependencies are defined in the
+                             | target unit. An example of such a dependency
+                             | relation is the basic.target. This target defines
+                             | all the units that should alwasy be started. You
+                             | can use the **systemctl list-dependencies**
+                             | command for an over view of any existing
+                             | dependencies.
+                             |
+                             | Example: **multi-user.target**
+                             |
+                             |     [Unit]
+                             |     Description=Multi-User System
+                             |     Documentation=man:systemd.special(7)
+                             |     Requires=basic.target
+                             |     Conflics=rescue.service rescue.target
+                             |     After=basic.target rescue.service rescue.target
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
                              |
 --------------------------------------------------------------------------------
-== Man ==
+## Man
 Manpage types                | 1   Executable programs or shell commands
                              | 2   System calls (functions provided by the kernel)
                              | 3   Library calls (functions within program libraries)
@@ -1055,7 +1139,7 @@ search mandb based on keyword| man -k | apropos
 rebuild mandb                | mandb
                              |
 --------------------------------------------------------------------------------
-== Finding Files ==
+## Finding Files
 Search for binaries in PATH  | which
 Search from local db         | locate -> updatedb
 General search               | find
@@ -1064,7 +1148,7 @@ General search               | find
                              | find / -user student -> search all files owned by student
                              |
 --------------------------------------------------------------------------------
-== Globbing ==
+## Globbing
 Glob any number of chars     | *
 Glob 1 of any char           | ?
 Glob 1 of a list of chars    | [hm] -> either h or m
@@ -1072,7 +1156,7 @@ Exclued 1 of a list of chars | [!hm] -> any char except h or m
 Glob 1 of a range of numbers | [0-9] -> any number between 0 and 9
                              |
 --------------------------------------------------------------------------------
-== RPM ==
+## RPM
 Install package              | rpm -i telnet.rpm
 remove package               | rpm -e telent.rpm
 query package                | rpm -q telnet.rpm
@@ -1083,7 +1167,7 @@ Install package              | yum install ansible
 View YUM Repos               | yum repolist
                              |
 --------------------------------------------------------------------------------
-== Working with Linux Files - Permissions / Links ==
+## Working with Linux Files - Permissions / Links
   Hard / Soft Links          | Hard Link:
                              |   * Additional name for an existing file
                              |   * Can't be created for directories
