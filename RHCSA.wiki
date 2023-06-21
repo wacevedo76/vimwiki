@@ -925,7 +925,7 @@
                              |
     Start the tuned daemon   | systemctl enable --now tuned
                              |
-    Find out which profile   | tuned-adm
+    Find out which profile   | tuned-adm active
     is currenty selected     |
                              |
     List available profiles  | tuned-adm list
@@ -934,21 +934,6 @@
                              |
     Have tuned recommend a   | tuned-adm recommend
     profile                  |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
 --------------------------------------------------------------------------------
 == Man ==
