@@ -42,7 +42,7 @@
                              | [Install]
                              | WantedBy=multi-user.target
                              |
-  Initialize new and custom  | *systemctl daemon-reload*                          <- Forces systemd to re-read all unit files
+  Initialize new and custom  | **systemctl daemon-reload**                          <- Forces systemd to re-read all unit files
   Units                      |
                              |
   example of unit file       | -------------------------------------------------
@@ -104,20 +104,5 @@
                              |
     add a unit to specific   | # Probably *don't* want to do this. It might be more advantagious to do this in the unit file
     Target                   | systemctl add-wants multi-user.target nginx.service
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
 --------------------------------------------------------------------------------

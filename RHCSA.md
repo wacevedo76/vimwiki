@@ -937,6 +937,8 @@
                              |
 --------------------------------------------------------------------------------
 ## Chapter 11 - Working with Systemd
+[[linuxGeneralConcepts/systemd|Additional Systemd Notes]]
+
   **Types of systemd units**     | automount
                              | device
                              | mount
@@ -1017,8 +1019,8 @@
                              | * **[Install]** - Indicates in which target this
                              |   unit has to be started.
                              |
-  *Understanding Systemd*      | A mount unit specifies how a file system can be
-  *Mount Units*                | mounted on a specific directory.
+  **Understanding Systemd**      | A mount unit specifies how a file system can be
+  **Mount Units**                | mounted on a specific directory.
                              |
                              | Exampe: A Mount Unit Files
                              |
@@ -1042,12 +1044,12 @@
                              | This shows some interesting Additional
                              | configureation options in its sections:
                              |
-                             | **[Unit]** The **Conflicts** statement is used o
+                             | [**Unit**] The **Conflicts** statement is used o
                              | list units that cannot be used together with this
                              | unit. Use this statement for mutually exclusinve
                              | units
                              |
-                             | **[Mount]** This section definesexactly where the
+                             | [**Mount**] This section defines exactly where the
                              | mount has to be performed. Here you see the
                              | arguments that are typically used in any
                              | **mount** command.
@@ -1102,6 +1104,162 @@
                              |     Requires=basic.target
                              |     Conflics=rescue.service rescue.target
                              |     After=basic.target rescue.service rescue.target
+                             |     AllowIsolate=yes
+                             |
+                             |     [Install]
+                             |     Alias=default.target
+                             |
+  **Managing Units Through**     | **Systemd Status Overview**
+  **Systemd**                    | **Status**             **Description**
+                             | Loaded             The unit file has been processed and the unit is active
+                             | Active(running)    The unit is running with one or more active processes
+                             | Active(exited)     The unit has successfully completed a one-time run
+                             | Active(waiting)    The unit is running and waiting for an event
+                             | Inactive(dead)     The unit is not running
+                             | Enabled            The unit will be started at boot time
+                             | Disabled           The unit will not be started at boot time
+                             | Static             The unit connot be enabled but may be started by another unit automatically
+                             |
+    Display current unit     | systemct **cat** <full_unit_filename>
+    configuration            |
+                             |
+  **systemctl Unit Overview**    | **Command**                            **Description*
+  **commands**                   | systemctl --type=service           Shows only service units
+                             |
+                             | Systemctl list-units --            Shows all active services units (same results as the
+                             | type=servie                        previous command)
+                             |
+                             | systemctl list-units --            Shows inactive service units as well as acive service units
+                             | type=service --all
+                             |
+                             | systemctl --failed --              Shows all services that have failed
+                             | type=service
+                             |
+                             | systemctl status -l your.service   Shows detailed status information about service
+                             |
+  **Managing Dependencies**      | In general, there are two ways to manage Systemd dependencies:
+                             | * Unit types such as socket and path are directly
+                             |   related to a service unit. Accessing either of
+                             |   these unit types will automatically trigger the
+                             |   service type
+                             |
+                             | * Dependencies can be defined within the unit,
+                             |   using keywords like **Requires**, **Requisite**,
+                             |   **After**, and **Before**
+                             |
+    Request a list of        | systemctl list-dependencieskj
+    Dependencies             |     -- reverse   --> find out which units are dependents of this unit
+                             |
+                             | To ensure accurate dependency management, you can
+                             | use differet keywords in the [Unit] section of a unit:
+                             |
+                             | **Requires**: If this unit loads, units listed
+                             | here will load also. If one of the other units is
+                             | deactivated, this unit will also be deactivated
+                             |
+                             | **Requisite**: If the unit listed here is not
+                             | already loaded, this unit will fail
+                             |
+                             | **Wants**: This unit wants to load the units that
+                             | are listed here, but it will not fail if any of
+                             | the listed units fail
+                             |
+                             | **Before**: This unit wil start before the unit specified with **Before**
+                             |
+                             | **After**: This unit will start after the unit specified with **After**
+                             |
+    Show which options are   | systemctl show <unit_name>
+    Available for a specific |
+    unit                     |
+                             |
+    Recommended whay to apply| systemctl edit <unit_name>
+    options to a unit file   |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+## Chapter 12 - Scheduling Tasks
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
