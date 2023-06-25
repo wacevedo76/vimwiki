@@ -15,6 +15,7 @@
   * [[Python]]
   * [[Ruby]]
   * [[TypeScript]]
+  * [[javascript/Javascript_index|Javascript]]
   * [[c]]
   * [[webdev/webdev_index|WebDev]]
 
