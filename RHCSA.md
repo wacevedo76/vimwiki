@@ -991,7 +991,7 @@
                              | following three sections (other types of unit
                              | files have different sections).
                              |
-                             | * **[Unit]** - Describes the unit and defines
+                             | * [**Unit**] - Describes the unit and defines
                              |   dependencies. This section also contains the
                              |   important *After* statement and optionally
                              |   the *Before* statement. These statemens define
@@ -1003,7 +1003,7 @@
                              |   this unit should be started after the unit that
                              |   is specified.
                              |
-                             | * **[Service]** - Describes how to start and stop
+                             | * [**Service**] - Describes how to start and stop
                              |   the service and request status installation.
                              |   Normally, you can expect and **ExecStart** line,
                              |   which indicates how to start the unit, or an
@@ -1016,7 +1016,7 @@
                              |   from a Systemd unit. See **man 5 systemd.service**
                              |   for more details
                              |
-                             | * **[Install]** - Indicates in which target this
+                             | * [**Install**] - Indicates in which target this
                              |   unit has to be started.
                              |
   **Understanding Systemd**      | A mount unit specifies how a file system can be
@@ -1175,111 +1175,26 @@
     Recommended whay to apply| systemctl edit <unit_name>
     options to a unit file   |
                              |
-                             |
-                             |
-                             |
-                             |
 --------------------------------------------------------------------------------
 ## Chapter 12 - Scheduling Tasks
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  **Understanding cron Timing**  | cron Time and Date Fields
+                             | **Field**          **Values**
+                             | minute         0-59
+                             | hour           0-23
+                             | day of month   1-31
+                             | month          1-12 (or nams tha tare better avoided)
+                             |
+                             | In any of these fields, you can use an * as a
+                             | wildcard to refere to any value. Ranges of
+                             | numbers are allowed, as are lists and patterns.
+                             | Some examples are:
+                             |
+                             |   - * 11 * * *       --> Every minute between 11:00 11:59
+                             |   - 0 11 * * 1-5     --> Every day at 11 a.m. on weekdays only
+                             |   - 0 7-8 * * 1-5    --> Every hour at the top of the hour between 7 am and 6 pm. on weekdays
+                             |   - 0 `*/2` 2 12 5     --> Every two hours on the hour on December 2 and every Friday in December
+                             |
+                             | Refer to **man 5 crontab** to show all possible constructions
                              |
 --------------------------------------------------------------------------------
 ## Man
