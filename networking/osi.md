@@ -59,7 +59,7 @@ OSI Model Layers and descriptions
                              | application developers. Exmaples include FTP,
                              | Skype, etc
                              |
-  6 - Presentation           | Specifies methods for expressing dat aformats
+  6 - Presentation           | Specifies methods for expressing dat a formats
                              | and translation rules for applications. A
                              | standard example would b conversion of EBCDIC
                              | to ASCII coding for characters (but of little
@@ -226,15 +226,15 @@ Data Ecapsulation and decapsulation within the OSI model context
   `+---------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+`
   `| Octet   | Bit   |  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 |`
   `+---------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+`
-  `|    0    |   0   |                  Source Port                                                  |            Destination port                                                   |`
+  `|    0    |   0   |                  Source Port  (16 bits)                                       |            Destination port  (16 bits)                                        |`
   `+---------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+`
-  `|    4    |  32   |                                                                 Sequence Number                                                                               |`
+  `|    4    |  32   |                                                                 Sequence Number  (32 bits)                                                                    |`
   `+---------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+`
-  `|    8    |  64   |                                                           Acknowledgment Number (if ACK set)                                                                  |`
+  `|    8    |  64   |                                                           Acknowledgment Number (if ACK set)  (32 bits)                                                       |`
   `+---------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+`
   `|   12    |  96   | Data offset  | Reserved          | TCP Flags                                  |                                                                               |`
-  `|         |       |              |                   |N   |C   |E   |U   |A   |P   |R   |S   |F   |                                                                               |`
-  `|         |       |              |                   |S   |W   |C   |R   |C   |S   |S   |Y   |I   |            Window Size                                                        |`
+  `|         |       | (HLEN)       | (6 bits)          |N   |C   |E   |U   |A   |P   |R   |S   |F   |            Window Size                                                        |`
+  `|         |       | (4 bits)     |                   |S   |W   |C   |R   |C   |S   |S   |Y   |I   |             (16 bits)                                                         |`
   `|         |       |              | 000               |    |R   |E   |G   |K   |H   |T   |N   |N   |                                                                               |`
   `+---------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+`
   `|   16    | 128   |                  Checksum                                                     |            Urgent pointer (if URG set)                                        |`
