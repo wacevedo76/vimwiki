@@ -1196,6 +1196,41 @@
                              |
                              | Refer to **man 5 crontab** to show all possible constructions
                              |
+                             |  Example of job definition:
+                             |  .---------------- minute (0 - 59)
+                             |  |  .------------- hour (0 - 23)
+                             |  |  |  .---------- day of month (1 - 31)
+                             |  |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+                             |  |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+                             |  |  |  |  |  |
+                             |  *  *  *  *  * user-name  command to be executed
+                             |
+  Which files to modify      | Instead of modifying /etc/crontab, different
+                             | configuration files are used:
+                             |   * cron files in /etc/cron.d
+                             |   * Scripts in /etc/cron.hourly,
+                             |       cron.daily, cron.weekly, and cron.monthly
+                             |   * User-specific files that are created with **crontab -e**
+                             |
+  Start a user specific cron | * crontab -e (as specific user)
+  job                        | * crontab -e -u <username> (as root)
+                             |
+                             | If you want to add cron jobs that are not bound
+                             | to a specific user account (and which for that
+                             | reasn by default will be executed as root if not
+                             | specifie otherwise), you add these to the
+                             | **/etc/cron.d** directory
+                             |
+                             | The last way to schedule cron jobs is through the following directories:
+                             |   * /etc/cron.hourly
+                             |   * /etc/cron.daily
+                             |   * /etc/cron.weekly
+                             |   * /etc/crony.monthly
+                             |
+                             | In these directories, you typically find
+                             | scripts (not files the meet the crontab syntax
+                             | requirements)
+                             |
 --------------------------------------------------------------------------------
 ## Man
 Manpage types                | 1   Executable programs or shell commands
@@ -1265,8 +1300,6 @@ View YUM Repos               | yum repolist
                              | 022            -rw-r--r--          drwxr-xr-x
                              | 027            -rw-r-----          drwxr-x---
                              | 077            -rw-------          drwx------
-                             |
---------------------------------------------------------------------------------
                              |
                              |
                              |
