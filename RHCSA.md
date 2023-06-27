@@ -1253,20 +1253,20 @@
                              |
 --------------------------------------------------------------------------------
 ## Chapter 13 - Configure Logging
+  The 3 primary places to    | * Direct write: Some services write loggin
+  search for logs            |   information directly to the log files
                              |
+                             | * rsyslogd: rsyslogd is the enhancement of
+                             |   syslogd, a service that takes care of managing
+                             |   centralized log files.
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | * journald: With the introduction of Systemd, the
+                             |   journald log service systemd-journald has been
+                             |   introduced also. This service is tightly
+                             |   integrated with Systemd, which allows
+                             |   administrators to read detailed information
+                             |   from the journal while monitoring service
+                             |   status using the systemctl status command
                              |
                              |
                              |
