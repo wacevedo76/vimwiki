@@ -1215,6 +1215,9 @@
   Start a user specific cron | * crontab -e (as specific user)
   job                        | * crontab -e -u <username> (as root)
                              |
+  List jobs for specific     | * crontab -l
+  User                       |
+                             |
                              | If you want to add cron jobs that are not bound
                              | to a specific user account (and which for that
                              | reasn by default will be executed as root if not
@@ -1230,6 +1233,65 @@
                              | In these directories, you typically find
                              | scripts (not files the meet the crontab syntax
                              | requirements)
+                             |
+  Limit users ability to     | /etc/cron.allow and /etc/cron.deny (both files
+  create cron jobs           | should not exist at the same time)
+                             |
+  **Configuring at to Schedule** | To run a job through the **atd** service, you
+  **Future Tasks**               | would use the **at** command, followed by the
+                             | time the job needs to be executed. This can at a
+                             | specific time, as in **at 14:00**, but it can
+                             | also be a time indication like **at teatime** or
+                             | **at noon**. After you type this, the at shell
+                             | opens. From this shell, you can type several
+                             | commands that will be executed at the specific
+                             | time that is mentioned. Press Ctrl-D to quit the
+                             | **at** shell.
+                             |
+  Get overview of jobs       | atq  --> (at queue)
+  scheduled with at          |
+                             |
+--------------------------------------------------------------------------------
+## Chapter 13 - Configure Logging
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 ## Man
