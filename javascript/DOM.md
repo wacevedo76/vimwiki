@@ -30,6 +30,66 @@
                              |         prototype just like all objects in
                              |         JavaScript
                              |
+  The most common Node prop- | *Node Properties*
+  erties and methods inheri- |    * childNodes
+  ted by all node objects    |    * firstChild
+                             |    * lastChild
+                             |    * next Sibling
+                             |    * nodeName
+                             |    * nodeType
+                             |    * nodeValue
+                             |    * parentNode
+                             |    * preveiousSibling
+                             |
+                             | *Node Methods*
+                             |    * appendChild()
+                             |    * cloneNode()
+                             |    * compareDocumentPosition()
+                             |    * contains()
+                             |    * hasChildNodes()
+                             |    * insertBefore()
+                             |    * isEqualNode()
+                             |    * removeChild()
+                             |    * replaceChild()
+                             |
+                             | *Document methods*
+                             |    * document.createElement()
+                             |    * document.createTextNode()
+                             |
+                             | *HTML`*Element` properties*
+                             |    * innerHTML
+                             |    * outerHTML
+                             |    * textContent
+                             |    * innerText
+                             |    * outerText
+                             |    * firstElementChild
+                             |    * lastElementChild
+                             |    * nextElementChild
+                             |    * previousElementChild
+                             |    * children
+                             |
+                             | *HTML element method*
+                             |    * insertAdjacentHTML()
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
