@@ -1253,14 +1253,14 @@
                              |
 --------------------------------------------------------------------------------
 ## Chapter 13 - Configure Logging
-  The 3 primary places to    | * Direct write: Some services write loggin
+  The 3 primary places to    | * **Direct write**: Some services write loggin
   search for logs            |   information directly to the log files
                              |
-                             | * rsyslogd: rsyslogd is the enhancement of
+                             | * **rsyslogd**: rsyslogd is the enhancement of
                              |   syslogd, a service that takes care of managing
                              |   centralized log files.
                              |
-                             | * journald: With the introduction of Systemd, the
+                             | * **journald**: With the introduction of Systemd, the
                              |   journald log service systemd-journald has been
                              |   introduced also. This service is tightly
                              |   integrated with Systemd, which allows
@@ -1321,6 +1321,46 @@
                              | * Message content
                              |
   **Live Log Monitoring**        | tail -f <logfile>
+                             |
+  **Using logger**               | The **logger** command enables users to write
+                             | messages to rsyslog from the command line or a
+                             | script. To use logger, just type **logger**, followed
+                             | by the message you want to write to the logs
+                             |
+  **Configureing rsyslogd**      |
+    rsyslogd configuration   | /etc/rsyslog.conf
+    file                     |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
