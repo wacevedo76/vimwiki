@@ -1328,16 +1328,56 @@
                              | by the message you want to write to the logs
                              |
   **Configureing rsyslogd**      |
-    rsyslogd configuration   | /etc/rsyslog.conf
-    file                     |
+    rsyslogd Primary         | /etc/rsyslog.conf
+    configuration file       |
+                             |
+    Other files that are     | /ect/rsyslog.d
+    used to configure        |
+    rsyslogd                 |
+                             |
+    setting additional       | /etc/sysconfig/rsyslog   --> SYSLOGD_PTIONS=""
+    startup options          |                define rsyslogd startup options
                              |
                              |
+  **Understanding rsyslog.conf** | The rsyslog.conf file is used to specify what
+  **Sections**                   | should be logged and where it should be logged.
+                             | To do this, you'll find different sections in the
+                             | rsyslog.conf file:
                              |
+                             | * #### **MODULES** ####: Rsyslogd is modular.
+                             | Modules are included to enhance the support
+                             | features in rsyslogd.
                              |
+                             | * #### **GLOBAL DIRECTIVES** ####: This section is
+                             | used to specify global parameters, such as the
+                             | location where auxiliary files are written or the
+                             | default timestamp format.
                              |
+                             | * #### **RULES** ####: This is the most important
+                             | part of the rsyslog.conf file. It contains the
+                             | rules that specify what information should be
+                             | logged to which estination.
                              |
+  **Understanding Facilities**,  | To specify what information should be logged to
+  **Priorities, and Log**        | which destination, rsyslogd uses facilities,
+  **Destinations**               | priorities, and destinations:
                              |
+                             | * A *facility* specifies a category of information
+                             | that is logged. rsyslogd uses a fixed list of
+                             | facilities, which cannot be extended. This is
+                             | because of backward compatibility with the legacy
+                             | syslog service.
                              |
+                             | * A *priority* is used to define the the severity
+                             | of the message that needs to be logged. When you
+                             | specify a priority, by default all messages with
+                             | the priority and all higher priorites are logged.
+                             |
+                             | * A *destination* defines whre the message should
+                             | be written. Typical destinations are files, but
+                             | rsyslog modules can be used as a destination as
+                             | well, to allow further processing through a
+                             | rsyslogd module
                              |
                              |
                              |
