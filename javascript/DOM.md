@@ -12,10 +12,10 @@
                              |   * DOCUMENT_TYPE_NODE (e.g., <!DOCTYPE html>)
                              |
   Node Interfaces/constructor| **Interface/constructor**                    **nodeType (returned from .nodeType)**
-  and corresponding numeric  | HTML`*Element` [e.g., HTMLBodyElemen]      1 (i.e., ELEMENT_NODE)
-  classification and name    | Text                                     3 (i.e., TEXT_NODE)
-  given to instances         | Attr                                     2 (i.e., ATTRIBUTE_NODE)
-                             | HTMLDocument                             9 (i.e., DOCUMENT_NODE)
+  and corresponding numeric  | HTML`*Element` [e.g., HTMLBodyElemen]       1 (i.e., ELEMENT_NODE)
+  classification and name    | Text                                      3 (i.e., TEXT_NODE)
+  given to instances         | Attr                                      2 (i.e., ATTRIBUTE_NODE)
+                             | HTMLDocument                              9 (i.e., DOCUMENT_NODE)
                              | DocumentFragment                         11 (i.e., DOCUMENT_FRAGMENT_NODE)
                              | DocumentType                             10 (i.e., DOCUMENT_TYPE_NODE)
                              |
