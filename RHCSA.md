@@ -1356,7 +1356,7 @@
                              | * #### **RULES** ####: This is the most important
                              | part of the rsyslog.conf file. It contains the
                              | rules that specify what information should be
-                             | logged to which estination.
+                             | logged to which destination.
                              |
   **Understanding Facilities**,  | To specify what information should be logged to
   **Priorities, and Log**        | which destination, rsyslogd uses facilities,
