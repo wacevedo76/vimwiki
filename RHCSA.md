@@ -828,7 +828,7 @@
    nice                      | Start a process with an adjusted priority
                              |
    renice                    | Change the priority for a currently active process.
-
+                             |
    r (from within *top*)       | Use the *r* command from the *top* utility to
                              | change the priority of a currently running
                              | process
@@ -1433,6 +1433,46 @@
                              |   cron.=debug -/var/log/cron.debug
                              |
   **Rotating Log Files**         | /etc/logrotate.conf  --> Default settings
+                             |
+  **Working with journald**      | The systemd-journald service stores log
+                             | messages in the hournal, a binary file that is
+                             | temorarily stored in the file /run/log/journal.
+                             | This file can be examined using the **journalctl**
+                             | command
+                             |
+    Some journalctl options  | journalctl --no-pager            Streams the contents
+                             | journalctl -f                    opens a live view (most recent contents)
+                             | journalctl <tab> <tab>           Shows specific options that can be used for filtering (??)
+                             | journalctl -n {n}                Display the last {n} lines of the jouranl (like tail)
+                             | journalctl -p {err}              Filter ouput by message priorities
+                             | --since/--until YYYY-MM-DDD
+                             |   yesterday | today | tomorrow
+                             | journalctl --dmesg               Shows kernel-related messages only (dmsg)
+                             | journalctl -o verbose
+                             | journalctl _SYSTEMD_UNIT=sshd.service   specifies service to filter (sshd)
+                             |
+  **Preserving the Systemd**     | *Ensure that /var/log/journal/ directory exists
+  **Journal**                    | /etc/systemd/hournal.conf persistence values:
+                             |   * Storage=auto       The journal will be written on diks if the directory /var/logk
+                             |   * Storage=volatile   The journal will be stored only in the /run/log/journal directory
+                             |   * Storage=persistent The journal will be stored on disk in the directory /var/log/journal.
+                             |                        This directory will be created automatically if id doesn't exist
+                             |   * Storage=none       No data will be stored, but forwarding to other targest such as
+                             |                        the kernel log buffer or syslog will still work
+                             |
+    notes                    | * The journal has monthly built-in log rotation
+                             | * The journal is limited to 10% of the files system size and will
+                             |   stop growing if less than 15% of file system is still free
+                             |   (to change these settings - /etc/systemd/hournald.conf)
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 ## Man
