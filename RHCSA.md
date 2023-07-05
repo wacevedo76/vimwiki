@@ -1339,6 +1339,9 @@
                              | script. To use logger, just type **logger**, followed
                              | by the message you want to write to the logs
                              |
+    log message with specific| logger -p user.**notice** "some text"
+    priority                 |
+                             |
   **Configureing rsyslogd**      |
     rsyslogd Primary         | /etc/rsyslog.conf
     configuration file       |
@@ -1449,7 +1452,7 @@
                              |   yesterday | today | tomorrow
                              | journalctl --dmesg               Shows kernel-related messages only (dmsg)
                              | journalctl -o verbose
-                             | journalctl _SYSTEMD_UNIT=sshd.service   specifies service to filter (sshd)
+                             | `journalctl _SYSTEMD_UNIT=sshd.service   specifies service to filter (sshd)`
                              |
   **Preserving the Systemd**     | *Ensure that /var/log/journal/ directory exists
   **Journal**                    | /etc/systemd/hournal.conf persistence values:
@@ -1464,15 +1467,6 @@
                              | * The journal is limited to 10% of the files system size and will
                              |   stop growing if less than 15% of file system is still free
                              |   (to change these settings - /etc/systemd/hournald.conf)
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
                              |
 --------------------------------------------------------------------------------
 ## Man
