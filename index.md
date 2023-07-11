@@ -78,4 +78,5 @@
   * [[irc/irc_index|irc]]
   * [[Quotes]]
   * [[Maths/Index|Maths]]
+  * [[languages/languages_index|Languages]]
   * [[bujo|Bullet Journal]]
