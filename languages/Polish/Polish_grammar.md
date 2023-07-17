@@ -67,4 +67,27 @@
 
 ## Instrumental Case (czym? kim?)
   The instrumental case is used:
+  1. For predicate nouns after linking verbs like **być** be and **zostać** become
+  2. To express *by means of* (agent) and *by way of* (path, route)
+  3. To express body movement to accompany an action
+  4. To express abstract causes
+  5. To express *with respect to*
+  6. To express seasons and periods of time
+  7. For the object of the static-location prepositions **między** (between),
+     **nad** (over), **pod** (under), **przed** (before), **z** (with), and
+     **za** (behind)
+  8. For the object of certain verbs, for example, **interesować się**
+     (*be interested in*), **kierować** (*direct*), **zajmować się** (*be*
+     *busy with*), and **władać** (*have power over, master*)
+
+## Locative Case (o czym? o kim?)
+  The locative case is used after the prepositions **w** (*in*), **na**
+  (*on, at*), **o** (*about*), **po** (*after*), and **przy** (*near, during, while*)
+
+## Vocative Case
+  Usually, the nominative case functions as a de facto vocative.
+  In conjunction with titles, however, the vocative is obligatory.
+  The vocative case is usually used with diminutive (affectionate) forms of
+  first names: Kasiu! Grzesiu! With other first names, it is optional.
+
 
