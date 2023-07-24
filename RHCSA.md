@@ -1454,7 +1454,7 @@
                              | journalctl -o verbose
                              | `journalctl _SYSTEMD_UNIT=sshd.service   specifies service to filter (sshd)`
                              |
-  **Preserving the Systemd**     | *Ensure that /var/log/journal/ directory exists
+  **Preserving the Systemd**     | Ensure that /var/log/journal/ directory exists
   **Journal**                    | /etc/systemd/hournal.conf persistence values:
                              |   * Storage=auto       The journal will be written on diks if the directory /var/logk
                              |   * Storage=volatile   The journal will be stored only in the /run/log/journal directory
@@ -1467,6 +1467,94 @@
                              | * The journal is limited to 10% of the files system size and will
                              |   stop growing if less than 15% of file system is still free
                              |   (to change these settings - /etc/systemd/hournald.conf)
+                             |
+--------------------------------------------------------------------------------
+## Chapter 14 - Managing Storage
+  **The MBR Partitioning**       | * An operating system boot loader is as well as
+  **Scheme**                     |   the partition table is present on MBR
+                             | * The MBR was defines as the first 512 bytes on a
+                             |   Computer's bootable hard drive
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
+## Chapter 15 - Managing Advanced Storage
+  **LVM Architecture**           | * Physical volumes - Complete disks, partitions,
+                             |     logical units (LUns), storage-area network (SAN), etc
+                             |
+                             | * Volume group - Physical volumes are grouped or added together.
+                             |
+                             | * Logical volumes - They layer at which a file system is created
+                             |
+                             | **Note**: It is a good idea to avoid logical volumes
+                             |       from spanning from spanning multiple physical
+                             |       volumes; if one of the physical volumes breaks,
+                             |       all of the file on the LVM file system will
+                             |       become inaccessible.
+                             |
+  **LVM Features**               | * Volumes are no longer bound to the resctrictions of
+                             |   physical hard drive.
+                             | * Volume groups can be easily extended by adding a new
+                             |   physical volume if aditional storage space is needed
+                             | * Logical volums can also be reduced if the file system
+                             |   on the volume supports the feature
+                             | * LVM supports snapshots
+                             | * Failing hardware can be replaced easily.
+                             |
+  **Creating LVM Logical**       | Creating LVM Logical volumes involves creating the three
+  **Volumes**                    | layesr in the LVM architecture.
+                             | * Convert physical devices (disks, partitons) into
+                             |   physical volumes (PVs)
+                             | * Create the Volume group and assign PVs to it
+                             | * Create logical volume (LV) itself.
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 ## Man
