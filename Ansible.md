@@ -2,21 +2,21 @@
 = Ansible =
 --------------------------------------------------------------------------------
 == Installation ==
-Extra Packages for         | yum list epel-release
-Enterpise Linux (EPLE)     |
-                           |
-Primary configuration file | /etc/ansible/ansible.cfg
-                           |   (this configuration file describes where the
-                           |    the other config files are located)
-                           |
+Extra Packages for           | yum list epel-release
+Enterpise Linux (EPLE)       |
+                             |
+Primary configuration file   | /etc/ansible/ansible.cfg
+                             |   (this configuration file describes where the
+                             |    the other config files are located)
+                             |
 --------------------------------------------------------------------------------
 == Misc commands ==
-                           |
-Running ansible plays      | ansible-playbook myplaybook.yml
-                           | ansible-playbook myplaybook.yml --syntax-check
-                           | ansible-playbook myplaybook.yml --list-hosts
-                           | ansible-playbook myplaybook.yml --list-tasks
-                           |
+                             |
+Running ansible plays        | ansible-playbook myplaybook.yml
+                             | ansible-playbook myplaybook.yml --syntax-check
+                             | ansible-playbook myplaybook.yml --list-hosts
+                             | ansible-playbook myplaybook.yml --list-tasks
+                             |
 --------------------------------------------------------------------------------
 == Ansible Architecture ==
   Ansible Inventory          | The Ansible inventory is a file or script that
