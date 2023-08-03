@@ -1474,9 +1474,9 @@
   **Scheme**                     |   the partition table is present on MBR
                              | * The MBR was defines as the first 512 bytes on a
                              |   Computer's bootable hard drive
-                             |
-                             |
-                             |
+                             | * The partition table was 64 bytes
+                             | * Maximum size that could be used by a partition
+                             |   was 2 TiB
                              |
                              |
                              |
@@ -1521,22 +1521,22 @@
                              | * Logical volumes - They layer at which a file system is created
                              |
                              | **Note**: It is a good idea to avoid logical volumes
-                             |       from spanning from spanning multiple physical
-                             |       volumes; if one of the physical volumes breaks,
-                             |       all of the file on the LVM file system will
+                             |       from spanning multiple physical volumes;
+                             |       if one of the physical volumes breaks, all
+                             |       of the files on the LVM file system will
                              |       become inaccessible.
                              |
   **LVM Features**               | * Volumes are no longer bound to the resctrictions of
                              |   physical hard drive.
                              | * Volume groups can be easily extended by adding a new
-                             |   physical volume if aditional storage space is needed
+                             |   physical volume if additional storage space is needed
                              | * Logical volums can also be reduced if the file system
                              |   on the volume supports the feature
                              | * LVM supports snapshots
                              | * Failing hardware can be replaced easily.
                              |
   **Creating LVM Logical**       | Creating LVM Logical volumes involves creating the three
-  **Volumes**                    | layesr in the LVM architecture.
+  **Volumes**                    | layers in the LVM architecture.
                              | * Convert physical devices (disks, partitons) into
                              |   physical volumes (PVs)
                              | * Create the Volume group and assign PVs to it
