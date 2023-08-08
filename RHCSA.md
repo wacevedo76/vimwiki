@@ -1542,14 +1542,14 @@
                              | * Create the Volume group and assign PVs to it
                              | * Create logical volume (LV) itself.
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  **Creating the Physical**      | Before you can use the LVM tools to create physical
+  **Volumes**                    | volumes, you need to create a partitionmarked as
+                             | the LVM partition type:
+                             |   * In fdisk and gdisk: use **t** from the menu to change
+                             |     the type
+                             |   * If you are using an MBR disk, the partition type is 8e
+                             |   * If you are using a GUID disk, use the partiton type 8e00
+                             |   * If you are using **parted**, use **set n lvm on**
                              |
                              |
                              |
