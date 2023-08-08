@@ -1628,6 +1628,49 @@
                              | * **yum install kernal** - the same as above
                              |
 --------------------------------------------------------------------------------
+## Chapter 17 - Managing and Understanding the Boot Procedure
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
 ## Man
 Manpage types                | 1   Executable programs or shell commands
                              | 2   System calls (functions provided by the kernel)
