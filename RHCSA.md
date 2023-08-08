@@ -1629,46 +1629,82 @@
                              |
 --------------------------------------------------------------------------------
 ## Chapter 17 - Managing and Understanding the Boot Procedure
+  **Understanding Systemd**      | A Systemd *target* is basically just a group of
+  **Targets**                    | units that belong together. Some targets are used
+                             | to define the state a system is booting in, and these
+                             | can be isolated. Four targets can be used while booting:
                              |
+                             | * **emergency.target**: In this target only a minimal
+                             |   number of units are started, just enough to fix your
+                             |   system if something is seriously wrong.
                              |
+                             | * **rescue.target**: This target starts all units that are
+                             |   required to get a fully operational Linux system. It
+                             |   doesn't start nonessential services though.
                              |
+                             | * **multi-user.target**: This target is often used as the
+                             |   the default target a system starts in.  It starts
+                             |   everyting that is needed for full system functionality
+                             |   and is commonly used on servers.
                              |
+                             | * **graphical.target**: This target also is commonly
+                             |   used. It starts all units that are needed for full
+                             |   functionality, as well as a graphical interface.
                              |
+  **Working with Targets**       | Working with targets comes down to three common tasks:
+                             | * Adding units to be automatically started
+                             | * Setting a default target
+                             | * Running a nondefault target to enter troubleshooting mode
                              |
+  **Understanding Target Units** | Target configuration consists of two parts:
+                             | * The target unit file
+                             | * The "wants" directory, which contains references
+                             |   to all unit files that need to be loaded when
+                             |   entering a specific target
                              |
+  multi-user.target file     | /usr/lib/systemd/system/multi-user.target
+  command to display file    | **systemctl cat multi-user.target**
                              |
+  **Understanding Wants**        | Wants are created when Systemd units are enabled
+                             | using **systemctl enable**, and this happens by
+                             | creating a symbolic link in the /etc/systemd/system
+                             | directory. In this directory, you'll finda
+                             | subdirectory for every target, containing wants
+                             | as symbolic links to specific servies that are
+                             | to be started
                              |
+  Display list of all        | systemctl --type=target         -- only active targets
+  currently loaded targets   | systemctl --type=target -- all  -- all targets existing on the system
                              |
+  Starter targets and        | poweroff.target    runlevel 0
+  associated runlevels       | rescue.target      runlevel 1
+                             | multi-user.target  runlevel 3
+                             | graphical.target   runlevel 5
+                             | reboot.target      runlevel 6
                              |
+  display current default    | systemctl get-default
+  target                     |
                              |
+  Set the default target     | systemctl set-default
                              |
+  **Understanding GRUB 2**       | The GRUB 2 boot loader makes sure that you
+                             | can boot Linux. GRUB 2 is installed in the boot
+                             | sector of your server's hard drive and is
+                             | configured to load a Linux kernel and he iniramfs
                              |
+  Applying changes to GRUB 2 | Starting point: /etc/default/grub
+                             | also: /etc/grub.d   **usually does not need to be modified**
                              |
+  **Understanding GRUB 2 config**| Config Files:
+  **file**                       |   BIOS: /boot/grub2/grub.cfg          automatically generated
+                             |   UEFI: /boot/efi/EFI/{redhat,centos} automatically generated
                              |
+  how to find GRUB 2 boot    | **man 7 bootparam**
+  arguments                  |
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  apply changes to grub2     | **grub2-mkconfig**
+                             | BIOS: grub2-mkconfig -l /boot/grub2/grub.cfg
+                             | UEFI: grub2-mkconfig - /boot/efi/EFI/redhat/grub.cfg
                              |
 --------------------------------------------------------------------------------
 ## Man
