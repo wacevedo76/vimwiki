@@ -1557,6 +1557,77 @@
                              |
                              |
 --------------------------------------------------------------------------------
+## Chapter 16 - Basic Kernel Management
+  **Tainted Kernel**             | When a kernel is using one or more closed-source
+                             | drivers
+                             |
+  **Analyzing what the Kernel**  | To help analyze what the kernel is doing, the Linux
+  **is doing**                   | operating system provide some tools:
+                             | * The **dmesg** utility
+                             | * The /proc file system
+                             | * The **uname** utility
+                             |
+  **dmesg**                      | * Shows the contents of the kernel ring buffer, an
+                             |   area of memory where the Linux kernel keeps its
+                             |   recent log messages.
+                             | * An alternative is **journalctl --dmesg**
+                             |
+  **/proc**                      | * The **/proc** file system is an interface to the Linux
+                             |   kernel
+                             |
+  **uname**                      | uname -a - overview of all relevant parameters
+                             | uname -r - displayes the current kernel version
+                             |
+  **Understanding Hardware**     | The loading of drivers is an automated process
+  **Initialization**             | that roughly goes like this:
+                             | 1. During boot, the kernel probes available hardware
+                             | 2. Upon detection of a hardware component, the
+                             |    systemd-udevd process takes care of loading the
+                             |    appropriate driver and making the hardware device available
+                             | 3. To decide how the devices are initialized, **systemd-udevd**
+                             |    goes to /etc/udev/rules.d. These are system-provided
+                             |    rules files that should not be modified.
+                             | 4. After processing the system-provided udev rules
+                             |    files, **systemd-udevd**goes to the /etc/udev/rules.d
+                             |    directory to read any custom rules if these are available
+                             | 5. As a result, required kernel modules are loaded
+                             |    automatically, and status about the kernel
+                             |    modules and associated hardware is written to the sysfs
+                             |    file system, which is mounted on the /sys directory.
+                             |    The linux kernel used this pseudo file system to
+                             |    track hardware-related settings
+                             |
+  **Monitoring Hardware changes**| * As root: **udevadm monitor**
+                             |
+  **Managing Kernel Modules**    |
+                             |
+    **lsmod**                    | * Lists currently loaded kernel modules
+    **modinfo**                  | * Displays information about kernel modules
+    **modprobe**                 | * Loads kernel modules, including all of their
+                             |   dependencies
+    **modprobe -r**              | * Unloads kernel modules, considering kernel
+                             |   module dependencies
+    **modinfo**                  | * Gives more information about a specific module
+                             |
+  **Checking Driver**            | Some devices on a system are not supported properly
+  **Availability for Hardware**  | and, as a resulte, their modules are not currently
+  **Devices**                    | loaded. To find out, use the **lspci** command
+                             |
+                             |
+    **lspci**                    | Shows all hardware devices that have been detected
+                             | on the PCI bus.
+                             | * **lspci -k**: lists all kernel modules that are used
+                             |   for the PCI devices that were detected
+                             |
+  **Managing Kernel Module**     | * Occasionally, you might want to load kernel modules
+  **Parameters**                 |   with specific parameters
+                             | * To make this an automated procedure, you can create
+                             |   a file in the /etc/modprobe.d/ directory
+                             |
+  **Upgrading the Linux Kernel** | * **yum upgrade kernel**
+                             | * **yum install kernal** - the same as above
+                             |
+--------------------------------------------------------------------------------
 ## Man
 Manpage types                | 1   Executable programs or shell commands
                              | 2   System calls (functions provided by the kernel)
