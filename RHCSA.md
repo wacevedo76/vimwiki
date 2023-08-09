@@ -1756,6 +1756,45 @@
                              |   commands.
                              | * type **c** to enter a full GRUB command prompt
                              |
+  **Starting a Troubleshooting** | If you encounter trouble when booting your server,
+  **Target**                     | you have several options that you can enter on the
+                             | GRUB boot propmt
+                             |
+                             | * **rd.break**: This stops the boot procedure while
+                             |   still in the initramfs stage. This option is
+                             |   useful if you do not have the root paswword
+                             |   available.
+                             |
+                             | * **init=/bin/sh or init=/bin/bash**: This specifieds
+                             |   that a shell shouldbe started immediately after
+                             |   lodding the kernel and initrd. This is a useful
+                             |   option, but it's not the best option because
+                             |   in some cases you'll lose console access of
+                             |   miss other functionality.
+                             |
+                             | * **systemd.unit=emergency.target**: This enters
+                             |   a mode that loads a bare minimum number of
+                             |   Systemd units. It requires a root password. To
+                             |   see that only a very limited number of unit
+                             |   files habe been loaded, you can type the
+                             |   **systemctl list-units** command
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
