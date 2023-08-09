@@ -1707,6 +1707,49 @@
                              | UEFI: grub2-mkconfig - /boot/efi/EFI/redhat/grub.cfg
                              |
 --------------------------------------------------------------------------------
+## Chapter 18 - Essential Troubleshooting Skills
+  **Understanding the RHEL 8**   | The following summarizes the boot procedure:
+  **Boot Procedure**             | 1. Performing POST
+                             | 2. Selecting the bootable device
+                             | 3. Loading the boot loader
+                             | 4. Loading the kernel and initramfs
+                             | 5. Starting /sbin/init
+                             | 6. Processing initrd.target
+                             | 7. Switching to the root file system
+                             | 8. Running the default target
+                             |
+  **Boot Pase confiuration and** | **Boot Phase**    **Configuring It**                         **Fixing It**
+  **Troubleshooting Overview**   | POST          Hardware configuration (F2, Esc,       Replace hardare
+                             |               F10, or another key).
+                             |
+                             | Selecting     BIOS/UEFI configuration or             Replace hardware or use rescue
+                             | the           hardware boot menu                     system
+                             | bootable
+                             | device
+                             |
+                             | Loading       **grub2-install** and edits to             Use the GRUB boot prompt and edits
+                             | the boot      /etc/defaults/grub                     to /etc/defaults/grub, followed by
+                             | loader                                               **grub2-mkconfig**
+                             |
+                             | Loading       Edits to the GRUB configuration and    Use the GRUB boot prompt and edits
+                             | the kernel    /etc/dracut.conf
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+--------------------------------------------------------------------------------
 ## Man
 Manpage types                | 1   Executable programs or shell commands
                              | 2   System calls (functions provided by the kernel)
