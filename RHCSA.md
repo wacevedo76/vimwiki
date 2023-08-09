@@ -1718,21 +1718,61 @@
                              | 7. Switching to the root file system
                              | 8. Running the default target
                              |
-  **Boot Pase confiuration and** | **Boot Phase**    **Configuring It**                         **Fixing It**
-  **Troubleshooting Overview**   | POST          Hardware configuration (F2, Esc,       Replace hardare
+  **Boot Pase confiuration and** | **Boot Phase**    **Configuring It**                           **Fixing It**
+  **Troubleshooting Overview**   | POST          Hardware configuration (F2, Esc,         Replace hardare
                              |               F10, or another key).
                              |
-                             | Selecting     BIOS/UEFI configuration or             Replace hardware or use rescue
-                             | the           hardware boot menu                     system
+                             | Selecting     BIOS/UEFI configuration or               Replace hardware or use rescue
+                             | the           hardware boot menu                       system
                              | bootable
                              | device
                              |
-                             | Loading       **grub2-install** and edits to             Use the GRUB boot prompt and edits
-                             | the boot      /etc/defaults/grub                     to /etc/defaults/grub, followed by
-                             | loader                                               **grub2-mkconfig**
+                             | Loading       **grub2-install** and edits to               Use the GRUB boot prompt and edits
+                             | the boot      /etc/defaults/grub                       to /etc/defaults/grub, followed by
+                             | loader                                                 **grub2-mkconfig**
                              |
-                             | Loading       Edits to the GRUB configuration and    Use the GRUB boot prompt and edits
-                             | the kernel    /etc/dracut.conf
+                             | Loading       Edits to the GRUB configuration and      Use the GRUB boot prompt and edits
+                             | the kernel    /etc/dracut.conf                         to /etc/defaults/grub, followed by
+                             |                                                        **grub2-mkconfig**
+                             |
+                             | Starting      Compiled into initramfs                  Use the **init = kernel** boot argument,
+                             | /sbin/init                                             **rd.break** kernel boot argument.
+                             |
+                             | Processing    Compiled into initramfs                  Use the **dracut** command. (You
+                             |                                                        won't often have to troubleshoot this).
+                             |
+                             | Switch to     Edits to the /etc/fstab file             Apply edits to the /etc/fstab file.
+                             | the root file
+                             | system
+                             |
+                             | Running       Using **systemctl set-default** to create    Start the rescue.target as a kernel boot
+                             | the default   the /etc/systemd/system/default.target   argument
+                             | target        symbolic link
+                             |
+  **Passing Kernel Boot Arg**    |
+                             |
+  **accessing the Boot Prompt**  | When you see the GRUB 2 menu:
+                             | * type **e** to enter a mode where you can edit
+                             |   commands.
+                             | * type **c** to enter a full GRUB command prompt
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
                              |
                              |
