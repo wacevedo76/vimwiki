@@ -1685,6 +1685,9 @@
   display current default    | systemctl get-default
   target                     |
                              |
+  Display active targets     | systemctl list-units --type target --state active
+                             |
+                             |
   Set the default target     | systemctl set-default
                              |
   **Understanding GRUB 2**       | The GRUB 2 boot loader makes sure that you
@@ -1718,8 +1721,8 @@
                              | 7. Switching to the root file system
                              | 8. Running the default target
                              |
-  **Boot Pase confiuration and** | **Boot Phase**    **Configuring It**                           **Fixing It**
-  **Troubleshooting Overview**   | POST          Hardware configuration (F2, Esc,         Replace hardare
+  **Boot Phase configuration**   | **Boot Phase**    **Configuring It**                           **Fixing It**
+  **/ Troubleshooting Overview** | POST          Hardware configuration (F2, Esc,         Replace hardare
                              |               F10, or another key).
                              |
                              | Selecting     BIOS/UEFI configuration or               Replace hardware or use rescue
@@ -1779,12 +1782,12 @@
                              |   files habe been loaded, you can type the
                              |   **systemctl list-units** command
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+                             | * **systemd.unit=rescue.target**: This starts
+                             |   some more Systemd units to bring you in a more
+                             |   complete operational mode. It does require a
+                             |   root password. To see that only a very limited
+                             |   number of unit files have been loaded, you can
+                             |   type the **systemctl list-units** command.
                              |
                              |
                              |
