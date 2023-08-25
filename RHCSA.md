@@ -96,8 +96,7 @@
                              | -X : Synchronizes SELinux context as well
                              |
 --------------------------------------------------------------------------------
-## Chapter 6 - User and Group Management
-  Get information on a user  | id <USERNAME>
+## Chapter 6 - User and Group Management Get information on a user  | id <USERNAME>
                              |
   Methods to Run tasks with  | su - opens a subsheel as a different user, with
   elevated permissions       |      the advantage that commands are executed as
@@ -1693,7 +1692,7 @@
   **Understanding GRUB 2**       | The GRUB 2 boot loader makes sure that you
                              | can boot Linux. GRUB 2 is installed in the boot
                              | sector of your server's hard drive and is
-                             | configured to load a Linux kernel and he iniramfs
+                             | configured to load a Linux kernel and the iniramfs
                              |
   Applying changes to GRUB 2 | Starting point: /etc/default/grub
                              | also: /etc/grub.d   **usually does not need to be modified**
@@ -1708,7 +1707,7 @@
   apply changes to grub2     | **grub2-mkconfig**
                              | BIOS: grub2-mkconfig -l /boot/grub2/grub.cfg
                              | UEFI: grub2-mkconfig - /boot/efi/EFI/redhat/grub.cfg
-                             |
+                             [|](|)
 --------------------------------------------------------------------------------
 ## Chapter 18 - Essential Troubleshooting Skills
   **Understanding the RHEL 8**   | The following summarizes the boot procedure:
@@ -1720,6 +1719,69 @@
                              | 6. Processing initrd.target
                              | 7. Switching to the root file system
                              | 8. Running the default target
+                             |
+  **Boot Procedure extended**    | **1. Performing POST**
+                             |    The machine is powered on. From the system
+                             |    firmware, which can be the modern Universal
+                             |    Extended Firmware Interface (UEFI) or the
+                             |    classical Basic Input Output System (BIOS),
+                             |    the Power-On Self-Test (POST) is executed and
+                             |    the hardware that is required to start the
+                             |    system is initizlized.
+                             |
+                             | **2. Selecting the bootable device**
+                             |    Either from the UEFI boot firmware of from the
+                             |    BIOS, a bootable device is located
+                             |
+                             | **3. Loading the boot loader**
+                             |    From the bootable device, a boot loader is
+                             |    located. On RHEL, this is usually GRUB 2.
+                             |
+                             | **4. Loading the kernel and initramfs**
+                             |    The boot loader may present a boot menu to the
+                             |    user or can be configurd to automatically
+                             |    start a default operating system. To load
+                             |    Linux, the kernel is loaded together with the
+                             |    initramfs. The initramfs contains kernel
+                             |    modules for all hardware that is required to
+                             |    boot, as well as the initial scripts required
+                             |    to proceed to the next stage of booting. On
+                             |    RHEL 8, the iniramfs contains a complete
+                             |    operational system (which may be used for
+                             |    troubleshooting purposes).
+                             |
+                             | **5. Starting /sbin/init**
+                             |    Once the kernel is loaded into memory, the
+                             |    first of all processes is loaded, but still
+                             |    from the initramfs. This is the /sbin/init
+                             |    process, which on RHEL is linked to Systemd.
+                             |    The udev daemon is loaded as well to take care
+                             |    of further hardware initialization. All this
+                             |    is still happening from the initramfs image.
+                             |
+                             | **6. Processing initrd.target**
+                             |    The Systemd process executes all units from
+                             |    the initrd.target, which prepares a minimal
+                             |    operating environment, where the root file
+                             |    system on disk is mounted on the /sysroot
+                             |    directory. At this point, enough is loaded to
+                             |    pass to the system installation that was
+                             |    written to the hard drive.
+                             |
+                             | **7. Switching to the root file system**
+                             |    The system switches to the root file system
+                             |    that is on disk and at this point can load the
+                             |    Systemd process from disk as well.
+                             |
+                             | **8. Running the default target**
+                             |    Systemd looks for the default target to
+                             |    execute and runs all of its units. In this
+                             |    process, a login screen is presented, and the
+                             |    user can authenticate. Note that the login
+                             |    prompt can be prompted before all Systemd unit
+                             |    files habe been loaded successfully. So,
+                             |    seeing a login prompt does not necessarily
+                             |    mean that your server is fully operational yet.
                              |
   **Boot Phase configuration**   | **Boot Phase**    **Configuring It**                           **Fixing It**
   **/ Troubleshooting Overview** | POST          Hardware configuration (F2, Esc,         Replace hardare
@@ -1763,13 +1825,13 @@
   **Target**                     | you have several options that you can enter on the
                              | GRUB boot propmt
                              |
-                             | * **rd.break**: This stops the boot procedure while
+    **no root password**?        | * **rd.break**: This stops the boot procedure while
                              |   still in the initramfs stage. This option is
                              |   useful if you do not have the root paswword
                              |   available.
                              |
                              | * **init=/bin/sh or init=/bin/bash**: This specifieds
-                             |   that a shell shouldbe started immediately after
+                             |   that a shell should be started immediately after
                              |   lodding the kernel and initrd. This is a useful
                              |   option, but it's not the best option because
                              |   in some cases you'll lose console access of
@@ -1789,26 +1851,46 @@
                              |   number of unit files have been loaded, you can
                              |   type the **systemctl list-units** command.
                              |
+  **Restoring System Acces**     | * Install Red Hat Enterprise Linux 8 in Basic Graphics Mode:
+  **Using a Rescue Disk**        |   This option reinstalls your machine. Do not
+                             |   use it unless you want to troubleshoot a
+                             |   situation where a normal installation does not
+                             |   work and you need a basic graphics mode.
                              |
+                             | * Rescue a Red Hat Enterprise Linux System:
+                             |   This is the most flexible rescue system and
+                             |   should be the first option of choice when
+                             |   using a rescue disk.
                              |
+                             | * Run a Memory Test:
+                             |   Run this option if you encounter memory errors.
+                             |   It allows you to mark bad memory chips so that
+                             |   your machne can boot normally.
                              |
+                             | * Boot from Local Drive:
+                             |   If you cannot boot from GRUB on your hard disk,
+                             |   try this option first. It offeres a boot
+                             |   loader that tries to install from your
+                             |   machine's hard drive, and as such is the least
+                             |   intrusive option available.
                              |
+  **Reinstalling GRUB Using**    | There are two steps:
+  **a Rescue Disk**              | * Make sure that you have made the contents
+                             |   of the /mnt/sysimage directory available to
+                             |   your current working environment, using **
+                             |   chroot** as described before.
                              |
+                             | * Use the **grub2-install** command, followed by
+                             |   the name of the device on which you want to
+                             |   reinstall GRUB 2. So on a KVM virtual machine,
+                             |   the command to use is **grub2-install /dev/vda**
+                             |   , and on a physical server or a VMware or
+                             |   Virtual Box virtual machine, it is **grub2-
+                             |   install /dev/sda**.
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  **Re-creating the Initramfs**  | If the initramfs image is damaged:
+  **Using a Fescue Disk**        | * Boot into the rescue environment
+                             | * Use the **dracut** command
                              |
                              |
                              |
