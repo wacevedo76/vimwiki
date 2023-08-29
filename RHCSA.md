@@ -96,7 +96,8 @@
                              | -X : Synchronizes SELinux context as well
                              |
 --------------------------------------------------------------------------------
-## Chapter 6 - User and Group Management Get information on a user  | id <USERNAME>
+## Chapter 6 - User and Group Management
+  Get information on a user  | id <USERNAME>
                              |
   Methods to Run tasks with  | su - opens a subsheel as a different user, with
   elevated permissions       |      the advantage that commands are executed as
