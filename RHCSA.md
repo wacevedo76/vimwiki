@@ -1852,11 +1852,12 @@
                              |   number of unit files have been loaded, you can
                              |   type the **systemctl list-units** command.
                              |
-  **Restoring System Acces**     | * Install Red Hat Enterprise Linux 8 in Basic Graphics Mode:
-  **Using a Rescue Disk**        |   This option reinstalls your machine. Do not
-                             |   use it unless you want to troubleshoot a
-                             |   situation where a normal installation does not
-                             |   work and you need a basic graphics mode.
+  **Restoring System Acces**     | * Install Red Hat Enterprise Linux 8 in 
+  **Using a Rescue Disk**        |   Basic Graphics Mode: This option reinstalls 
+                             |   your machine. Do not use it unless you want to 
+                             |   troubleshoot a situation where a normal 
+                             |   installation does not work and you need a basic 
+                             |   graphics mode.
                              |
                              | * Rescue a Red Hat Enterprise Linux System:
                              |   This is the most flexible rescue system and
