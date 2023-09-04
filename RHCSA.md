@@ -1893,27 +1893,22 @@
   **Re-creating the Initramfs**  | If the initramfs image is damaged:
   **Using a Fescue Disk**        | * Boot into the rescue environment
                              | * Use the **dracut** command
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
+  
+  **Grub Options (visualized)**
+
+       Services  ------- systemd.unit=rescue.target
+        base-os  ------- systemd.unit=emergency.target
+           |
+        systemd  ------- init=/bin/bash
+           |
+        Kernel   ------- rd.break
+       initramfs
+           |
+         Grub    ------- menu: Kernel arguments
+       /       \
+  UEFI          BIOS
+         Post
+
                              |
 --------------------------------------------------------------------------------
 ## Man
