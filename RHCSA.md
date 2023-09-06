@@ -1896,19 +1896,59 @@
   
   **Grub Options (visualized)**
 
-       Services  ------- systemd.unit=rescue.target
-        base-os  ------- systemd.unit=emergency.target
-           |
-        systemd  ------- init=/bin/bash
-           |
-        Kernel   ------- rd.break
-       initramfs
-           |
-         Grub    ------- menu: Kernel arguments
-       /       \
-  UEFI          BIOS
-         Post
+                     Services  ------- systemd.unit=rescue.target
+                      base-os  ------- systemd.unit=emergency.target
+                         |
+                      systemd  ------- init=/bin/bash
+                         |
+                      Kernel   ------- rd.break
+                     initramfs
+                         |
+                       Grub    ------- menu: Kernel arguments
+                     /       \
+                UEFI          BIOS
+                       Post
 
+  **Change root password**       | * Enter Grub menu while booting
+                             | * Find the line that loads the Linux kernel and 
+                             |   add **rd.break** to the end of the line
+                             | * mount -o remount,rw /sysroot
+                             | * chroot /sysroot
+                             | * echo *secret* | passwd --stdin root
+                             | * touch /.autorelable
+                             | * ctrl-D (twice)
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
+                             |
                              |
 --------------------------------------------------------------------------------
 ## Man
