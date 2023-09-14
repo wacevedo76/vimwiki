@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
-= Ansible =
+# Ansible
 --------------------------------------------------------------------------------
-== Installation ==
+## Installation 
 Extra Packages for           | yum list epel-release
 Enterpise Linux (EPLE)       |
                              |
@@ -10,7 +10,7 @@ Primary configuration file   | /etc/ansible/ansible.cfg
                              |    the other config files are located)
                              |
 --------------------------------------------------------------------------------
-== Misc commands ==
+## Misc commands 
                              |
 Running ansible plays        | ansible-playbook myplaybook.yml
                              | ansible-playbook myplaybook.yml --syntax-check
@@ -18,7 +18,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              | ansible-playbook myplaybook.yml --list-tasks
                              |
 --------------------------------------------------------------------------------
-== Ansible Architecture ==
+## Ansible Architecture 
   Ansible Inventory          | The Ansible inventory is a file or script that
                              | will provide the details about the managed nodes,
                              | including the hostname, connection methods,
@@ -85,14 +85,14 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              |`         status_code: 200`
                              |
 --------------------------------------------------------------------------------
-== Documentation ==
+## Documentation 
   Built-in Ansible document- | ansible-doc -s <module name>
   ation                      |
                              |
   List all available modules | ansible-doc -l
                              |
 --------------------------------------------------------------------------------
-== Inventory Files ==
+## Inventory Files 
                              | * and ini like format to define target hosts
                              |   it is simplay a list of services
                              |
@@ -146,7 +146,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              | > ansible target01 -m ping -i inventory.txt
                              |
 --------------------------------------------------------------------------------
-== Yaml ==
+## Yaml 
                              | <-- whitespace is used to help define structure
   Key Value Pair             | key: value  # example ->
                              | Fruit: Apple
@@ -162,8 +162,9 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              |     key01: value01
                              |     key02: value02
                              |     key03: value03
+                             |
 --------------------------------------------------------------------------------
-== Playbooks ==
+## Playbooks 
   * Playbook - A single YAML file
     * Play - Defines a set of activities (task) to be run on hosts
       * Task - An action to be performed on the host
@@ -195,7 +196,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
           state: started
                              |
 --------------------------------------------------------------------------------
-  == Playbook Format ==
+## Playbook Format 
     Example:
 
       # Simple Ansible Playbook1.ymp
@@ -225,7 +226,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
    Execute Ansible Playbook  | > ansible-playbook playbook.yml
                              |
 --------------------------------------------------------------------------------
-== Running Ansible commands ==
+## Running Ansible commands 
   One-offs (syntax)          | ansible <hosts> -a <command>
                              | ansible all -a "/sbin/reboot"
                              |
@@ -251,7 +252,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              | ansible server-02.com -m setup -a filter=*ipv4* <= returns all
                              |                                                  lines containing ipv4
 --------------------------------------------------------------------------------
-== Ad-hoc commands ==
+## Ad-hoc commands 
   Ad-hoc command syntax      | ansible <HOSt> -b -m <MODULE> -a "<ARG1 ARG2 ARG3>"
                              |
   Important flags            | -b   => become (without argument, default is root)
@@ -265,7 +266,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              |
                              |
 --------------------------------------------------------------------------------
-== Modules ==
+## Modules 
   System                     | - User
                              | - Group
                              | - Hostname
@@ -334,7 +335,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              | - Win_service
                              | - Win_user
 --------------------------------------------------------------------------------
-== Variables ==
+## Variables 
   Variables are defined      | * Variable names should be letters, numbers and
   as key-value pairs         |   underscores. Tey should always start with a letter
                              |
@@ -457,7 +458,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              |       line: "ftp_proxy=http://example-proxy:80/"
                              |
 --------------------------------------------------------------------------------
-== Imports and Includes ==
+## Imports and Includes 
   Including var files        | - hosts: all
                              |
                              |   vars_files:
@@ -509,7 +510,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              | - *import_playbook*: db.yml
                              |
 --------------------------------------------------------------------------------
-  == Playbook - beyond basics ==
+  ## Playbook - beyond basics 
   When                       | One of the most helpful extr keys you can add to
                              | a play is a *when* statement. Lets take a look at
                              | a simple use of when:
@@ -725,7 +726,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              |         debug: msg="This always executes"
                              |
 --------------------------------------------------------------------------------
-== Ansible Valut ==
+## Ansible Valut 
   Encrypt file               | ansible-vault encrypt <path to file>
                              |
   Providing an ansible-      | # Use --ask-vault-pass to supply the vault password at runtime
@@ -741,7 +742,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              | ansible-vault rekey --vault-password-file=<old_password_file> --new-vault-password-file=<new_password_file>
                              |
 --------------------------------------------------------------------------------
-== Loops ==
+## Loops 
                              | # Sample Ansible Playbook1.yml
                              | -
                              |   name: Install Packages
@@ -764,7 +765,7 @@ Running ansible plays        | ansible-playbook myplaybook.yml
                              |           - grunt
                              |
 --------------------------------------------------------------------------------
-== Roles ==
+## Roles 
   An Ansible role is a collection of tasks, handlers, templates, and variables
   for configuring the target system so that it meets the desired state.
   Sample File Structure:
@@ -846,7 +847,7 @@ Roles best practices         |
         - mets               | loaded
                              |
 --------------------------------------------------------------------------------
-== Debugging ==
+## Debugging 
   *debug*                    | The debug module may be used to help troubleshoot
                              | plays:
                              |   * use to print detail information about in-progress
@@ -877,7 +878,7 @@ Roles best practices         |
                              |     register: motd_contents
                              |
 --------------------------------------------------------------------------------
-== Handlers ==
+## Handlers 
   Handlers                   | Ansible provides a mechanism that allows an action
                              | to be flagged for execution when a task performs a
                              | change
@@ -911,7 +912,7 @@ Roles best practices         |
                              | makes changes.
                              |
 --------------------------------------------------------------------------------
-== Jinja ==
+## Jinja 
   With Conditionals          | when
                              | changed_when
                              | faile_when
