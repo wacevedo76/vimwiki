@@ -4,3 +4,4 @@ WebDev
 * [[html/html|HTML]]
 * [[css/css_index]]
 * [[css/tailwindcss|Tailwind CSS]]
+* [[json]]
