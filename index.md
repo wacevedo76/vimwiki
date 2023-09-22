@@ -7,7 +7,7 @@
 [[ptracker|Progress Tracker]]
 [[notes]]
 
-== Programming ==
+ ## Programming 
   * [[Awk]]
   * [[Bash]]
   * [[clojure/clojure_index|Clojure]]
@@ -19,12 +19,12 @@
   * [[c]]
   * [[webdev/webdev_index|WebDev]]
 
-== Frameworks ==
+ ## Framework 
   * [[Django]]
   * [[React]]
   * [[EmberJS]]
 
-== Programming Concepts ==
+ ## Programming Concept 
   * [[programmingConcepts/Error_handling|Error Handling]]
   * [[programmingConcepts/Modules|Modules]]
   * [[programmingConcepts/TDD|Test Driven Developement]]
@@ -38,10 +38,10 @@
   * [[programmingConcepts/strings|strings]]
   * [[programmingConcepts/virtual_environment|Virtual Environment]]
 
-== Linux General Concepts ==
+ ## Linux General Concept 
   * [[linuxGeneralConcepts/fhs|File System Hierarchy]]
 
-== Tooling ==
+ ## Tooling 
   * [[Vim]]
   * [[Emacs]]
   * [[sed]]
@@ -53,26 +53,26 @@
   * [[Selenium]]
   * [[Nagios|Nagios Core]]
 
-== Systems ==
+ ## Sytem 
   * [[snmp]]
   * [[proxmox]]
   * [[nvm]]
 
-== Administration ==
+ ## Adminitration 
   * [[Linux SysAd]]
   * [[Windows]]
 
-== Networking ==
+ ## Networking 
   * [[Networking]]
 
-== Cloud ==
+ ## Cloud 
   * [[AWS/awsindex|AWS]]
   * [[Azure/AzureIndex|Azure]]
 
-== CompSci ==
+ ## CompSci 
   * [[Data Structures and algorithms]]
 
-== Misc ==
+ ## Mic 
   * [[terms|Misc terms]]
   * [[DevOps]]
   * [[irc/irc_index|irc]]
