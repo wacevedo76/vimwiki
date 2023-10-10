@@ -9,11 +9,10 @@ Linux Sys Admin and Certification Training
 * [[RHCSA]]
 * [[linuxbootcamp|Linux Bootcamp]]
 * [[linuxGeneralConcepts/commonCommands|Common Commands]]
+* [[linuxGeneralConcepts/new_commands|New Commands]]
 * [[linuxGeneralConcepts/lightdm|lightdm]]
 * [[linuxGeneralConcepts/iptables|iptables]]
 * [[linuxGeneralConcepts/firewalld|firewalld]]
 * [[linuxGeneralConcepts/systemd|Systemd]]
-
-Distro Specific Notes
 * [[Linux/package_management|Package Management]]
 * [[Linux/centos8|Centos8]]
