@@ -23,6 +23,7 @@
   * [[Django]]
   * [[React]]
   * [[EmberJS]]
+  * [[FastAPI]]
 
  ## Programming Concept 
   * [[programmingConcepts/Error_handling|Error Handling]]
@@ -53,6 +54,7 @@
   * [[kubernetes/kubernetesIndex|Kubernetes]]
   * [[Selenium]]
   * [[Nagios|Nagios Core]]
+  * [[Elasticsearch/Learning_Elasticsearch7|Learning Elasticsearch 7]]
 
  ## Sytem 
   * [[snmp]]
