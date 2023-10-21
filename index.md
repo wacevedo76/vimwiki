@@ -18,6 +18,7 @@
   * [[javascript/Javascript_index|Javascript]]
   * [[c]]
   * [[webdev/webdev_index|WebDev]]
+  * [[sql/sql_index|SQL]]
 
  ## Framework 
   * [[Django]]
