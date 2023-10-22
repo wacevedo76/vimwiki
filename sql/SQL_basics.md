@@ -1,9 +1,28 @@
 --------------------------------------------------------------------------------
 SQL Basic Commands
 --------------------------------------------------------------------------------
+Modify view mode             | .mode column       -> displays data in columns
+                             | .mode markdown     -> displays data in markdown
+                             | .mode box          -> displays data in boxes
+                             | .mode table        -> displays data in boxes (dashes)
+                             | Other modes: ascii box column csv html insert 
+                             |              json line list markdown qbox quote 
+                             |              table tabs tcl
+                             |
+--------------------------------------------------------------------------------
+Basic Create Table           | CREATE TABLE todos (
+                             |         id INTEGER NOT NULL,
+                             |         title VARCHAR,
+                             |         description VARCHAR,
+                             |         priority INTEGER,
+                             |         complete BOOLEAN,
+                             |         PRIMARY KEY (id)
+                             | );
+                             |
+--------------------------------------------------------------------------------
 Basic Inserts                |
-  1. Descibe which columns   | INSERT INTO todos (title, description, priority, complete)
-  2. Desribe what values     | VALUES ('Got to store', 'To pick up eggs', 4, False)
+  1. Descibe which columns   | INSERT INTO todos (title, description, priority, complete) \
+  2. Desribe what values     | VALUES ('Got to store', 'To pick up eggs', 4, False);
                              |
 --------------------------------------------------------------------------------
 Basic Select queries         | 
