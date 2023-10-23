@@ -8,7 +8,6 @@
 [[notes]]
 
  ## Programming 
-  * [[Awk]]
   * [[Bash]]
   * [[clojure/clojure_index|Clojure]]
   * [[Go]]
@@ -76,7 +75,8 @@
  ## CompSci 
   * [[Data Structures and algorithms]]
 
- ## Mic 
+ ## Misc
+  * [[misc_notes|notes]]
   * [[terms|Misc terms]]
   * [[DevOps]]
   * [[irc/irc_index|irc]]

@@ -2,7 +2,7 @@
 SQL Basic Commands
 --------------------------------------------------------------------------------
 Modify view mode             | .mode column       -> displays data in columns
-                             | .mode markdown     -> displays data in markdown
+  (sqlite3)                  | .mode markdown     -> displays data in markdown
                              | .mode box          -> displays data in boxes
                              | .mode table        -> displays data in boxes (dashes)
                              | Other modes: ascii box column csv html insert 
@@ -42,4 +42,7 @@ Basic Update queries         |
 Basic Delete                 |
   Delete the 5th record      | DELETE FROM todos WEREE id=5; (safest)
   Delete based on column     | DELETE FROM todos WHERE complete=0; (not safe, may remove multiple records)
+                             |
+--------------------------------------------------------------------------------
+Drop table                   | DROP TABLE todos
                              |
