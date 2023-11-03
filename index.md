@@ -26,7 +26,7 @@
   * [[Django]]
   * [[React]]
   * [[EmberJS]]
-  * [[FastAPI]]
+  * [[API/api_index|API]]
 
  ## Programming Concept 
   * [[programmingConcepts/Error_handling|Error Handling]]
