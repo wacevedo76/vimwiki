@@ -24,6 +24,7 @@
 
  ## Framework 
   * [[Django]]
+  * [[Frameworks/frameworks_index]]
   * [[React]]
   * [[EmberJS]]
   * [[API/api_index|API]]
