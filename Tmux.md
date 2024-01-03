@@ -29,3 +29,7 @@ Attach to session            | tmux attach -t <session name>
 synconize commands on all    | :set synchronize-panes (off)
 panes                        |
                              |
+Hide a Pane                  | (select the pane you want to hide) (Prefix :) break-pane -dP
+                             |
+re-add (join) pane           | (Prefix :) join-pane session:window
+                             |

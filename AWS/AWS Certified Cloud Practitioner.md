@@ -68,18 +68,16 @@
   provider.  If an aspect is not included in the model, it means that it is
   managed by the provider and outside the scope of responsibility of the user.
 
- On Premise          IAAS                PAAS                SAAS
-`+----------------+  +----------------+  +----------------+  +----------------+`
-`|  Application   |  |  Application   |  |  Application   |  |                |`
-`|    Data        |  |    Data        |  |    Data        |  |                |`
-`|  Runtime       |  |  Runtime       |  |                |  |                |`
-`|  Middleware    |  |  Middleware    |  |                |  |                |`
-`|    O/S         |  |    O/S         |  |                |  |                |`
-`| Virtualization |  |                |  |                |  |                |`
-`|   Servers      |  |                |  |                |  |                |`
-`|   Storage      |  |                |  |                |  |                |`
-`| Networking     |  |                |  |                |  |                |`
-`+----------------+  +----------------+  +----------------+  +----------------+`
+| On Premise       | IAAS             | PAAS             | SAAS             |
++------------------+------------------+------------------+------------------+
+| Application code | Application code | Application code | Application code |
+| Security         | Security         | Security         | Security         |
+| Database         | Database         | Database         | Database         |
+| OS               | OS               |                  |                  |
+| Virtulization    |                  |                  |                  |
+| Networking       |                  |                  |                  |
+| Storage hardware |                  |                  |                  |
+| Server hardware  |                  |                  |                  |
 
 --------------------------------------------------------------------------------
 == AWS Global Infrastructure ==
