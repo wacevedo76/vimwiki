@@ -31,5 +31,5 @@ panes                        |
                              |
 Hide a Pane                  | (select the pane you want to hide) (Prefix :) break-pane -dP
                              |
-re-add (join) pane           | (Prefix :) join-pane session:window
+re-add (join) pane           | (Prefix :) join-pane -vs session:window
                              |
