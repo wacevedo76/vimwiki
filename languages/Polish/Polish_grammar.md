@@ -1,14 +1,28 @@
 --------------------------------------------------------------------------------
 # Polish Grammar
 --------------------------------------------------------------------------------
-## Nominative Case (co? kto?)
+## Nominative Case (Mianownik) (co? kto?)
   The nomitive case is used:
   1. For the subject of a finite verb
   2. For the subject of existential be
   3. For the complement of the identifying phrase t0 jest/są that is/those are
   4. For the complement of a naming phrase
 
-## Genetive Case (czego? kogo?)
+## Accusative Case (Biernik) (co? kogo?)
+  The accusative case is used:
+  1. For the complement of transitive verbs
+  2. For the object of various verb + preposition phrasal combinations, for
+     example, **chekać na** wait for, **patrzyć na** look at, **pytać o** ask about,
+     **martwić się o** worry about, and **dbać o** look after, care about
+  3. For the object of the prepositions **przez** across, through, by (means of),
+     **za** in the meanings in/after a period of time and *in exchange for*, **na**
+     in the meanings *for* and *to*, and **w** in the meaning *into* and in
+     various other expressions.
+  4. For the object of the usually instrumental prepositions **między**, **nad**,
+     **pod**, **przed**, and **za** in the sense of *motion to*
+  5. To express duration of time
+
+## Genetive Case (Dopelniacz) (czego? kogo?)
   The genitive case is used:
   1. To express almost all sense of *of*, including possesion
   2. For the object of certain prepositions, including **do** to, **bez** without,
@@ -38,7 +52,7 @@
   8. To express the sense of *some*, *a bit of*
   9. As the genitive of time
 
-## Dative Case (czemu? komu?)
+## Dative Case (Celownik) (czemu? komu?)
   The dative case is used:
   1. To express the senses of 'to' and 'for' a person, especially the indirect
      object (naming the recipient or beneficiary of an action), or sometimes
@@ -51,21 +65,7 @@
   5. For the object of the prepositions 'dzięki' due to, 'ku' toward,
      'przeciw(ko)' against, and 'wbrew' despite
 
-## Accusative Case (co? kogo?)
-  The accusative case is used:
-  1. For the complement of transitive verbs
-  2. For the object of various verb + preposition phrasal combinations, for
-     example, **chekać na** wait for, **patrzyć na** look at, **pytać o** ask about,
-     **martwić się o** worry about, and **dbać o** look after, care about
-  3. For the object of the prepositions **przez** across, through, by (means of),
-     **za** in the meanings in/after a period of time and *in exchange for*, **na**
-     in the meanings *for* and *to*, and **w** in the meaning *into* and in
-     various other expressions.
-  4. For the object of the usually instrumental prepositions **między**, **nad**,
-     **pod**, **przed**, and **za** in the sense of *motion to*
-  5. To express duration of time
-
-## Instrumental Case (czym? kim?)
+## Instrumental Case (Narzędnik) (czym? kim?)
   The instrumental case is used:
   1. For predicate nouns after linking verbs like **być** be and **zostać** become
   2. To express *by means of* (agent) and *by way of* (path, route)
@@ -80,14 +80,13 @@
      (*be interested in*), **kierować** (*direct*), **zajmować się** (*be*
      *busy with*), and **władać** (*have power over, master*)
 
-## Locative Case (o czym? o kim?)
+## Locative Case (Miejscownik) (o czym? o kim?)
   The locative case is used after the prepositions **w** (*in*), **na**
   (*on, at*), **o** (*about*), **po** (*after*), and **przy** (*near, during, while*)
 
-## Vocative Case
+## Vocative Case (Wolacz)
   Usually, the nominative case functions as a de facto vocative.
   In conjunction with titles, however, the vocative is obligatory.
   The vocative case is usually used with diminutive (affectionate) forms of
   first names: Kasiu! Grzesiu! With other first names, it is optional.
-
 
