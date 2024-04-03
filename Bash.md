@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
-= Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) =
+# Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) #
 --------------------------------------------------------------------------------
 Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 --------------------------------------------------------------------------------
-== Interesting commands (move to appropriate sections when comfortable) ==
+## Interesting commands (move to appropriate sections when comfortable) ##
   uname                      |
   lsof                       |
   netstat                    |
@@ -31,7 +31,7 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
   all processes running      |
                              |
 --------------------------------------------------------------------------------
-== The set command ==
+## The set command ##
   Description                | The set command is used to change the values of
                              | shell options and display variables in Bash
                              | scripts. It can also be used to debug Bash scrips,
@@ -113,7 +113,7 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
                              | by the shell functions.
                              |
 --------------------------------------------------------------------------------
-== Variables ==
+## Variables ##
   set                        | Displays all shell variables and function
                              |
   env                        | Displays only environment variables
@@ -139,7 +139,7 @@ Interactively (from cli)     |
   !:0, !:1, !:2, etc         | returns portions of the previous command
                              |
 --------------------------------------------------------------------------------
-== Variable Expansion ==
+## Variable Expansion ##
   To reference the value     | echo `$variable | echo ${variable}`
   of a variable (parameter)  |
                              |
@@ -163,7 +163,7 @@ Interactively (from cli)     |
   Substring expansion        | ${parameter:offset:length}
                              |
 --------------------------------------------------------------------------------
-== Command Substitution ==
+## Command Substitution ##
   Retrieve the result of     | $(command)  -> uses parenthesis
   one or more commands       |
                              |
@@ -186,7 +186,7 @@ Interactively (from cli)     |
                              |
                              |
 --------------------------------------------------------------------------------
-== Brace Expansion ==
+## Brace Expansion ##
   Expand string lists        | echo {a,19,z,barry,42}         <- the comma
                              | echo {jan,feb,mar,apr,may,jun}    separated values
                              |                                   must not contain
@@ -201,7 +201,7 @@ Interactively (from cli)     |
                              |
                              |
 --------------------------------------------------------------------------------
-== commands to grokk ==
+## commands to grokk ##
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
                              |
@@ -209,7 +209,7 @@ Interactively (from cli)     |
                              |
                              |
 --------------------------------------------------------------------------------
-== Group and expand expressions ==
+## Group and expand expressions ##
                              |
   Group commands - subshell  | ()
                              | Grouping a list of commands in parentheses
@@ -253,7 +253,7 @@ Interactively (from cli)     |
                              |     shell context
                              |
 --------------------------------------------------------------------------------
-== Top level directories ==
+## Top level directories ##
   /bin/                      | Contains essential binaries used by normal users
   /boot/                     | Contains files used in the boot process: kernel initramfs, bootloader
   /dev/                      | Contains special files used to access devices
@@ -274,18 +274,18 @@ Interactively (from cli)     |
   /usr/                      | Contains non-essential files and binaries as read-only user data
   /var/                      | Contains varialble files, such as logs
 --------------------------------------------------------------------------------
-== Understanding the Linux ==
+## Understanding the Linux ##
  Permissions Scheme          | Commands covered in is chapert are
                              |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |   useradd, groupad, mkdir, and su
 --------------------------------------------------------------------------------
-== Advanced permissions ==
+## Advanced permissions ##
                              | Other file attribtes include immutable undeletable,
                              | append only, and compress
                              |
                              | commands are:  lsattr and chattr
 --------------------------------------------------------------------------------
-== Special file permissions ==
+## Special file permissions ##
                              | SUID = 4, SGID = 2, Sticky bit = 1
                              |      | Files                       | Directories
                              |--------------------------------------------------
@@ -304,16 +304,16 @@ Interactively (from cli)     |
                              |      |                             | the /tmp/ director for its most
                              |      |                             | famous use.
 --------------------------------------------------------------------------------
-== Process Control ==
+## Process Control ##
   Stop long running process  | ctrl-c
                              |
   Suspend long running procs | ctrl-z
                              |
 --------------------------------------------------------------------------------
-== evaluating math, dealing with numbers ==
+## evaluating math, dealing with numbers ##
                              | $(( numeric_variable + 1 ))
 --------------------------------------------------------------------------------
-== User input ==
+## User input ##
   Arguments and parameters   | when executing a script interactively, an
                              | argument is any "word" entered after the name of
                              | script. eg.
@@ -334,7 +334,7 @@ Interactively (from cli)     |
                              |
   testing for default        | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
 --------------------------------------------------------------------------------
-== tests and return values ==
+## tests and return values ##
   test                       | the test command is used to check file types and
                              | compare values
                              |
@@ -363,10 +363,10 @@ Interactively (from cli)     |
                              | for bug trackng
                              |
 --------------------------------------------------------------------------------
-== Regular expressions ==
+## Regular expressions ##
   [[programmingConcepts/re]]
 --------------------------------------------------------------------------------
-== Globbing ==
+## Globbing ##
     Match zero or more times | *
                              |
     Any character once       | ?
@@ -375,7 +375,7 @@ Interactively (from cli)     |
     one or a group of chars  |
                              |
 --------------------------------------------------------------------------------
-== egrep ==
+## egrep ##
   ?                          | matches a repeat of the previous character zero or more times
   +                          | Matches a repeat of the previous character one or more times
   {n}                        | Matches a repeat of the previous character exactly n times
@@ -386,7 +386,7 @@ Interactively (from cli)     |
                              | pattern (great for patters with more than one character,
                              | otherwise, [xy] notion would suffice)
 --------------------------------------------------------------------------------
-== sed ==
+## sed ##
   Search and replace         | s/ (beginning of string)
                              | sed 's/wicked/stupid/'
                              | note: by default, sed only replace the first
@@ -417,14 +417,14 @@ Interactively (from cli)     |
   Run multi script on one    | -e
   stream                     |
 --------------------------------------------------------------------------------
-== Conditional Operators ==
+## Conditional Operators ##
   and                        | &&
                              |
   or                         | ||
                              |
                              |
 --------------------------------------------------------------------------------
-== Conditional Testing and Scripting Loops ==
+## Conditional Testing and Scripting Loops ##
   While loop                 | while true; do
                              | done
                              |
@@ -455,7 +455,7 @@ Globbing and the loop        |
                              |
   Continue                   | skip current iteration of loop, continue to next
 --------------------------------------------------------------------------------
-== Using Pipes and Redirection ==
+## Using Pipes and Redirection ##
   File descriptors           |
     standard input stream    | stdin (default binding) /dev/fd/0
     standard output stream   | stdout (default )       /dev/fd/1
@@ -504,7 +504,7 @@ Globbing and the loop        |
   Here strings               | <<< # used to send a string to a command which normaly only takes
                              |     input from stdin
 --------------------------------------------------------------------------------
-== Functions ==
+## Functions ##
   Covered commands: top, free declare, case, rev, return
   Function declarations      | function_name() {
                              |   Indented-commands
@@ -537,7 +537,7 @@ Globbing and the loop        |
                              |      *)
                              |     color_code='default'
 --------------------------------------------------------------------------------
-== Scheduling and Logging ==
+## Scheduling and Logging ##
   Commands: at, wall, atq, atrm, sendmail, crontab, alias
     Syntax for the crontab   | <timestamp> command
                              |
@@ -555,7 +555,7 @@ Globbing and the loop        |
                              | 30 * * * *         ddJK:WQJ
                              |
 --------------------------------------------------------------------------------
-=== Command line switches ===
+## Command line switches ##
 `  Filtering command line     | #!/bin/bash`
 `  switches with case statment| echo`
 `  (only checking the first   | while [ -n "$1" ]`
@@ -592,7 +592,7 @@ Globbing and the loop        |
 `                             |  count=$(( $count + 1 ))`
 `                             |done`
                              |
-=== Common command line switches ===
+### Common command line switches ###
                              | -a: List all objects.
                              | -c: Make a count.
                              | -d: Specify directory.
