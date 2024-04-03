@@ -1,58 +1,75 @@
 --------------------------------------------------------------------------------
-= Python notes =
+# Python notes
 --------------------------------------------------------------------------------
-== Books ==
-  [[AtBS|Automate the Boring Stuff]]
+## Books 
+  [Automate the Boring Stuff](AtBS)
 --------------------------------------------------------------------------------
-== Common Useful commands ==
-  [[Python/common_useful_commands|Common useful commands]]
+## [Common useful commands](Python/common_useful_commands)
 --------------------------------------------------------------------------------
-== Common Modules ==
-  [[common_modules]]
+##  [Common Modules](common_modules)
 --------------------------------------------------------------------------------
-== Defined Terms ==
-  [[programmingConcepts/Terms|Defined Terms]]
+##  [Defined Terms](programmingConcepts/Terms)
 --------------------------------------------------------------------------------
-== Python built-in Types ==
-  [[programmingConcepts/builtins|Built-ins]]
+##  [Built-ins](programmingConcepts/builtins)
 --------------------------------------------------------------------------------
-== String Methods ==
-  [[programmingConcepts/strings|Strings]]
+##  [Strings](programmingConcepts/strings)
 --------------------------------------------------------------------------------
-== List functions ==
-  [[programmingConcepts/lists|Lists]]
+##  [Lists](programmingConcepts/lists)
 --------------------------------------------------------------------------------
-== Dictionary Methods ==
-  [[programmingConcepts/hash-dict|Hash/dictionary]]
+##  [Hash/dictionary](programmingConcepts/hash-dict)
 --------------------------------------------------------------------------------
-== Bult-in Function ==
-  [[programmingConcepts/Modules|Modules]]
+##  [Modules](programmingConcepts/Modules)
 --------------------------------------------------------------------------------
-== exception handling ==
-  [[programmingConcepts/Error_handling|Error Handling]]
+##  [Error Handling](programmingConcepts/Error_handling)
 --------------------------------------------------------------------------------
-== Web Scraping ==
-  [[Python/web_scraping.wiki|Web Scraping]]
+##  [Web Scraping](Python/web_scraping.wiki)
 --------------------------------------------------------------------------------
-== List Comprehensions ==
+## [Bitwise Operators](Python/bitwise)
+## Reading and writing to files
+
+  read all data from a file  | fo.read()
+  object                     |
+                             |
+  Only read a specific numer | fo.read(32)
+  of characters              |
+                             |
+  More the file pointer to   | fo.seek(0)
+  the beginning of the file  |
+                             |
+  Read one line at a time    | fo.readline()
+                             |
+  Return a list of all the   | fo.readlines()
+  lines of a file            |
+                             |
+  Write multiple lines       | fo.writelines
+                             |
+  *With-blocks*                | with open(filename, mode='rt', encoding='utf-8') as f:
+                             |    return [int(line.strip()) for line in f]
+                             |
+                             |
+                             |
+
+--------------------------------------------------------------------------------
+## List Comprehensions 
   numbers = [1, 2, 3, 4, 5]
   * List comprehension
   [ num*2 for num in numbers] -> outputs a list w/ each number in original * 2
 
   * List Comprehension with logic
   [ num for num in number if num % 2 == 0] outputs all even numbes from original
-    # if no else, comprehension comes first, then logic check
+    *if no else, comprehension comes first, then logic check*
 
   [ num*2 if num % 2 == 0 else num/2 for num in numbers]
-    # first result output, logic check, else clause, for clause in comprehension
+    *first result output, logic check, else clause, for clause in comprehension*
 
 `  nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]`
   * Nested List Comprehensions
-  [[val*2 for val in l] for l in nested_list]] output ->
+`  [[val*2 for val in l] for l in nested_list]] output ->`
     [[2, 4, 6], [8, 10, 12], [14, 16, 18]]
   [["x" if num % 2 != 0 else "o" for num in range(1,4)] for val in range(1,4)]
+  
 --------------------------------------------------------------------------------
-== Setting up your environment ==
+## Setting up your environment 
 In your project directory, create a 'requirements.txt' file listing
 all the modules you need on install and run:
     pip install -r requirements.txt
@@ -60,38 +77,15 @@ all the modules you need on install and run:
   Set Environmental key      | os.environ['name_of_variable'] = 'value of variable'
   retrieve Environmental key | os.getenv('name_of_variable')
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
 --------------------------------------------------------------------------------
-=== Reading and Writing files ===
+## Reading and Writing files 
 Modules: pathlib, os
-[[modules/path|Path Module]]
-[[modules/os|OS Module]]
-                             |
-                             |
-                             |
-                             |
+[Path Module](modules/path)
+[OS Module](modules/os)
                              |
 --------------------------------------------------------------------------------
-=== Working with Excel Spreadsheets ===
+## Working with Excel Spreadsheets 
   needed 3rd party module    | openpyxl
-                             |
-                             |
-                             |
                              |
 --------------------------------------------------------------------------------
 = Python logging library =
@@ -125,10 +119,10 @@ Modules: pathlib, os
                              | logger.info("Test custom logger")
                              |
 --------------------------------------------------------------------------------
-=== Modern Python 3 Notes ===
+## Modern Python 3 Notes 
   Data types
     None (null)              | None  <-- (case sensitive) - (class 'NoneType')
-  [[String]] interpolation
+  String interpolation
     format strings (f-string)| f'interpolated data --> {variable/expression}'
                              |
     format method            | 'interpolated data --> {}'.format(<value>)
@@ -138,7 +132,7 @@ Modules: pathlib, os
     or                       |
     not                      |
 --------------------------------------------------------------------------------
-=== General Notes ===
+## General Notes 
   Converting a character to  |
   ascii                      |
                              |
@@ -152,10 +146,10 @@ Modules: pathlib, os
                              | a tuple containing both the whole value and remander
                              |
 --------------------------------------------------------------------------------
-=== General Class construction ===
-  [[programmingConcepts/oop]]
+## General Class construction 
+  [OOP](programmingConcepts/oop)
 --------------------------------------------------------------------------------
-=== Creating a new virtual environment ===
+## Creating a new virtual environment 
   [[programmingConcepts/virtual_environment]]
                              |
 --------------------------------------------------------------------------------

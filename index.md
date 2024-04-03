@@ -1,90 +1,101 @@
-  `__        ___ _ _ _                      __     ___                   _ _    _`
-  `\ \      / (_) | (_) __ _ _ __ __   ___  \ \   / (_)_ __ _____      _(_) | _(_)`
-  ` \ \ /\ / /| | | | |/ _\ | '_ '_ \ / __|  \ \ / /| | '_ '_  \ \ /\ / / | |/ / |`
-  `  \ V  V / | | | | | (_| | | | | | \__ \   \ V / | | | | | | \ V  V /| |   <| |`
-  `   \_/\_/  |_|_|_|_|\__,_|_| |_| |_|___/    \_/  |_|_| |_| |_|\_/\_/ |_|_|\_\_|`
+```
+`__        ___ _ _ _                      __     ___                   _ _    _`
+`\ \      / (_) | (_) __ _ _ __ __   ___  \ \   / (_)_ __ _____      _(_) | _(_)`
+` \ \ /\ / /| | | | |/ _\ | '_ '_ \ / __|  \ \ / /| | '_ '_  \ \ /\ / / | |/ / |`
+`  \ V  V / | | | | | (_| | | | | | \__ \   \ V / | | | | | | \ V  V /| |   <| |`
+`   \_/\_/  |_|_|_|_|\__,_|_| |_| |_|___/    \_/  |_|_| |_| |_|\_/\_/ |_|_|\_\_|`
+```
 
-[[ptracker|Progress Tracker]]
-[[notes]]
 
- ## Programming 
-  * [[Bash]]
-  * [[clojure/clojure_index|Clojure]]
-  * [[Go]]
-  * [[Python]]
-  * [[Ruby]]
-  * [[TypeScript]]
-  * [[javascript/Javascript_index|Javascript]]
-  * [[c]]
-  * [[webdev/webdev_index|WebDev]]
+ ## Programming
+* [Bash](Bash)
+* [Clojure](clojure/clojure_index)
+* [Go](Go)
+* [Python](Python)
+* [Ruby](Ruby)
+* [TypeScript](TypeScript)
+* [Javascript](javascript/Javascript_index)
+* [c](c)
+* [WebDev](webdev/webdev_index)
+
 
  ## Databases
-  * [[sql/sql_index|SQL]]
-  * [[Databases/MongoDB|MongoDB]]
+* [SQL](sql/sql_index)
+* [MongoDB](Databases/MongoDB)
+
 
  ## Framework 
-  * [[Django]]
-  * [[Frameworks/frameworks_index]]
-  * [[React]]
-  * [[EmberJS]]
-  * [[API/api_index|API]]
+* [Django](Django)
+* [Frameworks](Frameworks/frameworks_index)
+* [React](React)
+* [EmberJS](EmberJS)
+* [API](API/api_index)
+
 
  ## Programming Concept 
-  * [[programmingConcepts/Error_handling|Error Handling]]
-  * [[programmingConcepts/Modules|Modules]]
-  * [[programmingConcepts/TDD|Test Driven Developement]]
-  * [[programmingConcepts/hash-dict|hash / dictionaries]]
-  * [[programmingConcepts/lists|lists]]
-  * [[programmingConcepts/oop|Object Oriented Programming]]
-  * [[programmingConcepts/parsing-storing|Parsing and Storing]]
-  * [[programmingConcepts/re|Regular Expressions]]
-  * [[programmingConcepts/serialization|Serialization]]
-  * [[programmingConcepts/roadmaps|Road maps]]
-  * [[programmingConcepts/strings|strings]]
-  * [[programmingConcepts/virtual_environment|Virtual Environment]]
-  * [[programmingConcepts/Software_Architecture|Software Architecture]]
+* [Error Handling](programmingConcepts/Error_handling)
+* [Modules](programmingConcepts/Modules)
+* [Test Driven Development](programmingConcepts/TDD)
+* [hash / dictionaries](programmingConcepts/hash-dict)
+* [lists](programmingConcepts/lists)
+* [Object Oriented Programming](programmingConcepts/oop)
+* [Parsing and Storing](programmingConcepts/parsing-storing)
+* [Regular Expressions](programmingConcepts/re)
+* [Serialization](programmingConcepts/serialization)
+* [Road maps](programmingConcepts/roadmaps)
+* [strings](programmingConcepts/strings)
+* [Virtual Environment](programmingConcepts/virtual_environment)
+* [Software Architecture](programmingConcepts/Software_Architecture)
+
 
  ## Linux General Concept 
-  * [[linuxGeneralConcepts/fhs|File System Hierarchy]]
+* [File System Hierarchy](linuxGeneralConcepts/fhs)
+
 
  ## Tooling 
-  * [[Vim]]
-  * [[Emacs]]
-  * [[sed]]
-  * [[awk]]
-  * [[Tmux|tmux]]
-  * [[Ansible]]
-  * [[Docker]]
-  * [[kubernetes/kubernetesIndex|Kubernetes]]
-  * [[Selenium]]
-  * [[Nagios|Nagios Core]]
-  * [[Elasticsearch/Learning_Elasticsearch7|Learning Elasticsearch 7]]
+* [Vim](Vim)
+* [Emacs](Emacs)
+* [sed](sed)
+* [awk](awk)
+* [Tmux](Tmux)
+* [Ansible](Ansible)
+* [Docker](Docker)
+* [Kubernetes](kubernetes/kubernetesIndex)
+* [Selenium](Selenium)
+* [Nagios Core](Nagios)
+* [Learning Elasticsearch 7](Elasticsearch/Learning_Elasticsearch7)
+
 
  ## Sytem 
-  * [[snmp]]
-  * [[proxmox]]
-  * [[nvm]]
+* [snmp](snmp)
+* [proxmox](proxmox)
+* [nvm](nvm)
+
 
  ## Adminitration 
-  * [[Linux SysAd]]
-  * [[Windows]]
+* [Linux SysAd](SysAd)
+* [Windows](Windows)
+
 
  ## Networking 
-  * [[Networking]]
+* [Networking](Networking)
+
 
  ## Cloud 
-  * [[AWS/awsindex|AWS]]
-  * [[Azure/AzureIndex|Azure]]
+* [AWS](AWS/awsindex)
+* [Azure](Azure/AzureIndex)
+
 
  ## CompSci 
-  * [[Data Structures and algorithms]]
+* [Data Structures and algorithms](Data_structures_and_algorithms)
+
 
  ## Misc
-  * [[misc_notes|notes]]
-  * [[terms|Misc terms]]
-  * [[DevOps]]
-  * [[irc/irc_index|irc]]
-  * [[Quotes]]
-  * [[Maths/Index|Maths]]
-  * [[languages/languages_index|Languages]]
-  * [[bujo|Bullet Journal]]
+* [Notes](misc_notes|notes)
+* [terms](terms)
+* [DevOps](DevOps)
+* [irc](irc/irc_index)
+* [Quotes](Quotes)
+* [Maths](Maths/Index)
+* [Languages](languages/languages_index)
+* [Bullet Journal](bujo)
