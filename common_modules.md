@@ -266,17 +266,3 @@ Python Networking
 `'urandom',                   |                             |`
 `'utime',                     |                             |`
 `'path',                      |                             |`
-
-
-
-
-
-
-
-
-
-
-
-
-
-

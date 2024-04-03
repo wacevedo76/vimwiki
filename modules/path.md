@@ -8,7 +8,7 @@
                              |
   Createing paths            | from pathlib import Path
     pathlib module           | Path('spam', 'bacon', 'eggs')
-                             |    *nix --> spam/bacon/eggs
+                             |    `*nix --> spam/bacon/eggs`
                              |    Windows --> 'spam\\bacon\\eggs'
                              |
                              | myFiles = ['file01', 'file02', 'file03']
