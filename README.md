@@ -9,10 +9,11 @@
 
 Welcome to my personal wiki. a collection of notes on various subject subjects within I.T.
 
-While the notes a writting in markdown the links do not correctly while being viewed within
-a web browser. I recommend using the [vimwiki](https://github.com/vimwiki/vimwiki) plugin for vim.
+While the notes are written in markdown, the links do not work correctly while  
+being viewed within a web browser. I recommend using the [vimwiki](https://github.com/vimwiki/vimwiki) plugin for vim.
 
-I haven't checked whether they've supplied correct configuration for [lazy.nvim](https://github.com/folke/lazy.nvim), but here is my setup config:
+I haven't checked whether they've supplied correct configuration for [lazy.nvim](https://github.com/folke/lazy.nvim), but here is  
+my setup config:
 ```
 return {
   "vimwiki/vimwiki",
