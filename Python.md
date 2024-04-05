@@ -21,47 +21,26 @@
 
 ## Reading and writing to files
 
-<table>
-  <tr>
-    <td>
-      Read all data from a file object                   
-    </td>
-    <td>
-      fo.read()  
-    </td>
-  </tr>
-  <tr>
-  <td>
-    Only read a specific numer of characters             
-  </td>
-  <td>
-    fo.read(32)
-  </td>
-  </tr>
-  <tr>
-    <td>More the file pointer to the beginning of the file </td>
-    <td>fo.seek(0</td>
-  </tr>
-  <tr>
-    <td width='200px'>Read one line at a time</td>
-    <td>fo.readline</td>
-  </tr>
-  <tr>
-    <td>Return a list of all the lines of a file</td>
-    <td>fo.readlines</td>
-  </tr>
-  <tr>
-    <td>Write multiple lines</td>
-    <td>fo.writelines()</td>
-  </tr>
-  <tr>
-  <td>*With-blocks*</td>
-  <td width='500px'>with open(filename, mode='rt', encoding='utf-8') as f:<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [int(line.strip()) for line in f]</td>
-  </tr>
-  <tr>
-  </tr>
-</table>
+|--------------------------- | ------------------------------------------------|
+| Read all data from a file  | fo.read()                                       |
+| object                     |                                                 |
+|                            |                                                 |
+| Only read a specific       | fo.read()                                       |
+| number of characters       |                                                 |
+|                            |                                                 |
+| Move the file pointer to   | fo.seek()                                       |
+| the beginning of the file  |                                                 |
+|                            |                                                 |
+| Read one line at a time    | fo.readline()                                   |
+|                            |                                                 |
+| Return a list of all the   | fo.readlines()                                  |
+| lines of a file            |                                                 |
+|                            |                                                 |
+| Write multiple lines       | fo.writelines                                   |
+|                            |                                                 |
+| with-block                 | with open(filename, mode='rt', encoding='utf-8' |
+|                            | return [int(line.strip()) for line in f]        |
+|----------------------------|-------------------------------------------------|
   
 ## List Comprehensions 
   numbers = [1, 2, 3, 4, 5]
