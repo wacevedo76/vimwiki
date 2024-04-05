@@ -1,89 +1,120 @@
 --------------------------------------------------------------------------------
 # Python notes
---------------------------------------------------------------------------------
 ## Books 
-  [Automate the Boring Stuff](AtBS)
---------------------------------------------------------------------------------
-## [Common useful commands](Python/common_useful_commands)
---------------------------------------------------------------------------------
-##  [Common Modules](common_modules)
---------------------------------------------------------------------------------
-##  [Defined Terms](programmingConcepts/Terms)
---------------------------------------------------------------------------------
-##  [Built-ins](programmingConcepts/builtins)
---------------------------------------------------------------------------------
-##  [Strings](programmingConcepts/strings)
---------------------------------------------------------------------------------
-##  [Lists](programmingConcepts/lists)
---------------------------------------------------------------------------------
-##  [Hash/dictionary](programmingConcepts/hash-dict)
---------------------------------------------------------------------------------
-##  [Modules](programmingConcepts/Modules)
---------------------------------------------------------------------------------
-##  [Error Handling](programmingConcepts/Error_handling)
---------------------------------------------------------------------------------
-##  [Web Scraping](Python/web_scraping.wiki)
---------------------------------------------------------------------------------
-## [Bitwise Operators](Python/bitwise)
+[Automate the Boring Stuff](AtBS)  
+
+## Misc
+[Common useful commands](Python/common_useful_commands)  
+[Common Modules](common_modules)  
+[Defined Terms](programmingConcepts/Terms)  
+[Built-ins](programmingConcepts/builtins)  
+[Strings](programmingConcepts/strings)  
+[Lists](programmingConcepts/lists)  
+[Hash/dictionary](programmingConcepts/hash-dict)  
+[Modules](programmingConcepts/Modules)  
+[Error Handling](programmingConcepts/Error_handling)  
+[Web Scraping](Python/web_scraping.wiki)  
+[Testing](Python/Testing/unittest)  
+[Bitwise Operators](Python/bitwise)
+[pdb](Python/pdb)
+
+
 ## Reading and writing to files
 
-  read all data from a file  | fo.read()
-  object                     |
-                             |
-  Only read a specific numer | fo.read(32)
-  of characters              |
-                             |
-  More the file pointer to   | fo.seek(0)
-  the beginning of the file  |
-                             |
-  Read one line at a time    | fo.readline()
-                             |
-  Return a list of all the   | fo.readlines()
-  lines of a file            |
-                             |
-  Write multiple lines       | fo.writelines
-                             |
-  *With-blocks*                | with open(filename, mode='rt', encoding='utf-8') as f:
-                             |    return [int(line.strip()) for line in f]
-                             |
-                             |
-                             |
-
---------------------------------------------------------------------------------
+<table>
+  <tr>
+    <td>
+      Read all data from a file object                   
+    </td>
+    <td>
+      fo.read()  
+    </td>
+  </tr>
+  <tr>
+  <td>
+    Only read a specific numer of characters             
+  </td>
+  <td>
+    fo.read(32)
+  </td>
+  </tr>
+  <tr>
+    <td>More the file pointer to the beginning of the file </td>
+    <td>fo.seek(0</td>
+  </tr>
+  <tr>
+    <td width='200px'>Read one line at a time</td>
+    <td>fo.readline</td>
+  </tr>
+  <tr>
+    <td>Return a list of all the lines of a file</td>
+    <td>fo.readlines</td>
+  </tr>
+  <tr>
+    <td>Write multiple lines</td>
+    <td>fo.writelines()</td>
+  </tr>
+  <tr>
+  <td>*With-blocks*</td>
+  <td width='500px'>with open(filename, mode='rt', encoding='utf-8') as f:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [int(line.strip()) for line in f]</td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+  
 ## List Comprehensions 
   numbers = [1, 2, 3, 4, 5]
-  * List comprehension
-  [ num*2 for num in numbers] -> outputs a list w/ each number in original * 2
+  * List comprehension  
+  `[ num*2 for num in numbers] -> outputs a list w/ each number in original * 2`
 
-  * List Comprehension with logic
-  [ num for num in number if num % 2 == 0] outputs all even numbes from original
-    *if no else, comprehension comes first, then logic check*
-
-  [ num*2 if num % 2 == 0 else num/2 for num in numbers]
+  * List Comprehension with logic  
+  `[ num for num in number if num % 2 == 0] outputs all even numbes from original`  
+      *if no else, comprehension comes first, then logic check*
+      
+      `[ num*2 if num % 2 == 0 else num/2 for num in numbers]`  
     *first result output, logic check, else clause, for clause in comprehension*
+    `nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]`  
 
-`  nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]`
-  * Nested List Comprehensions
-`  [[val*2 for val in l] for l in nested_list]] output ->`
-    [[2, 4, 6], [8, 10, 12], [14, 16, 18]]
-  [["x" if num % 2 != 0 else "o" for num in range(1,4)] for val in range(1,4)]
+
+  * Nested List Comprehensions  
+`  [[val*2 for val in l] for l in nested_list]] output ->`  
+  `[[2, 4, 6], [8, 10, 12], [14, 16, 18]]`  
+  `[["x" if num % 2 != 0 else "o" for num in range(1,4)] for val in range(1,4)]`
   
---------------------------------------------------------------------------------
 ## Setting up your environment 
+
 In your project directory, create a 'requirements.txt' file listing
-all the modules you need on install and run:
-    pip install -r requirements.txt
-                             |
-  Set Environmental key      | os.environ['name_of_variable'] = 'value of variable'
-  retrieve Environmental key | os.getenv('name_of_variable')
-                             |
---------------------------------------------------------------------------------
-## Reading and Writing files 
-Modules: pathlib, os
-[Path Module](modules/path)
-[OS Module](modules/os)
-                             |
---------------------------------------------------------------------------------
+all the modules you need on install and run:  
+    
+    `pip install -r requirements.txt`
+
+<table>
+  <tr>
+    <td width='200px'>
+    Set Environmental key
+    </td>
+    <td width='500px'>
+    os.environ['name_of_variable'] = 'value of variable'
+    </td>
+  </tr>
+  <tr>
+    <td>
+    retrieve Environmental key
+    </td>
+    <td>
+    os.getenv('name_of_variable')
+    </td>
+  </tr>
+</table>
+
+## Reading and Writing files  
+
+Modules: pathlib, os  
+[Path Module](modules/path)  
+[OS Module](modules/os)  
+
+
 ## Working with Excel Spreadsheets 
   needed 3rd party module    | openpyxl
                              |
