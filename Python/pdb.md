@@ -1,6 +1,6 @@
 # Python Debugger (pdb)
 
-## Commands  
+## Available Commands  
 
 | EOF      | cl      | disable | interact | next     | return |
 | u        | a       | clear   | display  | j        | p      |
@@ -12,3 +12,15 @@
 | step     | w       | c       | debug    | ignore   | n      |
 | restart  | tbreak  | whatis  | where    |          |        |
   
+## Commonly Used Commands
+| ------------------------- | ------------------------------------------------ |
+| automatically load module | python -m pdb <filename>                         |
+| within pdb                |                                                  |
+|                           |                                                  |
+| Include a break point     | import pdb: pdb.set_trace()                      |
+|                           |                                                  |
+| print pointer location    | where                                            |
+| from within pdb           |                                                  |
+|                           |                                                  |
+| ------------------------- | ------------------------------------------------ |
+
