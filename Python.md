@@ -4,7 +4,7 @@
 [Automate the Boring Stuff](AtBS)  
 
 ## Misc
-[oop](
+[oop](Concepts/oop/python_oop)
 [Bitwise Operators](Python/bitwise)
 [Built-ins](programmingConcepts/builtins)  
 [Common Modules](common_modules)  
@@ -21,7 +21,7 @@
 
 
 ## Reading and writing to files
-
+```
 |--------------------------- | ------------------------------------------------|
 | Read all data from a file  | fo.read()                                       |
 | object                     |                                                 |
@@ -42,7 +42,7 @@
 | with-block                 | with open(filename, mode='rt', encoding='utf-8' |
 |                            | return [int(line.strip()) for line in f]        |
 |----------------------------|-------------------------------------------------|
-  
+```  
 ## List Comprehensions 
   numbers = [1, 2, 3, 4, 5]
   * List comprehension  
@@ -96,6 +96,7 @@ Modules: pathlib, os
 
 
 ## Working with Excel Spreadsheets 
+```
   needed 3rd party module    | openpyxl
                              |
 --------------------------------------------------------------------------------
@@ -130,6 +131,7 @@ Modules: pathlib, os
                              | logger.info("Test custom logger")
                              |
 --------------------------------------------------------------------------------
+```
 ## Modern Python 3 Notes 
   Data types
     None (null)              | None  <-- (case sensitive) - (class 'NoneType')
