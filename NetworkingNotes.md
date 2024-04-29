@@ -1,17 +1,21 @@
 --------------------------------------------------------------------------------
-= Networking notes =
---------------------------------------------------------------------------------
-== Wired and Wireless Network Topologies ==
---------------------------------------------------------------------------------
-  A Bridge is a virtual network interface that connects multiple physical
+# Networking notes 
+
+## Wired and Wireless Network Topologies 
+  A **Bridge** is a virtual network interface that connects multiple physical
   network interfaces together, allowing them to communicate as if they were on
-  the same physical network. A Bond is a type of bridge that combines multiple
+  the same physical network.  
+  
+  A **Bond** is a type of bridge that combines multiple
   physical network interfaces into a single virtual interface, allowing for
-  increased throughput and redundancy. A VLAN is a virtual local area network
+  increased throughput and redundancy.
+  
+  A **Vlan** is a virtual local area network
   that allows multiple networks to be logically separated on the same physical
   network. VLANs are used to segment networks into smaller, more secure segments.
 
-=== Topology ===
+### Topology 
+```
   Topology                   | Physical: The actual layout of the computer
                              |   cables and other network devices
                              | Logical: The way in which the network appears
@@ -47,7 +51,7 @@
   Does not requre any specialized      | Difficult to troubleshoot
   network equipment.                   |
 --------------------------------------------------------------------------------
-==== Ring ====
+#### Ring 
                              | * Logical ring; The data travels in a circular
                              |   form from one computer to another on the network.
                              |   (It is not a physical ring topology)
@@ -68,13 +72,13 @@
   Ring network are moderately easy to  |  a single break in the cable can disrupt
   install                              |  the entire network.
 --------------------------------------------------------------------------------
-==== Star ====
+      Advantages                            Disadvantages
+#### Star 
                              | * All computers and other network devices connect
                              |   to a central device called a hub or a switch
---------------------------------------------------------------------------------
-== [[networking/osi|OSI Model]] ==
--------------------------------------------------------------------------------
-== [[Subnetting]] ==
--------------------------------------------------------------------------------
-== [[Routing]] ==
+``` 
+## Related topics
+* [OSI Model](networking/osi)
+* [Subnetting](Subnetting)
+* [Routing](Routing)
 
