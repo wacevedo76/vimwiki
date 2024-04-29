@@ -16,3 +16,7 @@ class NewClass:
 ## Hiding class attributes with instance attributes
 * Reading class attributes through _self_references are **allowed**.
 * Assigning values to class attributes will **not** change the class attribute but create a **new instance attribute**.
+
+## Overriding static and class methods  
+By calling static methods through the class, you prevent them from being overridden.  
+if you need polymorphic dispatch of static method invocations, call through the _self_ instance.
