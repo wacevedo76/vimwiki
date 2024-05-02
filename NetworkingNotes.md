@@ -79,6 +79,7 @@
 ``` 
 ## Related topics
 * [OSI Model](networking/osi)
-* [Subnetting](Subnetting)
+* [Subnetting](networking/Subnetting)
 * [Routing](Routing)
+* [ports](networking/ports-protocols)
 
