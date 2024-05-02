@@ -1,14 +1,13 @@
 --------------------------------------------------------------------------------
 # Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) #
---------------------------------------------------------------------------------
-Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
---------------------------------------------------------------------------------
+* Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 ## Interesting commands (move to appropriate sections when comfortable) ##
+```
   uname                      |
   lsof                       |
   netstat                    |
                              |
-  return name of parent dir  | `(basename $(dirname $$PWD)`
+  return name of parent dir  | (basename $(dirname $$PWD)
                              |
   run a command periodically | watch
   to watch changes           |
@@ -29,9 +28,9 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
                              |
   Exit terminal but leave    | disown -a && exit
   all processes running      |
-                             |
---------------------------------------------------------------------------------
-## The set command ##
+```
+## The set command 
+```
   Description                | The set command is used to change the values of
                              | shell options and display variables in Bash
                              | scripts. It can also be used to debug Bash scrips,
@@ -111,9 +110,9 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
                              |
   -T                         | If this flag is set, the DEBUG trap is inherited
                              | by the shell functions.
-                             |
---------------------------------------------------------------------------------
-## Variables ##
+``` 
+## Variables
+```
   set                        | Displays all shell variables and function
                              |
   env                        | Displays only environment variables
@@ -121,26 +120,26 @@ Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
                              |
   $$ or ${...}               | Reference a value stored in a variable
                              |
-  `...`  or $(...)             | Execute command(s) and return the output as input
+  ...  or $(...)             | Execute command(s) and return the output as input
                              | for another command
-  `$((...))` or `$[...]`         | Perform an Arithmetic operation on the contents of
+  $((...)) or $[...]         | Perform an Arithmetic operation on the contents of
                              | variables and retun its results
                              |
-  `$?`                         |"Retur" the exit value of the previously executed
+  $?                         |"Return" the exit value of the previously executed
                              | command
                              |
-  `$0`                         | Name of the command being executed
-  `$#`                         | Number of command arguments
-  `$*`                         | All command arguments
-  `$1, $2, ... $N`             | Value of the corresponding argument
-  `$$`                         | Process ID of the current shell
+  $0                         | Name of the command being executed
+  $#                         | Number of command arguments
+  $*                         | All command arguments
+  $1, $2, ... $N             | Value of the corresponding argument
+  $$                         | Process ID of the current shell
                              |
 Interactively (from cli)     |
   !:0, !:1, !:2, etc         | returns portions of the previous command
-                             |
---------------------------------------------------------------------------------
-## Variable Expansion ##
-  To reference the value     | echo `$variable | echo ${variable}`
+```
+## Variable Expansion
+```
+  To reference the value     | echo $variable | echo ${variable}
   of a variable (parameter)  |
                              |
   set the first letter of    | echo ${variable,}
@@ -161,32 +160,16 @@ Interactively (from cli)     |
   parameter                  |
                              |
   Substring expansion        | ${parameter:offset:length}
-                             |
---------------------------------------------------------------------------------
-## Command Substitution ##
+```
+
+## Command Substitution
+```
   Retrieve the result of     | $(command)  -> uses parenthesis
   one or more commands       |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
---------------------------------------------------------------------------------
-## Brace Expansion ##
+```
+
+## Brace Expansion
+```
   Expand string lists        | echo {a,19,z,barry,42}         <- the comma
                              | echo {jan,feb,mar,apr,may,jun}    separated values
                              |                                   must not contain
@@ -198,19 +181,19 @@ Interactively (from cli)     |
                              | echo {a..z}
                              | echo {1..1000..3}
                              | echo {01..12}        <- can add leading zeros
-                             |
-                             |
---------------------------------------------------------------------------------
-## commands to grokk ##
+```
+
+## commands to grokk
+```
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
                              |
   cut                        | cut --delimiter=" " --fields=1
                              |
-                             |
---------------------------------------------------------------------------------
-## Group and expand expressions ##
-                             |
+```
+
+## Group and expand expressions
+```
   Group commands - subshell  | ()
                              | Grouping a list of commands in parentheses
                              | causes them to be executed as if they were a single
@@ -223,7 +206,7 @@ Interactively (from cli)     |
                              |
   Single Square Brackets     | [] is the syntax for the POSIX *test*
                              |
-  Double Square Brackets     | `[[]]` is the syntax for the bash conditional
+  Double Square Brackets     | [[]] is the syntax for the bash conditional
                              |      (similar to *test*, but more powerfull)
                              |
   Current shell - group comm | {}
@@ -233,27 +216,28 @@ Interactively (from cli)     |
   parameter substitution     | ${parameter(s)}
                              |
                              |
-  *Alternate explaination*     |
+  Alternate explaination     |
                              |
-    Single Brackets *[]*       | Single Brackets are used for comparison operations.
+    Single Brackets []       | Single Brackets are used for comparison operations.
                              | In the past *[* was  a command line the Unix test
                              | command
                              |
-    Double brackets *[[]]*     | Double brackets are also used for comparisons, but
+    Double brackets [[]]     | Double brackets are also used for comparisons, but
                              | they expose a richer syntax which enables more
                              | testing and comparison operations
                              |
-    Single parenthesis *()*    | Single parenthesis call a sub-shell
+    Single parenthesis ()    | Single parenthesis call a sub-shell
                              |
-    Double parenthesis *(())*  | Double parenthesis are used for arithmetic                             |
+    Double parenthesis (())  | Double parenthesis are used for arithmetic                             |
                              |
-    Single Braces *{}*         | Single Braces can be used to:
+    Single Braces {}         | Single Braces can be used to:
                              |   * Unambiguously identify variables
                              |   * Define a sequence of commands for the current
                              |     shell context
-                             |
---------------------------------------------------------------------------------
-## Top level directories ##
+```
+
+## Top level directorie
+```
   /bin/                      | Contains essential binaries used by normal users
   /boot/                     | Contains files used in the boot process: kernel initramfs, bootloader
   /dev/                      | Contains special files used to access devices
@@ -273,19 +257,23 @@ Interactively (from cli)     |
   /tmp/                      | Dir intended for temporary files, often cleared on reboot
   /usr/                      | Contains non-essential files and binaries as read-only user data
   /var/                      | Contains varialble files, such as logs
---------------------------------------------------------------------------------
-## Understanding the Linux ##
- Permissions Scheme          | Commands covered in is chapert are
-                             |   id, touch, chmod, umask, chown, chgrop, sudo,
+```
+
+## Understanding the Linux
+```
+ Permissions Scheme          |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |   useradd, groupad, mkdir, and su
---------------------------------------------------------------------------------
-## Advanced permissions ##
+```
+
+## Advanced permissions
+```
                              | Other file attribtes include immutable undeletable,
                              | append only, and compress
                              |
                              | commands are:  lsattr and chattr
---------------------------------------------------------------------------------
-## Special file permissions ##
+```                            
+## Special file permissions
+```
                              | SUID = 4, SGID = 2, Sticky bit = 1
                              |      | Files                       | Directories
                              |--------------------------------------------------
@@ -303,17 +291,22 @@ Interactively (from cli)     |
                              |bit   |                             | files within this directory. see
                              |      |                             | the /tmp/ director for its most
                              |      |                             | famous use.
---------------------------------------------------------------------------------
-## Process Control ##
+```
+
+## Process Control
+```
   Stop long running process  | ctrl-c
                              |
   Suspend long running procs | ctrl-z
-                             |
---------------------------------------------------------------------------------
-## evaluating math, dealing with numbers ##
-                             | $(( numeric_variable + 1 ))
---------------------------------------------------------------------------------
-## User input ##
+```
+
+## evaluating math, dealing with numbers
+```
+ $(( numeric_variable + 1 ))
+```
+
+## User input
+```
   Arguments and parameters   | when executing a script interactively, an
                              | argument is any "word" entered after the name of
                              | script. eg.
@@ -332,15 +325,16 @@ Interactively (from cli)     |
   defaule variable set with  | $REPLY
   read                       |
                              |
-  testing for default        | `[[ -z ${test_var} `]]; then read -p "assign test_var" test_var
---------------------------------------------------------------------------------
-## tests and return values ##
+  testing for default        | [[ -z ${test_var} ]]; then read -p "assign test_var" test_var
+```
+## Tests and return values
+```
   test                       | the test command is used to check file types and
                              | compare values
                              |
                              | test -d /tmp/temp_dr  # use to check if file is dir
                              |
-  test shorthand             | `[[ -d /tmp/temp_dir `]] # [ ] can also be used
+  test shorthand             | [[ -d /tmp/temp_dir ]] # [ ] can also be used
                              |
   $?                         | immediately after any command is run from bash (spawed bash)
                              | the spawed bash returns a success code for the run command
@@ -348,34 +342,36 @@ Interactively (from cli)     |
                              | variable "$?" this variable can be used to make
                              | decisions for error handling and such
                              |
-                             | `[[ -d /tmp/temp_dir `]]
-                             | `[[ $? -ne 0 `]]; then echo "the Previous command was unsuccessful"
+                             | [[ -d /tmp/temp_dir ]]
+                             | [[ $? -ne 0 ]]; then echo "the Previous command was unsuccessful"
                              |
   $#                         | this varialbe is used to give the value of the
                              | number of arguments given to a script
                              |
-                             | `[[ $# -ne 3 `]] || { echo "this script needs 3 arguments" }
+                             | [[ $# -ne 3 ]] || { echo "this script needs 3 arguments" }
                              |
                              |
   Testing script             | When running a script you can give bash the "-x"
     bash -x ./some_script    | Argument and it will output every line run with
                              | all variables and expression substituted -- great
                              | for bug trackng
-                             |
---------------------------------------------------------------------------------
-## Regular expressions ##
-  [[programmingConcepts/re]]
---------------------------------------------------------------------------------
+```
+
+## Regular expressions
+  * [Regular Expressions](programmingConcepts/re)
+
 ## Globbing ##
+```
     Match zero or more times | *
                              |
     Any character once       | ?
                              |
     Any of a group of        | [abcde]
     one or a group of chars  |
-                             |
---------------------------------------------------------------------------------
+```
+
 ## egrep ##
+```
   ?                          | matches a repeat of the previous character zero or more times
   +                          | Matches a repeat of the previous character one or more times
   {n}                        | Matches a repeat of the previous character exactly n times
@@ -385,8 +381,10 @@ Interactively (from cli)     |
   (xx|yy)                    | Alternation character, allows us to fine xx OR y in the search
                              | pattern (great for patters with more than one character,
                              | otherwise, [xy] notion would suffice)
---------------------------------------------------------------------------------
-## sed ##
+```
+
+## sed
+```
   Search and replace         | s/ (beginning of string)
                              | sed 's/wicked/stupid/'
                              | note: by default, sed only replace the first
@@ -416,19 +414,21 @@ Interactively (from cli)     |
                              |
   Run multi script on one    | -e
   stream                     |
---------------------------------------------------------------------------------
-## Conditional Operators ##
+```
+
+## Conditional Operators
+```
   and                        | &&
                              |
   or                         | ||
-                             |
-                             |
---------------------------------------------------------------------------------
+```
+
 ## Conditional Testing and Scripting Loops ##
+```
   While loop                 | while true; do
                              | done
                              |
-  Until loop                 | until `[[ ${counter} -gt 9 `]]; do
+  Until loop                 | until [[ ${counter} -gt 9 ]]; do
                              | done
                              |
   for in loop                | for word in ${words}; do
@@ -454,8 +454,10 @@ Globbing and the loop        |
                              | break 2         <-- break out current loop and enclosing loop
                              |
   Continue                   | skip current iteration of loop, continue to next
---------------------------------------------------------------------------------
-## Using Pipes and Redirection ##
+```
+
+## Using Pipes and Redirection
+```
   File descriptors           |
     standard input stream    | stdin (default binding) /dev/fd/0
     standard output stream   | stdout (default )       /dev/fd/1
@@ -503,8 +505,11 @@ Globbing and the loop        |
                              |
   Here strings               | <<< # used to send a string to a command which normaly only takes
                              |     input from stdin
---------------------------------------------------------------------------------
-## Functions ##
+
+```
+
+## Functions 
+```bash
   Covered commands: top, free declare, case, rev, return
   Function declarations      | function_name() {
                              |   Indented-commands
@@ -536,8 +541,10 @@ Globbing and the loop        |
                              |     color_code='blue'
                              |      *)
                              |     color_code='default'
---------------------------------------------------------------------------------
-## Scheduling and Logging ##
+```
+
+## Scheduling and Logging
+```
   Commands: at, wall, atq, atrm, sendmail, crontab, alias
     Syntax for the crontab   | <timestamp> command
                              |
@@ -554,60 +561,63 @@ Globbing and the loop        |
                              | 15 16 * * *        Every day at 16:15
                              | 30 * * * *         ddJK:WQJ
                              |
---------------------------------------------------------------------------------
-## Command line switches ##
-`  Filtering command line     | #!/bin/bash`
-`  switches with case statment| echo`
-`  (only checking the first   | while [ -n "$1" ]`
-`   argument)                 | do`
-`                             |   case "$1" in`
-`                             |     -a) echo "Found the -a option" ;;`
-`                             |     -b) echo "Found the -b option" ;;`
-`                             |     -c) echo "Found the -c option" ;;`
-`                             |     *) echo "$1 is not an option" ;;`
-`                             |   esac`
-`                             | shift`
-`                             | done`
+```
+
+## Command line switches
+```bash
+  Filtering command line     | #!/bin/bash
+  switches with case statment| echo
+  (only checking the first   | while [ -n "$1" ]
+   argument)                 | do
+                             |   case "$1" in
+                             |     -a) echo "Found the -a option" ;;
+                             |     -b) echo "Found the -b option" ;;
+                             |     -c) echo "Found the -c option" ;;
+                             |     *) echo "$1 is not an option" ;;
+                             |   esac
+                             | shift
+                             | done
                              |
-`  Switches with case statment|#!/bin/bash`
-`  (checking all arguments)   |`
-`                             |while [ -n "$1" ]`
-`                             |do`
-`                             |  case "$1" in`
-`                             |    -a) echo "Found the -a option";;`
-`                             |    -b) parm="$2"`
-`                             |      echo "Fount the -b option, with parameter value $parm"`
-`                             |      shift ;;`
-`                             |    -c) echo "Fount the -c option";;`
-`                             |    --) shift`
-`                             |      break ;;`
-`                             |    *) echo "$1 is not an option";;`
-`                             |  esac`
-`                             |  shift`
-`                             |done`
-`                             |count=1`
-`                             |for param in "$@"`
-`                             |do`
-`                             |  echo "Parameter #$count: $param"`
-`                             |  count=$(( $count + 1 ))`
-`                             |done`
-                             |
-### Common command line switches ###
-                             | -a: List all objects.
-                             | -c: Make a count.
-                             | -d: Specify directory.
-                             | -e: Expand the object.
-                             | -f: Specify the file from which to read data.
-                             | -h: Display command help.
-                             | -i: Ignore case.
-                             | -l: Perform full format data output.
-                             | -n: Use non-interactive (batch) mode.
-                             | -o: Allows you to specify the file to which you want to redirect the output.
-                             | -q: Execute the script in quiet mode.
-                             | -r: Process folders and files recursively.
-                             | -s: Execute the script in silent mode.
-                             | -v: Execute verbose output.
-                             | -x: Exclude object.
-                             | -y: Answer "yes" to all questions.
-                             |
---------------------------------------------------------------------------------
+  Switches with case statment|#!/bin/bash
+  (checking all arguments)   |
+                             |while [ -n "$1" ]
+                             |do
+                             |  case "$1" in
+                             |    -a) echo "Found the -a option";;
+                             |    -b) parm="$2"
+                             |      echo "Fount the -b option, with parameter value $parm"
+                             |      shift ;;
+                             |    -c) echo "Fount the -c option";;
+                             |    --) shift
+                             |      break ;;
+                             |    *) echo "$1 is not an option";;
+                             |  esac
+                             |  shift
+                             |done
+                             |count=1
+                             |for param in "$@"
+                             |do
+                             |  echo "Parameter #$count: $param"
+                             |  count=$(( $count + 1 ))
+                             |done
+```
+
+### Common command line switches
+```
+   -a: List all objects.
+   -c: Make a count.
+   -d: Specify directory.
+   -e: Expand the object.
+   -f: Specify the file from which to read data.
+   -h: Display command help.
+   -i: Ignore case.
+   -l: Perform full format data output.
+   -n: Use non-interactive (batch) mode.
+   -o: Allows you to specify the file to which you want to redirect the output.
+   -q: Execute the script in quiet mode.
+   -r: Process folders and files recursively.
+   -s: Execute the script in silent mode.
+   -v: Execute verbose output.
+   -x: Exclude object.
+   -y: Answer "yes" to all questions.
+``` 
