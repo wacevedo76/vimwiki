@@ -37,8 +37,8 @@
     * support for pointer arithmetic
     * Support for assertions
     * Support for generic programming
------------------------------------------------------------------------
-== Random notes ==
+
+## Random notes
   Golang's documentation can be found at https://pkg.go.dev/std
 
   Go is not and object oriented language.
@@ -47,8 +47,9 @@
   functionality, in essence, functions that belong to instances 
   of custom types
 
------------------------------------------------------------------------
-== Go CLI ==
+
+## Go CLI
+```
   go build                   | Compiles a bunch of go source code files
                              |
   go run                     | Compiles and executes one or two files
@@ -63,40 +64,36 @@
                              |
   go test                    | Runs any tests associated with the current
                              | project
------------------------------------------------------------------------
-== Go Packages ==
+```
+
+## Go Packages
+```
   There are two types of     | Exacutable (package)
   packages in any given go   | - Generates a file that we can run
   project                    |
                              | Reusable (package)
                              | - Code used as 'helpers'. good place to put
                              |   reusable logic (code dependencise/libraries).
------------------------------------------------------------------------
-== Common packages ==
+```
+```
+
+## Common packages
   io/ioutils                 |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
------------------------------------------------------------------------
-(Go Packages) :Summary
+```
+(Go Packages) :Summary.  
+
   A package declaration can be included at the top of any Golang source
   code. Doing so will define the type of packages the source code in 
   questions compiles as. Unless the package name given to the the soure
   code is "Main", the package will compile as a Reusable package.  NOTE:
   if the package "main" is used, indicating that the source code is meant
   to be used to produce and executable file, a "main" function must exist
-  in the source code. 
+  in the source code.  
   
   ASSUMTIONS: The "main" package is an entry point for the project
------------------------------------------------------------------------
-== Go Basic Types ==
+
+## Go Basic Types
+```
   bool                       |
   string                     |
   int                        |
@@ -109,13 +106,17 @@
     infer its type based     |
     on the value supplied in |
     the var declaration      |
------------------------------------------------------------------------
-== Function Return types == 
+```
+
+## Function Return types
+```
   When defining a function   | func newCard() string {    <-- define type after parameters
   you must define the type   |
-  the function returns       | {
------------------------------------------------------------------------
-== Arrays ==
+  the function returns       |
+```
+
+## Arrays
+```
   There are two types of     |
   arrays:                    |
     * Array                  | Fixed length list of things
@@ -149,14 +150,17 @@
   away, you can usd "_"      | NOTE: the reason ':=' is used is because through every 
                              |       iteration of the loop, the previous value is thrown
                              |       away, requiring a new varialble to be declared.
------------------------------------------------------------------------
-== Types ==
+```
+
+## Types
+```
   Type declaration           | type (name) (derived type)
                              | type deck []string
    To make a customer type   |
    The new type "inherits"   |
    all the functionality of  |
    the slice of string       |
+```
 -----------------------------------------------------------------------
 == Receiver functions ==
   reciever function declar.  | func (d deck) print() {
