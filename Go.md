@@ -161,8 +161,9 @@
    all the functionality of  |
    the slice of string       |
 ```
------------------------------------------------------------------------
-== Receiver functions ==
+
+## Receiver functions
+```
   reciever function declar.  | func (d deck) print() {
                              | func ( -argument representing given "type"- -given type-) -name of function()- {
                              |   (the first parenthisis aregument is
@@ -181,8 +182,10 @@
   created                    | usually the first or first two letters
                              | of the defined / passed in type (deck
                              | in this situation)
------------------------------------------------------------------------
-== Slice Range syntax ==
+```
+
+## Slice Range syntax
+```
   Return a "slice" of a      | slice[ -startIndexIncluding- : -upToNotIncluding ]
   slice                      |
                              |
@@ -193,8 +196,10 @@
   If starting from the last  | slice[-startIndexIncluding-:]
   leave the last index ref   | 
   off                        |
------------------------------------------------------------------------
-== Return/assign Multiple values ==
+```
+
+## Return/assign Multiple values
+```
   After the receiver/param   | func deal(d deck, handSize in) (deck, deck) {
   definition, this function  |   return d[:handSize], d[handSize:]
   defines, in parenthisis,   | }
@@ -204,12 +209,14 @@
   Here, multiple assignment  | hand, remainingDeck := deal(cards, 5)
   works because the function |
   returns multipe values     |
------------------------------------------------------------------------
-== Type Conversion ==
+```
+
+## Type Conversion
+```
   converting a slice of      | []string(-slice of strings-) --> from the "strings" package
   strings into a single      | []byte("Hi there!")
   string                     | 
-                             | 
+```
   
   
   
