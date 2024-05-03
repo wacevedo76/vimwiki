@@ -1,35 +1,34 @@
------------------------------------------------------------------------
-= Go(lang) Notes =
------------------------------------------------------------------------
-== History and features ==
+# Go(lang) Notes 
+## History and features. 
+
   It is a compiled, statically typesd language in the tradition of Algo
   and C, with garbage collection, limited structual typing, memory 
-  safty features and CSP-syle concurrent programming features added.
+  safty features and CSP-syle concurrent programming features added.  
 
   The compiler & other language tools originally developed by Google
-  are all free and open source.
+  are all free and open source.  
 
   Go takes a stong position on features that can lead to confusion and 
   bugs. It omits OOP idiom such as inheritance and polymorphism, in 
   favor of composition and simple interfaces. It downplays exception 
   handling in favor of explicit erros in return values. There is exactly
-  one correct way to lay out Go code, enfoced by the gofmt tool.
+  one correct way to lay out Go code, enfoced by the gofmt tool.  
 
   Go is also a great language for writing concurrent programs: programs
   with many independently running parts. An obvious example is a
   webserver: Every request runs separately, but requests often need to
   resources suce as sessions, caches, or notification queues. This 
   means skilled Go programmers need to deal with concurrent access to 
-  those resources.
+  those resources.  
 
   While the Go language has an excellent set of low-level features for
   handling concurrency, using them directly can become complicated. In
   many cases, a hadful of reusable abstractions over theose low-level 
-  mechanisms make like much easier.
+  mechanisms make like much easier.  
 
   Programs are constructed using packages, for efficient management of
   dependencies. Go programming implementations use a traditional compile
-  and link model to generate executable binaries.
+  and link model to generate executable binaries.  
 
   Features excluded Intentionally
     * Support for type inheritance
