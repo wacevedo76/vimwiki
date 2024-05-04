@@ -1,8 +1,7 @@
-[[../Python|index]]
---------------------------------------------------------------------------------
-= Hashes / Dictionaries =
---------------------------------------------------------------------------------
-== Hashes / Dictionaries in Python ==
+[index](../Python)
+# Hashes / Dictionaries
+## Hashes / Dictionaries in Python ==
+```
   Keys, values, items        | {}.keys()
   These return types, while  | {}.values()
   not actually arrays, can   | {}.items
@@ -25,4 +24,4 @@
     Sets a default value for |
     key which is called but  |
     does not already exist   |
---------------------------------------------------------------------------------
+```

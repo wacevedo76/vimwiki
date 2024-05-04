@@ -1,9 +1,10 @@
---------------------------------------------------------------------------------
-= Clojure Fundamentals =
---------------------------------------------------------------------------------
+# Clojure Fundamentals
+```  
   Clojure documentation      | (doc <name of function or macro>)
---------------------------------------------------------------------------------
-== Core data structures ==
+```
+
+##  Core data structures 
+```
   NOTE: Commas are not       |
   evaluated in expressions   |   nil
   (evaluated as whitespace)  |   true false                       :boolean
@@ -21,7 +22,9 @@
                              |   ["a" "b" "c" "d" "e"]            ; Vector
                              |   {:name "Grogu", :age 50}         ; Map
                              |   #(5 2 3 1 4)                     ; Set
-== Function call ==
+```
+##  Function calls 
+```
                              |   (function arg-1 arg-2 ...)
                              |   (max 1 2 3)                      ; => 6
                              |   (filter odd? [1 2 3])            ; => (1 3)
@@ -49,8 +52,9 @@ Nested function to be more   |      (map inc)                     ; => (1 2 3 4 
 natural (to read)            |      (filter odd?))                ; => (1 3 5)
                              |
                              | (->> Acts as sort of a pipe (Unix pipe)
---------------------------------------------------------------------------------
-Collections
+```
+## Collections
+```
   List                       | '(1 2 "tom") <- start with a quote, separating commas are optional
                              |   - Elements are accessed sequentially
                              |
@@ -80,9 +84,9 @@ Collections
                              |
       Add a value to vector  | (conj [1 2 3 4 5] 6)  ;=> [1 2 3 4 5 6]
                              | ;; appends the new value to the end
-                             |
-Lists and Vectors            |
-                             |
+```
+## Lists and Vectors
+```
   Access first element       | (first '(:rabbit :pocket-watch :marmalade :dorr))
                              | ;; -> :rabit
                              |
@@ -107,8 +111,10 @@ Lists and Vectors            |
   (conj adds elements to the | (conj [:toast :butter] :jam :honey)
   end of vectors, it adds to | ;; -> [:toast :butter :jam :honey]
   the begining of list       |
-                             |
-Maps                         |
+```
+
+## Maps
+```
   Basic Strucute             | {:jam1 "strawberry" :jam2 "blackberry"}
     ;; commas are optional   | ;; - {:jam2 "blackberry" :jam1 "strawberry"}
                              |
@@ -143,8 +149,10 @@ Maps                         |
   Update value in nested map | (assoc-in map [key & more-keys] value)  -> Changes value
                              |
                              | (update-in map [key & more-keys] update-function & args)
-                             |
-Sets                         | Sets are very useful for when you have a
+```
+## Sets                         
+```
+                             | Sets are very useful for when you have a
                              | collection of elements with no duplicates. You
                              | can recognize them by the surrounding #{}
                              |
@@ -182,10 +190,11 @@ Sets                         | Sets are very useful for when you have a
                              |
                              | (set {:a 1 :b 2 :c 3})
                              |   ;; -> #{[:c 3] [:b 2] [:a 1]}
-                             |
-                             |
---------------------------------------------------------------------------------
-  Define variable            | (def x 42) -> use the def keyword, variable name
+```
+  
+## Define variable
+```
+                             | (def x 42) -> use the def keyword, variable name
                              |              then value
                              |
   Define new function        | (def greetings (fn [name] (str "Hello " name)))   <- is this how lamda functions are made?
@@ -204,12 +213,7 @@ Sets                         | Sets are very useful for when you have a
   Call a function with items | (apply + [1 2]) == (+ 1 2)
   of a sequence as individual|
   arguments                  |
-                             |
-                             |
-                             |
-                             |
-                             |
---------------------------------------------------------------------------------
+                             | 
   Define local variables     | (let [a 5]               ;; a = 5
                              |    (println "a = " a)
                              |    (inc a))
@@ -219,11 +223,10 @@ Sets                         | Sets are very useful for when you have a
                              |    (println "a =" a)
                              |    (println "b =" b)
                              |    (+ a b))
-                             |
-                             |
---------------------------------------------------------------------------------
-Built in Math operations     |
-                             |
+```
+
+### Built in Math operations
+```
   Modulo                     | (mod 23 2)
                              | ;; -> 1
                              |
@@ -242,10 +245,9 @@ Built in Math operations     |
   (The Math module contains  |
    many mathimatical operat- |
    ions                      |
-                             |
---------------------------------------------------------------------------------
-Characters and Strings       |
-                             |
+``` 
+## Characters and Strings
+```
   Single Character           | \H, \w
                              |
   String                     | "Hello", "World!"
@@ -263,9 +265,10 @@ Characters and Strings       |
                              |
   Return a character from a  | (.charAt "Hello!" 3)
   specific position          | ;; -> \l
-                             |
---------------------------------------------------------------------------------
-Control Structures           |
+```
+
+## Control Structures
+```
   if                         | (if test consequent alternative)
   (if-not)                   |
                              | (if (condition)    ;; Condition
@@ -317,9 +320,9 @@ Control Structures           |
                              |     (log-message "in true branch")
                              |     (store-something-in-db)
                              |     (return-useful-value)))
-                             |
---------------------------------------------------------------------------------
-Logical functions
+``` 
+## Logical functions
+```
   and                        | "and" returns the first failing value. If all
                              | objects are "Truthy" it will return the last
                              | value
@@ -353,26 +356,27 @@ Logical functions
                              |
                              | (not nil)
                              | ;=> true
-                             |
---------------------------------------------------------------------------------
-Reader Macros
-`  Quote (')                  | Quotes theform follwing it, same as (quote)     `
-`  Character (\)              | Yields a character literal                      `
-`  Comment (;)                | Single-line comment                             `
-`  Meta (^)                   | Associates metadata for the form that follows it`
-`  Deref (@)                  | Dereferences the agent or ref that follows      `
-`  Dispatch (#)               | #{} Constructs a set                            `
-`                             | #"" Constructs a regex patter                   `
-`                             | #^ Associates metadata for the form that follows`
-`                             | #' REsolves the var for the symbol that follows,`
-`                             | #_ Skips the following form                     `
-  Syntax quote (`)           | Used in macros to render s-expressions
-`  Unquote (~)                | Unquotes forms inside syntax-quoted forms       `
-`  Unquote splice (~@)        | Unquotes a list inside a syntax form, but insert`
-`                             |   the elements of the list without the surroundi`
-`                             |                                       `
---------------------------------------------------------------------------------
-Functional iteration         |
+```
+# Reader Macros
+```
+  Quote (')                  | Quotes theform follwing it, same as (quote)     
+  Character (\)              | Yields a character literal                      
+  Comment (;)                | Single-line comment                             
+  Meta (^)                   | Associates metadata for the form that follows it
+  Deref (@)                  | Dereferences the agent or ref that follows      
+  Dispatch (#)               | #{} Constructs a set                            
+                             | #"" Constructs a regex patter                   
+                             | #^ Associates metadata for the form that follows
+                             | #' REsolves the var for the symbol that follows,
+                             | #_ Skips the following form                     
+ Syntax quote (`)            | Used in macros to render s-expressions
+  Unquote (~)                | Unquotes forms inside syntax-quoted forms       
+  Unquote splice (~@)        | Unquotes a list inside a syntax form, but insert
+                             |   the elements of the list without the surroundi
+```
+
+## Functional iteration
+```
 (loops / recursion)          |
                              |
   while                      | Clojure's while macro works in a similar fashion
@@ -472,29 +476,27 @@ Functional iteration         |
                              | (for [i [1 2 3]]
                              |    (inc 1))        ;; Output: (2 3 4)
                              |
-                             |
-                             |
-                             |
-                             |
---------------------------------------------------------------------------------
-The Dot and new operators    | The dot operator, written as a literal ".", forms
-                             | the basis for Java interop. When seen by itself
-                             | after an opening parenthesis, it should be read a
-                             | "in the scope of A do B with arguments..." for example
-                             |
-                             |   (. Math PI)
-                             |   ;; Result: 3.141592653589793
-                             |   (. Math abs -3)
-                             |   ;; Result: 3
-                             |   (. "foo" toUpperCase)
-                             |   ;; Result: "FOO"
-                             |
-                             | To create instance of classes, you can use the
-                             | the new operator or a trailing dot to indicate
-                             | that the class's constructor should be called
-                             |
-                             | (new Integer "42")
-                             | ;; Result: 42
-                             | (Integer. "42")
-                             | ;; Result: 42
-                             |
+```
+## The Dot and new operators
+```
+ The dot operator, written as a literal ".", forms
+ the basis for Java interop. When seen by itself
+ after an opening parenthesis, it should be read a
+ "in the scope of A do B with arguments..." for example
+
+   (. Math PI)
+   ;; Result: 3.141592653589793
+   (. Math abs -3)
+   ;; Result: 3
+   (. "foo" toUpperCase)
+   ;; Result: "FOO"
+
+ To create instance of classes, you can use the
+ the new operator or a trailing dot to indicate
+ that the class's constructor should be called
+
+ (new Integer "42")
+ ;; Result: 42
+ (Integer. "42")
+ ;; Result: 42
+```

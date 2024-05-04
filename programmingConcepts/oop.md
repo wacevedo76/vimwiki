@@ -1,37 +1,36 @@
---------------------------------------------------------------------------------
-= Object Oriented Programming =
---------------------------------------------------------------------------------
-The Four major principles of OOP
+# Object Oriented Programming
+
+## The Four major principles of OOP
   - Encapsulation
   - Abstraction
   - Inheritance
   - Polymorphism
 
-  - Encapsulation
+  - **Encapsulation**
     Encapsulation means information hiding; The data in the class can not be
     viewed or modified from outside the classe, instead, viewing and modifying
     the data in the class must be done through functions that are controlled by
     the class object.
 
-  - Abstraction
+  - **Abstraction**
     Abstraction is related to encapsulation. When using abstraction, you hide the
     internal implementatio of how data is manages and provide a more simplified
     interface t othe ouside code. The primary reason is the cause "loose coupling"
     (meaning that its is desirable for code that is responsible for one set of data
     to be independent and separated from other code).
 
-  - Inheritance
+  - **Inheritance**
     Used for code reuse.
 
-  - Polymorphism
+  - **Polymorphism**
     Polymorphism is related to Inheritance in that it is possible to create
     an object that can be set to on of any number of possible typs that inherit
     from the same base lineage. This capability is useful for scenarios where the
     type needed is not imeediately knowable but can be set at runtime once the
     appropriate circumstance have arisen.
 
---------------------------------------------------------------------------------
-== Terms ==
+## Terms
+```
   Object-oriented Analysis   | The process of looking at a proble, system, or task
                              | and identifying the objects and interactions
                              | between those objects. The analysis stage is all
@@ -65,9 +64,9 @@ The Four major principles of OOP
   Interface                  | An abstract method that is initiated by a class
                              | which has no default behavior, wherein an inheriting
                              | class can define the interfaces behavior.
-                             |
---------------------------------------------------------------------------------
-4 + 1 Views
+``` 
+## 4 + 1 Views
+
   Logical View               | A logical view of the data entities, their static
                              | attributes, and their relationships. This is the
                              | heart of object-oriented design

@@ -1,13 +1,12 @@
---------------------------------------------------------------------------------
-= AtBS =
---------------------------------------------------------------------------------
-== Chapter 7 ==
-  * this notes make the assumtion that the reader has a sold understanding of
+# AtBS
+## Chapter 7
+  * this notes makes the assumtion that the reader has a sold understanding of
     the basics of regular expressions
     
-  [[programmingConcepts/re]]
---------------------------------------------------------------------------------
-== Chapter 9 ==
+  * [Regular expressions](programmingConcepts/re)
+
+## Chapter 9
+```
   file path separator        | from pathlib import Path
   (Windows \, Unix /)        | Path('Documents', 'Testfiles', 'exeFiles')
                              |   WindowsPath('Documents/Testfiles/exeFiles')
@@ -34,3 +33,4 @@
     of cwd                   |
                              |
 Reading and writing with     |
+```

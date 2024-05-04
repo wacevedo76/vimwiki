@@ -1,9 +1,9 @@
 ```
-`__        ___ _ _ _                      __     ___                   _ _    _`
-`\ \      / (_) | (_) __ _ _ __ __   ___  \ \   / (_)_ __ _____      _(_) | _(_)`
-` \ \ /\ / /| | | | |/ _\ | '_ '_ \ / __|  \ \ / /| | '_ '_  \ \ /\ / / | |/ / |`
-`  \ V  V / | | | | | (_| | | | | | \__ \   \ V / | | | | | | \ V  V /| |   <| |`
-`   \_/\_/  |_|_|_|_|\__,_|_| |_| |_|___/    \_/  |_|_| |_| |_|\_/\_/ |_|_|\_\_|`
+    __        ___ _ _ _                      __     ___                   _ _    _
+    \ \      / (_) | (_) __ _ _ __ __   ___  \ \   / (_)_ __ _____      _(_) | _(_)
+     \ \ /\ / /| | | | |/ _\ | '_ '_ \ / __|  \ \ / /| | '_ '_  \ \ /\ / / | |/ / |
+      \ V  V / | | | | | (_| | | | | | \__ \   \ V / | | | | | | \ V  V /| |   <| |
+       \_/\_/  |_|_|_|_|\__,_|_| |_| |_|___/    \_/  |_|_| |_| |_|\_/\_/ |_|_|\_\_|
 ```
 
 
@@ -53,17 +53,18 @@
 
 
  ## Tooling 
-* [Vim](Vim)
-* [Emacs](Emacs)
-* [sed](sed)
-* [awk](awk)
-* [Tmux](Tmux)
 * [Ansible](Ansible)
+* [Awk](awk)
 * [Docker](Docker)
+* [Emacs](Emacs)
+* [Ipython](Python/ipython)
 * [Kubernetes](kubernetes/kubernetesIndex)
-* [Selenium](Selenium)
-* [Nagios Core](Nagios)
 * [Learning Elasticsearch 7](Elasticsearch/Learning_Elasticsearch7)
+* [Nagios Core](Nagios)
+* [Sed](sed)
+* [Selenium](Selenium)
+* [Tmux](Tmux)
+* [Vim](Vim)
 
 
  ## Sytem 

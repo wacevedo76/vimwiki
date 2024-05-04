@@ -129,23 +129,25 @@ Modules: pathlib, os
                              |
                              | # Now the custom logger will be able to use and log specific log levels
                              | logger.info("Test custom logger")
-                             |
---------------------------------------------------------------------------------
 ```
+
 ## Modern Python 3 Notes 
-  Data types
+### Data types
+```
     None (null)              | None  <-- (case sensitive) - (class 'NoneType')
   String interpolation
     format strings (f-string)| f'interpolated data --> {variable/expression}'
                              |
     format method            | 'interpolated data --> {}'.format(<value>)
-                             |
-  Logical Operators
+ ```
+### Logical Operators
+ ```
     and                      |
     or                       |
     not                      |
---------------------------------------------------------------------------------
+ ```
 ## General Notes 
+ ```
   Converting a character to  |
   ascii                      |
                              |
@@ -157,12 +159,10 @@ Modules: pathlib, os
                              |
   divmod                     | divmod divides two numbers and returns
                              | a tuple containing both the whole value and remander
-                             |
---------------------------------------------------------------------------------
+ ```
+
 ## General Class construction 
   [OOP](programmingConcepts/oop)
---------------------------------------------------------------------------------
+
 ## Creating a new virtual environment 
-  [[programmingConcepts/virtual_environment]]
-                             |
---------------------------------------------------------------------------------
+  [Virtual Environment](programmingConcepts/virtual_environment)

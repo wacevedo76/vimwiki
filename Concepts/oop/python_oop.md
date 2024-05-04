@@ -1,6 +1,5 @@
 # OOP in Python
 
-
 ## Referencing class Attributes
 ```python
 class NewClass:
@@ -16,6 +15,27 @@ class NewClass:
 ## Hiding class attributes with instance attributes
 * Reading class attributes through _self_references are **allowed**.
 * Assigning values to class attributes will **not** change the class attribute but create a **new instance attribute**.
+
+## Static methods
+```python
+class NewClass:
+    CLASS_COUNT = 0                           
+    
+    @staticmethod
+    def _get_next_class_count():
+        result = NewClass.CLASS_COUNT
+        NewClass.CLASS_COUNT += 1
+        return result
+    
+    
+    def __init__(self, user_code, contents):
+        self.user_code = user_code
+        self.contents = contents
+        self._count = self._get_next_class_count()
+        NewClass.CLASS_COUNT += 1    
+    
+
+```
 
 ## Overriding static and class methods  
 By calling static methods through the class, you prevent them from being overridden.  
