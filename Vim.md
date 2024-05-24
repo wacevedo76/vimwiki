@@ -1,104 +1,87 @@
---------------------------------------------------------------------------------
-Learn Vim Script the Hard way
---------------------------------------------------------------------------------
-== Working with vim on windows ==
--- interact with system clipboard
-    set clipboard+=unnamedplus
---------------------------------------------------------------------------------
-== Useful help pages ==
-key-notation                 |
-                             |
---------------------------------------------------------------------------------
-== Various tips ==
-  move to specific position  | 30|
-  ga                         | find the ASCI number for the character on cursor
-  g<                         | redisplay previous command output
-  g#                         | repeat previous replace command
-  gu< movement >             | lowercase text (based on movement)
-  g<shift>u< movement >      | uppercase text (based on movement)
-  g~< movement >             | Swap case
-  gq                         | format long lines (according to textwidth)
-  gqq                        | format the entire document
-  gq(number)(movement)       |
-                             |
-  gu                         | uncapitalize
-  gU                         | capitalize
-                             |
-  gf                         | while on text object, if file, go to file
-  ctr-^                      | while in different file, go bact to previous file
-                             |
-  gv                         | re-select previously selected line(s)
-                             |
-  J                          | join lines (with spaces)
-  gJ                         | join lines (without spaces)
-                             |
-  Auto increment numers      |  select the numbers (cntr-v) and press g,  cntr-a
-                             |
---------------------------------------------------------------------------------
-== Useful movements ==
-  Normal-Mode
-    Scroll buffer one line at| Normal-mode  <C-e> / <C-y>
-                             |
-  Insert-Mode                |
-    Command prefix when in   | <C-x>
-    Insert-mode              |
-                             |
-    Scroll buffer one line   | Insert-mode  <C-x> <C-e> / <C-x> <C-y>
-    at a time (insert-mode)  |
-                             |
-    Complete filepath under  | Insert-mode <C-x> <C-f>
-    the cursor               |
-                             |
-    Complete with the        | <C-x> <C-v>
-    command line history     |
-                             |
-  Command-Line-Mode          |
-    Command prefix when in   | <C-r>
-    Command-Line-Mode        |
-                             |
-    Copy the filename under  | <C-r> <C-f>
-    the buffer's cursor      |
-                             |
-    Copy the word under the  | <C-r> <C-w>
-    buffer's cursor          |
-                             |
-    Copy the line under the  | <C-r> <C-l>
-    buffer's cursor          |
-                             |
---------------------------------------------------------------------------------
-== Useful settings ==
-textwidth                    | set width of line
-  gq                         | reformat line based on textwidth
-                             |
-                             |
---------------------------------------------------------------------------------
-== Commonly used Commands ==
-   Resize split height       |
-     Incr/decr by 1          | <c-w>+ / <c-w>-
-      Incr/decr by amount    | <c-w>10+ / <c-w>10-
---------------------------------------------------------------------------------
-  == Abbreviations ==
+# Learn Vim Script the Hard way
+## Quick Notes:  
+
+Working with vim on windows
+- interact with system clipboard  
+`set clipboard+=unnamedplus`
+
+## Useful help pages 
+* key-notation 
+
+
+## Various tips
+| result                                            | keybinding or intention     |
+|---------------------------------------------------|-----------------------------|
+| Move to a specific location horizontally          | (desired position (int)) \| |
+| Find the ASCI for the character on cursor         | ga                          |
+| Find the ASCI number for the character on cursor  | ga                          |
+| Redisplay previous command output                 | g<                          |
+| Repeat previous replace command                   | g#                          |
+| Lowercase text (based on movement)                | gu< movement >              |
+| Uppercase text (based on movement)                | g<shift>u< movement >       |
+| Swap case                                         | g~< movement >              |
+| Format long lines (according to textwidth)        | gq                          |
+| Format the entire document                        | gqq                         |
+| Uncapitalize                                      | gu                          |
+| Capitalize                                        | gU                          |
+| While on text object, if file, go to file         | gf                          |
+| While in different file, go bact to previous file | ctr-^                       |
+| Re-select previously selected line(s)             | gv                          |
+| Join lines (with spaces)                          | J                           |
+| Join lines (without spaces)                       | gJ                          |
+| Select the numbers (cntr-v) and press g,  cntr-a  | Auto increment numers       |
+  
+
+## Useful movements
+| Mode    | Explaination                                 | Keybinding                |
+|---------|----------------------------------------------|---------------------------|
+| Normal  | Scroll buffer one line at a time             | `<C-e> / <C-y>`           |
+| Insert  | Command prefix                               | `<C-x>`                   |
+| Insert  | Scroll buffer one line at a time             | `<C-x><C-e> / <C-x><C-y>` |
+| Insert  | Complete filepath under cursor               | `<C-x> <C-f>`             |
+| Command | Command prefix                               | `<C-r>`                   |
+| Command | Copy the filename under the buffers's cursor | `<C-r><C-f>`              |
+| Command | Copy the word under the buffer's cursor      | `<C-r><C-w>               |
+| Command | Copy the line under the buffer's cursor      | `<C-r><C-l>`              |
+
+
+## Useful settings
+| Setting   | Explanation                      |
+|-----------|----------------------------------|
+| textwidth | set width of line                |
+| gq        | reformat line based on textwidth |
+
+## Commonly used Commands
+| Result                                    | Keybinding            |
+|-------------------------------------------|-----------------------|
+| Resize split height (incr / decr by 1)    | `<c-w>+ / <c-w>-`     |
+| Resize split height (incr/decr by amount) | `<c-w>10+ / <c-w>10-` |
+
+## Abbreviations
+```
                              | {mode}abbrev {char sequence} <output>
                              | :iabbrev adn and
                              |
   Buffer-Local Abbreviations | :iabbrev <buffer> --- %mdash;
---------------------------------------------------------------------------------
-== Autocommands ==
-    Autocommand structure    |` :autocmd BufNewFile * :write`
-                             |`          ^          ^ ^`
-                             | `         |          | |`
-                             |`          |          | The command to run`
-                             | `         |          |`
-                             |`          |          A "pattern" to filter the event`
-                             | `         |`
-                             |`          The "event" to watch for`
+```
+
+## Autocommands 
+```
+    Autocommand structure    | :autocmd BufNewFile * :write
+                             |          ^          ^ ^
+                             |          |          | |
+                             |          |          | The command to run
+                             |          |          |
+                             |          |          A "pattern" to filter the event
+                             |          |
+                             |          The "event" to watch for
                              |
     Bind single autocmd to   |
-    multiple events          | :autocmd BufWritePre,BufRead `*`.html :normal gg=G
+    multiple events          | :autocmd BufWritePre,BufRead *.html :normal gg=G
       Autocommand triggers   |
       on both commands       |
                              |
-      common idiom           | :autocmd BufNewFile,BufRead `*`.html setlocal nowrap
+      common idiom           | :autocmd BufNewFile,BufRead *.html setlocal nowrap
                              | (This will turn line wrapping off whenever you'r
                              | regardless of whether the file happens to already
                              | exist, or not
@@ -109,8 +92,10 @@ textwidth                    | set width of line
     FileType Events          | :autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
   Pairing Autocommands and   | :autocmd FileType python :abbrev <buffer> iff if:<left>
   Abbreviations              | :autocmd FileType javascript :abbrev <buffer> iff if ():<left>
----------------------------------------------------------------------------------
-== Grouping autocmds ==
+```
+
+## Grouping autocmds 
+```
                              | :augroup testgroup
                              | :    autocmd BuffWrite * :echom "Foo"
                              | :    autocmd BuffWrite * :echom "Bar"
@@ -120,8 +105,10 @@ textwidth                    | set width of line
   duplicate                  | :    autocmd!          <--- negates the autocommand
                              | :    autocmd BuffWrite * :echom "Cats"
     (:h autocmd-groups)      | :augroup END
---------------------------------------------------------------------------------
-== Operator-Pending Mappings ==
+```
+
+## Operator-Pending Mappings 
+```
                              | An operator is a command that waits for you to
                              | enter a movement command:
                              |
@@ -136,8 +123,10 @@ textwidth                    | set width of line
     (Operator non recursive  |   :normal -> dp    ---> deletes all within ()
     mapping)                 |   :normal -> cp    ---> changes all within ()
                              |
---------------------------------------------------------------------------------
-== Folds keybindings ==
+```
+
+## Folds keybindings 
+```
   zf#j                       | creates a fold from the cursor down # lines.
   zf/string                  | creates a fold from the cursor to string.
   zj                         | moves the cursor to the next fold.
@@ -153,12 +142,14 @@ textwidth                    | set width of line
   [z                         | move to start of open fold.
   ]z                         | move to end of open fold.
                              |
---------------------------------------------------------------------------------
-== Telescope ==
+```
+
+## Telescope 
+```
                              | Telescope.nvim
                              | Telescope.setup
                              | Telescope.builtin
                              | Telescope.layout
                              | Telescope.action
                              |
---------------------------------------------------------------------------------
+```
