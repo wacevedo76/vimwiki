@@ -4,6 +4,7 @@
 [Automate the Boring Stuff](AtBS)  
 
 ## Misc
+[Environment](Python/environment)
 [oop](Concepts/oop/python_oop)
 [Bitwise Operators](Python/bitwise)
 [Built-ins](programmingConcepts/builtins)  
