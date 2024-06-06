@@ -1,6 +1,42 @@
 --------------------------------------------------------------------------------
 # Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) #
 * Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
+## Quick Notes
+**How to use Parentheses**
+```bash
+  Command Grouping           | (command1; command2, command3)   <-- All executed
+                             |                                      within s sub
+                             |                                      shell
+                             |
+  Arithmetic Evaluation      | (( sum = 5 + 3 ))
+                             |
+  Command Substitution       | variable=$(command)
+                             | variable='command'
+                             |
+  Function Definition        | function_name () {
+                             |     # Function body
+                             | }
+                             |
+  Process Substitution:      | diff <(command1) <(command2)
+```
+**How to use brackets**
+```bash
+  Conditional Expressions    | if [ $var -eq 5 ]; then
+                             |     echo "Variable var is equal to 5"
+                             | fi
+                             |
+  Test command               | if [ -f /path/to/file ]; then
+                             |     echo "File exists"
+                             | fi
+                             |
+  Array Indexing             | my_array=(apple banana cherry)
+                             | echo ${my_array[1]}        # Outputs "banana"
+                             |
+  Substring Extraction       | (usage) -> ${string:start:length}
+                             | my_string="Hello, World!"
+                             | echo ${my_string:0:5}      # Outputs "Hello"
+                             |
+```
 ## Interesting commands (move to appropriate sections when comfortable) ##
 ```
   uname                      |
@@ -161,13 +197,11 @@ Interactively (from cli)     |
                              |
   Substring expansion        | ${parameter:offset:length}
 ```
-
 ## Command Substitution
 ```
   Retrieve the result of     | $(command)  -> uses parenthesis
   one or more commands       |
 ```
-
 ## Brace Expansion
 ```
   Expand string lists        | echo {a,19,z,barry,42}         <- the comma
@@ -182,7 +216,6 @@ Interactively (from cli)     |
                              | echo {1..1000..3}
                              | echo {01..12}        <- can add leading zeros
 ```
-
 ## commands to grokk
 ```
   find                       | find <search path> -name "*name-of-files*"
@@ -191,7 +224,6 @@ Interactively (from cli)     |
   cut                        | cut --delimiter=" " --fields=1
                              |
 ```
-
 ## Group and expand expressions
 ```
   Group commands - subshell  | ()
@@ -235,7 +267,6 @@ Interactively (from cli)     |
                              |   * Define a sequence of commands for the current
                              |     shell context
 ```
-
 ## Top level directorie
 ```
   /bin/                      | Contains essential binaries used by normal users
@@ -258,13 +289,11 @@ Interactively (from cli)     |
   /usr/                      | Contains non-essential files and binaries as read-only user data
   /var/                      | Contains varialble files, such as logs
 ```
-
 ## Understanding the Linux
 ```
  Permissions Scheme          |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |   useradd, groupad, mkdir, and su
 ```
-
 ## Advanced permissions
 ```
                              | Other file attribtes include immutable undeletable,
@@ -292,14 +321,12 @@ Interactively (from cli)     |
                              |      |                             | the /tmp/ director for its most
                              |      |                             | famous use.
 ```
-
 ## Process Control
 ```
   Stop long running process  | ctrl-c
                              |
   Suspend long running procs | ctrl-z
 ```
-
 ## evaluating math, dealing with numbers
 ```
  $(( numeric_variable + 1 ))
@@ -356,10 +383,8 @@ Interactively (from cli)     |
                              | all variables and expression substituted -- great
                              | for bug trackng
 ```
-
 ## Regular expressions
   * [Regular Expressions](programmingConcepts/re)
-
 ## Globbing ##
 ```
     Match zero or more times | *
@@ -369,7 +394,6 @@ Interactively (from cli)     |
     Any of a group of        | [abcde]
     one or a group of chars  |
 ```
-
 ## egrep ##
 ```
   ?                          | matches a repeat of the previous character zero or more times
@@ -382,7 +406,6 @@ Interactively (from cli)     |
                              | pattern (great for patters with more than one character,
                              | otherwise, [xy] notion would suffice)
 ```
-
 ## sed
 ```
   Search and replace         | s/ (beginning of string)
@@ -415,14 +438,12 @@ Interactively (from cli)     |
   Run multi script on one    | -e
   stream                     |
 ```
-
 ## Conditional Operators
 ```
   and                        | &&
                              |
   or                         | ||
 ```
-
 ## Conditional Testing and Scripting Loops ##
 ```
   While loop                 | while true; do
@@ -455,7 +476,6 @@ Globbing and the loop        |
                              |
   Continue                   | skip current iteration of loop, continue to next
 ```
-
 ## Using Pipes and Redirection
 ```
   File descriptors           |
@@ -507,7 +527,6 @@ Globbing and the loop        |
                              |     input from stdin
 
 ```
-
 ## Functions 
 ```bash
   Covered commands: top, free declare, case, rev, return
@@ -542,7 +561,6 @@ Globbing and the loop        |
                              |      *)
                              |     color_code='default'
 ```
-
 ## Scheduling and Logging
 ```
   Commands: at, wall, atq, atrm, sendmail, crontab, alias
@@ -562,7 +580,6 @@ Globbing and the loop        |
                              | 30 * * * *         ddJK:WQJ
                              |
 ```
-
 ## Command line switches
 ```bash
   Filtering command line     | #!/bin/bash
@@ -601,7 +618,6 @@ Globbing and the loop        |
                              |  count=$(( $count + 1 ))
                              |done
 ```
-
 ### Common command line switches
 ```
    -a: List all objects.
