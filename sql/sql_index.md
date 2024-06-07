@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 # SQL
 --------------------------------------------------------------------------------
-[[SQL_basics|SQL Bassic commands]]
-[[sqlite]]
+- [[SQL_basics|SQL Bassic commands]]
+- [[sqlite]]
+- [sqlite3 from Python](Python/sqlite3)
+
 

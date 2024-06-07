@@ -4,46 +4,59 @@
 [Automate the Boring Stuff](AtBS)  
 
 ## Misc
-[Environment](Python/environment)
-[oop](Concepts/oop/python_oop)
-[Bitwise Operators](Python/bitwise)
-[Built-ins](programmingConcepts/builtins)  
-[Common Modules](common_modules)  
-[Common useful commands](Python/common_useful_commands)  
-[Defined Terms](programmingConcepts/Terms)  
-[Error Handling](programmingConcepts/Error_handling)  
-[Hash/dictionary](programmingConcepts/hash-dict)  
-[Lists](programmingConcepts/lists)  
-[Modules](programmingConcepts/Modules)  
-[Strings](programmingConcepts/strings)  
-[Testing](Python/Testing/unittest)  
-[Web Scraping](Python/web_scraping.wiki)  
-[pdb](Python/pdb)
+* [Defined Terms](programmingConcepts/Terms)  
+* [Environment](Python/environment)
+* [Built-ins](programmingConcepts/builtins)  
+* [Common Modules](common_modules)  
+* [Common useful commands](Python/common_useful_commands)  
+* [Lists](programmingConcepts/lists)  
+* [Strings](Concepts/Types/Python/strings)  
+* [Hash/dictionary](programmingConcepts/hash-dict)  
+* [Modules](programmingConcepts/Modules)  
+* [oop](Concepts/oop/python_oop)
+* [Error Handling](programmingConcepts/Error_handling)  
+* [Bitwise Operators](Python/bitwise)
+* [Testing](Python/Testing/unittest)  
+* [Web Scraping](Python/web_scraping.wiki)  
+* [pdb](Python/pdb)
 
+## Tools
+* [Ipython](Python/ipython)
+
+## Python Data Model
+You can think of the Python data model as a description of Python as a framework.  
+It formalizes the interfaces of the building blocks of the language itself, such  
+as sequences, functions, iterators, coroutines, classes, context managers, etc.  
+
+As an example, when requesting `object[key]`, the interpreter calls  
+`object.__getitem__(key)`  
+Special methods are implemented when we want our objects to support and interact  
+with fundamental language constructs such as:
+* Collections
+* Attribute access
+* Iteration (including asynchronous iteration using **_async for_**)
+* Operator overloading
+* Function and method invocation
+* String representation and formatting
+* Asynchronous programming using **_await_**
+* Object creation and destruction
+* Managed context using the **_with_** or **_async with_** statements
+
+**Note**:  
+* **_magic method_** is a term used to refer to a _special method_. which are  
+  also refered to as **_dunder method_** (double underscore methods)
 
 ## Reading and writing to files
-```
-|--------------------------- | ------------------------------------------------|
-| Read all data from a file  | fo.read()                                       |
-| object                     |                                                 |
-|                            |                                                 |
-| Only read a specific       | fo.read()                                       |
-| number of characters       |                                                 |
-|                            |                                                 |
-| Move the file pointer to   | fo.seek()                                       |
-| the beginning of the file  |                                                 |
-|                            |                                                 |
-| Read one line at a time    | fo.readline()                                   |
-|                            |                                                 |
-| Return a list of all the   | fo.readlines()                                  |
-| lines of a file            |                                                 |
-|                            |                                                 |
-| Write multiple lines       | fo.writelines                                   |
-|                            |                                                 |
-| with-block                 | with open(filename, mode='rt', encoding='utf-8' |
-|                            | return [int(line.strip()) for line in f]        |
-|----------------------------|-------------------------------------------------|
-```  
+| Objective                                          | File operator (fo) method                           |
+| -------------------------------------------------: | :-----------------------------------------------    |
+| Read all data from a file object                   | `fo.read()`                                         |
+| Only read a specific number of characters          | `fo.read()`                                         |
+| Move the file pointer to the beginning of the file | `fo.seek()`                                         |
+| Read one line at a time                            | `fo.readline()`                                     |
+| Return a list of all the lines of a file           | `fo.readlines()`                                    |
+| Write multiple lines                               | `fo.writelines()`                                   |
+| with-block                                         | `with open(filename, mode='rt', encoding='utf-8'):` |
+
 ## List Comprehensions 
   numbers = [1, 2, 3, 4, 5]
   * List comprehension  

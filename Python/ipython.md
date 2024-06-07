@@ -51,9 +51,6 @@ c.TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode = False
 ### Documentation for Magic functions  
 To view the documentation (Docstring) for a Magic function, enter the magic  
 function and add a `'?'` as the last character
-```
-
-```
 
 ### Reset the ipython session 
 `%reset`
