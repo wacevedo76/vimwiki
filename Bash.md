@@ -2,6 +2,31 @@
 # Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) #
 * Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 ## Quick Notes
+### Performing an operation on all the directories within the current directory
+```bash
+# Use find to list all directories in the current directory and loop through them
+  for dir in $(find . -maxdepth 1 -type d ! -name '.'); do
+    # Perform your operation here, for example, print the directory name
+    echo "Processing directory: $dir"
+  
+    # Example operation: listing the contents of the directory
+    ls "$dir"
+  done
+
+  # or
+  
+  # Loop through each directory in the current directory using shell globbing
+  for dir in */; do
+    # Check if it's a directory (this is usually redundant with the trailing / in glob)
+    if [ -d "$dir" ]; then
+      # Perform your operation here, for example, print the directory name
+      echo "Processing directory: $dir"
+  
+      # Example operation: listing the contents of the directory
+      ls "$dir"
+    fi
+  done
+```
 **How to use Parentheses**
 ```bash
   Command Grouping           | (command1; command2, command3)   <-- All executed
@@ -331,7 +356,6 @@ Interactively (from cli)     |
 ```
  $(( numeric_variable + 1 ))
 ```
-
 ## User input
 ```
   Arguments and parameters   | when executing a script interactively, an
