@@ -9,7 +9,7 @@
 
  ## Programming
 * [Bash](Bash)
-* [Clojure](clojure/clojure_index)
+* [Lisp Dialects](lisp/clojure/clojure_index)
 * [Go](Go)
 * [Python](Python)
 * [Ruby](Ruby)

@@ -29,7 +29,7 @@
                              |   (max 1 2 3)                      ; => 6
                              |   (filter odd? [1 2 3])            ; => (1 3)
                              |
-               (conditional) |   (if (< 1 2) "a" "b")             ; => "a"
+(conditional)                |   (if (< 1 2) "a" "b")             ; => "a"
                              |
 Immutability                 | All data structures in Clojure are immutable
                              |
