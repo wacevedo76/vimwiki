@@ -6,7 +6,6 @@
        \_/\_/  |_|_|_|_|\__,_|_| |_| |_|___/    \_/  |_|_| |_| |_|\_/\_/ |_|_|\_\_|
 ```
 
-
  ## Programming
 * [Bash](Bash)
 * [Lisp Dialects](lisp/clojure/clojure_index)
@@ -18,11 +17,9 @@
 * [c](c)
 * [WebDev](webdev/webdev_index)
 
-
  ## Databases
 * [SQL](sql/sql_index)
 * [MongoDB](Databases/MongoDB)
-
 
  ## Framework 
 * [Django](Django)
@@ -30,7 +27,6 @@
 * [React](React)
 * [EmberJS](EmberJS)
 * [API](API/api_index)
-
 
  ## Programming Concept 
 * [Error Handling](programmingConcepts/Error_handling)
@@ -66,30 +62,24 @@
 * [Tmux](Tmux)
 * [Vim](Vim)
 
-
  ## Sytem 
 * [snmp](snmp)
 * [proxmox](proxmox)
 * [nvm](nvm)
 
-
  ## Adminitration 
-* [Linux SysAd](SysAd)
+* [Linux SysAd](linux_sysad)
 * [Windows](Windows)
-
 
  ## Networking 
 * [Networking](Networking)
-
 
  ## Cloud 
 * [AWS](AWS/awsindex)
 * [Azure](Azure/AzureIndex)
 
-
  ## CompSci 
 * [Data Structures and algorithms](Data_structures_and_algorithms)
-
 
  ## Misc
 * [Notes](misc_notes|notes)
