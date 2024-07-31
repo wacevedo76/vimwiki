@@ -1,4 +1,5 @@
-# Arch Linux Specific Commands
+#s:q
+Arch Linux Specific Commands
 ## Misc
   
 | Purpose                             | command                            |

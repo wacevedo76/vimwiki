@@ -16,3 +16,4 @@ Linux Sys Admin and Certification Training
 * [[linuxGeneralConcepts/systemd|Systemd]]
 * [[Linux/package_management|Package Management]]
 * [[Linux/centos8|Centos8]]
+* [General Administration](Linux/General_administration)
