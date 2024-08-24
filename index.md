@@ -81,6 +81,10 @@
  ## CompSci 
 * [Data Structures and algorithms](Data_structures_and_algorithms)
 
+ ## AI
+* [Generative AI](AI/generative_ai)
+* [ollama](AI/ollama)
+
  ## Misc
 * [Notes](misc_notes|notes)
 * [terms](terms)
