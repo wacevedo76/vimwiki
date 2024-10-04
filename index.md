@@ -12,6 +12,7 @@
 * [Go](Go)
 * [Python](Python)
 * [Ruby](Ruby)
+* [Dart](Dart)
 * [TypeScript](TypeScript)
 * [Javascript](javascript/Javascript_index)
 * [c](c)
