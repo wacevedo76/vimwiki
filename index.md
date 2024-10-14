@@ -50,6 +50,7 @@
 
 
  ## Tooling 
+* [Git](git/git_index)
 * [Ansible](Ansible)
 * [Awk](awk)
 * [Docker](Docker)
