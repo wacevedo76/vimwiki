@@ -96,3 +96,6 @@
 * [Maths](Maths/Index)
 * [Languages](languages/languages_index)
 * [Bullet Journal](bujo)
+
+  ## Spoken Languages
+* [Polish](Spoken_languages/Polish)

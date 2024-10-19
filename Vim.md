@@ -1,6 +1,8 @@
 # Learn Vim Script the Hard way
 ## Quick Notes:  
 
+Remove blank lines from a file:
+`:g/^$/d`
 Working with vim on windows
 - interact with system clipboard  
 `set clipboard+=unnamedplus`
