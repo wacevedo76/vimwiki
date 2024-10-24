@@ -33,10 +33,3 @@ Close the connection to      | connection.close()
   ensure proper cleanup and  |
   resource release           |
                              |
-                             |
-                             |
-                             |
-                             |
-                             |
-                             |
-

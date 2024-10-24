@@ -5,7 +5,6 @@
   * json          - For JSON encoding and decoding
   * csf          - For csf encoding and decoding
 
-
   - Working with databases
     * SQLAlchemy
     * flask-Migrate
