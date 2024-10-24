@@ -31,3 +31,53 @@ Class                        | media_type
                              | headers
                              |   A dict of strings
                              |
+
+## HTTP Requests
+```python
+Import FastAPI              | from fastapi import FastAPI
+                            | 
+                            | app = FastAPI
+                            | 
+Endpoint Creatiion          |
+(decorator.REST_VERB)       | @app.get("/hi")
+function to be decorated    | def greet():
+                            |     return "Hello world"
+                            | 
+URL PATH                    | @app.get("/hi/{who}")
+URL PATH Parameter          | def greet(who):
+                            |     return f"Hello {who}"
+                            | 
+Query Parameter             | @app.get("/hi/{who}")
+(indicated as lack of param)| def greet():
+                            |     return f"Hello {who}"
+                            | 
+Passed in Body              | 
+Import fastapi.Body         | from fastapi import FastAPI, Body
+Post request                | @app.post("/hi")
+Body(embed=True)            | def greet(who:str = Body(embed=True)):
+obtained from JSON request  |     return f"Hello {who}"
+                            | 
+Passed in from HEADER       | 
+Import fastapi.Header       | from fastapi import FastAPI, Header
+Post request                | @app.post("/hi")
+Header assigned to who      | def greet(who:str = Header()):
+                            |     return f"Hello {who}"
+                            | 
+Return User-Agent           | 
+Import fastapi.Header       | from fastapi import FastAPI, Header
+Post request                | @app.post("/agent")
+User-agent assigned from HE | def greet(user_agent:str = Header()):
+                            |     return user_agent
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+                            | 
+```
