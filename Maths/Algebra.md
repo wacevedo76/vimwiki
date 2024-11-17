@@ -42,17 +42,30 @@
   - By mastering these concepts, you will be well-prepared to tackle high school-level algebra problems and lay a strong foundation for further studies in mathematics.
 
 #Terms
-| Name               | Note                                           |
-| ------------------ | ---------------------------------------------- |
-| Natural numbers    | {1, 2, 3, 4 ...}                               |
-| Whole numbers      | {0, 1 ,2 ,3 ...}                               |
-| Integers           | {... -2, -1, 0, 1, 2 ...}                      |
-| Rational numbers   | any number which can be written as a fraction  |
-|                    | 3/2 = 1.5,  -45/9,  0.25 = 1/4                 |
-| Irrational numbers | Numbers which can not be written as a fraction |
-|                    | PI, square root of 2                           |
-| Real numbers       | any number which is rational or irrational     |
-|                    | (does not include complex numbers)             |
+| Name               | Note                                                |
+| ------------------ | ----------------------------------------------      |
+| Natural numbers    | {1, 2, 3, 4 ...}                                    |
+| Whole numbers      | {0, 1 ,2 ,3 ...}                                    |
+| Integers           | {... -2, -1, 0, 1, 2 ...}                           |
+| Rational numbers   | any number which can be written as a fraction       |
+|                    | 3/2 = 1.5,  -45/9,  0.25 = 1/4                      |
+| Irrational numbers | Numbers which can not be written as a fraction      |
+|                    | PI, square root of 2                                |
+| Real numbers       | any number which is rational or irrational          |
+|                    | (does not include complex numbers)                  |
+|                    |                                                     |
+| Coefficient        | is a numerical or constant factor that is           |
+|                    | multiplied by a variable in an algebraic expression |
+|                    | or equation. It indicates how many times that       |
+|                    | variable is being multiplied                        |
+|                    |                                                     |
+| Divisor            | The number of groups to which a numeber is to       |
+|                    | be divided                                          |
+| Dividend           | The number which is to be divided                   |
+|                    |                                                     |
+| Quotient           | The number of items a group contains when           |
+|                    | Divided from a larger group/number                  |
+|                    |                                                     |
   
 # Properties of Real Numbers
 | Property                  | Notes                                           |
