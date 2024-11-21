@@ -1,5 +1,4 @@
---------------------------------------------------------------------------------
-# Learn Shell Scripting - Fundamentals of Bash 4.4 : (Variables or constants) #
+# Bash Programming Language Notes
 * Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 ## Quick Notes
 ### Performing an operation on all the directories within the current directory
@@ -27,23 +26,76 @@
     fi
   done
 ```
-**How to use Parentheses**
+
+## Performing operations on the text within a file
+Example: say that you have a text file with a list of docker containers ids, and you want to perform a set of actions on each word (container ids):
+Here are a set of methods you could use:
+#### **Method 1: using a `while` loop with `tr`**  
 ```bash
-  Command Grouping           | (command1; command2, command3)   <-- All executed
-                             |                                      within s sub
-                             |                                      shell
-                             |
-  Arithmetic Evaluation      | (( sum = 5 + 3 ))
-                             |
-  Command Substitution       | variable=$(command)
-                             | variable='command'
-                             |
-  Function Definition        | function_name () {
-                             |     # Function body
-                             | }
-                             |
-  Process Substitution:      | diff <(command1) <(command2)
+# Replace spaces with newlines and process each word
+tr ' ' '\n' < words.txt | while read -r word; do
+    # Perform your operation on "$word"
+    echo "Processing word: $word"
+    # Your operation here
+done
 ```
+
+#### **Method 2: using a `for` loop**  
+```bash
+# Read the content of the file into a variable
+content=$(<words.txt)
+
+# Set Internal Field Separator to space
+IFS=' '
+
+# Loop over each word in the content
+for word in $content; do
+    # Perform your operation on "$word"
+    echo "Processing word: $word"
+    # Your operation here
+done
+
+```
+
+#### **Method 3: Readng into an Array with `read -a`**
+```bash
+# Read words into an array
+read -a words_array < words.txt
+
+# Loop over each word in the array
+for word in "${words_array[@]}"; do
+    # Perform your operation on "$word"
+    echo "Processing word: $word"
+    # Your operation here
+done
+```
+
+#### **Method 3: Using `while` Loop with `IFS`**
+```bash
+# Set IFS to space
+IFS=' '
+
+# Read the file line by line
+while read -r line; do
+    # Read words into an array
+    read -a words <<< "$line"
+    # Loop over words in the array
+    for word in "${words[@]}"; do
+        echo "Processing word: $word"
+        # Your operation here
+    done
+done < words.txt
+```
+
+## **How to use Parentheses**
+| Purpose               | Operation                      |
+| --------------------- | ------------------------------ |
+| Command Grouping      | (command1; command2, command3) |
+| Arithmetic Evaluation | (( sum = 5 + 3 ))              |
+| Command Substitution  | variable=$(command)            |
+| Process Substitution: | diff <(command1) <(command2)   |
+
+
 **How to use brackets**
 ```bash
   Conditional Expressions    | if [ $var -eq 5 ]; then
@@ -91,137 +143,60 @@
   all processes running      |
 ```
 ## The set command 
-```
-  Description                | The set command is used to change the values of
-                             | shell options and display variables in Bash
-                             | scripts. It can also be used to debug Bash scrips,
-                             | export values from shell scripts, terminate
-                             | programs when they fail, and handle expressions
-                             |
-  -e (stop on error)         | When a query returns a non-zero status, the -e
-                             | flag stops the script
-                             |
-  -C (type of write protect) | The -C flag ensures that we cannot overwrite an
-                             | existing file with the same name
-                             |
-  -f (stop globbing)         | The -f prevenst us from using wildcards to search
-                             | for filenames or strings
-                             |
-  -x (type of debuggin)      | The -x parameter is used when debugging scripts
-                             | to determin the output of individual commands
-                             |
-  -a (var and func export)   | This flag can be used to export variables or
-                             | functions
-                             |
-  -u                         | This flag is used to ensure that Bash does not
-                             | overlook the non-existent variables in our script
-                             | as in normal circumstances, Bash ignores unassigned
-                             | variables
-                             |
-  +[argument]                | Running a set command with the +[argument] unsets
-                             | the option's functionality, in essense, nullifying
-                             | the effect of the -[argument] option
-                             |
-  -b                         | It is used to notify of job termination immediately.
-                             |
-  -h                         | It is used to save the location of commands where
-                             | they looked up.
-                             |
-  -k                         | It is used to place all assignment arguments in
-                             | the environment variable of a command, except
-                             | those that precede the command name.
-                             |
-  -m                         | It is used to enable Job control.
-                             |
-  -n                         | It is used to read commands.
-                             |
-  -o                         | It is used for option-name.
-                             |
-  -p                         | It is used to disable the processing of the '$
-                             | ENV' file and import shell functions. It is
-                             | turned on whenever the real and effective user
-                             | ids do not match. Turning off this option may
-                             | cause the working uid and gid to be set as the
-                             | authorized uid and gid.
-                             |
-  -t                         | It is used to exit from the command after
-                             | executing one command.
-                             |
-  -u                         | It is used to treat unset variables as an error
-                             | when substituting.
-                             |
-  -v                         | It is used to print shell input lines.
-                             |
-  -x                         | It is used to print commands and their arguments
-                             | in a sequential way (as they are executed).
-                             |
-  -B                         | It is used to perform brace expansion by the Shell.
-                             |
-  -C                         | It is used to disallow existing regular files to
-                             | be overwritten by redirection of output.
-                             |
-  -E                         | It is used if the ERR trap is inherited by the
-                             | shell functions.
-                             |
-  -H                         | It is used to enable style history substitution.
-                             | By default, it is on when the shell is interactive.
-                             |
-  -P                         | It is used if we do not want to follow symbolic
-                             | links when executing commands.
-                             |
-  -T                         | If this flag is set, the DEBUG trap is inherited
-                             | by the shell functions.
-``` 
+The set command is used to change the values of shell options and display variables in Bash scripts. It can also be used to debug Bash scrips, export values from shell scripts, terminate programs when they fail, and handle expressions 
+  
+| Description                |                                                                                                                                                                                                                                                                |
+| -------------------------- | ----------------------------------------------------                                                                                                                                                                                                           |
+| -e (stop on error)         | When a query returns a non-zero status, the -e flag stops the script                                                                                                                                                                                           |
+| -C (type of write protect) | The -C flag ensures that we cannot overwrite an existing file with the same name                                                                                                                                                                               |
+| -f (stop globbing)         | The -f prevenst us from using wildcards to search for filenames or strings                                                                                                                                                                                     |
+| -x (type of debuggin)      | The -x parameter is used when debugging scripts to determin the output of individual commands                                                                                                                                                                  |
+| -a (var and func export)   | This flag can be used to export variables or functions                                                                                                                                                                                                         |
+| -u                         | This flag is used to ensure that Bash does not overlook the non-existent variables in our script variables                                                                                                                                                     |
+| +[argument]                | Running a set command with the +[argument] unsets the option's functionality, in essense, nullifying the effect of the -[argument] option                                                                                                                      |
+| -b                         | It is used to notify of job termination immediately.                                                                                                                                                                                                           |
+| -h                         | It is used to save the location of commands where they looked up.                                                                                                                                                                                              |
+| -k                         | It is used to place all assignment arguments in the environment variable of a command, except those that precede the command name.                                                                                                                             |
+| -m                         | It is used to enable Job control.                                                                                                                                                                                                                              |
+| -n                         | It is used to read commands.                                                                                                                                                                                                                                   |
+| -p                         | It is used to disable the processing of the '$ ENV' file and import shell functions. It is turned on whenever the real and effective user ids do not match. Turning off this option may cause the working uid and gid to be set as the authorized uid and gid. |
+| -t                         | It is used to exit from the command after executing one command. It is used to treat unset variables as an error when substituting.                                                                                                                            |
+| -v                         | It is used to print shell input lines.                                                                                                                                                                                                                         |
+| -x                         | It is used to print commands and their arguments in a sequential way (as they are executed).                                                                                                                                                                   |
+| -B                         | It is used to perform brace expansion by the Shell.                                                                                                                                                                                                            |
+| -C                         | It is used to disallow existing regular files to be overwritten by redirection of output.                                                                                                                                                                      |
+| -E                         | It is used if the ERR trap is inherited by the shell functions.                                                                                                                                                                                                |
+| -H                         | It is used to enable style history substitution. By default, it is on when the shell is interactive.                                                                                                                                                           |
+| -P                         | It is used if we do not want to follow symbolic links when executing commands. If this flag is set, the DEBUG trap is inherited by the shell functions.                                                                                                        |
+
 ## Variables
-```
-  set                        | Displays all shell variables and function
-                             |
-  env                        | Displays only environment variables
-                             | (i.e. variables with -x attribute set)
-                             |
-  $$ or ${...}               | Reference a value stored in a variable
-                             |
-  ...  or $(...)             | Execute command(s) and return the output as input
-                             | for another command
-  $((...)) or $[...]         | Perform an Arithmetic operation on the contents of
-                             | variables and retun its results
-                             |
-  $?                         |"Return" the exit value of the previously executed
-                             | command
-                             |
-  $0                         | Name of the command being executed
-  $#                         | Number of command arguments
-  $*                         | All command arguments
-  $1, $2, ... $N             | Value of the corresponding argument
-  $$                         | Process ID of the current shell
-                             |
-Interactively (from cli)     |
-  !:0, !:1, !:2, etc         | returns portions of the previous command
-```
+| variable           |                                                                                      |
+| ------------------ | --------------------------------------------------                                   |
+| set                | Displays all shell variables and function                                            |
+| env                | Displays only environment variables (i.e. variables with -x attribute set)           |
+| $$ or ${...}       | Reference a value stored in a variable                                               |
+| ...  or $(...)     | Execute command(s) and return the output as input for another command                |
+| $((...)) or $[...] | Perform an Arithmetic operation on the contents of variables and returns its results |
+| $?                 | "Return" the exit value of the previously executed                                   |
+|                    | command                                                                              |
+| $0                 | Name of the command being executed                                                   |
+| $#                 | Number of command arguments                                                          |
+| $*                 | All command arguments                                                                |
+| $1, $2, ... $N     | Value of the corresponding argument                                                  |
+| $$                 | Process ID of the current shell                                                      |
+| !:0, !:1, !:2, etc | returns portions of the previous command Interactively (from cli)                    |
+
+
 ## Variable Expansion
-```
-  To reference the value     | echo $variable | echo ${variable}
-  of a variable (parameter)  |
-                             |
-  set the first letter of    | echo ${variable,}
-  the referenced value to    |
-  lowercase                  |
-                             |
-  set the whole value to     | echo ${variable,,}
-  lowercase                  |
-                             |
-  set the first letter of    | echo ${variable^}
-  the referenced value to    |
-  uppercase                  |
-                             |
-  set the whole value to     | echo ${variable^&}
-  uppercase                  |
-                             |
-  return the length of a     | echo ${#variable}
-  parameter                  |
-                             |
-  Substring expansion        | ${parameter:offset:length}
-```
+| Variable Expansion                |                                                           |
+| --------------------------------- | --------------------------------------------------------- |
+| `echo $variable / ${variable}`    | To reference the value of a variable (parameter)          |
+| `echo ${variable,}`               | set the first letter of the referenced value to lowercase |
+| `echo ${variable,,}`              | set the whole value to lowercase                          |
+| `echo ${variable^}`               | set the first letter of the referenced value to uppercase |
+| `echo ${variable^&}`              | set the whole value to uppercase                          |
+| `echo ${#variable}`               | return the length of a parameter                          |
+| `${parameter:offset:length}`      | Substring expansion                                       |
 ## Command Substitution
 ```
   Retrieve the result of     | $(command)  -> uses parenthesis
@@ -321,30 +296,30 @@ Interactively (from cli)     |
 ```
 ## Advanced permissions
 ```
-                             | Other file attribtes include immutable undeletable,
-                             | append only, and compress
-                             |
-                             | commands are:  lsattr and chattr
+| Other file attribtes include immutable undeletable,
+| append only, and compress
+|
+| commands are:  lsattr and chattr
 ```                            
 ## Special file permissions
 ```
-                             | SUID = 4, SGID = 2, Sticky bit = 1
-                             |      | Files                       | Directories
-                             |--------------------------------------------------
-                             | SUID | Files are executed with the | does nothing
-                             |      | permissions of the owner,   |
-                             |      | regardless of which user    |
-                             |      | executes it.                |
-                             |--------------------------------------------------
-                             | SGID | Files are executed with the | Files that are created in this
-                             |      | permissions of the group,   | director get the same group as
-                             |      | regardless of which user    | The directory
-                             |      | executes it                 |
-                             |--------------------------------------------------
-                             |sticky| does nothing                | User can only delete their own
-                             |bit   |                             | files within this directory. see
-                             |      |                             | the /tmp/ director for its most
-                             |      |                             | famous use.
+ SUID = 4, SGID = 2, Sticky bit = 1
+      | Files                       | Directories
+--------------------------------------------------
+ SUID | Files are executed with the | does nothing
+      | permissions of the owner,   |
+      | regardless of which user    |
+      | executes it.                |
+--------------------------------------------------
+ SGID | Files are executed with the | Files that are created in this
+      | permissions of the group,   | director get the same group as
+      | regardless of which user    | The directory
+      | executes it                 |
+--------------------------------------------------
+sticky| does nothing                | User can only delete their own
+bit   |                             | files within this directory. see
+      |                             | the /tmp/ director for its most
+      |                             | famous use.
 ```
 ## Process Control
 ```
