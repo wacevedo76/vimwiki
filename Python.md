@@ -46,16 +46,42 @@ with fundamental language constructs such as:
 * **_magic method_** is a term used to refer to a _special method_. which are  
   also refered to as **_dunder method_** (double underscore methods)
 
-## Reading and writing to files
+## File and Resource Management
+
+### Terms:
+* **Context Manager**
+  A Context Manager is a construct that provides a vonvenient way to manage 
+  resources such as files, network connections, or locks. The context manager 
+  ensures that resource is properly acquired and released, even in the face of
+  exceptions.  
+
+### Reading and Writing files  
+
 | Objective                                          | File operator (fo) method                           |
 | -------------------------------------------------: | :-----------------------------------------------    |
+| Open a file (creating a file object (fo))          | `fo = open(<file path>, <mode>, <encoding>`         |
 | Read all data from a file object                   | `fo.read()`                                         |
-| Only read a specific number of characters          | `fo.read()`                                         |
-| Move the file pointer to the beginning of the file | `fo.seek()`                                         |
+| Only read a specific number of characters          | `fo.read(<character position int>)`                 |
+| Move the file pointer to the beginning of the file | `fo.seek(0)`                                        |
 | Read one line at a time                            | `fo.readline()`                                     |
 | Return a list of all the lines of a file           | `fo.readlines()`                                    |
-| Write multiple lines                               | `fo.writelines()`                                   |
+| Write multiple lines                               | `fo.writelines(['list','of','lines'])`              |
 | with-block                                         | `with open(filename, mode='rt', encoding='utf-8'):` |
+
+#### Mode Codes  
+
+| Code | Meaning                                                                                                                                                                                                                                                                                                                         |
+| :--: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                                                                      |
+| r    | Open file for reading. The stream is positioned at the beginning of the file (default)                                                                                                                                                                                                                                          |
+| r+   | Open for reading and writing. The stream is positioned at the beginning of the file                                                                                                                                                                                                                                             |
+| w    | Truncate file to zero length or create file for writing                                                                                                                                                                                                                                                                         |
+| w+   | Open for reading and writing. The file is created if it does not exist, otherwise it is truncated. The stream is positioned at the beginning of the file                                                                                                                                                                        |
+| a    | Open for writing. The file is created if it does not exist. The stream is positioned at the end of the file. Subsequent writes to the file will always end up at the end of file, irrespective on any intervening seks or similar                                                                                               |
+| a+   | Open for reading and writing. The file is created if it does not exist. The stream is positioned at theend of the file. Subsequent writes to the file will always end up at the then current end of file, irrespective of any intervening seeks or similar                                                                      |
+| t    | File contents interpreted as encoded text strings. The bytes in the file will be encoded and decoded according to the specified text encoding, and universal newline translation will be in effect (unless explicityly disabled). all Methods which write and read data from the file accept and return `str` objects (default) |
+| b    | File contents are treated as raw bytes. All methods which write and read data from the file accept and return `bytes` objects                                                                                                                                                                                                   |
+
+
 
 ## List Comprehensions 
   numbers = [1, 2, 3, 4, 5]
