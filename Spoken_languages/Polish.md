@@ -3,12 +3,17 @@
 ## General Grammare Notes
 
 ### Verb Aspects:
-* **Imperfective (niedokonany)**: Describes actions that are ongoing, habitual, or repeated.
-* **Perfective (dokonany)**: Describes actions that are completed or will be completed in the future. Perfective verbs typically do not have a present tense and are used for the past or future actions.
+* **Imperfective (niedokonany)**: Describes actions that are ongoing, habitual, or repeated.  
+
+* **Perfective (dokonany)**: Describes actions that are completed or will be completed in the future. Perfective verbs typically do not have a present tense and are used for the past or future actions.  
+
 ### Tenses in Polish:
-* **Present Tense (czas teraźniejszy)**: Used with imperfective verbs to describe ongoing actions.
-* **Past Tense (czas przeszły)**: Used with both imperfective and perfective verbs to describe past actions.
-* **Future Tense (czas przyszły)**: There are two types of future tenses in Polish, one for imperfective verbs (composed future) and one for perfective verbs (simple future).
+* **Present Tense (czas teraźniejszy)**: Used with imperfective verbs to describe ongoing actions.  
+
+* **Past Tense (czas przeszły)**: Used with both imperfective and perfective verbs to describe past actions.  
+
+* **Future Tense (czas przyszły)**: There are two types of future tenses in Polish, one for imperfective verbs (composed future) and one for perfective verbs (simple future).  
+
 ### Present Tense Conjugation
 * Polish verbs are divided into four conjugation classes based on how they end in the infinitive form.
 
@@ -46,6 +51,7 @@
 * Example: widzieć ("to see")
 
 | Person                 | widzieć  |
+| ---------------------- | -------- |
 | ja (I)                 | widzę    |
 | ty (you)               | widzisz  |
 | on/ona/ono (he/she/it) | widzi    |
@@ -60,6 +66,7 @@
 * Example: pracować ("to work"), dyskutować ("to discuss")
 
 | Person                 | pracować   | dyskutować   |
+| ---------------------- | ---------- | ------------ |
 | ja (I)                 | pracuję    | dyskutuję    |
 | ty (you)               | pracujesz  | dyskutujesz  |
 | on/ona/ono (he/she/it) | pracuje    | dyskutuje    |
@@ -130,3 +137,189 @@ Person	Perfective Future
 | ja (I)                 | robiłbym           | robiłabym         |
 | ty (you)               | robiłbyś           | robiłabyś         |
 | on/ona/ono (he/she/it) | robiłby            | robiłaby          |
+
+
+## Nouns
+### Noun Declension (cases)
+
+#### Declension Summary Table
+
+| Case         | Purpose                       | Example Sentence                                        |
+| :--:         | -------                       | ----------------                                        |
+| Nominative   | Subject of a sentence         | Dom jest duży. (The house is big.)                      |
+| Genitive     | Possesion, absence            | Nie ma domu. (There is no house.)                       |
+| Dative       | Indirect object (to/for whome | Daję książkę dziecku. (I’m giving a book to the child.) |
+| Accusative   | Direct object (whom/what)     | Widzę dom. (I see a house.)                             |
+| Instrumental | Means/instrument, "with"      | Piszę długopisem. (I’m writing with a pen.)             |
+| Locative     | Location (about what/whom)    | Mieszkam w domu. (I live in a house.)                   |
+| Vocative     | Direct address                | Cześć, przyjacielu! (Hi, friend!)                       |
+
+Declension Forms
+1. **Nominative (Mianownik)**
+    * **Purpose**: Used for the subject of a sentence (who/what performs the action).
+    * **Key Question**: Kto? Co? (Who? What?)
+    
+      * Example:
+        * Dom jest duży. (The house is big.)
+        * Kobieta czyta książkę. (The woman is reading a book.)
+        * Dziecko się bawi. (The child is playing.)  
+        <br>
+  
+2. **Genitive (Dopełniacz)**
+    * **Purpose**: Used to show possession, absence, or relationships. Often follows words like nie ma (there is no), or prepositions like do (to), z (from).
+    * **Key Question**: Kogo? Czego? (Whose? Of whom? Of what?)
+    
+      * Example:
+        * Nie ma domu. (There is no house.)
+        * To jest książka kobiety. (This is the woman's book.)
+        * Wracam z pracy. (I’m coming back from work.)  
+        <br>  
+
+3. **Dative (Celownik)**
+    * **Purpose**: Indicates the indirect object (to/for whom or what something is given).
+    * **Key Question**: Komu? Czemu? (To whom? For what?)
+    
+      * Example:
+        * Daję książkę dziecku. (I am giving a book to the child.)
+        * Pomagam kobiecie. (I am helping the woman.)
+        * Pies daje radość ludziom. (The dog brings joy to people.)  
+        <br>  
+
+4. **Accusative (Biernik)**
+    * **Purpose**: Used for the direct object (what is being acted upon). Also after verbs of motion with prepositions.
+    * **Key Question**: Kogo? Co? (Whom? What?)
+    
+      * Example:
+        * Widzę dom. (I see a house.)
+        * Kupuję książkę. (I’m buying a book.)
+        * Idę do szkoły. (I’m going to school.)  
+        <br>  
+
+5. **Instrumental (Narzędnik)**
+    * **Purpose**: Indicates the means or instrument of an action. Also used after certain prepositions like z (with).
+    * **Key Question**: Z kim? Z czym? (With whom? With what?)
+    
+      * Example:
+        * Idę z przyjacielem. (I’m going with a friend.)
+        * Piszę długopisem. (I’m writing with a pen.)
+        * Kobieta jest nauczycielką. (The woman is a teacher.)  
+        <br>  
+
+6. **Locative (Miejscownik)**
+    * **Purpose**: Used with specific prepositions to indicate location or about what something is.
+    * **Key Question**: O kim? O czym? (About whom? About what?)
+    
+      * Example:
+        * Mieszkam w domu. (I live in a house.)
+        * Myślę o książce. (I’m thinking about the book.)
+        * Rozmawiam o pracy. (I’m talking about work.)  
+        <br>  
+
+7. **Vocative (Wołacz)**
+    * **Purpose**: Used to directly address someone or something. Often used in greetings or commands.
+    * **Key Question**: None, as it’s only used for direct address.
+    
+      * Example:
+        * Cześć, przyjacielu! (Hi, friend!)
+        * Mamo, chodź tutaj! (Mom, come here!)
+        * Dziecko, uważaj! (Child, be careful!)  
+        <br>  
+
+### Declension Patterns Summary
+
+1. Feminine nouns ending in **-a** (regular pattern).
+2. Masculine animate nouns ending in **a consonant** (distinct Accusative).
+3. Masculine inanimate nouns ending in **a consonant** (Accusative = Nominative).
+4. Neuter nouns ending in **a -o ** (Accusative = Nominative).
+5. Neuter nouns ending in **-e** (Accusative = Nominative).
+6. Feminine nouns ending in **a consonant** (Accusative = Nominative).
+7. Plural nouns (distinct suffixes in each case).
+
+### Declension Patterns
+
+Polish nouns follow specific declension patterns based on their gender (masculine, feminine, neuter), animacy, and endings. Below is an analysis of the provided words and their declension forms, categorized by the most common declension patterns:
+
+1. **Feminine Nouns Ending in -a**  
+  Examples: szkoła, książka, woda, noga, głowa
+
+    * **Nominative (Mianownik)**: -a (szkoła, książka)  
+    * **Genitive (Dopełniacz)**: -y/-i (szkoły, książki)  
+    * **Dative (Celownik)**: -e (szkole, książce)  
+    * **Accusative (Biernik)**: -ę (szkołę, książkę)  
+    * **Instrumental (Narzędnik)**: -ą (szkołą, książką)  
+    * **Locative (Miejscownik)**: -e (szkole, książce)  
+    * **Vocative (Wołacz)**: -o (szkoło, książko)  
+<br>
+
+2. **Masculine Animate Nouns Ending in a Consonant**  
+  Examples: samochód, sklep, pokój, dzień, człowiek
+
+    * **Nominative (Mianownik)**: - (unchanged: samochód, sklep)  
+    * **Genitive (Dopełniacz)**: -u/-a (samochodu, sklepu)  
+    * **Dative (Celownik)**: -owi (samochodowi, sklepowi)  
+    * **Accusative (Biernik)**: Same as Genitive for animate nouns (samochodu, sklepu)  
+    * **Instrumental (Narzędnik)**: -em (samochodem, sklepem)  
+    * **Locative (Miejscownik)**: -e/-u (samochodzie, sklepie)  
+    * **Vocative (Wołacz)**: Same as Nominative or with -e (samochodzie, sklepie)  
+<br>
+
+3. **Masculine Inanimate Nouns Ending in a Consonant**  
+  Examples: czas, rok
+
+    * **Nominative (Mianownik)**: - (unchanged: czas, rok)  
+    * **Genitive (Dopełniacz)**: -u/-a (czasu, roku)  
+    * **Dative (Celownik)**: -owi (czasowi, rokowi)  
+    * **Accusative (Biernik)**: Same as Nominative (czas, rok)  
+    * **Instrumental (Narzędnik)**: -em (czasem, rokiem)  
+    * **Locative (Miejscownik)**: -e/-u (czasie, roku)  
+    * **Vocative (Wołacz)**: Same as Nominative (czas, rok)  
+<br>
+
+4. **Neuter Nouns Ending in -o**  
+  Examples: miejsce, miasto, jedzenie
+
+    * **Nominative (Mianownik)**: -o (miejsce, miasto)  
+    * **Genitive (Dopełniacz)**: -a (miejsca, miasta)  
+    * **Dative (Celownik)**: -u (miejscu, miastu)  
+    * **Accusative (Biernik)**: Same as Nominative (miejsce, miasto)  
+    * **Instrumental (Narzędnik)**: -em (miejscem, miastem)  
+    * **Locative (Miejscownik)**: -e (miejscu, mieście)  
+    * **Vocative (Wołacz)**: Same as Nominative (miejsce, miasto)  
+<br>
+
+5. **Neuter Nouns Ending in -e**  
+  Examples: powietrze, serce
+
+    * **Nominative (Mianownik)**: -e (powietrze, serce)  
+    * **Genitive (Dopełniacz)**: -a (powietrza, serca)  
+    * **Dative (Celownik)**: -u (powietrzu, sercu)  
+    * **Accusative (Biernik)**: Same as Nominative (powietrze, serce)  
+    * **Instrumental (Narzędnik)**: -em (powietrzem, sercem)  
+    * **Locative (Miejscownik)**: -u (powietrzu, sercu)  
+    * **Vocative (Wołacz)**: Same as Nominative (powietrze, serce)  
+<br>
+
+6. **Feminine Nouns Ending in a Consonant**  
+  Examples: twarz, noc
+
+    * **Nominative (Mianownik)**: - (unchanged: twarz, noc)  
+    * **Genitive (Dopełniacz)**: -y/-i (twarzy, nocy)  
+    * **Dative (Celownik)**: -y/-i (twarzy, nocy)  
+    * **Accusative (Biernik)**: Same as Nominative (twarz, noc)  
+    * **Instrumental (Narzędnik)**: -ą (twarzą, nocą)  
+    * **Locative (Miejscownik)**: -y/-i (twarzy, nocy)  
+    * **Vocative (Wołacz)**: Same as Nominative (twarz, noc)  
+<br>
+
+7. **Plural Nouns**  
+  Examples: pieniądze (money)
+
+    * **Nominative (Mianownik)**: -e (pieniądze)  
+    * **Genitive (Dopełniacz)**: -i/-ów (pieniędzy)  
+    * **Dative (Celownik)**: -om (pieniądzom)  
+    * **Accusative (Biernik)**: Same as Nominative (pieniądze)  
+    * **Instrumental (Narzędnik)**: -ami (pieniędzmi)  
+    * **Locative (Miejscownik)**: -ach (pieniądzach)  
+    * **Vocative (Wołacz)**: Same as Nominative (pieniądze)  
+<br>
+
