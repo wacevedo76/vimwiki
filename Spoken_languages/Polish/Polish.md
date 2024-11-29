@@ -1,9 +1,12 @@
 # Polish Language Notes
 
+* [High frequency word list - Verbs](HFWL-Polish-Verbs)
+* [High frequency word list - Nouns](HFWL-Polish-Nouns)
+
 ## General Grammare Notes
 
 ### Verb Aspects:
-* **Imperfective (niedokonany)**: Describes actions that are ongoing, habitual, or repeated.  
+* **Imperfective (niedokonany)**: Describes actions that are ongoing, habitual, or repeated.
 
 * **Perfective (dokonany)**: Describes actions that are completed or will be completed in the future. Perfective verbs typically do not have a present tense and are used for the past or future actions.  
 
@@ -23,7 +26,7 @@
 | Person                 | robić   | pisać    |
 | ------                 | -----   | -----    |
 | ja (I)                 | robię   | piszę    |
-| ty (you)	robisz       | piszesz |          |
+| ty (you)               | robisz  | piszesz  |
 | on/ona/ono (he/she/it) | robi    | pisze    |
 | my (we)                | robimy  | piszemy  |
 | wy (you, plural)       | robicie | piszecie |

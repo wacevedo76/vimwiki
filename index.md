@@ -98,4 +98,4 @@
 * [Bullet Journal](bujo)
 
   ## Spoken Languages
-* [Polish](Spoken_languages/Polish)
+* [Polish](Spoken_languages/languages_index)
