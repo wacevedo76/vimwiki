@@ -91,7 +91,6 @@
  [Raid](Hardware/Raid)
 
  ## Misc
-* [Notes](misc_notes|notes)
 * [terms](terms)
 * [DevOps](DevOps)
 * [irc](irc/irc_index)
