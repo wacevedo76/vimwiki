@@ -87,6 +87,9 @@
 * [Generative AI](AI/generative_ai)
 * [ollama](AI/ollama)
 
+ ## Hardware
+ [Raid](Hardware/Raid)
+
  ## Misc
 * [Notes](misc_notes|notes)
 * [terms](terms)
