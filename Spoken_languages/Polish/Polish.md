@@ -141,7 +141,6 @@ Person	Perfective Future
 | ty (you)               | robiłbyś           | robiłabyś         |
 | on/ona/ono (he/she/it) | robiłby            | robiłaby          |
 
-
 ## Nouns
 ### Noun Declension (cases)
 
@@ -325,4 +324,3 @@ Polish nouns follow specific declension patterns based on their gender (masculin
     * **Locative (Miejscownik)**: -ach (pieniądzach)  
     * **Vocative (Wołacz)**: Same as Nominative (pieniądze)  
 <br>
-
