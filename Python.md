@@ -2,6 +2,7 @@
 # Python notes
 ## Books 
 [Automate the Boring Stuff](AtBS)  
+[The Python Journeyman Series](Python/ThePythonJourneyman_notes)
 
 ## Misc
 * [Defined Terms](programmingConcepts/Terms)  
