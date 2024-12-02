@@ -324,3 +324,15 @@ Polish nouns follow specific declension patterns based on their gender (masculin
     * **Locative (Miejscownik)**: -ach (pieniądzach)  
     * **Vocative (Wołacz)**: Same as Nominative (pieniądze)  
 <br>
+
+### Personal Pronouns
+The following are the most common personal Pronouns and their declined forms:
+
+| Case         | ja (I) | ty (you, singular) | on (he) | ona (she) | ono (it) | my (we) | wy (you, plural) | oni/one (they) |
+| :----------: | :----: | :----------------: | :-----: | :-------: | :------: | :-----: | :--------------: | :------------: |
+| Nominative   | ja     | ty                 | on      | ona       | ono      | my      | wy               | oni/one        |
+| Genitive     | mnie   | ciebie             | jego    | jej       | jego     | nas     | was              | ich            |
+| Dative       | mnie   | tobie              | jemu    | jej       | jemu     | nam     | wam              | im             |
+| Accusative   | mnie   | ciebie             | jego    | ją        | je       | nas     | was              | ich            |
+| Instrumental | mną    | tobą               | nim     | nią       | nim      | nami    | wami             | nimi           |
+
