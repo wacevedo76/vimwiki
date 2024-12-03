@@ -1,5 +1,3 @@
-# Polish Language Notes
-
 * [High frequency word list - Verbs](HFWL-Polish-Verbs)
 * [High frequency word list - Nouns](HFWL-Polish-Nouns)
 
@@ -77,7 +75,7 @@
 | wy (you, plural)       | pracujecie | dyskutujecie |
 | oni/one (they)         | pracują    | dyskutują    |
 
-#### Common Patterns:
+## Past Tense Common Patterns:
 For verbs ending in -ować, the first-person singular ends in -uję and the second-person singular ends in -ujesz.
 Past Tense Conjugation
 The past tense in Polish is more complex because it changes based on the gender of the subject.
@@ -96,13 +94,30 @@ The past tense in Polish is more complex because it changes based on the gender 
 | wy (you, plural)       | robiliście         | robiłyście        |                 |                  |                   |
 | oni/one (they)         | robili             | robiły            |                 |                  |                   |
 
+#### Common Prefixes and Their Meanings	
+| Prefix | General Meaning	Example (Imperfective → Perfective)                                                       |
+| :----: | ---------------------------------------------------------------------------------------------------------- |
+| za-    | To start an action, often for a short duration	mówić (to speak) → zamówić (to order)                       |
+| na-    | To perform an action thoroughly, accumulate, or achieve a goal	pisać (to write) → napisać (to write fully) |
+| do-    | To complete or finish, often involving reaching a target	chodzić (to walk) → dochodzić (to reach)          |
+| po-    | To perform briefly, distribute, or accomplish partially	szukać (to search) → poszukać (to search briefly) |
+| wy-    | To move out, achieve outward, or complete	czytać (to read) → wyczytać (to read out)                       |
+| prze-  | To go through, surpass, or perform excessively	chodzić (to walk) → przechodzić (to pass through)           |
+| od-    | To move away, undo, or return	dać (to give) → oddać (to give back)                                        |
+| z(e)-  | To perform or complete fully	robić (to do) → zrobić (to finish doing)                                      |
+| u-     | To complete, achieve, or begin	czyć (to teach) → uczyć (to teach fully)                                    |
+
+
+
+
+
 #### Common Patterns:
 * Masculine singular adds -ł endings, while feminine and neuter forms modify with gender-appropriate endings like -a and -ło.
 * For plural, masculine personal (men or mixed gender) ends in -li, while feminine plural uses -ły.
 * Future Tense Conjugation
 * Polish has two future tenses: one for perfective verbs and one for imperfective verbs.
 
-### 4.1 Future Tense with Imperfective Verbs (Compound Future)
+## 4.1 Future Tense with Imperfective Verbs (Compound Future)
 * This is constructed using the auxiliary verb będę + the infinitive or a conjugated form of the verb.
 
 * Example: robić ("to do")
@@ -328,11 +343,45 @@ Polish nouns follow specific declension patterns based on their gender (masculin
 ### Personal Pronouns
 The following are the most common personal Pronouns and their declined forms:
 
-| Case         | ja (I) | ty (you, singular) | on (he) | ona (she) | ono (it) | my (we) | wy (you, plural) | oni/one (they) |
+| Case         | ja     | ty                 | on      | ona       | ono      | my      | wy               | oni/one        |
 | :----------: | :----: | :----------------: | :-----: | :-------: | :------: | :-----: | :--------------: | :------------: |
 | Nominative   | ja     | ty                 | on      | ona       | ono      | my      | wy               | oni/one        |
 | Genitive     | mnie   | ciebie             | jego    | jej       | jego     | nas     | was              | ich            |
 | Dative       | mnie   | tobie              | jemu    | jej       | jemu     | nam     | wam              | im             |
 | Accusative   | mnie   | ciebie             | jego    | ją        | je       | nas     | was              | ich            |
 | Instrumental | mną    | tobą               | nim     | nią       | nim      | nami    | wami             | nimi           |
+| Vocative     | —      | —                  | —       | —         | —        | —       | —                | —              |
 
+### Possessive Pronous
+| Case         | mój        | twój                  | jego       | jej       | nasz         | wasz                | ich         |
+| :----------: | :--------: | :------------:        | :--------: | :-------: | :----------: | :-----------------: | :---------: |
+| Nominative   | mój        | twój                  | jego       | jej       | nasz         | wasz                | ich         |
+| Genitive     | mojego     | twojego               | jego       | jej       | naszego      | waszego             | ich         |
+| Dative       | mojemu     | twojemu               | jemu       | jej       | naszemu      | waszemu             | im          |
+| Accusative   | mój/mojego | twój/twojego          | jego       | ją        | nasz/naszego | wasz/waszego        | ich         |
+| Instrumental | moim       | twoim                 | nim        | nią       | naszym       | waszym              | nimi        |
+| Locative     | moim       | twoim                 | nim        | niej      | naszym       | waszym              | nich        |
+| Vocative     | mój        | twój                  | —          | —         | nasz         | wasz                | —           |
+
+### Demonstrative Pronous
+
+| Case         | ten               | ta              | to               | ci              | tamten               | tamta              | tamto               |
+| :----------: | :---------------: | :-------------: | :--------------: | :-------------: | :------------------: | :----------------: | :-----------------: |
+| Nominative   | ten               | ta              | to               | ci              | tamten               | tamta              | tamto               |
+| Genitive     | tego              | tej             | tego             | tych            | tamtego              | tamtej             | tamtego             |
+| Dative       | temu              | tej             | temu             | tym             | tamtemu              | tamtej             | tamtemu             |
+| Accusative   | ten/tego          | tę              | to               | tych            | tamten/tamtego       | tamtą              | tamto               |
+| Instrumental | tym               | tą              | tym              | tymi            | tamtym               | tamtą              | tamtym              |
+| Locative     | tym               | tej             | tym              | tych            | tamtym               | tamtej             | tamtym              |
+| Vocative     | —                 | —               | —                | —               | —                    | —                  | —                   |
+
+### Interrogative Pronouns
+| Case         | kto (who) | co (what) | który (which, masc.) | która (which, fem.) | które (which, neut.) |
+| :----------: | :-------: | :-------: | :------------------- | ------------------- | -------------------- |
+| Nominative   | kto       | co        | który                | która               | które                |
+| Genitive     | kogo      | czego     | którego              | której              | którego              |
+| Dative       | komu      | czemu     | któremu              | której              | któremu              |
+| Accusative   | kogo      | co        | który/którego        | którą               | które                |
+| Instrumental | kim       | czym      | którym               | którą               | którym               |
+| Locative     | kim       | czym      | którym               | której              | którym               |
+| Vocative     | —         | —         | —                    | —                   | —                    |
