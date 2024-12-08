@@ -1,8 +1,3 @@
-<style>
-  td {
-    font-size: 20px;
-  }
-</style>
 <table>
 <tr>
 <td>

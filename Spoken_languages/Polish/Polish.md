@@ -1,24 +1,24 @@
 * [High frequency word list - Verbs](HFWL-Polish-Verbs)
 * [High frequency word list - Nouns](HFWL-Polish-Nouns)
 
-## General Grammare Notes
+# General Grammare Notes
 
-### Verb Aspects:
+## Verb Aspects:
 * **Imperfective (niedokonany)**: Describes actions that are ongoing, habitual, or repeated.
 
 * **Perfective (dokonany)**: Describes actions that are completed or will be completed in the future. Perfective verbs typically do not have a present tense and are used for the past or future actions.  
 
-### Tenses in Polish:
+## Tenses in Polish:
 * **Present Tense (czas teraźniejszy)**: Used with imperfective verbs to describe ongoing actions.  
 
 * **Past Tense (czas przeszły)**: Used with both imperfective and perfective verbs to describe past actions.  
 
 * **Future Tense (czas przyszły)**: There are two types of future tenses in Polish, one for imperfective verbs (composed future) and one for perfective verbs (simple future).  
 
-### Present Tense Conjugation
+## Present Tense Conjugation
 * Polish verbs are divided into four conjugation classes based on how they end in the infinitive form.
 
-#### First Conjugation (Verbs Ending in -ać or -ąć):
+### First Conjugation (Verbs Ending in -ać or -ąć):
 * Example: robić ("to do, to make") and pisać ("to write")
 
 | Person                 | robić   | pisać    |
@@ -30,10 +30,11 @@
 | wy (you, plural)       | robicie | piszecie |
 | oni/one (they)         | robią   | piszą    |
 
-#### Common Patterns:
+##### Common Patterns:
 * For verbs ending in -ać, the first-person singular changes to -ę and second-person singular changes to -isz/ysz.
 * For -ąć verbs, the same changes occur but often with a vowel shift (e.g., pisać becomes piszę, piszesz).
-* 2.2 Second Conjugation (Verbs Ending in -ić, -yć):
+
+### 2.2 Second Conjugation (Verbs Ending in -ić, -yć):
 * Example: mówić ("to speak"), robić ("to do")
 
 | Person                 | mówić   | robić   |
@@ -48,7 +49,8 @@
 #### Common Patterns:
 * First-person singular ends in -ę, while second-person singular ends in -isz or -ysz depending on the verb stem.
 * Verbs ending in -yć follow a similar pattern.
-* 2.3 Third Conjugation (Verbs Ending in -eć):
+
+### 2.3 Third Conjugation (Verbs Ending in -eć):
 * Example: widzieć ("to see")
 
 | Person                 | widzieć  |
@@ -63,7 +65,8 @@
 #### Common Patterns:
 * First-person singular becomes -ę, while second-person singular follows with -isz.
 * This conjugation is similar to second conjugation but has specific vowel shifts.
-* 2.4 Fourth Conjugation (Verbs Ending in -ować):
+
+### 2.4 Fourth Conjugation (Verbs Ending in -ować):
 * Example: pracować ("to work"), dyskutować ("to discuss")
 
 | Person                 | pracować   | dyskutować   |
@@ -93,23 +96,6 @@ The past tense in Polish is more complex because it changes based on the gender 
 | my (we)                | robiliśmy          | robiłyśmy         |                 |                  |                   |
 | wy (you, plural)       | robiliście         | robiłyście        |                 |                  |                   |
 | oni/one (they)         | robili             | robiły            |                 |                  |                   |
-
-#### Common Prefixes and Their Meanings	
-| Prefix | General Meaning	Example (Imperfective → Perfective)                                                       |
-| :----: | ---------------------------------------------------------------------------------------------------------- |
-| za-    | To start an action, often for a short duration	mówić (to speak) → zamówić (to order)                       |
-| na-    | To perform an action thoroughly, accumulate, or achieve a goal	pisać (to write) → napisać (to write fully) |
-| do-    | To complete or finish, often involving reaching a target	chodzić (to walk) → dochodzić (to reach)          |
-| po-    | To perform briefly, distribute, or accomplish partially	szukać (to search) → poszukać (to search briefly) |
-| wy-    | To move out, achieve outward, or complete	czytać (to read) → wyczytać (to read out)                       |
-| prze-  | To go through, surpass, or perform excessively	chodzić (to walk) → przechodzić (to pass through)           |
-| od-    | To move away, undo, or return	dać (to give) → oddać (to give back)                                        |
-| z(e)-  | To perform or complete fully	robić (to do) → zrobić (to finish doing)                                      |
-| u-     | To complete, achieve, or begin	czyć (to teach) → uczyć (to teach fully)                                    |
-
-
-
-
 
 #### Common Patterns:
 * Masculine singular adds -ł endings, while feminine and neuter forms modify with gender-appropriate endings like -a and -ło.
@@ -145,6 +131,19 @@ Person	Perfective Future
 | wy (you, plural)       | zrobicie |
 | oni/one (they)         | zrobią   |
 
+### Common Prefixes and Their Meanings	
+| Prefix | General Meaning	Example (Imperfective → Perfective)                                                       |
+| :----: | ---------------------------------------------------------------------------------------------------------- |
+| za-    | To start an action, often for a short duration	mówić (to speak) → zamówić (to order)                       |
+| na-    | To perform an action thoroughly, accumulate, or achieve a goal	pisać (to write) → napisać (to write fully) |
+| do-    | To complete or finish, often involving reaching a target	chodzić (to walk) → dochodzić (to reach)          |
+| po-    | To perform briefly, distribute, or accomplish partially	szukać (to search) → poszukać (to search briefly) |
+| wy-    | To move out, achieve outward, or complete	czytać (to read) → wyczytać (to read out)                       |
+| prze-  | To go through, surpass, or perform excessively	chodzić (to walk) → przechodzić (to pass through)           |
+| od-    | To move away, undo, or return	dać (to give) → oddać (to give back)                                        |
+| z(e)-  | To perform or complete fully	robić (to do) → zrobić (to finish doing)                                      |
+| u-     | To complete, achieve, or begin	czyć (to teach) → uczyć (to teach fully)                                    |
+
 #### Conditional Mood
 * The conditional mood is used to express wishes or hypothetical situations. It's formed by adding a conditional particle (by) to the verb.
 
@@ -159,7 +158,7 @@ Person	Perfective Future
 ## Nouns
 ### Noun Declension (cases)
 
-#### Declension Summary Table
+r### Declension Summary Table
 
 | Case         | Purpose                       | Example Sentence                                        |
 | :--:         | -------                       | ----------------                                        |
