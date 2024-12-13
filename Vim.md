@@ -11,6 +11,13 @@ Working with vim on windows
 * key-notation 
 
 
+## Neovim Testing
+| Purpose                          | Setting                              |
+| -------                          | -------                              |
+| Test alternate configuraion file | `nvim -u /path/to/custom/config.lua` |
+| Test alertate configuration set  | `nvim -u /path/to/custom/init.lua`   |
+| Disable all configurations       | `nvim -u NONE`                       |
+
 ## Various tips
 | result                                            | keybinding or intention     |
 |---------------------------------------------------|-----------------------------|
