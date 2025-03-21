@@ -1,6 +1,9 @@
 # Learn Vim Script the Hard way
 ## Quick Notes:  
 
+Start vim without default config
+vim -u NONE
+
 Remove blank lines from a file:
 `:g/^$/d`
 Working with vim on windows
