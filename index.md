@@ -92,6 +92,7 @@
 
  ## Misc
 * [terms](terms)
+* [Binaural Beats](Frequencies/Binaural_Beats)
 * [DevOps](DevOps)
 * [irc](irc/irc_index)
 * [Quotes](Quotes)

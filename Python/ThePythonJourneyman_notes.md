@@ -32,32 +32,42 @@
         marks) for quoting srings, useful for incorporating quote marks
         themselves into strings. Python is flexible over which quoting style you
         use, but you must be consistent when delimiting a particular string
-    - We demostrated that so-called triple quotes, consisting of three 
+ 
+    - We demonstrated that so-called triple quotes, consisting of three 
       consecutive quotation mark characters can be used to delimit a multi-line 
       string. Traditionally, each quote character is itself a double-quotation 
       mark, although single quotation marks can also be used.
+
     - We saw how adjacent string literals are implicitly 
       concatenated
+
     - Python has support for universal newlines, so no matter what platform you'
       re using it's sufficient to use a single `\n` character, safe in the 
       knowledge that it will be appropriately translated from and to the native 
       newline during I/O
+
     - Escape sequences provide an alternative means of incorporation newlines 
       and other control characters into leteral strings.
-    - The blackslashes used for escaping can be a hindrance for Windows 
+ 
+    - The backslashes used for escaping can be a hindrance for Windows 
       filesystm paths or regular expressions, so raw strings with an `r` prefix 
       can be used to suppress the escaping mechanism
+
     - Other types, such as integers, can be converted to strings using the `str()` 
       constructor
+
     - Individual characters, returned, as one character strings, can e retrieved 
       using square brackets with integer zero-based indices.
     - Strings support a rich variety of operations, such as splitting, through 
       their methods
+
     - In Python 3, literal strings can contain any Unicode character directly in 
       the source, which is interpreted as UTF-8 by default
     - The `bytes` type has many of the capabilities of strings, but it is a 
       sequence as bytes rather than a sequence of Unicode code points.
+
     - `bytes` literals are prefixed with a lowercase `b`
+
     - To convert between string and bytes instances we use the `encode()` method 
       of `str` or the `decode()` method of `bytes`, in both cases passing the 
       name of the codec, which we must know in advance  
