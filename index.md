@@ -23,10 +23,10 @@
 * [MongoDB](Databases/MongoDB)
 
  ## Framework 
-* [Django](Django)
-* [Frameworks](Frameworks/frameworks_index)
-* [React](React)
-* [EmberJS](EmberJS)
+* [Django](Frameworks/Django)
+* [FastAPI](Frameworks/FastAPI)
+* [React](Frameworks/React)
+* [EmberJS](Frameworks/EmberJS)
 * [API](API/api_index)
 
  ## Programming Concept 
