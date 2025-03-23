@@ -44,10 +44,8 @@
 * [Virtual Environment](programmingConcepts/virtual_environment)
 * [Software Architecture](programmingConcepts/Software_Architecture)
 
-
  ## Linux General Concept 
 * [File System Hierarchy](linuxGeneralConcepts/fhs)
-
 
  ## Tooling 
 * [Git](git/git_index)
@@ -92,7 +90,6 @@
 
  ## Misc
 * [terms](terms)
-* []
 * [DevOps](DevOps)
 * [irc](irc/irc_index)
 * [Quotes](Quotes)
