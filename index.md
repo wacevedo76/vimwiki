@@ -102,3 +102,6 @@
 
   ## Spoken Languages
 * [Polish](Spoken_languages/languages_index)
+
+  ## Self Directed Courses
+* [The C Programming Language](Courses/C/index)
