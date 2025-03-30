@@ -98,7 +98,7 @@ if your `hello.c` has:
 
 Command to view preprocessed code:
 ```sh
-gcc -E hello.c -i hello.i
+gcc -E hello.c -o hello.i
 ```
 ### 2. Compilation (cc1)
 **What happens?**
