@@ -1,7 +1,7 @@
 # The C Programming Language - Day 2: Writing and Compiling a Basic C Program
 ## Entry Notes
 ChatGPT Prompt:  
-Okay,  I'm ready for day 3: Writing and compiling a basic C program (printf, main, return 0;)
+Okay,  I'm ready for day 2: Writing and compiling a basic C program (printf, main, return 0;)
 
 can you please print out a summary of what the second day entails? and is this the best way to get the contents and activities for each day?
 
