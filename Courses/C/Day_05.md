@@ -245,9 +245,9 @@ Otherwise, print "Access Denied".
 
 Use if-else.
 
-### 📌 Bonus: Allow up to three login attempts.
+📌 Bonus: Allow up to three login attempts.
 
-🚀 Recap & Next Steps  
+### 🚀 Recap & Next Steps  
 Today, you learned:  
 ✅ if, if-else, and else if for decision-making  
 ✅ switch statements for multiple choices  
