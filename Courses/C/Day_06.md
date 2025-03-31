@@ -1,27 +1,33 @@
-Day 6: Loops in C (for, while, do-while)
-Today, you’ll learn how to repeat actions in C using loops. Loops help reduce code repetition and make programs more efficient.
+# The C Programming Language - Day 6: Loops in C (for, while, do-while)
+```
+ChatGPT prompt:
+Okay, I'm ready for day 6: Loops (for, while, do-while)
 
-🔹 Key Topics for Day 6
-1️⃣ for Loop – Best for when you know how many times to repeat an action.
-2️⃣ while Loop – Runs while a condition is true.
-3️⃣ do-while Loop – Runs at least once, then repeats while a condition is true.
+Can you please printo out a summary of what day six entails? Afterwards, please
+generate a set of activities that would help me learn the contents of day six
+in a more holistic way?
+```
+Today, you’ll learn how to **repeat** actions in C using loops. Loops help reduce code repetition and make programs **more efficient**.
 
-1️⃣ The for Loop
-A for loop is useful when you know how many times to loop.
+## 🔹 Key Topics for Day 6
+1️⃣ `for` **Loop** – Best for when you know how many times to repeat an action.  
+2️⃣ `while` **Loop** – Runs while a condition is true.  
+3️⃣ `do-while` **Loop** – Runs at least once, then repeats while a condition is true.
 
-📌 Syntax:
+## 1️⃣ The `for` Loop
+A `for` loop is useful when you know **how many times** to loop.
 
-c
-Copy
-Edit
+### 📌 Syntax:
+
+```c
 for (initialization; condition; increment/decrement) {
     // Code block to execute
 }
-📌 Example: Print numbers 1 to 5
+```
 
-c
-Copy
-Edit
+### 📌 Example: Print numbers 1 to 5
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -30,35 +36,34 @@ int main() {
     }
     return 0;
 }
-✅ Output:
+```
 
-Copy
-Edit
+### ✅ Output:
+
+```
 1
 2
 3
 4
 5
-🔹 int i = 1; → Start from 1
-🔹 i <= 5; → Continue while i is ≤ 5
-🔹 i++ → Increase i after each loop
+```
+🔹 `int i = 1;` → Start from 1  
+🔹 `i <= 5;` → Continue while i is ≤ 5  
+🔹 `i++` → Increase i after each loop  
 
-2️⃣ The while Loop
-A while loop runs as long as a condition is true.
+## 2️⃣ The `while` Loop
+A `while` loop **runs as long as** a condition is true.
 
-📌 Syntax:
+### 📌 Syntax:
 
-c
-Copy
-Edit
+```c
 while (condition) {
     // Code block to execute
 }
-📌 Example: Print numbers 1 to 5
+```
+### 📌 Example: Print numbers 1 to 5
 
-c
-Copy
-Edit
+```c
 #include <stdio.h>
 
 int main() {
@@ -69,26 +74,25 @@ int main() {
     }
     return 0;
 }
-✅ Same output as for loop.
+```
 
-🔹 When to use while? → If you don’t know how many times to loop.
+### ✅ Same output as `for` loop.
+🔹 **When to use `while`?** → If you don’t know how many times to loop.  
 
-3️⃣ The do-while Loop
-A do-while loop runs at least once, even if the condition is false.
+## 3️⃣ The `do-while` Loop
+A `do-while` loop **runs at least once**, even if the condition is false.
 
-📌 Syntax:
+### 📌 Syntax:
 
-c
-Copy
-Edit
+```c
 do {
     // Code block to execute
 } while (condition);
-📌 Example:
+```
 
-c
-Copy
-Edit
+#### 📌 Example:
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -99,15 +103,14 @@ int main() {
     } while (i <= 5);
     return 0;
 }
-✅ Same output as previous loops.
+```
 
+### ✅ Same output as previous loops.
 🔹 Main difference: The condition is checked AFTER the first run.
 
-📌 Example where do-while is useful:
+#### 📌 Example where `do-while` is useful:
 
-c
-Copy
-Edit
+```c
 #include <stdio.h>
 
 int main() {
@@ -118,116 +121,113 @@ int main() {
     } while (num <= 0); // Keeps asking until input is positive
     return 0;
 }
-✅ Ensures the user enters a valid number at least once.
+```
 
-📌 Hands-On Activities for Day 6
-✅ Activity 1: Print Even Numbers (Using for)
-Write a program that prints all even numbers from 2 to 20 using a for loop.
+### ✅ Ensures the user enters a valid number at least once.
 
-📌 Hint:
+## 📌 Hands-On Activities for Day 6
+### ✅ Activity 1: Print Even Numbers (Using `for`)  
+Write a program that **prints all even numbers from 2 to 20** using a `for` loop.
 
-c
-Copy
-Edit
+#### 📌 Hint:
+
+```c
 for (int i = 2; i <= 20; i += 2) {
-    printf("%d ", i);
+  printf("%d ", i);
 }
-✅ Activity 2: Countdown Timer (Using while)
-Write a program that counts down from 10 to 1, then prints "Blast off!" using a while loop.
+```
 
-📌 Hint:
+### ✅ Activity 2: Countdown Timer (Using `while`)
+Write a program that **counts down from 10 to 1**, then prints `"Blast off!"` using a `while` loop.
 
-c
-Copy
-Edit
+#### 📌 Hint:
+
+```c
 int i = 10;
 while (i > 0) {
-    printf("%d\n", i);
-    i--;
+  printf("%d\n", i);
+  i--;
 }
 printf("Blast off!\n");
-✅ Activity 3: Number Guesser (Using do-while)
-Write a program that:
-1️⃣ Generates a random number (1-10).
-2️⃣ Asks the user to guess the number.
+```
+
+### ✅ Activity 3: Number Guesser (Using `do-while`)
+Write a program that:  
+1️⃣ Generates a random number (1-10).  
+2️⃣ Asks the user to guess the number.  
 3️⃣ Keeps looping until the user guesses correctly.
 
-📌 Hint: Use rand() function and do-while.
+#### 📌 Hint: Use `rand()` function and `do-while`
 
-c
-Copy
-Edit
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int main() {
-    int secret, guess;
-    srand(time(0));  // Seed random number
-    secret = (rand() % 10) + 1;
+  int secret, guess;
+  srand(time(0));  // Seed random number
+  secret = (rand() % 10) + 1;
 
-    do {
-        printf("Guess a number (1-10): ");
-        scanf("%d", &guess);
-    } while (guess != secret);
+  do {
+      printf("Guess a number (1-10): ");
+      scanf("%d", &guess);
+  } while (guess != secret);
 
-    printf("Correct! The number was %d.\n", secret);
-    return 0;
+  printf("Correct! The number was %d.\n", secret);
+  return 0;
 }
-✅ Activity 4: Factorial Calculator (Using for Loop)
-Write a program that:
-1️⃣ Asks the user for a number.
-2️⃣ Calculates the factorial of that number using a for loop.
+```
 
-📌 Example:
-Input: 5
-Output: 5! = 120
+### ✅ Activity 4: Factorial Calculator (Using `for` Loop)
+Write a program that:  
+1️⃣ Asks the user for a number.  
+2️⃣ Calculates the factorial of that number using a `for` loop.  
 
-📌 Hint:
+#### 📌 Example:
+Input: `5`
+Output: `5! = 120`
 
-c
-Copy
-Edit
+#### 📌 Hint:
+
+```c
 int fact = 1;
 for (int i = 1; i <= num; i++) {
-    fact *= i;
+  fact *= i;
 }
-✅ Activity 5: Multiplication Table (Using Nested for)
-Write a program that prints a multiplication table (1-10).
+```
 
-📌 Example Output:
+### ✅ Activity 5: Multiplication Table (Using Nested `for`)
+Write a program that prints a **multiplication table (1-10)**.
 
-python-repl
-Copy
-Edit
+#### 📌 Example Output:
+
+```python-repl
 1 x 1 = 1
 1 x 2 = 2
-...
 10 x 10 = 100
-📌 Hint:
+```
+#### 📌 Hint:
 
-c
-Copy
-Edit
+```c
 for (int i = 1; i <= 10; i++) {
-    for (int j = 1; j <= 10; j++) {
+  for (int j = 1; j <= 10; j++) {
         printf("%d x %d = %d\n", i, j, i * j);
     }
 }
-🎯 Challenge Activity
-📌 Fibonacci Series (Using while)
-Write a program that prints the first 10 Fibonacci numbers.
+```
 
-📌 Example Output:
+### 🎯 Challenge Activity
+#### 📌 Fibonacci Series (Using `while`)
+Write a program that **prints the first 10 Fibonacci numbers**.
 
-Copy
-Edit
+#### 📌 Example Output:
+```
 0 1 1 2 3 5 8 13 21 34
-📌 Hint: The next number is the sum of the previous two numbers.
+```
+#### 📌 Hint: The next number is the sum of the **previous two numbers**.
 
-c
-Copy
-Edit
+```c
 int a = 0, b = 1, next;
 printf("%d %d ", a, b);
 while (count < 10) {
@@ -236,10 +236,10 @@ while (count < 10) {
     a = b;
     b = next;
 }
-🚀 Recap & Next Steps
-Today, you learned:
-✅ for loops for definite iteration.
-✅ while loops for indefinite iteration.
-✅ do-while loops for at least one execution.
+```
 
-Would you like additional practice before moving to Day 7 (Functions & Modular Programming)? 🚀
+## 🚀 Recap & Next Steps
+Today, you learned:  
+✅ for loops for definite iteration.  
+✅ while loops for indefinite iteration.  
+✅ do-while loops for at least one execution.  
