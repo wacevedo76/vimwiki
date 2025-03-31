@@ -6,3 +6,4 @@
 * [Day 4](Day_04)
 * [Day 5](Day_05)
 * [Day 6](Day_06)
+* [Day 7](Day_07)

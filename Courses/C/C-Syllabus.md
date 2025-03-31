@@ -124,7 +124,7 @@ If you complete the six-week plan and grasp the concepts well, you will have a s
 * Version control and collaborative C development
 * Writing C code for open-source projects
 
-**Final Thoughts**  
+**Final Thoughts**
 Mastering C requires not just learning these concepts but also practical application. Consider contributing to open-source C projects, solving problems on platforms like LeetCode, Codeforces, and Project Euler, or building a real-world application (e.g., a custom shell, a simple OS kernel, or a database engine).
 
 Would you like help prioritizing which of these areas to focus on first based on your long-term goals?
