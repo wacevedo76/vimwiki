@@ -85,6 +85,39 @@ int main() {
   return 0;
 }
 ```
+#### Common data types that scanf can accept
+
+Here’s a table of the common data types scanf() can accept, along with their corresponding format specifiers:
+
+| Data Type          | Format Specifier | Description                                | Example                |
+| :-------:          | :--------------: | :----------                                | :------                |
+| int                | %d               | Integer (decimal)                          | `scanf("%d", &num);`   |
+| unsigned in        | %u               | Unsigned integer (non-negative)            | `scanf("%u", &num);`   |
+| short              | %hd              | Short integer                              | `scanf("%hd", &num);`  |
+| unsigned short     | %hu              | Unsigned short integer                     | `scanf("%hu", &num);`  |
+| long               | %ld              | Long integer                               | `scanf("%ld", &num);`  |
+| unsigned long      | %lu              | Unsigned long integer                      | `scanf("%lu", &num);`  |
+| long long          | %lld             | Long long integer                          | `scanf("%lld", &num);` |
+| unsigned long long | %llu             | Unsigned long long integer                 | `scanf("%llu", &num);` |
+| float              | %f               | Floating-point number                      | `scanf("%f", &num);`   |
+| double             | %lf              | Double-precision floating-point number     | `scanf("%lf", &num);`  |
+| long double        | %Lf              | Extended precision floating-point number   | `scanf("%Lf", &num);`  |
+| char               | %c               | Single character                           | `scanf("%c", &ch);`    |
+| char[] (string)    | %s               | String (reads a word, stops at whitespace) | `scanf("%s", str);`    |
+| size_t             | %zu              | Unsigned integer type for sizes            | `scanf("%zu", &size);` |
+| ptrdiff_t          | %td              | Signed integer for pointer differences     | `scanf("%td", &diff);` |
+
+**Notes on White space**  
+There are instances, for example when scanf accepts a interger and then 
+immediatly accept a character, where the previousl '\n' (ENTER key) will
+still be in the input buffer.
+
+To instruct the `scanf` function to ignore any whitespace left over in the
+input buffer **prefix the input data type with a space**:
+```
+scanf(" %c", &operator);
+```
+
 **Explanation:**
 * `printf("Enter your birth year: ");` -> Promts the user.
 * `scanf("%d", &birthYear);` -> Reads the integer (`%d`) and stores it in `birthYear`.
