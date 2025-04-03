@@ -1,3 +1,6 @@
+[table of contents](./index.md)
+[Syllabus](./C-Syllabus.md)
+
 # The C Programming Language - Day 6: Loops in C (for, while, do-while)
 ```
 ChatGPT prompt:

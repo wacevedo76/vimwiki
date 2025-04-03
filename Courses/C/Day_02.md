@@ -1,3 +1,6 @@
+[table of contents](./index.md)
+[Syllabus](./C-Syllabus.md)
+
 # The C Programming Language - Day 2: Writing and Compiling a Basic C Program
 ## Entry Notes
 ChatGPT Prompt:  

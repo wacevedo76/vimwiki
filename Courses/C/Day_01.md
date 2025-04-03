@@ -1,3 +1,6 @@
+[table of contents](./index.md)
+[Syllabus](./C-Syllabus.md)
+
 # The C programming Language - Day 1: Introduction to C & Setting Up the Development Environment
 ## 1. What is C?
 C is a general-purpose, procedural programming language developed in the early 1970s.

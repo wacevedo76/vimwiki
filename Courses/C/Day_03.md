@@ -1,3 +1,6 @@
+[table of contents](./index.md)
+[Syllabus](./C-Syllabus.md)
+
 # The C Programming Language - Day 3: Data types, variables, and constants (int, float, char, const, #define)
 
 ChatGPT Prompt: Okay,  I'm ready for day 3: Day 3: Data types, variables, and constants (int, float, char, const, #define). 
@@ -105,7 +108,7 @@ Here’s a table of the common data types scanf() can accept, along with their c
 | char               | %c               | Single character                           | `scanf("%c", &ch);`    |
 | char[] (string)    | %s               | String (reads a word, stops at whitespace) | `scanf("%s", str);`    |
 | size_t             | %zu              | Unsigned integer type for sizes            | `scanf("%zu", &size);` |
-| ptrdiff_t          | %td              | Signed integer for pointer differences     | `scanf("%td", &diff);` |
+| ptrdiff_t          | %td              | Signed integer for pointer differences     | `scanf("%td", &diff);` [|](|)
 
 **Notes on White space**  
 There are instances, for example when scanf accepts a interger and then 

@@ -1,3 +1,5 @@
+[table of contents](./index.md)
+
 # The C programming Language - Syllabus
 ## Week 1: Basics of C
 * Day 1: Introduction to C, setting up the development environment (GCC, Clang, or an IDE like VS Code)
