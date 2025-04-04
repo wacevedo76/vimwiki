@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [Table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 4](./Day_04.md)  
 
 # The C Programming Language - Day 3: Data types, variables, and constants (int, float, char, const, #define)
 

@@ -7,3 +7,5 @@
 * [Day 5: Control Flow (if, else, switch)](Day_05)
 * [Day 6: Loops (for, while, do-while)](Day_06)
 * [Day 7: Simple expercises](Day_07)
+* [Day 8: Function declaration, definition, and calling functions](./Day_08.md)
+* [Day 9: Function parameters and return values](./Day_09.md)

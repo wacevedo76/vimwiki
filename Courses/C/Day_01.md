@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [Table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 2](./Day_02.md)  
 
 # The C programming Language - Day 1: Introduction to C & Setting Up the Development Environment
 ## 1. What is C?

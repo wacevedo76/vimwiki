@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [Table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 6](./Day_06.md)  
 
 # The C programming language - Day 5: Control flow (`if`, `else`, `switch`)
 

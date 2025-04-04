@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [Table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 8](./Day_08.md)
 
 # 📌 Day 7: Simple Exercises (Basic Calculator, Number Guessing Game)
 ```
@@ -27,16 +28,16 @@ These exercises will reinforce your understanding of:
 ## 🎯 Activities for Day 7
 Here’s a structured set of activities to help you learn holistically:
 
-1️⃣ Improve Your Basic Calculator  
+### 1️⃣ Improve Your Basic Calculator  
 ✅ Modify your existing calculator to:
 
 * Handle invalid input (e.g., entering a letter instead of a number).
 * Support floating-point calculations (use `double` instead of `int`).
 * Allow repeated calculations until the user chooses to exit.
 
-### 📌 Bonus: Add a power (^) and modulo (%) operator.
+####  📌 Bonus: Add a power (`^`) and modulo (`%`) operator.
 
-2️⃣ Build a Number Guessing Game
+### 2️⃣ Build a Number Guessing Game
 ✅ Create a game where:  
 1. The program **randomly selects** a number between **1 and 100**.  
 2. The user **guesses the number**.  
@@ -44,16 +45,16 @@ Here’s a structured set of activities to help you learn holistically:
 4. The game **continues until the correct number is guessed**.
 5. After winning, the program **shows the number of attempts**.
 
-📌 Bonus Challenges:
+#### 📌 Bonus Challenges:
 * Limit the number of guesses (e.g., **10 attempts max**).
 * Add **difficulty levels** (easy: 1–50, hard: 1–500).
 * Ask if the user **wants to play again**.
 
-3️⃣ Debugging Practice
+### 3️⃣ Debugging Practice
 ✅ Find and fix errors in these buggy code snippets:
 I can provide broken code that you need to debug—let me know if you want some! 🛠️
 
-4️⃣ Experiment with rand()
+### 4️⃣ Experiment with rand()
 ✅ Play around with the rand() function:
 
 ```c
@@ -67,4 +68,4 @@ int main() {
     return 0;
 }
 ```
-📌 Try generating numbers in different ranges (1–10, 1–500, etc.).
+#### 📌 Try generating numbers in different ranges (1–10, 1–500, etc.).

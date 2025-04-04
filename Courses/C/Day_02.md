@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [Table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 3](./Day_03.md)  
 
 # The C Programming Language - Day 2: Writing and Compiling a Basic C Program
 ## Entry Notes

@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [Table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 7](./Day_07.md)
 
 # The C Programming Language - Day 6: Loops in C (for, while, do-while)
 ```

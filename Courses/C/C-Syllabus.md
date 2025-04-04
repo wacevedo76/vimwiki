@@ -2,17 +2,17 @@
 
 # The C programming Language - Syllabus
 ## Week 1: Basics of C
-* Day 1: Introduction to C, setting up the development environment (GCC, Clang, or an IDE like VS Code)
-* Day 2: Writing and compiling a basic C program (printf, main, return 0;)
-* Day 3: Data types, variables, and constants (int, float, char, const, #define)
-* Day 4: Operators and expressions `(+, -, *, /, %, ++, --)`
-* Day 5: Control flow (if, else, switch)
-* Day 6: Loops (for, while, do-while)
-* Day 7: Simple exercises (basic calculator, number guessing game)
+* [Day 1: Introduction to C, setting up the development environment (GCC, Clang, or an IDE like VS Code)](./Day_01.md)
+* [Day 2: Writing and compiling a basic C program (printf, main, return 0;)](./Day_02.md)
+* [Day 3: Data types, variables, and constants (int, float, char, const, #define)](./Day_03.md)
+* [Day 4: Operators and expressions `(+, -, *, /, %, ++, --)`](Day_04.md)
+* [Day 5: Control flow (if, else, switch)](Day_05.md)
+* [Day 6: Loops (for, while, do-while)](Day_06.md)
+* [Day 7: Simple exercises (basic calculator, number guessing game)](Day_07.md)
 
 ## Week 2: Functions and Pointers
-* Day 8: Function declaration, definition, and calling functions
-* Day 9: Function parameters and return values
+* [Day 8: Function declaration, definition, and calling functions](Day_08.md)
+* [Day 9: Function parameters and return values](Day_09.md)
 * Day 10: Recursion
 * Day 11: Introduction to pointers `(*, &, NULL)`
 * Day 12: Pointer arithmetic

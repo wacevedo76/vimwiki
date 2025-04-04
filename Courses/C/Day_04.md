@@ -1,5 +1,6 @@
-[table of contents](./index.md)
-[Syllabus](./C-Syllabus.md)
+* [table of contents](./index.md)  
+* [Syllabus](./C-Syllabus.md)  
+* [Day 5](./Day_05.md)
 
 # The C Programming Language - Day 4: Operators and Expressions in C
 ```
