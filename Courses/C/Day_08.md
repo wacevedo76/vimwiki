@@ -103,6 +103,66 @@ I can provide buggy function code that you have to fix. Let me know if you want 
 
 ## Question to ChatGPT
 ```
+Thank you for this. Regarding activity 5 from day 8. What is the parameter I 
+should accept for a function that will be asking for, storing, and then 
+outputting a string from the user. Also, what is the correct '%' symbol to use 
+when I want to interpolate the inputted string using printf?
+```
+You're very welcome! Great question — when dealing with strings in C, you're really working with character arrays. Here's how to handle them in a function that asks for, stores, and prints a user-inputted string:
+
+### ✅ 1. Function Parameter for a String
+In C, you typically pass a string as a `char array` or a `char pointer`. For example:
+
+```c
+void getInput(char str[], int size);
+```
+or equivalently:
+
+```c
+void getInput(char *str, int size);
+```
+Both of these mean: “This function accepts a character array (string) and the size of that array.”
+
+### ✅ 2. Format Specifier for `printf()`
+To print a string using `printf()`, use:
+
+```perl
+%s
+```
+Example:
+```c
+printf("Hello, %s!\n", name);
+```
+
+### ✅ 3. Putting It All Together
+Here’s a complete example that:  
+* Uses a function to ask for input
+* Stores it in a string (char array)
+* Prints it back using %s
+
+```c
+#include <stdio.h>
+
+void getInput(char str[], int size) {
+    printf("Enter your name: ");
+    fgets(str, size, stdin);  // safer than scanf for strings
+}
+
+int main() {
+    char name[50];  // allocate space for the name
+    getInput(name, 50);
+    printf("Hello, %s", name);  // %s to interpolate the string
+
+    return 0;
+}
+```
+### 📝 Notes:
+`fgets()` is generally preferred over `scanf("%s", ...)` because it handles spaces and avoids buffer overflow (with size limit).
+
+`fgets()` includes the newline character if the input is short enough — you may want to strip it out if needed.
+
+## Question to ChatGPT
+```
 Thanks for that. I am familiar with other programming languages. So I am 
 familiar with the concept of scope. Regarding the last snippet of code you 
 provided to me.  Since the `getInput` function is void, it doesn't return the 
@@ -167,19 +227,117 @@ int main() {
 }
 ```
 
-### ⚠️ Important:  
+#### ⚠️ Important:  
 * **Variables passed by value** (like `int`, `float`, etc.) are copied — changes inside a function **do not** affect the original.
 * **Arrays and pointers**, however, are passed as **references** to memory — so if you modify them inside a function, the changes **do persist**.
 
-🧠 TL;DR for Your Example
-c
-Copy
-Edit
+### 🧠 TL;DR for Your Example
+```c
 void getInput(char str[], int size);
-str[] is a reference to memory allocated in main().
+```
+* `str[]` is a reference to memory allocated in `main()`.
+* `fgets()` writes input into that memory.
+* Even though the function is `void`, the `name[]` array in `main()` now contains the user’s input.
+* You’re not returning anything because you're **modifying memory via a pointer**.
 
-fgets() writes input into that memory.
+### Question to ChatGPT
+```
+Thank you for that, also regarding activity 5 from day 8: writing a function 
+that accepts user input. when defining the parameters for a function, if the 
+variables that the parameters will affect are defined outside the function 
+block, how would I make references to them. From what was said above, I am 
+assuming that I can refer to them with pointers, I just don't know how to define 
+the parameters as pointers. And two,  how can a return multiple values from a 
+function; what I mean to ask is that in other programming languages, I would 
+normally pass a complex data structure, like an array, a list, a hash map, or 
+some other data structure. I'm sure that these topics will be covered in the 
+preceding lessons, but it would be helpful to get a brief primer on these topics 
+to be able to successfully complete chapter 8's task.
+```
+### 🔹 1. Passing Variables by Reference (Using Pointers)
+In C, when you want to allow a function to **modify a variable defined outside its own scope**, you **pass a pointer** to that variable.
 
-Even though the function is void, the name[] array in main() now contains the user’s input.
+🔧 Example: Passing by reference
+```c
+void updateValue(int *num) {
+    *num = 42;  // Dereference the pointer to change the original value
+}
 
-You’re not returning anything because you're modifying memory via a pointer.
+int main() {
+    int x = 0;
+    updateValue(&x);  // Pass the address of x
+    printf("x is now: %d\n", x);  // Outputs: x is now: 42
+    return 0;
+}
+```
+
+#### 🧠 Key Concepts:
+* `int *num` → a pointer to an integer.
+* `*num = 42` → dereference it to set the actual value.
+* `&x` → the “address of” `x`, passed into the function.
+
+This applies to strings, structs, arrays, etc.
+
+### 🔹 2. Using Pointers for Strings (char arrays)
+From earlier:
+
+```c
+void getInput(char *buffer, int size) {
+    fgets(buffer, size, stdin);  // Fills the buffer passed from main
+}
+```
+No need to return anything — the changes happen directly in the memory the pointer references.
+
+### 🔹 3. Returning Multiple Values from a Function
+In C, functions can return only one value, but you can simulate multiple return values in a few ways:
+
+#### ✅ Method 1: Use Pointers as "Output Parameters"
+```c
+void calculate(int a, int b, int *sum, int *product) {
+    *sum = a + b;
+    *product = a * b;
+}
+
+int main() {
+    int x = 3, y = 4;
+    int add, mult;
+    calculate(x, y, &add, &mult);
+    printf("Sum: %d, Product: %d\n", add, mult);
+    return 0;
+}
+```
+* You're returning multiple values via output parameters (`int *sum`, `int *product`).
+* Clean and efficient.
+
+#### ✅ Method 2: Use Structs
+If you want a cleaner way to group data, you can define a `struct`.
+
+```c
+typedef struct {
+    int sum;
+    int product;
+} Result;
+
+Result calculate(int a, int b) {
+    Result r;
+    r.sum = a + b;
+    r.product = a * b;
+    return r;
+}
+
+int main() {
+    Result res = calculate(3, 4);
+    printf("Sum: %d, Product: %d\n", res.sum, res.product);
+    return 0;
+}
+```
+* Structs give you a way to **package data** and return it like an object or dictionary in other languages.
+
+#### ✅ Method 3: Use Arrays (for homogenous data)
+If you're returning a list of values of the same type, you can return an array via a pointer, but this gets into dynamic memory (which we'll cover later). For now, stick with pointers and structs for “multiple returns.”
+
+### 🔹 4. TL;DR: To Complete Day 8's Activity
+* Use char `*` (or `char str[]`) to accept a string input in a function.
+* Use int `*`, `float *`, etc., if you want to update scalar variables from within the function.
+* Use `struct` if you want to return multiple named values.
+* Use multiple pointer arguments if you want to output multiple values from a function without returning anything.
