@@ -1,5 +1,6 @@
 * [Table of contents](./index.md)  
 * [Syllabus](./C-Syllabus.md)  
+* [Day 7](./Day_07.md)  
 * [Day 9](./Day_09.md)  
 
 # The C programming language - Day 8: Function declaration, definition, and calling functions
@@ -43,7 +44,7 @@ int main() {
 }
 ```
 
-## 📌 Modify the function to print the user's name.
+📌 Modify the function to print the user's name.
 
 ### 2️⃣ Functions with Parameters
 ✅ Write a function that calculates the square of a number.
@@ -160,6 +161,24 @@ int main() {
 `fgets()` is generally preferred over `scanf("%s", ...)` because it handles spaces and avoids buffer overflow (with size limit).
 
 `fgets()` includes the newline character if the input is short enough — you may want to strip it out if needed.
+
+To strip the trailing newline character "\n" from the string `fgets` collects, you will have to `#include <string.h>` header file and manually remove the newline character with `strcspn`
+
+`strcspn`: **STR**ing **C**omplement **SP**a**N** - is used the return the **length of an initial segment of a string** before a character, or a set of characters **is found**.
+```c
+size_t strcspn(const char *str1, const char *str2);
+```
+* `str1`: The string you want to search through.
+* `str2`: The string containing the characters you want to **look for**.
+✅ It returns teh **index of the first character in `str1` that **matches any character in** `str2`
+
+so:
+```c
+name[strcspn(name, "\n")] = \0;
+```
+* `name` is the name of the character array (string) to which you are removing the newline.
+* `strcspn(name, "\n")` locates the first instance of "\n" within the string and returns its index.
+* Since `strcspn(name, "\n")` returns the *index* of `\n`, `name[`*index*`] = \0;` assigns the string index position to = \0, removing the newline.
 
 ## Question to ChatGPT
 ```
@@ -341,3 +360,54 @@ If you're returning a list of values of the same type, you can return an array v
 * Use int `*`, `float *`, etc., if you want to update scalar variables from within the function.
 * Use `struct` if you want to return multiple named values.
 * Use multiple pointer arguments if you want to output multiple values from a function without returning anything.
+
+### Notes on `&var` vrs `*var`
+#### Question to ChatGPT
+```
+Okay, I do not fully understand one aspect of the material covered. 
+What are the differences between *var and &var. Can you please elaborate on the 
+differences between these two symbols, also tell me which day it was covered so 
+that I can update my notes.
+```
+Great question — this is a core concept in C and understanding it well will make 
+the rest of your learning smoother. Let's break it down clearly:
+
+##### 🧠 &var vs *var — What's the Difference?
+| Symbol | Meaning                                                              | Use Case                                                                 |
+| ------ | -------                                                              | --------                                                                 |
+| `&var`     | "Address of var" — gives you a pointer to the variable               | Used when you want to pass the address to a function, or store a pointer |
+| `*ptr` | "Dereference ptr" — gives you the value at the address stored in ptr | Used to access or modify the value the pointer points to                 |
+
+##### 📦 Visual Analogy:
+Think of memory like mailboxes.
+Each variable lives in a box and has an address.
+
+```c
+Copy
+Edit
+int age = 30;
+```
+* `age` is the value inside the box (📦).
+* `&age` is the address on the box (📮).
+* `int *ptr = &age;` — the pointer stores the address.
+* `*ptr` — opens the box and sees what's inside (`30``).
+
+##### 🔧 Example:
+```c
+#include <stdio.h>
+
+void modify(int *x) {
+    *x = 99;  // change the value at the address x points to
+}
+
+int main() {
+    int a = 10;
+    modify(&a);  // pass the address of a
+    printf("%d\n", a);  // prints 99
+    return 0;
+}
+```
+**Explanation:**
+
+* `&a` gives the address of a
+* `*x` inside the function dereferences that address and changes the original variable

@@ -1,5 +1,6 @@
 * [Table of contents](./index.md)  
 * [Syllabus](./C-Syllabus.md)  
+* [Day 6](./Day_06.md)
 * [Day 8](./Day_08.md)
 
 # 📌 Day 7: Simple Exercises (Basic Calculator, Number Guessing Game)
