@@ -97,6 +97,43 @@ int main() {
     printf("Updated: %d\n", num);  // Now 6
 }
 ```
+### 🧠 &var vs *var — What's the Difference?
+| Symbol | Meaning                                                              | Use Case                                                                 |
+| ------ | -------                                                              | --------                                                                 |
+| &var   | "Address of var" — gives you a pointer to the variable               | Used when you want to pass the address to a function, or store a pointer |
+| `*ptr` | "Dereference ptr" — gives you the value at the address stored in ptr | Used to access or modify the value the pointer points to                 |
+
+#### 📦 Visual Analogy:
+Think of memory like mailboxes.
+Each variable lives in a box and has an address.
+
+```c
+int age = 30;
+```
+* `age` is the value inside the box (📦).
+* `&age` is the address on the box (📮).
+* `int *ptr = &age;` — the pointer stores the address.
+* `*ptr` — opens the box and sees what's inside (30).
+
+#### 🔧 Example:
+```c
+#include <stdio.h>
+
+void modify(int *x) {
+    *x = 99;  // change the value at the address x points to
+}
+
+int main() {
+    int a = 10;
+    modify(&a);  // pass the address of a
+    printf("%d\n", a);  // prints 99
+    return 0;
+}
+```
+**Explanation:**
+* `&a` gives the address of `a` 
+* `*x` inside the function dereferences that address and changes the original variable
+
 ## 🔹 2. Function Return Values
 ### ✅ What Is a Return Value?
 Functions can **return** a result to the part of the program that called them.
