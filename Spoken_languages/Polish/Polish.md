@@ -384,3 +384,21 @@ The following are the most common personal Pronouns and their declined forms:
 | Instrumental | kim       | czym      | którym               | którą               | którym               |
 | Locative     | kim       | czym      | którym               | której              | którym               |
 | Vocative     | —         | —         | —                    | —                   | —                    |
+
+Here is a table showing the seven declined forms of Polish nouns. I'll start 
+with a smaller set to illustrate the declensions. Each row includes a noun with 
+its declined forms across cases in Polish: Nominative, Genitive, Dative, 
+Accusative, Instrumental, Locative, and Vocative.
+
+| Polish Noun       | Nominative (Mianownik) | Genitive (Dopełniacz) | Dative (Celownik) | Accusative (Biernik) | Instrumental (Narzędnik) | Locative (Miejscownik) | Vocative (Wołacz) |
+| dom (house)       | dom                    | domu                  | domowi            | dom                  | domem                    | domu                   | domie             |
+| człowiek (person) | człowiek               | człowieka             | człowiekowi       | człowieka            | człowiekiem              | człowieku              | człowieku         |
+| czas (time)       | czas                   | czasu                 | czasowi           | czas                 | czasem                   | czasie                 | czasie            |
+| dzień (day)       | dzień                  | dnia                  | dniu              | dzień                | dniem                    | dniu                   | dniu              |
+| życie (life)      | życie                  | życia                 | życiu             | życie                | życiem                   | życiu                  | życie             |
+| świat (world)     | świat                  | świata                | światu            | świat                | światem                  | świecie                | świecie           |
+| miłość (love)     | miłość                 | miłości               | miłości           | miłość               | miłością                 | miłości                | miłości           |
+| praca (work)      | praca                  | pracy                 | pracy             | pracę                | pracą                    | pracy                  | praco             |
+| kobieta (woman)   | kobieta                | kobiety               | kobiecie          | kobietę              | kobietą                  | kobiecie               | kobieto           |
+| mężczyzna (man)   | mężczyzna              | mężczyzny             | mężczyźnie        | mężczyznę            | mężczyzną                | mężczyźnie             | mężczyzno         |
+| dziecko (child)   | dziecko                | dziecka               | dziecku           | dziecko              | dzieckiem                | dziecku                | dziecko           |
