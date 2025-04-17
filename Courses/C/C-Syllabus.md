@@ -2,6 +2,7 @@
 
 # The C programming Language - Syllabus
 ## Week 1: Basics of C
+* [Miscellaneous Notes](./misc_notes)
 * [Day 1: Introduction to C, setting up the development environment (GCC, Clang, or an IDE like VS Code)](./Day_01.md)
 * [Day 2: Writing and compiling a basic C program (printf, main, return 0;)](./Day_02.md)
 * [Day 3: Data types, variables, and constants (int, float, char, const, #define)](./Day_03.md)
