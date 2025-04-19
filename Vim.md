@@ -1,6 +1,18 @@
 # Learn Vim Script the Hard way
 ## Quick Notes:  
 
+### Folds
+
+| Command | Action                           |
+| :-----: | ------                           |
+| zR      | Open all folds                   |
+| zM      | Close all folds                  |
+| zo      | Open one fold under the cursor   |
+| zc      | Close one fold under the cursor  |
+| za      | Toggle fold under the cursor     |
+| zO      | Open all folds under the cursor  |
+| zC      | Close all folds under the cursor |
+
 Start vim without default config
 vim -u NONE
 
