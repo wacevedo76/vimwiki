@@ -27,6 +27,7 @@ int main() {
     return 0;  // Exit with success
 }
 ```
+
 ## 2. Compiling and Running the Program
 **Steps to compile and run the program:**
 
@@ -38,6 +39,7 @@ gcc hello.c -o hello
 ```
 Hello, World!
 ```
+
 ## 3. Breaking Down the Code
 | Component                  | Explanation                                                    |
 | :-----------------         | -----------                                                    |
@@ -59,6 +61,7 @@ int main() {
     return 0;
 }
 ```
+
 Try removing `return 0;` and see if the program still works. (Hint: It’s optional in main() for modern compilers, but good practice.)
 
 ## 5. Understanding Escape Sequences
@@ -72,6 +75,7 @@ printf("Line1\nLine2\n");   // New line
 printf("Tab\tSpace\n");     // Tab spacing
 printf("Backslash: \\ \n"); // Print \
 ```
+
 ## Summary of Activities for Today
 ✅ Write a basic C program.  
 ✅ Compile and run it using gcc.  
@@ -86,4 +90,3 @@ It builds progressively, ensuring you grasp fundamental concepts before moving f
 Each day has hands-on practice, making learning active.
 
 You can modify and experiment with the code to reinforce concepts.
-

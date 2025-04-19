@@ -3,6 +3,12 @@
 
 # Miscellaneous Notes
 
+## Functions quick Notes
+### `scanf`
+The `scanf` function is used to take input from the user.
+* It requires **format specifiers** (like "%d" for integers).
+* The `&` **(address-of) operator** is used for variable input (except for `char[]`).
+
 ## Chapter 9 Misc Notes
 🧠 TL;DR - Common Gotchas Recap:
 
@@ -72,8 +78,8 @@ Pointers. Would you like a little visual diagram to go along with this?
 
 
 ## 🔢 Three Ways of Passing Information to Functions
-In C, when you define function parameters, you're essentially choosing **what**  
-*ou're** passing and **how you're passing it**:
+In C, when you define function parameters, you're essentially choosing **what 
+you're** passing and **how you're passing it**:
 
 ### 1. Passing the value (a copy of the actual value)
 This is called **pass by value**.

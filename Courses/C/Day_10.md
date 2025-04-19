@@ -9,7 +9,8 @@ Question to ChatGPT:
 Okay, I am ready for Day 10: Recursion. Can you format the day's learning content as:
   * A summary of what day 10 entails.
   * The contents of each summary item.
-  * A series of activities to help me learn the contents of today's learning objectives holistic?
+  * A series of activities to help me learn the contents of today's learning 
+    objectives holistic?
 
 ```
 
@@ -40,7 +41,7 @@ void countdown(int n) {
 * Recursion uses the call stack, which can lead to stack overflow for deep recursion.
 
 3. **Common Use Cases**
-* Mathematical functions: factorial, Fibonacci, GCD
+* Mathematical functions: factorial, Fibonacci, GCD (Greatest Common Divisor)
 * Data structures: tree traversal, searching, sorting (like merge sort, quicksort)
 * Backtracking problems
 

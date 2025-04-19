@@ -21,7 +21,7 @@ Today, you’ll learn how to perform arithmetic operations in C and how expressi
 2. Increment (++) and Decrement (--) Operators: Modify values efficiently.
 3. Operator Precedence: Understand how C evaluates expressions.
 
-### Arithmetic Operators in C
+## Arithmetic Operators in C
 C supports the following arithmetic operators:
 
 | Operator       | Symbol | Example | Description                                            |
@@ -32,7 +32,7 @@ C supports the following arithmetic operators:
 | Division       | `/`    | `a / b` | Divides two numbers (integer division if both are int) |
 | Modulus        | `%`    | `a % b` | Remainder of division (only for integers)              |
 
-**Integer vs. Floating-Point Division**
+### **Integer vs. Floating-Point Division**
 * If both numbers are int, division truncates (removes) decimal places.
 * If at least one number is float or double, division preserves decimals.
 
@@ -51,7 +51,8 @@ int main() {
     return 0;
 }
 ```
-:## 2. Increment (++) and Decrement (-\-) Operators
+
+## 2. Increment (++) and Decrement (-\-) Operators
 These are shorthand for increasing or decreasing a value by 1.
 
 | Operator  | Symbol | Example         | Equivalent To |

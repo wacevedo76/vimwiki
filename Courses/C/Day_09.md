@@ -100,7 +100,7 @@ int main() {
 ### 🧠 &var vs *var — What's the Difference?
 | Symbol | Meaning                                                              | Use Case                                                                 |
 | ------ | -------                                                              | --------                                                                 |
-| &var   | "Address of var" — gives you a pointer to the variable               | Used when you want to pass the address to a function, or store a pointer |
+| `&var`     | "Address of var" — gives you a pointer to the variable               | Used when you want to pass the address to a function, or store a pointer |
 | `*ptr` | "Dereference ptr" — gives you the value at the address stored in ptr | Used to access or modify the value the pointer points to                 |
 
 #### 📦 Visual Analogy:

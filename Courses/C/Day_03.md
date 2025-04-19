@@ -35,18 +35,21 @@ int main() {
     return 0;
 }
 ```
-**Key Notes:**
+
+#### **Key Notes:**
 * `%d` → Used for printing `int`.
 * `%f` → Used for printing `float` (default prints 6 decimal places).
 * `%c` → Used for printing `char`.
+* `%s` -> used for printing `char[]`
 
 ### 2. Constants in C
 Constants are values that **cannot change** after being defined. There are two main types:  
-✅ **Using `const` keyword (variable-based constant)**
+#### ✅ **Using `const` keyword (variable-based constant)**
 ```c
 const float PI = 3.14159;  
 ```
-✅ **Using #define (preprocessor macro)**
+
+#### ✅ **Using #define (preprocessor macro)**
 ```c
 #define PI 3.14159
 ```
@@ -65,7 +68,8 @@ int main() {
     return 0;
 }
 ```
-**Key Differences:**
+
+#### **Key Differences:**
 
 * `const` → **Type-safe**, follows variable scope.
 
@@ -90,6 +94,7 @@ int main() {
   return 0;
 }
 ```
+
 #### Common data types that scanf can accept
 
 Here’s a table of the common data types scanf() can accept, along with their corresponding format specifiers:
@@ -112,7 +117,7 @@ Here’s a table of the common data types scanf() can accept, along with their c
 | size_t             | %zu              | Unsigned integer type for sizes            | `scanf("%zu", &size);` |
 | ptrdiff_t          | %td              | Signed integer for pointer differences     | `scanf("%td", &diff);` [|](|)
 
-**Notes on White space**  
+#### **Notes on White space**  
 There are instances, for example when scanf accepts a interger and then 
 immediatly accept a character, where the previousl '\n' (ENTER key) will
 still be in the input buffer.
@@ -123,28 +128,28 @@ input buffer **prefix the input data type with a space**:
 scanf(" %c", &operator);
 ```
 
-**Explanation:**
+#### **Explanation:**
 * `printf("Enter your birth year: ");` -> Promts the user.
 * `scanf("%d", &birthYear);` -> Reads the integer (`%d`) and stores it in `birthYear`.
 * `&birthYear` -> **Address-of operator** is needed for input storage.
 
-**Hands-On Activities for Today**  
-✅ **Activity 1: Declare and Print Different Data Types**  
+### **Hands-On Activities for Today**  
+#### ✅ **Activity 1: Declare and Print Different Data Types**  
 Modify the program to store:
 * Your age (`int`)
 * Your height in meters (`float`)
 * Your first initial (char)  
   Then, print them using printf().
 
-✅ **Activity 2: Experiment with Constants**
+#### ✅ **Activity 2: Experiment with Constants**
 * Create a constant using `const`.
 * Create a constant using `#define`.
 * Try changing a `const` variable after declaration—what happens?
 
-✅ **Activity 3: Format Floating-Point Numbers**  
+#### ✅ **Activity 3: Format Floating-Point Numbers**  
 * Modify the `%f` format to print 2 decimal places (`%.2f`).
 
-✅ Challenge Activity
+#### ✅ Challenge Activity
 * Write a program that asks for a **user’s birth year** (integer).
 * Calculate and print their **age in 2025**.
 * Modify the program to ask for **another future year** instead of 2024.
