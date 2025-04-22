@@ -15,7 +15,7 @@
 * [Day 8: Function declaration, definition, and calling functions](Day_08.md)
 * [Day 9: Function parameters and return values](Day_09.md)
 * [Day 10: Recursion](Day_10)
-* Day 11: Introduction to pointers `(*, &, NULL)`
+* [Day 11: Introduction to pointers `(*, &, NULL)`](Day_11)
 * Day 12: Pointer arithmetic
 * Day 13: Function pointers
 * Day 14: Exercises (factorial using recursion, swapping two variables with pointers)
