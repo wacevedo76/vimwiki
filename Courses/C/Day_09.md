@@ -85,6 +85,7 @@ int main() {
     printf("Outside function: %d\n", num);  // Still 5
 }
 ```
+
 ### 🧪 Example: Pass by Reference
 ```c
 void addOne(int *n) {
@@ -97,11 +98,13 @@ int main() {
     printf("Updated: %d\n", num);  // Now 6
 }
 ```
+
 ### 🧠 &var vs *var — What's the Difference?
-| Symbol | Meaning                                                              | Use Case                                                                 |
-| ------ | -------                                                              | --------                                                                 |
-| `&var`     | "Address of var" — gives you a pointer to the variable               | Used when you want to pass the address to a function, or store a pointer |
-| `*ptr` | "Dereference ptr" — gives you the value at the address stored in ptr | Used to access or modify the value the pointer points to                 |
+
+| Symbol | Use Case                                                                 | Meaning                                                              |
+| ------ | ------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| `&var` | Used when you want to pass the address to a function, or store a pointer | "Address of var" — gives you a pointer to the variable               |
+| `*ptr` | Used to access or modify the value the pointer points to                 | "Dereference ptr" — gives you the value at the address stored in ptr |
 
 #### 📦 Visual Analogy:
 Think of memory like mailboxes.
@@ -130,6 +133,7 @@ int main() {
     return 0;
 }
 ```
+
 **Explanation:**
 * `&a` gives the address of `a` 
 * `*x` inside the function dereferences that address and changes the original variable
@@ -146,6 +150,7 @@ int square(int x) {
     return x * x;
 }
 ```
+
 * Use return to send back a value.
 * Only one value can be returned directly.
 
@@ -160,6 +165,7 @@ int main() {
     printf("Result: %d\n", result);  // 8
 }
 ```
+
 ### 🧪 Returning Multiple Values (via Pointers)
 ```c
 void sumAndDiff(int a, int b, int *sum, int *diff) {
@@ -167,6 +173,7 @@ void sumAndDiff(int a, int b, int *sum, int *diff) {
     *diff = a - b;
 }
 ```
+
 ### 🧪 Returning a Struct (Optional Advanced Technique)
 ```c
 struct Result {
@@ -216,6 +223,7 @@ p1.height = 5.6;
 
 printf("%s is %d years old and %.1f feet tall\n", p1.name, p1.age, p1.height);
 ```
+
 ##### 📝 Tip:
 If you want to make it even easier to use (and avoid always typing struct), you can use a typedef:
 
@@ -228,7 +236,6 @@ typedef struct {
 Person p2;
 ```
 Now you can just use Person like any built-in type.
-
 
 ## 🔹 3. Parameter Scope & Lifetime
 ### ✅ What Is Scope?
@@ -248,6 +255,7 @@ void myFunction() {
     printf("%d\n", a);
 }
 ```
+
 ### 🧪 Example: Global Scope
 ```c
 int count = 0;
@@ -256,6 +264,7 @@ void increment() {
     count++;
 }
 ```
+
 ### 🔁 Lifetime of Variables
 * Local variables: Exist only during function execution.
 * Global/static variables: Exist for the program’s entire runtime.
