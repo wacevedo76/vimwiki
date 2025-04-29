@@ -148,7 +148,7 @@ But for now, let's focus on simulating some of these actions manually.
 arr[5] = 60; // Only works if you had space for arr[6]!
 ```
 
-#####🟡 Simulate Insert (Add in Middle)
+##### 🟡 Simulate Insert (Add in Middle)
 You’d have to **shift elements manually**:
 
 ```c
