@@ -1,6 +1,82 @@
 # Learn Vim Script the Hard way
 ## Quick Notes:  
 
+### Yank a character into a register
+
+#### ✅ 1. Identify the Character Under the Cursor
+Use the `getchar()` and `getline()` + `col()` Vim functions (for scripting), but in normal usage, you can yank the character under the cursor using:
+
+```vim
+"cy
+```
+
+#### Explanation:
+* `"c` — Specifies register c (you can pick any letter a–z).
+* `y` — Yank...
+* `l` — One character to the right of the cursor (default for `y` in normal mode without motion is one char).
+
+So:
+
+```vim
+"cyl
+```
+If you want **only the character under the cursor** (not including the one to the right), you could use:
+
+```vim
+"cyv"ly
+```
+But `yl` is usually good enough for one character.
+
+#### ✅ 2. Yank the Character Under Cursor Into a Register
+Use:
+
+```vim
+"cyl
+```
+This yanks the **character under the cursor** into register `c`.
+
+You can confirm it’s there with:
+
+```vim
+:reg c
+```
+
+#### ✅ 3. Use a Register in a Regex Pattern
+In command-line mode (`:`), you can insert the contents of a register using `<C-r>{register}`.
+
+For example, to insert the contents of register `c`:
+
+```vim
+<C-r>c
+```
+**Example Use Case**:
+Let’s say you want to **replace all occurrences** of the character under the cursor with `X`.
+
+1. Yank the character under the cursor into register `c`:
+
+```vim
+"cyl
+```
+
+2. Run the substitute command:
+
+```vim
+:%s/<C-r>c/X/g
+```
+* `%s/` – substitute in whole file
+* `<C-r>c` – insert the character you yanked
+* `/X/` – replace with "X"
+* `/g` – globally on each line
+
+This dynamically inserts the yanked character into the search pattern.
+
+🚀 Summary Cheatsheet
+| Task                                        | Vim Command        |
+| ------------------------------------------- | ------------------ |
+| Yank character under cursor to register `c` | `"cyl`             |
+| Insert register in command line             | `<C-r>c`           |
+| Substitute using char from register         | `:%s/<C-r>c/NEW/g` |
+
 ### Folds
 
 | Command | Action                           |
