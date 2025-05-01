@@ -106,3 +106,4 @@
   ## Self Directed Courses
 * [The C Programming Language](Courses/C/index)
 * [The Python Programming Language](Courses/Python/index)
+* [LXC](Courses/Linux/LXC/lxc-syllabus)
