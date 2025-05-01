@@ -15,3 +15,4 @@
 * [Day 10: Recursion](Day_10)
 * [Day 11: Introduction to pointers `(*, &, NULL)`](Day_11)
 * [Day 12: Pointer arithmetic](Day_12)
+* [Day 13: Function pointers](Day_13)
