@@ -15,6 +15,7 @@ would like you to generate a tutorial  for me in this format:
   making note to point out any additional information I might need to accomplish 
   the tasks from the exercises. 
 ```
+
 ## 📌 Summary
 In Day 11, you will learn:
 1. What a pointer is.
@@ -40,6 +41,7 @@ Example:
 int a = 10;
 int *p = &a;  // p holds the address of a
 ```
+
 2. The `&` Operator (Address-of)
 The `&` operator gives the **address** of a variable.
 
@@ -47,6 +49,7 @@ The `&` operator gives the **address** of a variable.
 int a = 5;
 printf("%p\n", &a);  // prints the address of a
 ```
+
 3. The `*` Operator (Dereferencing)
 The `*` operator lets you access the **value** at the address a pointer is pointing to.
 
@@ -56,12 +59,14 @@ int *p = &a;
 
 printf("%d\n", *p);  // prints 5
 ```
+
 4. The `NULL` Macro
 `NULL` is a constant used to represent a pointer that points to **nothing**. It's a safe way to initialize a pointer when you don’t yet have a valid address to assign to it.
 
 ```c
 int *p = NULL;
 ```
+
 5. Why Use Pointers?
 * Efficiency: Avoid copying large data structures.
 * Function arguments: Modify values inside functions.
@@ -130,11 +135,13 @@ arr[2] = 30;
 arr[3] = 40;
 arr[4] = 50;
 ```
+
 ##### ✅ To access an element:
 ```c
 printf("%d", arr[2]); // Prints 30
 ```
-✅ The name of the array, arr, is actually a pointer to the first element.
+
+##### ✅ The name of the array, arr, is actually a pointer to the first element.
 
 #### 🔧 Part 2: Adding/Removing Elements
 In C, arrays have fixed size, meaning you cannot dynamically grow or shrink them like in Python (`append`, `pop`, etc.). To manipulate arrays like you would in Python, you'd need to:
@@ -158,6 +165,7 @@ for (int i = 4; i > 2; i--) {
 }
 arr[2] = 25;
 ```
+
 ##### 🟡 Simulate Pop (Remove from End)
 Just ignore the last element or overwrite it.
 
@@ -202,6 +210,7 @@ int main() {
     return 0;
 }
 ```
+
 ##### 🧭 Summary of Your Questions
 
 | Concept            | In C                                        |

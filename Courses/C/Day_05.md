@@ -177,6 +177,7 @@ if (num > 0) {
     printf("Zero");
 }
 ```
+
 ### ✅ Activity 2: Even or Odd (Using `if-else`)
 Write a program that:  
 1️⃣ Asks the user for a number.  
@@ -231,6 +232,7 @@ switch (operator) {
     // Add other cases...
 }
 ```
+
 ### ✅ Activity 5: Days of the Week (Using switch)
 Write a program that:  
 1️⃣ Asks the user for a number (1-7).  

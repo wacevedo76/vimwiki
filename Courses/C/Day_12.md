@@ -27,7 +27,12 @@ In this lesson, you'll learn:
 * How to avoid common pitfalls and undefined behaviors in pointer arithmetic.
 
 ## Introduction
-In C, pointers do more than just store addresses — you can also perform arithmetic on them. This lets you walk through arrays, perform calculations with memory addresses, and build powerful and memory-efficient code. Pointer arithmetic is deeply tied to the way arrays and memory work in C. Once you understand the basics, you'll start seeing the power behind this concept, especially in lower-level tasks like buffer handling and data manipulation.
+In C, pointers do more than just store addresses — you can also perform 
+arithmetic on them. This lets you walk through arrays, perform calculations with 
+memory addresses, and build powerful and memory-efficient code. Pointer 
+arithmetic is deeply tied to the way arrays and memory work in C. Once you 
+understand the basics, you'll start seeing the power behind this concept, 
+especially in lower-level tasks like buffer handling and data manipulation.
 
 ## Core Concepts
 ### 1. Pointer Arithmetic Basics
@@ -74,7 +79,8 @@ Create an integer array of 5 elements. Use a pointer to:
 Create a pointer to an integer and practice these three expressions:
 * `*ptr++`
 * `(*ptr)++`
-* `++*ptr` Use `printf` to observe the differences.
+* `++*ptr`
+Use `printf` to observe the differences.
 
 ### Exercise 3: Reversing Array Traversal
 Use a pointer to print the elements of an array in reverse without using a loop counter. Just rely on pointer manipulation.
@@ -125,6 +131,7 @@ int main() {
     return 0;
 }
 ```
+
 #### 🔎 Key ideas:
 * `arr` is the pointer to the first element.
 * `arr + 4` is the pointer to the fifth element (index 4).
@@ -198,6 +205,7 @@ You can **print** both:
 printf("Address: %p\n", (void*)ptr);
 printf("Value: %d\n", *ptr);
 ```
+
 #### 🧪 Visual Breakdown:
 Let's say this is how the array is laid out:
 
@@ -225,7 +233,7 @@ Then:
 | ptr  | Memory address (pointer)      | int * |
 | *ptr | Value at that memory location | int   |
 
-#### [✅](✅) This duality — the idea that a pointer can both store a memory location and give you access to the data there — is the essence of pointer power in C.
+✅ This duality — the idea that a pointer can both store a memory location and give you access to the data there — is the essence of pointer power in C.
 
 ### Notes on matching argument types with function parameter types
 #### Question to ChatGPT
@@ -263,6 +271,7 @@ Let’s assume:
 ```c
 int int01 = 42;
 ```
+
 #### 🔍 Option 1: int01
 ```c
 printReverse(int01, ???);
@@ -313,6 +322,7 @@ int x = 42;
 int *p = &x;   // p stores the address of x
 printf("%d\n", *p);  // *p dereferences the pointer: go to address p, get value
 ```
+
 #### 🪧 Metaphor: Pointer as a Street Address
 Imagine:
 * You write a letter to a friend.
@@ -406,3 +416,82 @@ Would you like a quick visual chart or code-plus-metaphor mini-example to reinfo
 
 ### Some things to look up in Future lessons
 * Manually Casting Pointers
+
+## About finding the last element in an array
+Question asked to ChatGPT
+```
+Okay, what are some methods of finding the last element of an array when you don't know the size of the array?
+```
+
+ChatGPT said:
+This is a fantastic and practical question — and it gets at one of C's fundamental truths:
+
+### 🛑 C does not store array size information at runtime.
+Once you pass an array to a function, it decays into a pointer, and you lose its size unless you track it yourself.
+
+###✅ So, how can you find the last element of an array when you don't know the size?
+Here are the most common approaches:
+
+🔹 1. Pass the size as an additional argument (recommended)
+This is the standard and safest method.
+
+```c
+void printLast(int *arr, int size) {
+    printf("Last element: %d\n", arr[size - 1]);
+}
+```
+
+🧠 Since arr is just a pointer inside the function, you need the size to find arr[size - 1].
+
+🔹 2. Use a sentinel value to mark the end
+This is how strings in C work — they end with '\0'.
+
+Example:
+
+```c
+int arr[] = {1, 2, 3, 4, -1};  // Use -1 as a sentinel
+
+int *p = arr;
+while (*p != -1) {
+    p++;
+}
+
+`p--;`  // Now points to last valid value
+printf("Last element: %d\n", *p);
+
+```
+
+⚠️ You must choose a value that won’t appear in valid data, or you'll get incorrect results.
+
+🔹 3. Use a macro at compile-time (only in same scope)
+If you're still in the scope where the array was declared:
+
+```c
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+
+int arr[] = {1, 2, 3, 4, 5};
+int last = arr[ARRAY_SIZE(arr) - 1];
+```
+❗ This only works before the array decays into a pointer — i.e., in the same function.
+
+🔹 4. Null-terminated pointer arrays (for strings or pointers)
+C strings are null-terminated:
+
+```c
+char *arr[] = {"hello", "world", NULL};
+
+int i = 0;
+while (arr[i] != NULL) {
+    i++;
+}
+printf("Last element: %s\n", arr[i - 1]);
+```
+✅ Works great for arrays of strings or pointers — but you must design the data to support it.
+
+🔚 So what are your options?
+| Situation                     | Best Option                          |
+| ----------------------------- | ------------------------------------ |
+| You control the function      | ✅ Pass the size explicitly          |
+| Data has a natural terminator | ✅ Use a sentinel or null-terminator |
+| You're in declaration scope   | ✅ Use sizeof() or a macro           |
+| You're using raw pointers     | ❌ No safe way without extra info    |

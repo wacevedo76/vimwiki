@@ -5,9 +5,10 @@
 
 # The C Programming Language - Day 3: Data types, variables, and constants (int, float, char, const, #define)
 
-ChatGPT Prompt: Okay,  I'm ready for day 3: Day 3: Data types, variables, and constants (int, float, char, const, #define). 
-
-can you please print out a summary of what the second day entails? and then a set of activities that would help me learn the contents of this day in a more holistic way?
+ChatGPT Prompt: Okay,  I'm ready for day 3: Day 3: Data types, variables, and 
+constants (int, float, char, const, #define). can you please print out a summary 
+of what the second day entails? and then a set of activities that would help me 
+learn the contents of this day in a more holistic way?
 
 ## Day 3: Data Types, Variables, and Constants
 Today, you’ll learn how C stores and manipulates numbers, characters, and constants.
@@ -75,7 +76,7 @@ int main() {
 
 * `#define` → **Replaces value at compile-time**, no data type.
 
-#### Taking User InPut in C (Using `scanf`)
+#### Taking User input in C (Using `scanf`)
 The `scanf` function is used to take input from the user.
 * It requires **format specifiers** (like "%d" for integers).
 * The `&` **(address-of) operator** is used for variable input (except for `char[]`).
@@ -118,8 +119,8 @@ Here’s a table of the common data types scanf() can accept, along with their c
 | ptrdiff_t          | %td              | Signed integer for pointer differences     | `scanf("%td", &diff);` [|](|)
 
 #### **Notes on White space**  
-There are instances, for example when scanf accepts a interger and then 
-immediatly accept a character, where the previousl '\n' (ENTER key) will
+There are instances, for example when scanf accepts a integer and then 
+immediately accept a character, where the previous '\n' (ENTER key) will
 still be in the input buffer.
 
 To instruct the `scanf` function to ignore any whitespace left over in the

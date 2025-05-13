@@ -59,13 +59,14 @@ int main() {
 ## 2️⃣ The `while` Loop
 A `while` loop **runs as long as** a condition is true.
 
-### 📌 Syntax:
+ 📌 Syntax:
 
 ```c
 while (condition) {
     // Code block to execute
 }
 ```
+
 ### 📌 Example: Print numbers 1 to 5
 
 ```c

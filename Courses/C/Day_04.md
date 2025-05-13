@@ -151,4 +151,4 @@ Write a program that:
 
 3. Prints the result.
 
-**Bonus**: Modify the program to handle floating-point values (float instead of int).
+### **Bonus**: Modify the program to handle floating-point values (float instead of int).
