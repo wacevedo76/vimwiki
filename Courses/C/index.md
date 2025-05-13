@@ -16,3 +16,4 @@
 * [Day 11: Introduction to pointers `(*, &, NULL)`](Day_11)
 * [Day 12: Pointer arithmetic](Day_12)
 * [Day 13: Function pointers](Day_13)
+* [Day 14: Exercises (factorial using recursion, swapping two variables with pointers)](Day_14)
