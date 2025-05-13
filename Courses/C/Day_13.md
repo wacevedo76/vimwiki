@@ -40,6 +40,7 @@ Example:
 int add(int a, int b) { return a + b; }
 int (*fptr)(int, int) = &add;
 ```
+
 3. **Calling a Function Through a Pointer**
 You can call the function using:
 
@@ -56,6 +57,7 @@ void compute(int x, int y, int (*op)(int, int)) {
     printf("Result: %d\n", op(x, y));
 }
 ```
+
 5. **Using Function Pointers for Control Logic**
 Instead of a `switch` or `if`, you can use an array of function pointers:
 
@@ -65,32 +67,33 @@ operations[0](2, 3);  // Calls add
 ```
 This is super useful in interpreters, menu systems, or plugin architectures.
 
-### 🧪 Exercises
-#### ✅ Exercise 1: Basic Function Pointer
+## 🧪 Exercises
+### ✅ Exercise 1: Basic Function Pointer
 * Define a function `int add(int, int)`.
 * Declare a pointer to it and use the pointer to call the function with `2` and `3`.
 
-#### ✅ Exercise 2: Passing Function Pointer to Another Function
+### ✅ Exercise 2: Passing Function Pointer to Another Function
 * Create `void compute(int, int, int (*)(int, int))`
 * Pass in functions like `add,` `subtract`, `multiply`, and print the results.
 
-#### ✅ Exercise 3: Array of Function Pointers
+### ✅ Exercise 3: Array of Function Pointers
 * Define three functions: `add`, `subtract`, `multiply`
 * Create an array of function pointers and iterate through them
 * Call each one with `(10, 5)` and print the results.
 
-#### ✅ Exercise 4: Menu-Driven Calculator (Using Function Pointers)
+### ✅ Exercise 4: Menu-Driven Calculator (Using Function Pointers)
 * Use `scanf` to let a user choose an operation (`1: Add`, `2: Subtract, etc.`)
 * Use an array of function pointers to map the choices to operations.
 
-#### ✅ Exercise 5 (Bonus): Sort with a Callback
+### ✅ Exercise 5 (Bonus): Sort with a Callback
 * Use `qsort()` (from `<stdlib.h>`) to sort an array of integers.
 * Write your own comparator function and pass it as a function pointer.
 
 ```c
 int compare(const void *a, const void *b);
 ```
-#### 🧱 Helpful Notes
+
+## 🧱 Helpful Notes
 * Function pointer syntax can look weird — write them out slowly.
 * Function pointers **must match the signature** (return type + parameters).
 * When in doubt, break it down:
