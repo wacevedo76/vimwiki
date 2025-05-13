@@ -31,9 +31,9 @@ Here’s your tutorial in the format you requested:
 ## 🧭 Introduction
 In today’s lesson, you’ll revisit two of the most foundational and skill-reinforcing exercises in C:
 
-* Implementing a recursive factorial function
-* Swapping the values of two variables using pointers
-* These exercises are often used in interviews and textbooks because they bring together key concepts like control flow, memory management, recursion, and function parameters.
+* Implementing a **recursive factorial** function
+* Swapping the values of two variables using **pointers**
+* These exercises are often used in interviews and textbooks because they bring together key concepts like **control flow, memory management, recursion, and function parameters**.
 
 ## 📌 Summary
 Today you'll learn:
@@ -58,7 +58,7 @@ A condition that stops the recursion. Without it, the function would call itself
 4. Call Stack
 Each recursive call adds a frame to the call stack, holding its own local variables and state. These are unwound as the recursion returns.
 
-##🧠 Detailed Explanation
+## 🧠 Detailed Explanation
 ### 🔁 1. Recursive Factorial
 Factorial is defined mathematically as:
 
@@ -148,9 +148,3 @@ This lets you modify the original variables because you’re working with their 
     * Write a general-purpose `swap` macro or function that works with any data type
 
 Would you like help working through one of today’s exercises interactively? I can give you test cases or help step through your solution line by line.
-
-
-
-
-
-
