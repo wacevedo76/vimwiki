@@ -46,7 +46,7 @@ Today you'll learn:
 | Array Name as Pointer | array points to the first element.                              |
 | Iteration             | Use for loops and pointer arithmetic to walk the array.         |
 | Function Parameters   | Arrays passed to functions decay to pointers.                   |
-| 'sizeof()'            | Use it at the declaration scope to find array size in elements. |
+| `sizeof()`            | Use it at the declaration scope to find array size in elements. |
 
 ## 🧠 Detailed Explanation
 1. Declaring and Initializing Arrays
@@ -204,7 +204,6 @@ Each element is stored in adjacent memory locations:
 | index:  0 | 1  | 2  | 3  | 4  |
 | --------- | -- | -- | -- | -- |
 | value: ?? | ?? | ?? | ?? | ?? |
-
 
 **Declaring and Initializing**
 ```
