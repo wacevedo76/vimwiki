@@ -17,3 +17,5 @@
 * [Day 12: Pointer arithmetic](Day_12)
 * [Day 13: Function pointers](Day_13)
 * [Day 14: Exercises (factorial using recursion, swapping two variables with pointers)](Day_14)
+* [Day 15: One-dimensional arrays](Day_15)
+* [Day 16: Multi-dimensional arrays](Day_16)
