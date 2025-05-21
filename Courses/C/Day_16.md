@@ -125,7 +125,7 @@ Note: VLAs are not supported in all compilers, but GCC supports them well.
     * Write a function that flattens a 2D array into a 1D array using pointer arithmetic.
 
 ## 🔁 6. Recap and Next Steps
-###📌 Today you learned:
+### 📌 Today you learned:
 * How to declare, access, and iterate over multi-dimensional arrays
 * That C stores 2D arrays in row-major layout
 * How to pass arrays to functions and use variable-length arrays

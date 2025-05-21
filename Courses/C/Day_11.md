@@ -220,4 +220,3 @@ int main() {
 | Remove element     | Shift left/right manually                   |
 | Pointer arithmetic | `*(ptr + i)` to access elements             |
 | Pointer to array   | `int *ptr = arr;`                           |
-
