@@ -19,3 +19,4 @@
 * [Day 14: Exercises (factorial using recursion, swapping two variables with pointers)](Day_14)
 * [Day 15: One-dimensional arrays](Day_15)
 * [Day 16: Multi-dimensional arrays](Day_16)
+* [Day 17: Strings (char arrays, gets, puts, strcpy, strlen)](Day_17)

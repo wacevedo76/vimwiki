@@ -23,7 +23,7 @@
 ## Week 3: Arrays and Strings
 * [Day 15: One-dimensional arrays](Day_15)
 * [Day 16: Multi-dimensional arrays](Day_16)
-* Day 17: Strings (char arrays, gets, puts, strcpy, strlen)
+* [Day 17: Strings (char arrays, gets, puts, strcpy, strlen)](Day_17)
 * Day 18: String manipulation functions (strcat, strcmp, strncpy)
 * Day 19: Pointers and arrays (relationship between pointers and arrays)
 * Day 20: Array-based exercises (sorting algorithms, searching)
