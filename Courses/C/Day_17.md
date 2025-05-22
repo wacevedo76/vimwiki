@@ -1,7 +1,7 @@
 * [Syllabus](./C-Syllabus.md)  
 * [Table of contents](./index.md)  
 * [Day 16](./Day_16.md)  
-* [Day 17](./Day_17.md)  
+* [Day 18](./Day_18.md)  
 
 # Day 17: Strings (char arrays, gets, puts, strcpy, strlen)
 
@@ -98,17 +98,24 @@ int len = strlen(str);  // returns 5 (doesn't count '\0')
 ```
 Useful when sizing buffers, trimming input, etc.
 
-### 🔸 5. Common Pitfall: Buffer Overflow
+### 🔸 5. `xtrcspn` - Removing trailing newline characters
+```c
+textinput[strcspn(textinput, "\n")] = '\0';
+```
+* finds the first newline character and replaces it with '\0'.
+
+### 🔸 6. Common Pitfall: Buffer Overflow
 ```c
 char tiny[5];
 strcpy(tiny, "Overflow");  // ❌ too big → writes past array boundary
 ```
 This can corrupt memory and cause bugs or security issues.
 
-### 🔸 6. Safer Alternatives
-| Unsafe   | Safer Alternative                   |
-| gets()   | fgets()                             |
-| strcpy() | strncpy() or manual bounds checking |
+### 🔸 7. Safer Alternatives
+| Unsafe     | Safer Alternative                      |
+| --------   | -----------------------------------    |
+| `gets()`   | `fgets()`                              |
+| `strcpy()` | `strncpy()` or manual bounds checking  |
 
 ### 🧠 ASCII Diagram: String in Memory
 ```c
