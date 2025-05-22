@@ -1,6 +1,6 @@
 * [Syllabus](./C-Syllabus.md)  
 * [Table of contents](./index.md)  
-* [Day 17](./Day_1r.md)  
+* [Day 17](./Day_17.md)  
 * [Day 19](./Day_19.md)  
 
 # Day 18: String manipulation functions (strcat, strcmp, strncpy)
