@@ -178,7 +178,7 @@ if (num > 0) {
 }
 ```
 
-### ✅ Activity 2: Even or Odd (Using `if-else`)
+#### ✅ Activity 2: Even or Odd (Using `if-else`)
 Write a program that:  
 1️⃣ Asks the user for a number.  
 2️⃣ Uses if-else to check if it's even or odd.  
