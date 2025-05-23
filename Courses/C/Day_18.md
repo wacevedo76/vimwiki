@@ -25,6 +25,7 @@ Today’s key functions:
 
 ## ✍️ 3. Concise Explanations
 | Function      | What it does                                               |
+| ------------- | ---------------------------------------------------------- |
 | `strcat()`    | Appends one string to the end of another                   |
 | `strcmp()`    | Returns 0 if equal, <0 if left < right, >0 if left > right |
 | `strncpy()`   | Safely copies `n` characters from source to dest           |
