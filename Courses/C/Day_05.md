@@ -161,8 +161,29 @@ int main() {
 🔹 **Break Statement**: Prevents fall-through (executing all cases below the matched one).  
 🔹 **Default Case**: Runs if no case matches.
 
+### operators
+#### 🔍 Logical Operators
+
+| Operator | Name        | Description                     | Example             | Result                               |
+| -------- | ----------- | ------------------------------- | ------------------- | ------------------------------------ |
+| &&       | Logical AND | True if both operands are true  | `a > 0 && b < 10`   | true if both conditions are true     |
+| \|\|     | Logican OR  | True is either oprands are true | `a > 0 \|\| b < 10` | True if at least one operand is true |
+| !        | Logical NOT | Inverts the truth value         | `!flag`             | true if flag is false                |
+
+#### 🔍 Relational (Comparison) Operators
+These are used with logical operators to build expressions:
+
+| Operator | Name                  | Example | Meaning                     |
+| -------- | --------------------- | ------- | --------------------------- |
+| ==       | Equal to              | x == 5  | true if x is 5              |
+| !=       | Not equal to          | x != 5  | true if x is not 5          |
+| <        | Less than             | x < 5   | true if x is less than 5    |
+| >        | Greater than          | x > 5   | true if x is greater than 5 |
+| <=       | Less than or equal    | x <= 5  | true if x is 5 or less      |
+| >=       | Greater than or equal | x >= 5  | true if x is 5 or more      |
+
 ### 📌 Hands-On Activities for Day 5
-✅ Activity 1: Number Sign Detector  
+#### ✅ Activity 1: Number Sign Detector  
 Write a program that:  
 1️⃣ Takes an integer input from the user.  
 2️⃣ Prints whether the number is positive, negative, or zero using `if-else`.  
@@ -201,7 +222,7 @@ Below 60 → F
 
 📌 **Bonus**: Handle invalid scores (e.g., score > 100 or score < 0).
 
-### ✅ Activity 4: Simple Calculator (Using `switch`)
+#### ✅ Activity 4: Simple Calculator (Using `switch`)
 Write a program that:
 1️⃣ Asks the user for two numbers and an operator (`+`, `-`, `*`, `/`).  
 2️⃣ Uses a `switch` statement to perform the calculation.  
@@ -233,7 +254,7 @@ switch (operator) {
 }
 ```
 
-### ✅ Activity 5: Days of the Week (Using switch)
+#### ✅ Activity 5: Days of the Week (Using switch)
 Write a program that:  
 1️⃣ Asks the user for a number (1-7).  
 2️⃣ Prints the day of the week (1 = Monday, 2 = Tuesday, etc.).  
