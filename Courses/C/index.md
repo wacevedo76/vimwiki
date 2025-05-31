@@ -23,3 +23,4 @@
 * [Day 18: String manipulation functions (strcat, strcmp, strncpy)](Day_18)
 * [Day 19: Pointers and arrays (relationship between pointers and arrays)](Day_19)
 * [Day 20: Array-based exercises (sorting algorithms, searching)](Day_20)
+* [Day 21: Mini-project: Simple text-based menu program](Day_21)
