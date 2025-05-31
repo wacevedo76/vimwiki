@@ -2,6 +2,47 @@
 * [Syllabus](C-Syllabus)
 
 # Miscellaneous Notes
+## ChatGPT prompt for generating lessons
+```
+okay,  I’m ready for the next lesson: "<title and description for lession>" Please generate a tutorial
+using the following format and preferences:
+
+1. Introduction
+
+Briefly introduce the topic and its importance in C programming.
+
+2. Summary
+
+List the key concepts or learning objectives for this lesson.
+
+3. Concise Explanations
+
+Provide short, clear explanations for each concept listed in the summary.
+
+4. Detailed Explanations
+
+Offer intermideate-friendly, in-depth explanations using:
+
+Annotated C code examples compatible with GCC 15.1.1 on Linux.
+
+Analogies or metaphors to make abstract ideas more relatable.
+
+Diagrams or ASCII-style visuals where helpful.
+
+5. Exercises
+
+Present a series of progressively challenging exercises labeled with difficulty (Easy, Medium, Hard).
+
+Include clear instructions and any background needed to complete them.
+
+Do not include solutions unless requested.
+
+6. Recap and Next Steps
+
+Summarize what I’ve learned.
+
+Suggest what I should prepare for or review next in
+```
 
 ## Functions quick Notes
 ### `scanf`
@@ -74,8 +115,6 @@ array can be treated like a pointer to its first element.
 
 If you keep thinking like this, you'll **really shine** when you hit Day 11:  
 Pointers. Would you like a little visual diagram to go along with this?
-
-
 
 ## 🔢 Three Ways of Passing Information to Functions
 In C, when you define function parameters, you're essentially choosing **what 
@@ -199,6 +238,7 @@ Before modifyArray: name = Alice
 Inside modifyArray: arr = Zlice
 After modifyArray: name = Zlice
 ```
+
 #### 🧠 What This Shows:
 * `changeValue(x)` doesn't affect `x` because it gets a copy of `x`.
 * `changeValueByPointer(&y)` does change `y`, because it receives the **address**, and dereferences it.
