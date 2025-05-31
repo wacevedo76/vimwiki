@@ -5,7 +5,6 @@
 
 # Day 21: Mini-project: Simple text-based menu program
 
-
 ##1. Introduction
 Text-based menu programs are one of the best beginner-friendly ways to simulate real applications — like system tools, command-line utilities, or small games. They teach:
 * Control flow
@@ -24,12 +23,13 @@ Today you’ll learn to:
   5. Use loops to keep the program running until the user exits
 
 ## 3. Concise Explanations
-Concept	Description
-Menu display	Show a list of options the user can choose from
-Input capture	Read user choices and validate them
-Switch/if-else	Determine which action to take based on user input
-Function modularity	Split actions into reusable, well-named functions
-Looping	Keep showing the menu until the user exits (e.g., enters 0 or q)
+| Concept             | Description                                                      |
+| ------------------- | ---------------------------------------------------------------- |
+| Menu display        | Show a list of options the user can choose from                  |
+| Input capture       | Read user choices and validate them                              |
+| Switch/if-else      | Determine which action to take based on user input               |
+| Function modularity | Split actions into reusable, well-named functions                |
+| Looping             | Keep showing the menu until the user exits (e.g., enters 0 or q) |
 
 ## 4. Detailed Explanations
 ### 🔸 Menu Display
@@ -62,6 +62,7 @@ switch (choice) {
     default: printf("Invalid option.\n");
 }
 ```
+
 ### 🔸 Using Functions for Each Action
 ```c
 void greetUser() {
