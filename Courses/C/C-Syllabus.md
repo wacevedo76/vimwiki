@@ -30,7 +30,7 @@
 * [Day 21: Mini-project: Simple text-based menu program](Day_21)
 
 ## Week 4: Memory Management and Structures
-* Day 22: Dynamic memory allocation (malloc, calloc, realloc, free)
+* [Day 22: Dynamic memory allocation (malloc, calloc, realloc, free)](Day_22)
 * Day 23: Memory leaks and debugging tools (Valgrind)
 * Day 24: Introduction to struct and typedef
 * Day 25: Structs with pointers
