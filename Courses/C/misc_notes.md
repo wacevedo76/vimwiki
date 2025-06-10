@@ -4,7 +4,7 @@
 # Miscellaneous Notes
 ## ChatGPT prompt for generating lessons
 ```
-okay,  I’m ready for the next lesson: "<title and description for lession>" Please generate a tutorial
+okay,  I’m ready for the next lesson: "title and description for lession" Please generate a tutorial
 using the following format and preferences:
 
 1. Introduction
@@ -45,13 +45,75 @@ Suggest what I should prepare for or review next in
 ```
 
 ## Functions quick Notes
-### `scanf`
+### ✅ `scanf`
 The `scanf` function is used to take input from the user.
 * It requires **format specifiers** (like "%d" for integers).
 * The `&` **(address-of) operator** is used for variable input (except for `char[]`).
 
+### ✅ `size_t`
+* **What it is**: size_t is an unsigned integer type defined in <stddef.h> (and indirectly in <stdio.h>, <stdlib.h>, etc.)
+* **Purpose**: It represents the size of any object in bytes and is the type returned by sizeof.
+* **Attributes**:
+    * Always non-negative (unsigned).
+    * Varies by system architecture:
+    * 32-bit system → size_t is 32 bits (max value ~4 billion)
+    * 64-bit system → size_t is 64 bits (max value ~18 quintillion)
+
+```c
+#include <stdio.h>
+
+int main() {
+    size_t size = sizeof(int);
+    printf("An int is %zu bytes.\n", size);
+    return 0;
+}
+```
+Use `%zu` in `printf` for `size_t`.
+
+### ✅ FILE
+* What it is: A data type defined in `<stdio.h>` representing a stream (input/output).
+* It's a struct (opaque to you) that manages:
+    * Buffers
+    * File descriptors
+    * Stream state
+* You use it with functions like `fopen()`, `fread()`, `fprintf()`, and `fclose()`
+
+### ✅ `popen()`, `perror()`, `pclose()`
+#### 🧬 `popen()` — process open
+* Stands for "pipe open" (not "process open").
+* It opens a unidirectional pipe to or from a child process, typically a shell command.
+* Syntax:
+```c
+FILE *popen(const char *command, const char *mode);
+```
+* `command`: shell command to execute (e.g., "`date`").
+* `mode`: `"r"` to read output from command, `"w"` to write input to command.
+
+#### ✅ pclose()
+* Closes the stream opened by popen().
+* Also waits for the process to finish and returns its exit status.
+
+#### 🛠 perror()
+* Prints a human-readable string describing the last error (from errno).
+* Good for debugging system or library call failures.
+```c
+if (!fp) {
+    perror("popen failed");
+    return;
+}
+````
+#### ✅ popen() modes
+You're right, `"r"` and `"w"` are supported:
+* `"r"`: read from the stdout of the process.
+* `"w"`: write to the stdin of the process.
+
+    ⚠️ `popen()` only allows one-directional communication.
+    There is no "rw" mode for bidirectional streams. If you need that, use lower-level tools like `fork()`, `pipe()`, and `exec()`.
+
+There is no append mode like `"a"` in `popen()` —it only applies to files in `fopen()`
+
 ## Chapter 9 Misc Notes
-🧠 TL;DR - Common Gotchas Recap:
+### 🧠 TL;DR - Common Gotchas Recap:
 
 | Mistake                                           | Fix                                 | Why                                 |
 | ---------------------------------------           | ---------------------------         | ------------------------------      |
@@ -70,26 +132,26 @@ For example, the variable declaration: char example[10]' creates three entities:
 is this a correct way of thinking?
 ```
 
-#### 1. A label (or identifier) that points to a memory address
+### 1. A label (or identifier) that points to a memory address
 ✅ Correct.  
 In your example, `example` is the name of the array (an identifier) and also   
 acts as a pointer to the first element of the array.  
 
 So `example` (without brackets) gives you the address of the first element: `&example[0]`.  
 
-#### 2. The memory address, or in this case, a series of memory addresses
+### 2. The memory address, or in this case, a series of memory addresses
 ✅ Correct.  
 The array allocates 10 consecutive bytes of memory (because each char is 1 byte  
 in C). So example[0], example[1], ..., example[9] are stored in adjacent memory  
 locations.
 
-#### 3. Each address points to a value
+### 3. Each address points to a value
 ✅ Exactly.  
 Each of the 10 addresses stores a char value (an integer between -128 to 127  
 or 0 to 255 depending on whether char is signed or unsigned on your system).  
 Initially, the contents may be garbage until you initialize or assign values.
 
-#### 🔍 Bonus: How You Can Think About It in Terms of Memory
+### 🔍 Bonus: How You Can Think About It in Terms of Memory
 Suppose the array starts at memory address 0x1000. Then you might imagine:
 
 
@@ -106,7 +168,7 @@ And:
 * *example → value at 0x1000, i.e., example[0]
 * example + 1 → 0x1001, so *(example + 1) is example[1]
 
-#### 🧠 Summary
+### 🧠 Summary
 Yes, your intuition is solid:
 
 A variable like `char example[10]` gives you a label (`example`) that refers to a  
@@ -132,7 +194,7 @@ void printSquare(int num) {
 * `num` is a copy of the value passed in.
 * Changing `num` in the function does not affect the original variable.
 
-#### ✅ You're passing the value.
+**✅ You're passing the value.**
 
 ### 2. Passing the address (a pointer to the original data)
 This is called **pass by reference** (although technically, C only has pass by  
@@ -147,7 +209,7 @@ void update(int *ptr) {
 * `ptr` is a **pointer**, which stores the address of the variable you want to modify.
 * Using `*ptr` (dereferencing), you can access or modify the original value.
 
-#### ✅ You're passing the address, and using it to access the original value.
+**✅ You're passing the address, and using it to access the original value.**
 
 ### 3. Passing the identifier of a compound structure (like arrays or structs)
 In C, when you pass arrays (like `char[]`), you're actually passing **a pointer to  
@@ -166,7 +228,7 @@ You can read or modify the array contents through this.
 
 ⚠️ C does not support passing variables by reference like C++ (with &). It always passes a copy of the value—if that value is an address, you can use it to indirectly modify things.
 
-#### 🧠 Summary Table
+### 🧠 Summary Table
 
 | What You Pass         | Function Parameter Example | Can Modify Caller’s Variable? | Notes                       |
 | --------------------- | -------------------------- | ----------------------------- | --------------------------- |
@@ -179,7 +241,7 @@ So your thinking is absolutely right—you can define parameters that are:
 2. **The address** (pointer)
 3. **The identifier** (which becomes a pointer when arrays are involved)
 
-### 🧪 Code: Passing Value, Address (Pointer), and Array (Identifier)
+## 🧪 Code: Passing Value, Address (Pointer), and Array (Identifier)
 ```c
 #include <stdio.h>
 
@@ -245,4 +307,73 @@ After modifyArray: name = Zlice
 * `modifyArray(name)` changes the array because arrays are passed as **pointers to the first element**, so the function works directly on the original data.
 
 Let me know if you want a visual diagram of this or if you’d like to experiment by adding structs or strings into the mix next. 😊
+
+## String Padding and Alignment
+
+### 🧱 1. Left & Right Padding (Width and Alignment)
+#### 🔹 Basic Syntax:
+```c
+printf("%[flags][width][.precision]specifier", value);
+```
+
+#### ✅ Right-aligned (default):
+```c
+printf("%10s", "Hi");   // "        Hi" (8 spaces before)
+```
+
+#### ✅ Left-aligned:
+```c
+printf("%-10s", "Hi");  // "Hi        " (8 spaces after)
+```
+* %10s → pad to width 10, right-align
+* %-10s → pad to width 10, left-align
+
+### 🎯 2. Padding with Zeros (Numbers Only)
+* For numbers, you can pad with 0 instead of spaces:
+
+```c
+printf("%08d", 42);     // "00000042"
+printf("%08.2f", 3.14); // "00003.14"
+```
+* %08d → pad integer with zeros to width 8
+* %08.2f → pad float to width 8, 2 decimal places, zeros
+
+#### 🛑 Note: Strings (%s) do not support zero-padding in standard C printf.
+
+### ⭕ 3. Centered Text (Workaround)
+C’s `printf` has no built-in center alignment, but you can do it manually:
+
+* Example (center a word in a 20-character field):
+```c
+char *word = "Hello";
+int width = 20;
+int padding = (width - strlen(word)) / 2;
+
+printf("%*s%s%*s\n", padding, "", word, width - padding - strlen(word), "");
+```
+* This will center "Hello" in a 20-character wide line by padding with spaces.
+
+### ✴️ 4. Custom Padding Characters for Strings (Workaround)
+Standard `printf` can't pad strings with arbitrary characters directly — but you can manually print padding:
+
+```c
+void pad_print(char *s, int width, char pad_char, int align_left) {
+    int len = strlen(s);
+    int pad = width - len;
+    if (pad < 0) pad = 0;
+
+    if (align_left) {
+        printf("%s", s);
+        for (int i = 0; i < pad; i++) putchar(pad_char);
+    } else {
+        for (int i = 0; i < pad; i++) putchar(pad_char);
+        printf("%s", s);
+    }
+}
+```
+* Usage:
+```c
+pad_print("Hi", 10, '*', 0); // ******Hi
+pad_print("Hi", 10, '-', 1); // Hi--------
+```
 
