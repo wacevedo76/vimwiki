@@ -31,10 +31,10 @@
 
 ## Week 4: Memory Management and Structures
 * [Day 22: Dynamic memory allocation (malloc, calloc, realloc, free)](Day_22)
-* Day 23: Memory leaks and debugging tools (Valgrind)
-* Day 24: Introduction to struct and typedef
-* Day 25: Structs with pointers
-* Day 26: Unions and bit fields
+* [Day 23: Memory leaks and debugging tools (Valgrind)](Day_23)
+* [Day 24: Introduction to struct and typedef](Day_24)
+* [Day 25: Structs with pointers](Day_25)
+* [Day 26: Unions and bit fields](Day_26)
 * Day 27: Linked lists introduction
 * Day 28: Exercises (linked list operations)
 

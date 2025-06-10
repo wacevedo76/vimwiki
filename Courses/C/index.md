@@ -25,3 +25,5 @@
 * [Day 20: Array-based exercises (sorting algorithms, searching)](Day_20)
 * [Day 21: Mini-project: Simple text-based menu program](Day_21)
 * [Day 22: Dynamic memory allocation (malloc, calloc, realloc, free)](Day_22)
+* [Day 24: Introduction to struct and typedef](Day_24)
+* [Day 25: Structs with pointers](Day_25)
