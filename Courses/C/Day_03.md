@@ -71,9 +71,7 @@ int main() {
 ```
 
 #### **Key Differences:**
-
 * `const` → **Type-safe**, follows variable scope.
-
 * `#define` → **Replaces value at compile-time**, no data type.
 
 #### Taking User input in C (Using `scanf`)
@@ -103,7 +101,7 @@ Here’s a table of the common data types scanf() can accept, along with their c
 | Data Type          | Format Specifier | Description                                | Example                |
 | :-------:          | :--------------: | :----------                                | :------                |
 | int                | %d               | Integer (decimal)                          | `scanf("%d", &num);`   |
-| unsigned in        | %u               | Unsigned integer (non-negative)            | `scanf("%u", &num);`   |
+| unsigned int       | %u               | Unsigned integer (non-negative)            | `scanf("%u", &num);`   |
 | short              | %hd              | Short integer                              | `scanf("%hd", &num);`  |
 | unsigned short     | %hu              | Unsigned short integer                     | `scanf("%hu", &num);`  |
 | long               | %ld              | Long integer                               | `scanf("%ld", &num);`  |

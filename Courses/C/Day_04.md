@@ -61,9 +61,7 @@ These are shorthand for increasing or decreasing a value by 1.
 | Decrement | `--`   | `a--` or `--a`  | `a = a - 1`   |
 
 **Prefix (`++a, --a`) vs. Postfix (`a++, a--`)**
-
 * **Prefix** (++a, --a) → Increments **before** using the variable.
-
 * **Postfix** (`a++, a--`) → Increments **after** using the variable.
 
 **Example:**
@@ -82,7 +80,7 @@ int main() {
 }
 ```
 
-### 3. Operator Precedence (Order of Execution)
+## 3. Operator Precedence (Order of Execution)
 Like in math, some operations happen before others.
 
 | Precedence | Operators         |

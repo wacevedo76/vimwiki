@@ -18,7 +18,7 @@ this day in a more holistic way?
 Today, you’ll learn how C makes decisions using control flow statements. These 
 allow your program to respond dynamically based on conditions.
 
-🔹 Key Topics for Day 5  
+### 🔹 Key Topics for Day 5  
 1️⃣ `if` **Statement** – Executes code only if a condition is true.  
 2️⃣ `if-else` **Statement** – Chooses between two paths.  
 3️⃣ `else if` **Statement** – Handles multiple conditions.  
@@ -205,7 +205,7 @@ Write a program that:
 2️⃣ Uses if-else to check if it's even or odd.  
 3️⃣ Prints the result.  
 
-### ✅ Activity 3: Grade Calculator (Using `else if`)
+#### ✅ Activity 3: Grade Calculator (Using `else if`)
 Modify the grade calculator program to:  
 1️⃣ Accept a score from the user.  
 2️⃣ Print the grade based on this scale:  
@@ -264,14 +264,10 @@ Write a program that:
 
 ### 🎯 Challenge Activity
 📌 Task: Login System
-
-Ask the user to enter a username and password.
-
-If the username is "admin" and password is "1234", print "Access Granted".
-
-Otherwise, print "Access Denied".
-
-Use if-else.
+* Ask the user to enter a username and password.
+* If the username is "admin" and password is "1234", print "Access Granted".
+* Otherwise, print "Access Denied".
+* Use if-else.
 
 📌 Bonus: Allow up to three login attempts.
 

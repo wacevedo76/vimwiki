@@ -4,11 +4,9 @@
 
 # The C programming Language - Day 1: Introduction to C & Setting Up the Development Environment
 ## 1. What is C?
-C is a general-purpose, procedural programming language developed in the early 1970s.
-
-It is widely used in systems programming, embedded systems, game development, and high-performance applications.
-
-C is known for its efficiency, portability, and low-level memory control.
+* C is a general-purpose, procedural programming language developed in the early 1970s.
+* It is widely used in systems programming, embedded systems, game development, and high-performance applications.
+* C is known for its efficiency, portability, and low-level memory control.
 
 ## 2. Setting Up the Development Environment
 You need a C compiler and an editor/IDE to write and run C programs.
@@ -30,7 +28,7 @@ sudo pacman -S gcc
 sudo apt install gcc
 ```
 
-### Write a simple C program:
+#### Write a simple C program:
 Create a file hello.c:
 
 ```c
@@ -41,7 +39,8 @@ int main() {
     return 0;
 }
 ```
-Compile and run the program:
+
+#### Compile and run the program:
 
 ```sh
 gcc hello.c -o hello
@@ -50,17 +49,20 @@ gcc hello.c -o hello
 You should see:
 
 `Hello, World!`  
+
 ### Option 2: Using Clang (Alternative Compiler)
-Install Clang:
+#### Install Clang:
 
 ```
 sudo pacman -S clang  # Arch Linux
 sudo apt install clang  # Ubuntu/Debian
 ```
-Compile:
+
+#### Compile:
 
 `clang hello.c -o hello`
-### Option 3: Using an IDE (VS Code)
+
+#### Option 3: Using an IDE (VS Code)
 * Install VS Code and the C/C++ extension.
 
 * Install GCC or Clang.
@@ -68,11 +70,9 @@ Compile:
 Open hello.c in VS Code and compile it using a terminal or tasks.json.
 
 ## 3. Next Steps
-Understand how compilation works (Preprocessing → Compilation → Assembly → Linking).
-
-Experiment with modifying the printf statement.
-
-Learn basic compilation flags (-Wall, -Wextra, -O2).
+* Understand how compilation works (Preprocessing → Compilation → Assembly → Linking).
+* Experiment with modifying the printf statement.
+* Learn basic compilation flags (-Wall, -Wextra, -O2).
 
 ## Notes
 ### How compliation works in C
@@ -80,7 +80,7 @@ When you compile a C program, it goes through **four main stages** before produc
 
 ### 1. Preprocessing (`cpp`)
 **What happens**
-* The **C Preprocessor** handls directives (like `#include`, `#define`, `#ifdef`).
+* The **C Preprocessor** handles directives (like `#include`, `#define`, `#ifdef`).
 * It replaces macros and expands included files.
 * The output is a modified C file with all macros and headers expanded.
 
@@ -95,18 +95,19 @@ if your `hello.c` has:
       return 0;
   }
 ```
+
 #### Why is this important?
 * It ensures **macros are replaced** before compilation.
-*  It **injects necessary code** from standard libraries(e.g., `stdio.h`).
+* It **injects necessary code** from standard libraries(e.g., `stdio.h`).
 * It allows for **conditional compilation** using `ifdef` and `#ifndef`
 
 Command to view preprocessed code:
 ```sh
 gcc -E hello.c -o hello.i
 ```
+
 ### 2. Compilation (cc1)
 **What happens?**
-
 * The compiler takes the preprocessed code and converts it into **assembly code**.
 * It checks for syntax errors and optimizes basic operations.
 
@@ -123,16 +124,12 @@ This produces a file hello.s containing assembly instructions.
 
 ### 3. Assembly (as)
 #### What happens?
-
-The assembler converts assembly language into machine code (binary).
-
-It creates an object file (.o), which contains machine-readable instructions.
+* The assembler converts assembly language into machine code (binary).
+* It creates an object file (.o), which contains machine-readable instructions.
 
 #### Why is this important?
-
-It translates human-readable assembly into raw binary (CPU instructions).
-
-It keeps separate object files for modular programming.
+* It translates human-readable assembly into raw binary (CPU instructions).
+* It keeps separate object files for modular programming.
 
 ##### Command to generate object file:
 
@@ -143,21 +140,15 @@ This produces hello.o, which isn’t yet executable.
 
 ### 4. Linking (ld)
 #### What happens?
-
-The linker takes object files and combines them into a final executable.
-
-It resolves references to external libraries (like printf from stdio.h).
-
-It handles static and dynamic linking.
+* The linker takes object files and combines them into a final executable.
+* It resolves references to external libraries (like printf from stdio.h).
+* It handles static and dynamic linking.
 
 #### Why is this important?
-
-It ensures all code dependencies are included.
-
-It allows for modular compilation (e.g., linking multiple .o files).
+* It ensures all code dependencies are included.
+* It allows for modular compilation (e.g., linking multiple .o files).
 
 #### Command to link manually:
-
 ```vsh
 gcc hello.o -o hello
 ```
@@ -244,9 +235,9 @@ unused_param.c: In function ‘func’:
 unused_param.c:3:14: warning: unused parameter ‘x’ [-Wunused-parameter]
     void func(int x) {
 ```
-#### Why Use It?
 
-Helps enforce cleaner and safer code by warning about unused parameters and other subtle issues.
+#### Why Use It?
+* Helps enforce cleaner and safer code by warning about unused parameters and other subtle issues.
 
 ### 3. -O2 (Optimization Level 2)
 #### What it does:
@@ -276,13 +267,12 @@ Without optimizations, gcc generates function calls for sum().
 ```sh
 gcc -O2 sum.c -o sum
 ```
+
 **What Happens?**
 * The function `sum()` gets inlined, meaning its code is inserted directly into `main()`, removing the function call overhead.
 
 **Why Use It?**
-
 * Improves execution speed without increasing binary size significantly.
-
 * Suitable for most production code where performance matters.
 
 **Bonus: Other Useful Flags**
@@ -292,7 +282,6 @@ gcc -O2 sum.c -o sum
 | -O3                | More aggressive optimizations (can increase binary size). |
 | -g                 | Includes debugging information for gdb.                   |
 | -fsanitize=address | Enables AddressSanitizer to catch memory issues.          |
-
 
 ### Final Recommendation
 For safe, optimized C code, compile with:
