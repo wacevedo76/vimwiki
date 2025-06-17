@@ -12,6 +12,7 @@ Can you please print out a  summary of what day seven entails? Afterwards,
 please generate as set of activities that would help me learn the contents of
 day seven in a more holistic way?
 ```
+
 ## 🔹 Summary of Day 7
 Today, you’ll apply what you’ve learned over the past six days by building two small projects:
 
@@ -69,4 +70,5 @@ int main() {
     return 0;
 }
 ```
+
 #### 📌 Try generating numbers in different ranges (1–10, 1–500, etc.).

@@ -212,6 +212,7 @@ struct Person {
     float height;
 };
 ```
+
 Now, struct Person is a custom data type that you can use like this:
 
 ```c

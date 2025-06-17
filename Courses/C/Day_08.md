@@ -157,6 +157,7 @@ int main() {
     return 0;
 }
 ```
+
 ### 📝 Notes:
 `fgets()` is generally preferred over `scanf("%s", ...)` because it handles spaces and avoids buffer overflow (with size limit).
 
@@ -273,6 +274,7 @@ some other data structure. I'm sure that these topics will be covered in the
 preceding lessons, but it would be helpful to get a brief primer on these topics 
 to be able to successfully complete chapter 8's task.
 ```
+
 ### 🔹 1. Passing Variables by Reference (Using Pointers)
 In C, when you want to allow a function to **modify a variable defined outside its own scope**, you **pass a pointer** to that variable.
 
