@@ -19,9 +19,9 @@ would like you to generate a tutorial  for me in this format:
 ## 📌 Summary
 In Day 11, you will learn:
 1. What a pointer is.
-2. The * operator (dereferencing).
-3. The & operator (address-of).
-4. The NULL macro and its purpose.
+2. The `*` operator (dereferencing).
+3. The `&` operator (address-of).
+4. The `NULL` macro and its purpose.
 5. Why and when to use pointers in C.
 
 ### 📘 Introduction

@@ -35,6 +35,7 @@ void countdown(int n) {
     }
 }
 ```
+
 2. **Recursive vs. Iterative**  
 * Recursive solutions may be more readable and elegant.
 * Iterative solutions often use loops and may be more memory-efficient.
@@ -60,6 +61,7 @@ Write a function that calculates the factorial of a number using recursion:
 ```c
 int factorial(int n);
 ```
+
 **Activity 3: Fibonacci Sequence**  
 Write a recursive function to return the nth Fibonacci number:
 
@@ -78,5 +80,6 @@ Write a recursive function that prints each digit of an integer:
 Input: 1234
 Output: 1 2 3 4
 ```
+
 **Challenge Activity**  
 Implement a recursive function to calculate the Greatest Common Divisor (GCD) of two integers using Euclid's algorithm.
