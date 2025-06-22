@@ -20,10 +20,10 @@
 * Statements **must** end with a semi-colon
 
 ##### Variables
-* The `var` keyword is used the initialiaze a variable *without* an initial type. Once set, the value type can not be changed .
-* The `final` keyword is used to set a **constant** whithout an initial type and is used to create ***runtime constants*** variable.
+* The `var` keyword is used the initialize a variable *without* an initial type. Once set, the value type can not be changed .
+* The `final` keyword is used to set a **constant** without an initial type and is used to create ***runtime constants*** variable.
 * The `const` keyword is used to set a **constant** with or without an initial type, and sets an ***compile time***  variable.
-* **String iterpolation** is used by appending a dollar sign the a previeously set variable:  
+* **String iterpolation** is used by appending a dollar sign to a previously set variable:  
   ```
   var name = 'william`;
   print("My first name is $name")
@@ -43,40 +43,40 @@
   double averageTax = 0.33;
   bool isOpen = false
   ```
-* If you do not want to initialize the variable with a Type annotation, the value **must** initialy be set to **null** by simply suffixing a question mark '**?**' to the end of the type annotation:
+* If you do not want to initialize the variable with a Type annotation, the value **must** initially be set to **null** by simply suffixing a question mark '**?**' to the end of the type annotation:
   ```
   String? name;
   double? average;
   ```
 
 ##### Setting constants with type annotations
-* You can initialize constants with type annotations by simply preceeding the constant type before the type annotation:
+* You can initialize constants with type annotations by simply preceding the constant type before the type annotation:
   ```
   const String name = 'William';   <-- results in a constant string with the value 'william'
-  final double averageTax = 0.33;  <-- results in a constatn double with the value '0.33'
-  final String? queryResult;
+  final double averageTax = 0.33;  <-- results in a constant double with the value '0.33'
+  final String? queryResult;       <-- results in a constant unset string
   ```
 
 ### Dart Crash Course #4 - Functions
 #### Function Creating
-Functions are created similarly to variables, however a function name must end with two parentesis which will contain 0 or more parameters which the function takes
+Functions are created similarly to variables, however a function name must end with two parenthesis which will contain 0 or more parameters which the function takes
   `testfunc() {}`
 
 #### Function Type Anotations
-Function parametes cant take type annotations by adding the type before the paramert:  
+Function parameters can take type annotations by adding the type before the parameter:  
   `testfunc(String name, int age} {}`
 
 #### Function return type
-You can define the function's return type by preceeding the function name with the desired rurt type:  
+You can define the function's return type by preceeing the function name with the desired return type:  
   `String testfunc(String name, int age} {}`
 
 #### Positional parameters vs Named parameters:
-Parameters which are not named are ***positional paramaters***, meaning that the order in which a function recieves its arguments must match the order in which the parametes were defined.  
+Parameters which are not named are ***positional paramaters***, meaning that the order in which a function receives its arguments must match the order in which the parameters were defined.  
 ***Named parametes*** are defined much like you would define a **map**:
   * They must be enclosed within a set of curly braces **{}**
 
   > **Optional Parameters**: The Type Annotation of parameters must be suffixed with a question mark **?**
-  > **Required Paramaters**: The Type Annotation of parameters must be preceeded with the "**required**" keyword
+  > **Required Paramaters**: The Type Annotation of parameters must be preceded with the "**required**" keyword
   > **Named Arguments**: Named Arguments are defined similarly to key-value pairs:  
     `testfunc(name: "william", age: 22)`
 
@@ -87,7 +87,7 @@ Lists are defined similalry to other programming languages similar to dart (Pyth
   
 ###### Explicitly set List value types
 When setting the type of data types a list will accept, you used the **List** keyword and enclose the type withing angled brackets **<>**:  
-  `List<int> scores = [50, 74, 20]` --> adding any other type except ints in the case will throw an error.
+  `List<int> scores = [50, 74, 20]` --> adding any other type except integers in the case will throw an error.
 
 ###### Some List methods
  >score.add()  
@@ -107,7 +107,5 @@ Like with lists, Type annotations for Sets are defined by using the **Set** keyw
 ##### Some Set methods
  >names.add("bowser")
   names.remove("mario")
-
-
 
 [^1]:(https://www.youtube.com/watch?v=QGqMJzywasg&list=PL4cUxeGkcC9iVGY3ppchN9kIauln8IiEh)
