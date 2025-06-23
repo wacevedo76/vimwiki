@@ -1,7 +1,6 @@
 * [Table of Contents](./index.md)
 
-# Executing Linux Commands in Python
-
+## Executing Linux Commands in Python
 Python provides the `subprocess` module to execute system commands within a script.
 
 **Example: Running a Shell Command**
@@ -9,7 +8,7 @@ Python provides the `subprocess` module to execute system commands within a scri
 ```python
 import subprocess
 
-# Running the 'ls' command
+## Running the 'ls' command
 result = subprocess.run(["ls", "-l"], capture_output=True, text=True)
 print(result.stdout)
 ```
