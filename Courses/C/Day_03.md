@@ -98,23 +98,23 @@ int main() {
 
 Here’s a table of the common data types scanf() can accept, along with their corresponding format specifiers:
 
-| Data Type          | Format Specifier | Description                                | Example                |
-| :-------:          | :--------------: | :----------                                | :------                |
-| int                | %d               | Integer (decimal)                          | `scanf("%d", &num);`   |
-| unsigned int       | %u               | Unsigned integer (non-negative)            | `scanf("%u", &num);`   |
-| short              | %hd              | Short integer                              | `scanf("%hd", &num);`  |
-| unsigned short     | %hu              | Unsigned short integer                     | `scanf("%hu", &num);`  |
-| long               | %ld              | Long integer                               | `scanf("%ld", &num);`  |
-| unsigned long      | %lu              | Unsigned long integer                      | `scanf("%lu", &num);`  |
-| long long          | %lld             | Long long integer                          | `scanf("%lld", &num);` |
-| unsigned long long | %llu             | Unsigned long long integer                 | `scanf("%llu", &num);` |
-| float              | %f               | Floating-point number                      | `scanf("%f", &num);`   |
-| double             | %lf              | Double-precision floating-point number     | `scanf("%lf", &num);`  |
-| long double        | %Lf              | Extended precision floating-point number   | `scanf("%Lf", &num);`  |
-| char               | %c               | Single character                           | `scanf("%c", &ch);`    |
-| char[] (string)    | %s               | String (reads a word, stops at whitespace) | `scanf("%s", str);`    |
-| size_t             | %zu              | Unsigned integer type for sizes            | `scanf("%zu", &size);` |
-| ptrdiff_t          | %td              | Signed integer for pointer differences     | `scanf("%td", &diff);` [|](|)
+| Data Type          | Format Specifier | Description                                | Memory Size (x64)                                   | Limitations & Range                                                                                                   | Example                |
+| :-------:          | :--------------: | :----------                                | :-------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------- | :------                |
+| int                | %d               | Integer (decimal)                          | 4 bytes                                             | -2,147,483,648 to 2,147,483,647                                                                                       | `scanf("%d", &num);`   |
+| unsigned int       | %u               | Unsigned integer (non-negative)            | 4 bytes                                             | 0 to 4,294,967,295                                                                                                    | `scanf("%u", &num);`   |
+| short              | %hd              | Short integer                              | 2 bytes                                             | -32,768 to 32,767                                                                                                     | `scanf("%hd", &num);`  |
+| unsigned short     | %hu              | Unsigned short integer                     | 2 bytes                                             | 0 to 65,535                                                                                                           | `scanf("%hu", &num);`  |
+| long               | %ld              | Long integer                               | 8 bytes (Linux/macOS), 4 bytes (Windows)            | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (8 bytes) or -2,147,483,648 to 2,147,483,647 (4 bytes)        | `scanf("%ld", &num);`  |
+| unsigned long      | %lu              | Unsigned long integer                      | 8 bytes (Linux/macOS), 4 bytes (Windows)            | 0 to 18,446,744,073,709,551,615 (8 bytes) or 0 to 4,294,967,295 (4 bytes)                                             | `scanf("%lu", &num);`  |
+| long long          | %lld             | Long long integer                          | 8 bytes                                             | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807                                                               | `scanf("%lld", &num);` |
+| unsigned long long | %llu             | Unsigned long long integer                 | 8 bytes                                             | 0 to 18,446,744,073,709,551,615                                                                                       | `scanf("%llu", &num);` |
+| float              | %f               | Floating-point number                      | 4 bytes                                             | Single-precision floating-point. Approximately 6-9 decimal digits of precision.                                       | `scanf("%f", &num);`   |
+| double             | %lf              | Double-precision floating-point number     | 8 bytes                                             | Double-precision floating-point. Approximately 15-17 decimal digits of precision.                                     | `scanf("%lf", &num);`  |
+| long double        | %Lf              | Extended precision floating-point number   | 10 or 16 bytes (compiler/platform dependent)        | Extended-precision floating-point. Higher precision than double.                                                      | `scanf("%Lf", &num);`  |
+| char               | %c               | Single character                           | 1 byte                                              | -128 to 127 or 0 to 255 (compiler dependent).                                                                         | `scanf("%c", &ch);`    |
+| char[] (string)    | %s               | String (reads a word, stops at whitespace) | 1 byte per character + 1 byte for null terminator   | The size is determined at compile time and is fixed.                                                                  | `scanf("%s", str);`    |
+| size_t             | %zu              | Unsigned integer type for sizes            | 8 bytes                                             | Unsigned integer that can hold the maximum size of any object in memory. Same as unsigned long long.                  | `scanf("%zu", &size);` |
+| ptrdiff_t          | %td              | Signed integer for pointer differences     | 8 bytes                                             | Signed integer that can hold the difference between two pointers. Same as long long.                                  | `scanf("%td", &diff);` [|](|)
 
 #### **Notes on White space**  
 There are instances, for example when scanf accepts a integer and then 
