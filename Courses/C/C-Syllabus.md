@@ -35,7 +35,7 @@
 * [Day 24: Introduction to struct and typedef](Day_24)
 * [Day 25: Structs with pointers](Day_25)
 * [Day 26: Unions and bit fields](Day_26)
-* Day 27: Linked lists introduction
+* [Day 27: Linked lists introduction
 * Day 28: Exercises (linked list operations)
 
 ## Week 5: File Handling and Advanced Topics

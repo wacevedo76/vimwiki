@@ -27,3 +27,4 @@
 * [Day 22: Dynamic memory allocation (malloc, calloc, realloc, free)](Day_22)
 * [Day 24: Introduction to struct and typedef](Day_24)
 * [Day 25: Structs with pointers](Day_25)
+* [Day 26: Unions and bit fields](Day_26)
