@@ -1,18 +1,18 @@
 # FastAPI Notes
 ## Notes
 ### Requests
-  An HTTP requres consists of a text _header_ followd by one or more _body_ sections.  
-  Dat may come from differnt pats of the HTTP message:
+  An HTTP request consists of a text _header_ followed by one or more _body_ sections.  
+  Data may come from different parts of the HTTP message:
   * **Header** - In the HTTP headers
   * **Path** - In the URL
   * **Query** - After the **?** in the URL
   * **Body** - In the HTTP obdy
-  * 
-  
+
 ## Important modules (research) | fastapi
  * pydantic (BaseModel, Field)
  * uuid
  * typing (Optional)
+
 ## Response Types  
  * fastapi.responses
    * JSONResponse (the default)
@@ -68,16 +68,3 @@ Import fastapi.Header       | from fastapi import FastAPI, Header
 Post request                | @app.post("/agent")
 User-agent assigned from HE | def greet(user_agent:str = Header()):
                             |     return user_agent
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-                            | 
-```
