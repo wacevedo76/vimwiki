@@ -1,6 +1,11 @@
 # Bash Programming Language Notes
 * Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 ## Quick Notes
+
+### Continue syncing a folder with rsync
+rsync -avh --progress /path/to/source/directory/ /path/to/destination/directory/
+rsync -avh --no-o --no-g --progress /path/to/source/directory/ /path/to/destination/directory/
+
 ### Performing an operation on all the directories within the current directory
 ```bash
 # Use find to list all directories in the current directory and loop through them
