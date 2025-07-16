@@ -3,7 +3,7 @@
 
 ## Quick Notes
 
-### Object Descructuring
+### Object Destructuring
 Object example:
 * We will assign an object to the variable **"book"**:
 ```JavaScript
@@ -100,4 +100,60 @@ Arrow functions are an ES6 feature for writing quick and short one line function
 const functionExpression = (paramaters) => return value (which can use defined parameters, if any);
 ```
 * The parenthesis are only needed if two or more parameters are being called
-* Since the "body" of the arrow function is the return value, then the body can only be one line, but no return statement is needed.
+* If the function only takes up one line, then a `return` statement is not needed, otherwise, you must use curly braces and a `return` keyword.
+
+### Short-Circuiting and Logical Operators: `&&`, `||`, `??`
+Some logical operators operate on short-circuit rules, meaning that one value will automatically be returned when a condition is met.
+
+#### `&&` operator
+```
+(true && "some String");
+```
+* With the `&&` operator, if the first expression is **true**, it will automatically return result of the second expression
+```
+(false && "some String");
+```
+* The same is true with a false statement, if the first expression returns false, the second experssion will **not** be evaluated and the first value will be returned.
+* This behavior will also work with "truthy" and "falsey" values.
+
+#### `||` operator
+Similar Short-Circuiting behavior applies to the `||` (or) operator.
+* It will return the first value, if true, and not evaluate the second value.
+* It will return the second value if the first is false, **which may lead to unexpected Behavior**
+
+#### `??` operator (Nullish coalescing Operator)
+* It works similarly to the `||` operator but does short-circuit for falsy values, and will only execute the right value with `null` or `undefined`
+
+### Optional Chaining
+In JavaScript, Optional Chaining (`?.`) is a safe and concise way to access nested properties of an object
+without having to explicitly validate that each reference in the chain is not null or undefined. In other words, if a nested property os an object does not exist, it will return an `undefined` instead of throwing an error.
+```
+const street = user?.details?.address?.street;
+```
+* If any value within the object chain, including user, does not exist, the value of street will be `undefined`
+
+* This can be used in conjunction with `??` the Nullish coalescing operator:
+```
+const books_read = data.books.booksReadTotalCount? ?? "No data Available"
+```
+* if `||` or was used and the value of `data.books.booksReadTotalCount` returned `0`, it would have used "no data Available" instead of returning the `0`.
+
+### Functional Array Methods
+#### The Array Map Method
+```
+const x = [1, 2, 3, 4, 5].map((el) => el * 2); // -> "el" is a temporary variable 
+                                               that represents a single element 
+                                               in the array, which can be used 
+                                               to perform an operation
+
+x;   // -> [ 2, 4, 6, 8, 10 ]
+```
+* The Map array function returns the performs an operation on each element in the array, and returns an array with the newly modified elements
+
+#### The Array Filter Method
+The Array Filter Method used to filter elements of an object based on criteria defined in a callback function you define as the Filter's parameter.
+```
+const longBooks = books.filter((book) => book.pages > 500);
+```
+* 
+
