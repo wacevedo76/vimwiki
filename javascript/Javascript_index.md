@@ -140,7 +140,7 @@ const books_read = data.books.booksReadTotalCount? ?? "No data Available"
 
 ### Functional Array Methods
 #### The Array Map Method
-```
+```JavaScript
 const x = [1, 2, 3, 4, 5].map((el) => el * 2); // -> "el" is a temporary variable 
                                                that represents a single element 
                                                in the array, which can be used 
@@ -152,8 +152,74 @@ x;   // -> [ 2, 4, 6, 8, 10 ]
 
 #### The Array Filter Method
 The Array Filter Method used to filter elements of an object based on criteria defined in a callback function you define as the Filter's parameter.
-```
+```JavaScript
 const longBooks = books.filter((book) => book.pages > 500);
 ```
-* 
 
+#### The Array Reduce Method
+The purpose of the array Reduce Method is to reduce the entire array to one value.  
+
+The structure for the Reduce method is:
+```JavaScript
+const finalValue = object.reduce(callback(Accumulator, tempVariable), initialValue);
+```
+
+**Example:**
+```JavaScript
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+```
+In this example:
+* `acc` receives the initial value of `0`
+* The value of `book.pages` is retrieved then added to `acc`
+* the itteration ends and then next begins, all sub-objects are processed
+
+#### The Array Sort Method
+```
+const arr = [3, 4, 1, 9, 6]
+
+cost sorted = arr.sort((a, b) => a - b);
+```
+This method actually mutates the array, so a common pattern is the run to `sort` method on a copy of the array.
+```
+const arr = [3, 4, 1, 9, 6]
+
+cost sorted = arr.slice().sort((a, b) => a - b);
+```
+A practical Example:
+```
+const sortedByPages = books.slice().sort((a,b), b.pages - a.pages)
+```
+
+### Working with Immutable Arrays
+#### Add elements to an array
+````
+const updatedObject = [...objects, newObject];
+````
+
+#### Delete an object from an array
+```
+const updatedObject = object.filter(ob => ob.id !== 3) // removes object by id 3 (includes all object except 3)
+```
+
+#### Update an object
+```
+const updatedObject = object.map((obj) =>
+  object.id === 1 ? {...obj, propertyToUpdate : update} : obj // use the ternary operator to find object
+```
+
+### Asynchronous JavaScript Promises
+#### Obtaining data from an API
+`fetch(url)`
+* Since the fetch function takes time
+`fetch(url)
+  .then(callback(responce => responce.json())
+  .then(data) => console.log(data))`
+
+#### Async / Await
+```JavaScript
+async function getTodos() {
+  const res = await fetch(url);
+  const data = res.json();
+  console.log(data);
+}
+```
