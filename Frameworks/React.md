@@ -18,6 +18,10 @@
 2. Decide the State and where it lives.
 3. What changes when state changes.
 
+## Starting a React Project
+Old way:
+`npx create-react-app@5 (name of app)`
+
 ## Working with Components, Props, and JSX
 ### What is a Component
 Simply, a Component is an object that appears similar to HTML / XML, Written in a combination of JSX Markup and Javascript, with is transpiled from JavaScript into code which the Browser can use. A component can contain:
@@ -164,3 +168,106 @@ function TestComponent() {
 * In order to share data between component, a parent component can share data to child components through `props`
 * You can render multiple components using the JavaScript `.map()` method.
 * Components can be conditionally rendered using JavaScript tools: `&&`, `?` and multiple `return`
+
+## Handling Events the React way
+Event handlers in React are written inline, in other words, they are placed on 
+the tag that you'd like the trigger an event handler:
+```jsx
+<button 
+  onClick={() => alert("this happens when the buttong is clicked")}
+  onMouseEnter={() => alert("This happens when the mouse goes over this element")}
+ >This Button</button>
+```
+
+The syntax for the Event handler is as such:
+```
+<tag eventHandlerKeyWork={() => function()} />
+     (Event Handler)      (callback function)
+```
+
+Oftentimes, the call back function is not defined inline, but defined in the component:
+````
+  function handlePrevious() {
+    alert("Previous");
+  }
+
+    ...
+
+
+<button onClick={handlePrevious} />
+<button onClick={() => handlePrevious()} />  // <- The same as above
+````
+* Notice that the `handlePrevious` does not have the `()`, as since this is not 
+  a function call, but a callback.
+
+## State
+### What is State in React?
+This section will cover:
+* What State is, and why is it needed?
+* How to use state in Practce:
+  * `useState`
+  * `UseReducer`
+  * Context API
+* Thinking about State:
+  * When to use State.
+  * Where to place state.
+  * Types of state
+
+### What is State
+* Data that a component **can hold over time**, necessary for information that 
+  it needs to **remember** throughout the app's life cycle
+* **"Component's memory"** 
+* **"State variable" / "piece of state"**: a single variable in a component (component state)
+* Updating **component state* triggers React to **re-render the component**.
+* Each component renders a **view**, all view comprise of the User Iterface (UI)
+
+State Allows Developers to:
+1. Update the component's view (by re-rendering it)
+2. Persist local variables between renders
+
+### How to use State
+```jsx
+import { useState } from "react";
+
+export default function App() {
+  const [defaultValue, setDefaultValue] = useState(1);
+        // default value setter function
+}
+```
+
+* State variables must be defined in the global scope of the component; They can 
+  not be set within a statement or a conditional.
+
+* When using the setter function of a state variable, it is good practice to 
+  use a **callback function** when changing the value of the state variable.
+```jsx
+import { useState } from "react";
+
+export default function App() {
+  const [defaultValue, setDefaultValue]= useState(1);
+        // default value setter function
+  
+  setDefaultValue((s) => s + 1);
+}
+```
+
+### Notes about state and Some best practices
+* Each component has and **manages its own state**, no matter how many times we 
+  render the same component, in other words, when multiple instances of the same 
+  component are displayed, a state change in one state will not affect the other
+  instances of the component.
+* With State, we view UI as a **reflection of data changing over time**
+
+### Practical Guideline about State:
+* Use a state variable for any data that the component should keep track of ("remember") over time. **This is data that will change at some point**. In Vanilla JS, that's a `let`, `var` variable, or an `[]`, or `()`
+* Whenever you want something in the component to by **dynamic**, create a piece of state related to that "thing", and update the state when the "thing" should be changed.
+    * Example: A modal window can be opened or closed. So we create a state
+      variable `isOpen` that tracks whether the modal is open or not. On 
+      `isOpen = true` we display the window, on `isOpen = false` we hide it
+* If you want to change the way a component looks, or the way it displays data,
+  **update its State**. This usually happens in an **event handler** function.
+* When building a component, imagine its view as a **reflection of state 
+  changing over time**.
+* For data that should not trigger component re-renders, **dont' use state**. User a regular variable instead. This is a common **beginner mistake**.
+
+
