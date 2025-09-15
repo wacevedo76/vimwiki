@@ -1,5 +1,18 @@
 # React JS
 
+## Quick Notes
+### Create plain React Project
+```
+npx create-react-app{@version_number} <app name
+example:
+  npx create-react-app@5 <app name>
+```
+
+### Create React Project via vite:
+```
+npm create vite@latest my-react-app -- --template react
+```
+
 ## Key Concepts
 * React is **Declarative** not **Imperative**:
   * The DOM is interacted with and manipulated through React using React's Virtual DOM.
