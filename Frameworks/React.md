@@ -270,4 +270,77 @@ export default function App() {
   changing over time**.
 * For data that should not trigger component re-renders, **dont' use state**. User a regular variable instead. This is a common **beginner mistake**.
 
+### State Vs. Props
+#### State
+* Internal Data; Data which is owned by the component
+* Data which can be considered a Component's memory
+* Data which can be updated by the component itself
+* Updating state causes the component to re-render
+* State is used to make components interactive
 
+#### Props
+* External data; Data which is owned by the parent component
+* Data which is similar to function parameters
+* Data defined in Props is Read-only
+* Receiving new props causes components to re-render. Usually when the parent's state has been updated.
+* Used by parent components to configure child component "settings"
+
+## Section 7: Thinking in React: State Management
+### Section Overview
+* Thinking in React
+* State Management
+* Derived State
+* Lifting up state
+
+#### What is "Thinking in React"
+Thinking in React:
+* React Mindset
+* Thinking about components, state, data flow, effects, etc.
+* Thinking in **state transitions**, not element mutations
+
+#### The "Thinking in React" Produces
+1. Break the desired UI into **components** and establish the **component tree**
+2. Build a **static** version in React (without state)
+3. Thinking about **state**:          ----------------
+  * When to use state                            |
+  * Types of state: local vs. global             |
+  * Where to place each piece of state        State Management
+4. Establish **dataf flow**:                         |
+  * One-way data flow                            |
+  * Child-to-parent communication                |
+  * Accessing global state        ----------------
+
+#### When you know how to "Think in React", you will be able to answer:
+* How to break up a UI design into components?
+* How to make some components reusable?
+* How to assemble UI from reusable components?
+* What pieces of state do I need for interactivity?
+* Where to place state? (What component should "own" each piece of state?)
+* What types of state can or should I use?
+* How to make data flow through the app?
+
+### Fundamentals of State Managment
+#### Types of State: Local vs Global State
+Local State:
+* State needed only by one or few components
+* State that is defined in a component and only that component and child components have access to it (by prassing via props)
+
+Global State:
+* State that many components might need
+* Shared state that is accessible to every component in the entire application
+* Some tools which can provide global state are:
+  * The Context API
+  * Redux
+
+## Misc Code
+This segment of JSX Produces 20 option tags.
+
+Questions:
+* The second attribute for the `Array.from` method contains `(_, i)`, what are purpose of thess two attributes?
+```
+{Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
+  <option value={num} key={num}>
+    {num}
+  </option>
+}
+```
