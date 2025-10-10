@@ -51,7 +51,6 @@ function App() {
   return <h1>Hello React!</h1>
 }
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />); 
 ```
@@ -345,6 +344,45 @@ Global State:
   * The Context API
   * Redux
 
+### Deriving State
+* **Derived state**: state ths is computed from an existing piece of state or from props
+
+### Derived state is useful because:
+* It minimizes the amount of States you have to keep within a component, minimizing state variables having to be kept in sync
+* Minimizes the number of times a component is re-rendered
+**example**:
+
+```
+const [cart, setCart] = useState(
+  [
+    { name: "Javascript Course", price: 15.99},
+    { name: "Node.js Bootcamp", price: 14.99},
+  ]
+);
+
+const [numItems, setNumItems] = useState(2);                       // Values can be derived, making this state variable necessary
+const [totalPrice, setTotalPrice] = useState(30.98);               // Values can be derived, making this state variable necessary
+
+
+---- Using derived State
+
+const [cart, setCart] = useState(
+  [
+    { name: "Javascript Course", price: 15.99},
+    { name: "Node.js Bootcamp", price: 14.99},
+  ]
+);
+
+const numItems = cart.length;                                     //
+const totalPrice =
+  cart.reduce((acc, cur) => acc + cur.price)
+
+```
+**This is useful because**:
+* You use regular variables
+* A state object is used as a single source of truth from the related data
+* It works because re-rendering component will automatically re-calculate derived state
+
 ## Misc Code
 This segment of JSX Produces 20 option tags.
 
@@ -357,3 +395,61 @@ Questions:
   </option>
 }
 ```
+
+## How to Split a UI Into Components
+### Component size matter
+#### When components are too small:
+* We end up with 100x of mini-components
+* Confusing codebase
+* Too **Abstracted**
+
+#### When Components ar too big
+* Components have too many responsibilities
+* Might need too many props
+* Hard to reuse
+* Complex cod, hard to understand
+
+Gemerally, component size is finding the right balance between too specific and too broad.
+
+### The 4 criteria for splitting a UI into components:
+* Logical separation of content / layout
+    - Does the component contain pieces of content or layout that **don't belong together**?
+* Reusability
+    - Is it possible to reused part of the component?
+    - Do you want or need to reuse it?
+* Responsibilities / Complexity
+    - Is sthe component doing too many different things?
+    - Does the component rely on too many props?
+    - Does the component have too many pieces of state and / or effects?
+    - Is the code, including the JSX, too complex / confusing?
+* Personal Coding Style
+    - Do you prefer smaller functions /components
+
+### Some More General Guideline
+* 💰 Be aware that creating a new component creats a new abstraction. abstractions have a cost, because more abstractions require more mental energy to switch back and forth between components. So try not to create new components too early.
+* 🏷️ Name a component according to **what it does** or what it displays**. Don't be afraid of using long component neames
+* Never declare a new component **inside another component**!
+* **Co-locate related components inside the same file**. Don't separate components into different files too early.
+* It's completely normal that an app has components of **many different sizes**, including very small and huge ones.
+
+## Component Categories
+Most of your components will naturally fall into one of three categories:
+* Stateless /presentational components
+    * No state
+    * Can receive props and simply present received data or other content
+    * Usually small and reusable
+* Stateful Components
+    * Have state
+    * Can still be reusable
+* Structural components
+    * "Pages", "layouts", or "screens" of the app
+    * Result of composition
+    * Can be huge and non-reusable (but don't have to).
+
+## Component Composition
+### What is Component Composition
+Component composition: combining different componets using the **children** prop  (or explicitly defined props)
+
+With Component composition, we can:
+1. create highly reusable and flexible components
+2. Fix prop drilling (great for layouts)  
