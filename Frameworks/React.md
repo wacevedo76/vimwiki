@@ -453,3 +453,122 @@ Component composition: combining different componets using the **children** prop
 With Component composition, we can:
 1. create highly reusable and flexible components
 2. Fix prop drilling (great for layouts)  
+
+## Component vs Instance vs Element
+### Component
+* A component is what is written to describe a piece of generic UI
+* It is a regular JavaScript function that returns React elements (element tree) usually written in JSX.
+* It can be considered a "Blueprint" or "Template"
+
+### Component Instance
+* Instances are created when a component (function) is used.
+* An Instance is the "physical" manifestation of a component
+* It's the Instance itself that holds state; Each Instance maintains its own state during its lifecycle.
+
+### React Element
+* A React Element is what a Component Instance Returns; it is the result of the function call.
+* It contains all the information necessary to create DOM elements
+* It is the element that creates and returns the actual DOM element
+
+### How Components are Displayed on the screen
+
+1. Render is Triggered (by updating state somewhere)
+2. The Render Phase (React calls component functions and figures out how the DOM should be updated)
+3. Commit Phase (React actually writes to the DOM, updateing, inserting and deleting elemens)
+4. Browser Paint (at this point the browser takes over and updates the DOM)
+
+**In React, rendering is NOT updateing the DOM or displaying elements on the screen. Rendering only happens internally inside React, it does not produce visual changes.**
+
+#### The two Situations that trigger Renders:
+1. **Initial render** of the application
+2. **State is updated** in one or more component instances (re-render)
+
+👉 The render process is triggered for the **entire application**
+👉 **In practice**, it looks like React only re-renders the component where the state update happens, but that's not how it **works behind the scenes**.
+👉 Renders are **not** triggered immediately, but **scheduled** for when the JS engine has some "free time". There is also batching of multiple `setState` calls in event handlers.
+
+## The Mechanics of State in React
+### The **Render** Phase
+* At the beginning of the of the render phase, React will go through the entire component tree, take all the component instances that triggered a re-render and actually render them, which simply means to call the corresponding component functions that we have written in our code
+* This will create updated React elements which altogether make up the so-called virtual DOM.
+
+### The "Virtual DOM" (React Element Tree)
+On the initial render, React will take the entire component tree and transform it into one big React element which will basically be a React element tree. This is what is referred to as "The Virtual DOM"
+* The Virtual DOM is just a tree of all React elements created from all instance in the component tree.
+* It's relatively fast and cheap to make such a tree, even if many iterations of this have to be made, simply because it's just a JavaScript object.
+* Whenever there is a State update, this means that React will re-render, which creates a new React element Tree in a new React element tree so in a new Virtual DOM.
+* Whenever React renders a component, that render will cause all of its child components to be rendered as well, regardles of whether the props that the child elements hold have changed or not. The changed component and all of its nested components will be re-rendered all the way down the component tree.
+* This change place happens in the React "virtual" DOM and not the actual DOM because rerendering items directly to the DOM is expensive.
+* The new Virtual DOM that was created after the state update will get reconciled, this reconciliation process happens within the React Reconciler, called FIBER.
+* Once reconciliation is complete, then the actual DOM is updated.
+* This makes it that only the elements that have changed are re-renderd on the Actual DOM
+
+### The Reconciler: **FIBER**
+* Fiber takes the entire React element tree (the Virtual DOM), builds yet another tree which is the Fiber tree.
+* The Fiber tree is a special internal tree where for each component instance and DOM element in the app, there is one so-called Fiber, Fibers are **NOT** re-created on every render. The Fiber tree is never destroyed, but instead, it's a mutable data structure, which is simply mutated over and over again for each future reconciliation step.
+* This makes Fibers the perfect place for keeping track of things like the current component state, props, side effects, list of hooks and more.
+
+## Rules for render logic
+### The two types of logic in React Components
+1. Render Logic
+    * Code that lives at the **top level** of the component function.
+    * Participates in **describing** how the component view appears
+    * Executed **Every time** the component renders
+2. Event Handler Functions
+    * Executed as a **consequence of the event** for which the handler is listening
+    * Code that actually **does things**: update state, perform an HTTP request, read an input field, navigate to another page, etc
+
+### **Refresher**: Functional Programming Principles
+* **Side effect**: dependency on or modification of any data outside the function scope. "Interaction with the outside world". Examples: mutating external variables, HTTP requests, writing to DOM
+    * **Side effects are not bad**
+
+* **Pure function**: a function that has **no** side effects.
+    * Does **not** change any variables outside its scope
+    * Given the **same input**, a pure function always returns the **same output**
+
+👆**Components must be pure when it comes to render logic**: given the same props (input), a component instance should always return the same JSX (output)
+
+👆**Render logic must produce no side effects**: no interaction with the "outside world" is allowed". So, in render logic:
+    👆Do NOT perform **newort requests** (API calls)
+    👆Do NOT start **timers**
+    👆Do NOT directly **use the DOM API**
+    👆Do NOT **mutate objects or variables** outside the function scope
+
+* Side effects are allowed (and encouraged) in **event handler functions!** There is also a special hook to **register side effects** (`useEffect`)
+
+## How Events work in React
+### **DOM Refresher**: EVent Propagation and Delegation
+  * When an event happens (a button click for example), as soon as the event triggers an    **Event Object** is created at the DOM root (`<html>`), then the event object travels down the tree, this is called the "**Capture Phase**", until it reaches the **Target Element**
+  * You can choose to handle the event by placing an event handler function on that element.
+  * Then the Event Object travles all the way up the DOM tree, this is called the **Bubble Phase**.
+  * Since the Event Object traverses the entirle DOM tree, during the **Capturing Phase** and the **Bubbling Phase**. every single event handler in a the parent elements of the Target element will also trigger, so long as it's also listening for the same type of event.
+  * This leads to the concept of **Event Delegation**
+  
+### Event Delegation
+* Handling events for multiple elements centrally in **one single parent element**
+* It is Better for performance and memory, as it needs only one handler function
+    1. Add handler to parent (`.options`)
+    2. Check for target element (`e.target`)
+    3. if target is one of the of the lements, it handles the event.
+
+## React 3rd-party Library Ecosystem
+1. Routing (for SPAs): - React Router - React Location
+2. HTTP requests: - `fetch()` - AXIOS
+3. Remote State Management: - React Query - SWR - Apollo
+4. Global State Managment: - Context API - Redux - Zustand
+5. Styling: - CSS Modules - tailwindcss
+6. Form Managment: React Hook Form - Formik
+7. Animations/transitions: - Motion - react-spring
+8. UI Components: - MJ - chakra - Mantine
+
+## Frameworks built on top of React
+* NextJS
+* Remix
+* Gatsby
+
+## Section Summary
+🧩 **A Component** is a like a blueprint for a piece of UT that will eventually exist on the screen. When we "use" a component, React creats a component instance, which is like an actual physical manifestation of a component, containg props, state, and more. A component instance, when rendered, will return a React element.
+☎️"**Rendering**" only means calling component functions and calculating what DOM elements need to be inserterd, deleted, or updated. It has nothing to do with writing to the DOM. Therefore, each time a  component instance is rendered and re-rendered, the function is called again.
+🔃 Only the **initial app render** and **state updates** can cause a render, which happens for the **entire application**, not just one single component.
+👨‍👩‍👧 When a component instance gets re-rendered, **all its children will get re-rendered as well**. This doesn't mean that all children will get updated in the DOM, thanks to reconciliation, which checks which elements have actually changed between two renders. But all this re-rendering can still have an impact on performance.
+🧬 Diffing is how React decides which DOM elements need to be added or modified. If, between renders, a certain REact element **stays at the same position in the element tree**, the corresponding DOM element and component state stay the same. If the element **changed to a different position**, or if it's a **different element type**, the DOM element and state will be destroyed.
