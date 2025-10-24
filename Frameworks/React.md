@@ -579,3 +579,61 @@ On the initial render, React will take the entire component tree and transform i
 * 🗃️ Multiple state updates inside an even handler function are **batched**, so they happen all at once, **causing onoy one re-render**. This means we can **not access a state variable immediately after updating it**: state updates are **asynchronous**. Since React 18, batching also happens in timeouts, promises, and native event handlers.
 * 🌐 When using events in event handlers, we get access to a **synthetic event object**, not the browser's native object, so that **events work the same way across all browsers**. The difference is that **most synthetic events bubble** including focus, blur, and change, which do not bubble as native browser event. Only the scroll event does not bubble
 * 🛠️ **React is a library, not a framework**. This means that you can assemble your application using your favorite third-party libraries. The downside is that you need to find and learn all these additional libraries. No problem, as you will learn about the most commonly used libraries in this course.
+
+## Component (Instance) Lifecycle
+### Mount / Initial Render
+* Component instance is rendered for the first time
+* Fresh State and props are created
+
+### Re-Render (optional)
+This happens when:
+* State changes
+* Props change
+* Parent re-renderxs
+* Context changes
+
+### Unmount
+* Component instance is destroyed and resolve
+* State and props are destroyed
+
+👆 Code can be defined to run at any point in the component lifecycle using the `useEffect` hook
+
+## `useEffect`
+`useEffect` is used when you want a side effect to run, not as the component renders, after the component is painted on the screen, after it renders. Which means it is not run during each re-render, but only when the component mounts.
+
+```
+useEffect(function() { the effect you want it to run }, []); ---> The second argument is a Dependency Array (?)
+```
+
+## Where to create **Side Effects**
+**Review**: A **side effect** is basically any "interaction between a React component and the world outside the component". We cal also think of a side effect as "code that actually does something". **Examples**: Data fetching, setting pu subscriptions, setting up timers, manually accessing the DOM, etc.
+
+* Side Effects should never happen in Render logic. The two places that side effects should be placed in are:
+  * Event handlers
+  * Effects (using `useEffect`). Effects allow us to write code that will run at **different moments**: (mount, re-render, or unmount)
+### Event Handlers
+* Executed when the corresponding event happens
+
+```
+function handleClick() {
+  fetch(`http://www.ombapi.com/?s=inception`)
+    .then((res) => res.json())
+    .then((data) => setMovies(data.Search))
+}
+```
+
+
+### Effects (using `useEffect`)
+* Executed **after the component mounts** (initial render), and after **subsequent  re-renders** (according to dependency array)
+* Used to keep a component **synchronized with some external system** (in this example, with the API movie data)
+
+```
+useEffect(function () {
+  fetch(`http://www.ombapi.com/?s=inception`)
+    .then((res) => res.json())
+    .then((data) => setMovies(data.Search));
+
+  return () => console.log('Cleanup');
+}, []);
+```
+
