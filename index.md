@@ -34,6 +34,7 @@
 
  ## Programming Concept 
 * [Error Handling](programmingConcepts/Error_handling)
+* [Recursion](programmingConcepts/Recursion)
 * [Modules](programmingConcepts/Modules)
 * [Test Driven Development](programmingConcepts/TDD)
 * [hash / dictionaries](programmingConcepts/hash-dict)
