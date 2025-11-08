@@ -104,3 +104,78 @@
   Pattern 1 is generally preferred in functional programming as it avoids side effects (modifying
   external variables), but Pattern 2 is also very common and can be easier to understand when you're
   starting out.
+  
+  ### Here is an example of using recursion for a compound interest calculator function:
+  #### JavaScript
+
+  In JavaScript, the function can be written like this. Note how the principal argument in the
+  recursive call is the newly calculated principal.
+  ```JavaScript
+    1 /**
+    2  * Calculates compound interest recursively.
+    3  * @param {number} principal The initial amount.
+    4  * @param {number} interestRate The interest rate per period (e.g., 0.05 for 5%).
+    5  * @param {number} periods The number of periods to compound.
+    6  * @returns {number} The final amount after compounding.
+    7  */
+    8 function calculateCompoundInterest(principal, interestRate, periods) {
+    9   // Base Case: If there are no more periods to compound,
+   10   // we are done. Return the final accumulated principal.
+   11   if (periods <= 0) {
+   12     return principal;
+   13   }
+   14
+   15   // Recursive Step: Calculate the value after one period.
+   16   const newPrincipal = principal * (1 + interestRate);
+   17
+   18   // Call the function again with the new principal and one less period.
+   19   return calculateCompoundInterest(newPrincipal, interestRate, periods - 1);
+   20 }
+   21
+   22 // --- Example Usage ---
+   23 const initialAmount = 1000; // $1000
+   24 const rate = 0.05;          // 5%
+   25 const numberOfPeriods = 10;   // e.g., 10 years
+   26
+   27 const finalAmount = calculateCompoundInterest(initialAmount, rate, numberOfPeriods);
+   28
+   29 console.log(`Initial: $${initialAmount.toFixed(2)}`);
+   30 console.log(`Final amount after ${numberOfPeriods} periods: $${finalAmount.toFixed(2)}`);
+   31 // Expected output: $1628.89
+  ```
+
+  #### Python
+
+  The structure in Python is identical, just with Python's syntax.
+  ```python
+    1 def calculate_compound_interest(principal, interest_rate, periods):
+    2     """
+    3     Calculates compound interest recursively.
+    4     :param principal: The initial amount.
+    5     :param interest_rate: The interest rate per period (e.g., 0.05 for 5%).
+    6     :param periods: The number of periods to compound.
+    7     :return: The final amount after compounding.
+    8     """
+    9     # Base Case: If there are no more periods to compound,
+   10     # we are done. Return the final accumulated principal.
+   11     if periods <= 0:
+   12         return principal
+   13
+   14     # Recursive Step: Calculate the value after one period.
+   15     new_principal = principal * (1 + interest_rate)
+   16
+   17     # Call the function again with the new principal and one less period.
+   18     return calculate_compound_interest(new_principal, interest_rate, periods - 1)
+   19
+   20
+   21 # --- Example Usage ---
+   22 initial_amount = 1000  # $1000
+   23 rate = 0.05            # 5%
+   24 number_of_periods = 10   # e.g., 10 years
+   25
+   26 final_amount = calculate_compound_interest(initial_amount, rate, number_of_periods)
+   27
+   28 print(f"Initial: ${initial_amount:.2f}")
+   29 print(f"Final amount after {number_of_periods} periods: ${final_amount:.2f}")
+   30 # Expected output: $1628.89
+  ```
