@@ -637,3 +637,32 @@ useEffect(function () {
 }, []);
 ```
 
+### What's the `useEffect` Dependency Array?
+#### The Dependency Array
+* 👉 by default, effects run **after every render**. We can prevent that by passing a **dependency array**.
+* 👉 Without the dependency array, React doesn't know **when** to run the effect
+* 👉 **Each time one of the dependencies changes, the effect will be executed again**.
+* 👉 Every **state variable** and **prop** used inside the effect MUST be included in the dependency array.
+```Javascript
+const title = props.movie.Title;
+const [userRating, setUserRating] = useState('');
+
+useEffect(
+  function () {
+    if (!title) return;
+    document.title = `${title} ${userRating 
+    && `(Rated ${userRating} ⭐)`}`;
+	
+	return () => (document.title = 'userPopcorn');
+  },
+  [title, userRating]
+);
+```
+
+#### `useEffect` Synchronization and Lifecyce:
+`useEffect(fn, [x, y, z]);`
+	Effect synchronizes with x, y, and z - Runs on **mount** and **re-renders** triggered by updating x, y, or z
+`useEffect(fn, []);` 
+	Effect synchronizes with **no state / props** - Runons only on **mount** (initial render)
+`useEffect(fn);`
+v	Effect synchronizes with **everything** - Runs on **every render** (usually bad ⛔)
