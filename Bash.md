@@ -59,7 +59,6 @@ for word in $content; do
     echo "Processing word: $word"
     # Your operation here
 done
-
 ```
 
 #### **Method 3: Readng into an Array with `read -a`**
@@ -100,7 +99,6 @@ done < words.txt
 | Command Substitution  | variable=$(command)            |
 | Process Substitution: | diff <(command1) <(command2)   |
 
-
 **How to use brackets**
 ```bash
   Conditional Expressions    | if [ $var -eq 5 ]; then
@@ -119,6 +117,7 @@ done < words.txt
                              | echo ${my_string:0:5}      # Outputs "Hello"
                              |
 ```
+
 ## Interesting commands (move to appropriate sections when comfortable) ##
 ```
   uname                      |
@@ -147,8 +146,11 @@ done < words.txt
   Exit terminal but leave    | disown -a && exit
   all processes running      |
 ```
+
 ## The set command 
-The set command is used to change the values of shell options and display variables in Bash scripts. It can also be used to debug Bash scrips, export values from shell scripts, terminate programs when they fail, and handle expressions 
+The set command is used to change the values of shell options and display variables in 
+Bash scripts. It can also be used to debug Bash scrips, export values from shell scripts, 
+terminate programs when they fail, and handle expressions 
   
 | Description                |                                                                                                                                                                                                                                                                |
 | -------------------------- | ----------------------------------------------------                                                                                                                                                                                                           |
@@ -191,7 +193,6 @@ The set command is used to change the values of shell options and display variab
 | $$                 | Process ID of the current shell                                                      |
 | !:0, !:1, !:2, etc | returns portions of the previous command Interactively (from cli)                    |
 
-
 ## Variable Expansion
 | Variable Expansion                |                                                           |
 | --------------------------------- | --------------------------------------------------------- |
@@ -202,11 +203,13 @@ The set command is used to change the values of shell options and display variab
 | `echo ${variable^&}`              | set the whole value to uppercase                          |
 | `echo ${#variable}`               | return the length of a parameter                          |
 | `${parameter:offset:length}`      | Substring expansion                                       |
+
 ## Command Substitution
 ```
   Retrieve the result of     | $(command)  -> uses parenthesis
   one or more commands       |
 ```
+
 ## Brace Expansion
 ```
   Expand string lists        | echo {a,19,z,barry,42}         <- the comma
@@ -221,7 +224,8 @@ The set command is used to change the values of shell options and display variab
                              | echo {1..1000..3}
                              | echo {01..12}        <- can add leading zeros
 ```
-## commands to grokk
+
+## commands to grok
 ```
   find                       | find <search path> -name "*name-of-files*"
                              |   -iname  -> case insensitive
@@ -229,6 +233,7 @@ The set command is used to change the values of shell options and display variab
   cut                        | cut --delimiter=" " --fields=1
                              |
 ```
+
 ## Group and expand expressions
 ```
   Group commands - subshell  | ()
@@ -272,6 +277,7 @@ The set command is used to change the values of shell options and display variab
                              |   * Define a sequence of commands for the current
                              |     shell context
 ```
+
 ## Top level directorie
 ```
   /bin/                      | Contains essential binaries used by normal users
@@ -294,11 +300,13 @@ The set command is used to change the values of shell options and display variab
   /usr/                      | Contains non-essential files and binaries as read-only user data
   /var/                      | Contains varialble files, such as logs
 ```
+
 ## Understanding the Linux
 ```
  Permissions Scheme          |   id, touch, chmod, umask, chown, chgrop, sudo,
                              |   useradd, groupad, mkdir, and su
 ```
+
 ## Advanced permissions
 ```
 | Other file attribtes include immutable undeletable,
@@ -306,6 +314,7 @@ The set command is used to change the values of shell options and display variab
 |
 | commands are:  lsattr and chattr
 ```                            
+
 ## Special file permissions
 ```
  SUID = 4, SGID = 2, Sticky bit = 1
@@ -326,16 +335,19 @@ bit   |                             | files within this directory. see
       |                             | the /tmp/ director for its most
       |                             | famous use.
 ```
+
 ## Process Control
 ```
   Stop long running process  | ctrl-c
                              |
   Suspend long running procs | ctrl-z
 ```
+
 ## evaluating math, dealing with numbers
 ```
  $(( numeric_variable + 1 ))
 ```
+
 ## User input
 ```
   Arguments and parameters   | when executing a script interactively, an
@@ -387,8 +399,10 @@ bit   |                             | files within this directory. see
                              | all variables and expression substituted -- great
                              | for bug trackng
 ```
+
 ## Regular expressions
   * [Regular Expressions](programmingConcepts/re)
+
 ## Globbing ##
 ```
     Match zero or more times | *
@@ -398,6 +412,7 @@ bit   |                             | files within this directory. see
     Any of a group of        | [abcde]
     one or a group of chars  |
 ```
+
 ## egrep ##
 ```
   ?                          | matches a repeat of the previous character zero or more times
@@ -410,6 +425,7 @@ bit   |                             | files within this directory. see
                              | pattern (great for patters with more than one character,
                              | otherwise, [xy] notion would suffice)
 ```
+
 ## sed
 ```
   Search and replace         | s/ (beginning of string)
@@ -442,12 +458,14 @@ bit   |                             | files within this directory. see
   Run multi script on one    | -e
   stream                     |
 ```
+
 ## Conditional Operators
 ```
   and                        | &&
                              |
   or                         | ||
 ```
+
 ## Conditional Testing and Scripting Loops ##
 ```
   While loop                 | while true; do
@@ -480,6 +498,7 @@ Globbing and the loop        |
                              |
   Continue                   | skip current iteration of loop, continue to next
 ```
+
 ## Using Pipes and Redirection
 ```
   File descriptors           |
@@ -531,6 +550,7 @@ Globbing and the loop        |
                              |     input from stdin
 
 ```
+
 ## Functions 
 ```bash
   Covered commands: top, free declare, case, rev, return
@@ -565,6 +585,7 @@ Globbing and the loop        |
                              |      *)
                              |     color_code='default'
 ```
+
 ## Scheduling and Logging
 ```
   Commands: at, wall, atq, atrm, sendmail, crontab, alias
@@ -584,6 +605,7 @@ Globbing and the loop        |
                              | 30 * * * *         ddJK:WQJ
                              |
 ```
+
 ## Command line switches
 ```bash
   Filtering command line     | #!/bin/bash
@@ -622,6 +644,7 @@ Globbing and the loop        |
                              |  count=$(( $count + 1 ))
                              |done
 ```
+
 ### Common command line switches
 ```
    -a: List all objects.

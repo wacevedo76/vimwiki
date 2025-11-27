@@ -1,5 +1,8 @@
 # React JS
 
+##Things to Review
+* Stale State
+
 ## Quick Notes
 ### Create plain React Project
 ```
@@ -471,7 +474,6 @@ With Component composition, we can:
 * It is the element that creates and returns the actual DOM element
 
 ### How Components are Displayed on the screen
-
 1. Render is Triggered (by updating state somewhere)
 2. The Render Phase (React calls component functions and figures out how the DOM should be updated)
 3. Commit Phase (React actually writes to the DOM, updateing, inserting and deleting elemens)
@@ -611,6 +613,7 @@ useEffect(function() { the effect you want it to run }, []); ---> The second arg
 * Side Effects should never happen in Render logic. The two places that side effects should be placed in are:
   * Event handlers
   * Effects (using `useEffect`). Effects allow us to write code that will run at **different moments**: (mount, re-render, or unmount)
+
 ### Event Handlers
 * Executed when the corresponding event happens
 
@@ -621,7 +624,6 @@ function handleClick() {
     .then((data) => setMovies(data.Search))
 }
 ```
-
 
 ### Effects (using `useEffect`)
 * Executed **after the component mounts** (initial render), and after **subsequent  re-renders** (according to dependency array)
@@ -666,3 +668,75 @@ useEffect(
 	Effect synchronizes with **no state / props** - Runons only on **mount** (initial render)
 `useEffect(fn);`
 v	Effect synchronizes with **everything** - Runs on **every render** (usually bad ⛔)
+
+
+## Section - Custom Hooks, REFs, and More State
+### What are **React Hooks**
+  * Special built-in functions that allow us to **"hook" into some of React's internal mechanisms**
+     * Creating and accessing **state** from Fiber tree
+     * Registering **side effects** in Fiber tree
+     * Manual **DOM selections**
+  * Always starts with "**use**" (`useState`, `UseEffect`, etc)
+  * Enable easy **reusing of non-visual logic**: we can compose multiple hooks into our own **custom hooks**
+  * Give **function components** the ability to own state and run side effects at different lifecycle points (before v16.8 only available in class components)
+
+### Overview of all **Built-in** Hooks
+* 🥇Most Used
+    * ✅ `useState`
+    * ✅ `useEffect`
+    * 👉 `useReducer`
+    * 👉 `useContext`
+* 📜 Less Used
+    * 👉 `useRef`
+    * 👉 `useCallback`
+    * 👉 `useMemo`
+    * 👉 `useTransition`
+    * 👉 `useDeferredValue`
+    * ❌ `useLayoutEffect`
+    * ❌ `useDebugValue`
+    * ❌ `UseImperativeHandle`
+    * ❌ `useID`
+* Only for Libraries (Library authors)
+    * ❌ `useSyncExternalStore`
+    * ❌ `useInsertionEffect`
+
+### The Rules of Hoods
+1. **Only call hooks at the top level**
+    * 👉 Do **not** call hooks inside **conditionals**, **loops**, **nested functions**, or after an **early return**
+2. **Only call Hooks from React functions**
+    * 👉 Only call hooks inside a **function component** or a **custom hook**  
+👋 *These rules are **automatically enforced** by React's ESLint rules*
+
+### Hooks Rely on Call order
+* React creates a tree called the **REACT Element Tree** (virtual DOM)
+* On the initial render, React creates a Fiber Tree out of the virtual DOM where each element is a Fiber.
+* Each of these Fibers receives many things, including props, a list of work and a link list of all the hooks which were used in the component instance.
+* Since all hooks are listed in a **linked list**, conditionally rendered hooks would disrupt the integrity of the hooks linked list.
+* Since hooks are not recreated on each render, this makes hooks unsuitable for being called at any other level except the top level of the component.
+
+### The Rules of Hooks in practice
+
+### More details about `useState`
+* `useState` is only initialized during the initial Render, so `useState` can not be initialized within a conditional or with conditional initializations because rerendering does not change the initial state:
+```
+const [isTop, SetIsTop] = useState(someValue === someCondition);
+
+/* this will not work as useState only sets it's value on the initial render, not during multiple rerenders */
+```
+
+Some ways of conditionally setting a `useState` variable is through `useEffect`:
+```
+useEffect(
+  function() {
+    setIsTop(someValue === someCondition);
+  },
+  [someValue]
+);
+```
+
+Or, to simply set a variable using derived state:
+```
+const isTop = someValue > 0;
+```
+
+### Initializing State with a callBack (Lazy initial State)
