@@ -1,8 +1,10 @@
 # General Linux Administration
 ## xdg-utils
   The `xdg-utils` package commonly used to to control the applications, files, or directories that are set as default applications set by the user or the desktop enviornment.  
+  
 ### Configure Default Applications
 To configure the default applications used to open files based on their extensions, you need to set the MIME type associations. This can bedone using the `xdg-mime` command or by editing the configuration files directly.  
+
 #### Method 1: Using the `xdg-mime`
 1. Determine the MIME type of a file:
   ```bash
@@ -31,8 +33,6 @@ The default applications are usually configured in .desktop files and MIME type 
   * `/usr/share/applications/`  
 
 To set a default application, edit the mimeapps.list file and add an entry for the MIME type and the corresponding .desktop file.
-
-##### Example: Editing mimeapps.list
 
 ## Configuring Encrypted Drives to automount at boot
 

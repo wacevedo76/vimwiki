@@ -625,6 +625,7 @@ function handleClick() {
 }
 ```
 
+
 ### Effects (using `useEffect`)
 * Executed **after the component mounts** (initial render), and after **subsequent  re-renders** (according to dependency array)
 * Used to keep a component **synchronized with some external system** (in this example, with the API movie data)
@@ -740,3 +741,43 @@ const isTop = someValue > 0;
 ```
 
 ### Initializing State with a callBack (Lazy initial State)
+`useState` can be initialized with a call back function
+
+### Summary of defining and updating State
+1. Creating State
+    - Simple
+      `const [var, setVar] = useState(23);`
+    - Based on function (lazy evaluation)
+      `const [var, setVar] = usestate(() => localStorage.getItem('var'));`
+    - 👉 Function must be **pure** and accept **no arguments**. Called onl on **initial render**
+2. Updating State
+    - Simple
+      setVar(1000);
+    - Based on **current State**
+      `setVar((c) => c + 1)`
+    - 👉 Function must be **pure** and return next state
+    - Make sure to **NOT** mutate objects or arrays, but to **replace** them.
+
+### `useRef`
+#### What are **REFS**?
+* 👉 Refs stands for References and is a "Box" (object) with a **mutable** 
+  `.current` property that is **persisted across renders** (as opposed to "normal" variables, which always reset)
+The two main use cases for `useRef` are:
+    * Creating a variable that stays the same between renders (e.g previous state, `setTimeout` id, etc)
+    * Selecting and storing DOM elements
+    * 👉 **Refs** are for **data this is NOT rendered**: usually only appear in event handlers or effects, not in JSX (otherwise use state)
+    * ☝️ Do **NOT** write or read `.current` in render locgic (like state)
+
+##### State vs Refs
+* Both State and Refs persist across renders
+* Updating State will cause a re-render, whicl updated a Ref does not cause a re-render
+* State is Immutable, Refs are Mutable
+* State updates Asynchronously, Refs are updated Synchronously
+
+### Custom Hooks
+* 👉 Allow us to reuse **non-visual logic** in multiple components
+* 👉 One custom hook should have **one purpose**, to make it **resuable** and **portable** (evne across multiple projects)
+* **Rules of hooks** apply to custom hooks too
+* The function name needs to start with **use**
+* The function needs to use **one or more hooks**
+* Unlike components, they can receive and return **any relavant data** (usually [] or {})

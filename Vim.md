@@ -78,7 +78,6 @@ This dynamically inserts the yanked character into the search pattern.
 | Substitute using char from register         | `:%s/<C-r>c/NEW/g` |
 
 ### Folds
-
 | Command | Action                           |
 | :-----: | ------                           |
 | zR      | Open all folds                   |
@@ -100,7 +99,6 @@ Working with vim on windows
 
 ## Useful help pages 
 * key-notation 
-
 
 ## Neovim Testing
 | Purpose                          | Setting                              |
@@ -130,7 +128,6 @@ Working with vim on windows
 | Join lines (with spaces)                          | J                           |
 | Join lines (without spaces)                       | gJ                          |
 | Select the numbers (cntr-v) and press g,  cntr-a  | Auto increment numers       |
-  
 
 ## Useful movements
 | Mode    | Explaination                                 | Keybinding                |
@@ -143,7 +140,6 @@ Working with vim on windows
 | Command | Copy the filename under the buffers's cursor | `<C-r><C-f>`              |
 | Command | Copy the word under the buffer's cursor      | `<C-r><C-w>               |
 | Command | Copy the line under the buffer's cursor      | `<C-r><C-l>`              |
-
 
 ## Useful settings
 | Setting   | Explanation                      |
