@@ -20,6 +20,7 @@
 * [Testing](Python/Testing/testing_index)  
 * [Web Scraping](Python/web_scraping.wiki)  
 * [pdb](Python/pdb)
+* [Working with other versions of python](Python/Other_environments)
 
 ## Tools
 * [Ipython](Python/ipython)
