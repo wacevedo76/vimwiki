@@ -1,18 +1,15 @@
 * [High frequency word list - Verbs](HFWL-Polish-Verbs)
 * [High frequency word list - Nouns](HFWL-Polish-Nouns)
 
-# General Grammare Notes
+# General Grammar Notes
 
 ## Verb Aspects:
 * **Imperfective (niedokonany)**: Describes actions that are ongoing, habitual, or repeated.
-
 * **Perfective (dokonany)**: Describes actions that are completed or will be completed in the future. Perfective verbs typically do not have a present tense and are used for the past or future actions.  
 
 ## Tenses in Polish:
 * **Present Tense (czas teraźniejszy)**: Used with imperfective verbs to describe ongoing actions.  
-
 * **Past Tense (czas przeszły)**: Used with both imperfective and perfective verbs to describe past actions.  
-
 * **Future Tense (czas przyszły)**: There are two types of future tenses in Polish, one for imperfective verbs (composed future) and one for perfective verbs (simple future).  
 
 ## Present Tense Conjugation
@@ -155,20 +152,21 @@ Person	Perfective Future
 | ty (you)               | robiłbyś           | robiłabyś         |
 | on/ona/ono (he/she/it) | robiłby            | robiłaby          |
 
+
 ## Nouns
 ### Noun Declension (cases)
 
-r### Declension Summary Table
+### Declension Summary Table
 
-| Case         | Purpose                       | Example Sentence                                        |
-| :--:         | -------                       | ----------------                                        |
-| Nominative   | Subject of a sentence         | Dom jest duży. (The house is big.)                      |
-| Genitive     | Possesion, absence            | Nie ma domu. (There is no house.)                       |
-| Dative       | Indirect object (to/for whome | Daję książkę dziecku. (I’m giving a book to the child.) |
-| Accusative   | Direct object (whom/what)     | Widzę dom. (I see a house.)                             |
-| Instrumental | Means/instrument, "with"      | Piszę długopisem. (I’m writing with a pen.)             |
-| Locative     | Location (about what/whom)    | Mieszkam w domu. (I live in a house.)                   |
-| Vocative     | Direct address                | Cześć, przyjacielu! (Hi, friend!)                       |
+| Case         | Case in Polish | Purpose                       | Example Sentence                                        |
+| :--:         | -------        | -------                       | ----------------                                        |
+| Nominative   | Mianownik      | Subject of a sentence         | Dom jest duży. (The house is big.)                      |
+| Accusative   | Biernik        | Direct object (whom/what)     | Widzę dom. (I see a house.)                             |
+| Genitive     | Dopełniacz     | Possesion, absence            | Nie ma domu. (There is no house.)                       |
+| Dative       | Celownik       | Indirect object (to/for whome | Daję książkę dziecku. (I’m giving a book to the child.) |
+| Locative     | Miejscownik    | Location (about what/whom)    | Mieszkam w domu. (I live in a house.)                   |
+| Instrumental | Narzędnik      | Means/instrument, "with"      | Piszę długopisem. (I’m writing with a pen.)             |
+| Vocative     | Wołacz         | Direct address                | Cześć, przyjacielu! (Hi, friend!)                       |
 
 Declension Forms
 1. **Nominative (Mianownik)**
@@ -253,17 +251,20 @@ Declension Forms
 
 ### Declension Patterns
 
-Polish nouns follow specific declension patterns based on their gender (masculine, feminine, neuter), animacy, and endings. Below is an analysis of the provided words and their declension forms, categorized by the most common declension patterns:
+Polish nouns follow specific declension patterns based on their gender 
+(masculine, feminine, neuter), animacy, and endings. Below is an analysis of the 
+provided words and their declension forms, categorized by the most common 
+declension patterns:
 
 1. **Feminine Nouns Ending in -a**  
   Examples: szkoła, książka, woda, noga, głowa
 
     * **Nominative (Mianownik)**: -a (szkoła, książka)  
+    * **Accusative (Biernik)**: -ę (szkołę, książkę)  
     * **Genitive (Dopełniacz)**: -y/-i (szkoły, książki)  
     * **Dative (Celownik)**: -e (szkole, książce)  
-    * **Accusative (Biernik)**: -ę (szkołę, książkę)  
-    * **Instrumental (Narzędnik)**: -ą (szkołą, książką)  
     * **Locative (Miejscownik)**: -e (szkole, książce)  
+    * **Instrumental (Narzędnik)**: -ą (szkołą, książką)  
     * **Vocative (Wołacz)**: -o (szkoło, książko)  
 <br>
 
@@ -271,11 +272,11 @@ Polish nouns follow specific declension patterns based on their gender (masculin
   Examples: samochód, sklep, pokój, dzień, człowiek
 
     * **Nominative (Mianownik)**: - (unchanged: samochód, sklep)  
+    * **Accusative (Biernik)**: Same as Genitive for animate nouns (samochodu, sklepu)  
     * **Genitive (Dopełniacz)**: -u/-a (samochodu, sklepu)  
     * **Dative (Celownik)**: -owi (samochodowi, sklepowi)  
-    * **Accusative (Biernik)**: Same as Genitive for animate nouns (samochodu, sklepu)  
-    * **Instrumental (Narzędnik)**: -em (samochodem, sklepem)  
     * **Locative (Miejscownik)**: -e/-u (samochodzie, sklepie)  
+    * **Instrumental (Narzędnik)**: -em (samochodem, sklepem)  
     * **Vocative (Wołacz)**: Same as Nominative or with -e (samochodzie, sklepie)  
 <br>
 
@@ -283,11 +284,11 @@ Polish nouns follow specific declension patterns based on their gender (masculin
   Examples: czas, rok
 
     * **Nominative (Mianownik)**: - (unchanged: czas, rok)  
+    * **Accusative (Biernik)**: Same as Nominative (czas, rok)  
     * **Genitive (Dopełniacz)**: -u/-a (czasu, roku)  
     * **Dative (Celownik)**: -owi (czasowi, rokowi)  
-    * **Accusative (Biernik)**: Same as Nominative (czas, rok)  
-    * **Instrumental (Narzędnik)**: -em (czasem, rokiem)  
     * **Locative (Miejscownik)**: -e/-u (czasie, roku)  
+    * **Instrumental (Narzędnik)**: -em (czasem, rokiem)  
     * **Vocative (Wołacz)**: Same as Nominative (czas, rok)  
 <br>
 
@@ -295,11 +296,11 @@ Polish nouns follow specific declension patterns based on their gender (masculin
   Examples: miejsce, miasto, jedzenie
 
     * **Nominative (Mianownik)**: -o (miejsce, miasto)  
+    * **Accusative (Biernik)**: Same as Nominative (miejsce, miasto)  
     * **Genitive (Dopełniacz)**: -a (miejsca, miasta)  
     * **Dative (Celownik)**: -u (miejscu, miastu)  
-    * **Accusative (Biernik)**: Same as Nominative (miejsce, miasto)  
-    * **Instrumental (Narzędnik)**: -em (miejscem, miastem)  
     * **Locative (Miejscownik)**: -e (miejscu, mieście)  
+    * **Instrumental (Narzędnik)**: -em (miejscem, miastem)  
     * **Vocative (Wołacz)**: Same as Nominative (miejsce, miasto)  
 <br>
 
@@ -307,11 +308,11 @@ Polish nouns follow specific declension patterns based on their gender (masculin
   Examples: powietrze, serce
 
     * **Nominative (Mianownik)**: -e (powietrze, serce)  
+    * **Accusative (Biernik)**: Same as Nominative (powietrze, serce)  
     * **Genitive (Dopełniacz)**: -a (powietrza, serca)  
     * **Dative (Celownik)**: -u (powietrzu, sercu)  
-    * **Accusative (Biernik)**: Same as Nominative (powietrze, serce)  
-    * **Instrumental (Narzędnik)**: -em (powietrzem, sercem)  
     * **Locative (Miejscownik)**: -u (powietrzu, sercu)  
+    * **Instrumental (Narzędnik)**: -em (powietrzem, sercem)  
     * **Vocative (Wołacz)**: Same as Nominative (powietrze, serce)  
 <br>
 
@@ -319,11 +320,11 @@ Polish nouns follow specific declension patterns based on their gender (masculin
   Examples: twarz, noc
 
     * **Nominative (Mianownik)**: - (unchanged: twarz, noc)  
+    * **Accusative (Biernik)**: Same as Nominative (twarz, noc)  
     * **Genitive (Dopełniacz)**: -y/-i (twarzy, nocy)  
     * **Dative (Celownik)**: -y/-i (twarzy, nocy)  
-    * **Accusative (Biernik)**: Same as Nominative (twarz, noc)  
-    * **Instrumental (Narzędnik)**: -ą (twarzą, nocą)  
     * **Locative (Miejscownik)**: -y/-i (twarzy, nocy)  
+    * **Instrumental (Narzędnik)**: -ą (twarzą, nocą)  
     * **Vocative (Wołacz)**: Same as Nominative (twarz, noc)  
 <br>
 
@@ -331,11 +332,11 @@ Polish nouns follow specific declension patterns based on their gender (masculin
   Examples: pieniądze (money)
 
     * **Nominative (Mianownik)**: -e (pieniądze)  
+    * **Accusative (Biernik)**: Same as Nominative (pieniądze)  
     * **Genitive (Dopełniacz)**: -i/-ów (pieniędzy)  
     * **Dative (Celownik)**: -om (pieniądzom)  
-    * **Accusative (Biernik)**: Same as Nominative (pieniądze)  
-    * **Instrumental (Narzędnik)**: -ami (pieniędzmi)  
     * **Locative (Miejscownik)**: -ach (pieniądzach)  
+    * **Instrumental (Narzędnik)**: -ami (pieniędzmi)  
     * **Vocative (Wołacz)**: Same as Nominative (pieniądze)  
 <br>
 
@@ -345,21 +346,22 @@ The following are the most common personal Pronouns and their declined forms:
 | Case         | ja     | ty                 | on      | ona       | ono      | my      | wy               | oni/one        |
 | :----------: | :----: | :----------------: | :-----: | :-------: | :------: | :-----: | :--------------: | :------------: |
 | Nominative   | ja     | ty                 | on      | ona       | ono      | my      | wy               | oni/one        |
+| Accusative   | mnie   | ciebie             | jego    | ją        | je       | nas     | was              | ich            |
 | Genitive     | mnie   | ciebie             | jego    | jej       | jego     | nas     | was              | ich            |
 | Dative       | mnie   | tobie              | jemu    | jej       | jemu     | nam     | wam              | im             |
-| Accusative   | mnie   | ciebie             | jego    | ją        | je       | nas     | was              | ich            |
 | Instrumental | mną    | tobą               | nim     | nią       | nim      | nami    | wami             | nimi           |
 | Vocative     | —      | —                  | —       | —         | —        | —       | —                | —              |
 
-### Possessive Pronous
+### Possessive Pronouns
+
 | Case         | mój        | twój                  | jego       | jej       | nasz         | wasz                | ich         |
 | :----------: | :--------: | :------------:        | :--------: | :-------: | :----------: | :-----------------: | :---------: |
 | Nominative   | mój        | twój                  | jego       | jej       | nasz         | wasz                | ich         |
+| Accusative   | mój/mojego | twój/twojego          | jego       | ją        | nasz/naszego | wasz/waszego        | ich         |
 | Genitive     | mojego     | twojego               | jego       | jej       | naszego      | waszego             | ich         |
 | Dative       | mojemu     | twojemu               | jemu       | jej       | naszemu      | waszemu             | im          |
-| Accusative   | mój/mojego | twój/twojego          | jego       | ją        | nasz/naszego | wasz/waszego        | ich         |
-| Instrumental | moim       | twoim                 | nim        | nią       | naszym       | waszym              | nimi        |
 | Locative     | moim       | twoim                 | nim        | niej      | naszym       | waszym              | nich        |
+| Instrumental | moim       | twoim                 | nim        | nią       | naszym       | waszym              | nimi        |
 | Vocative     | mój        | twój                  | —          | —         | nasz         | wasz                | —           |
 
 ### Demonstrative Pronous
@@ -367,20 +369,21 @@ The following are the most common personal Pronouns and their declined forms:
 | Case         | ten               | ta              | to               | ci              | tamten               | tamta              | tamto               |
 | :----------: | :---------------: | :-------------: | :--------------: | :-------------: | :------------------: | :----------------: | :-----------------: |
 | Nominative   | ten               | ta              | to               | ci              | tamten               | tamta              | tamto               |
+| Accusative   | ten/tego          | tę              | to               | tych            | tamten/tamtego       | tamtą              | tamto               |
 | Genitive     | tego              | tej             | tego             | tych            | tamtego              | tamtej             | tamtego             |
 | Dative       | temu              | tej             | temu             | tym             | tamtemu              | tamtej             | tamtemu             |
-| Accusative   | ten/tego          | tę              | to               | tych            | tamten/tamtego       | tamtą              | tamto               |
 | Instrumental | tym               | tą              | tym              | tymi            | tamtym               | tamtą              | tamtym              |
 | Locative     | tym               | tej             | tym              | tych            | tamtym               | tamtej             | tamtym              |
 | Vocative     | —                 | —               | —                | —               | —                    | —                  | —                   |
 
 ### Interrogative Pronouns
+
 | Case         | kto (who) | co (what) | który (which, masc.) | która (which, fem.) | które (which, neut.) |
 | :----------: | :-------: | :-------: | :------------------- | ------------------- | -------------------- |
 | Nominative   | kto       | co        | który                | która               | które                |
+| Accusative   | kogo      | co        | który/którego        | którą               | które                |
 | Genitive     | kogo      | czego     | którego              | której              | którego              |
 | Dative       | komu      | czemu     | któremu              | której              | któremu              |
-| Accusative   | kogo      | co        | który/którego        | którą               | które                |
 | Instrumental | kim       | czym      | którym               | którą               | którym               |
 | Locative     | kim       | czym      | którym               | której              | którym               |
 | Vocative     | —         | —         | —                    | —                   | —                    |
@@ -390,15 +393,15 @@ with a smaller set to illustrate the declensions. Each row includes a noun with
 its declined forms across cases in Polish: Nominative, Genitive, Dative, 
 Accusative, Instrumental, Locative, and Vocative.
 
-| Polish Noun       | Nominative (Mianownik) | Genitive (Dopełniacz) | Dative (Celownik) | Accusative (Biernik) | Instrumental (Narzędnik) | Locative (Miejscownik) | Vocative (Wołacz) |
-| dom (house)       | dom                    | domu                  | domowi            | dom                  | domem                    | domu                   | domie             |
-| człowiek (person) | człowiek               | człowieka             | człowiekowi       | człowieka            | człowiekiem              | człowieku              | człowieku         |
-| czas (time)       | czas                   | czasu                 | czasowi           | czas                 | czasem                   | czasie                 | czasie            |
-| dzień (day)       | dzień                  | dnia                  | dniu              | dzień                | dniem                    | dniu                   | dniu              |
-| życie (life)      | życie                  | życia                 | życiu             | życie                | życiem                   | życiu                  | życie             |
-| świat (world)     | świat                  | świata                | światu            | świat                | światem                  | świecie                | świecie           |
-| miłość (love)     | miłość                 | miłości               | miłości           | miłość               | miłością                 | miłości                | miłości           |
-| praca (work)      | praca                  | pracy                 | pracy             | pracę                | pracą                    | pracy                  | praco             |
-| kobieta (woman)   | kobieta                | kobiety               | kobiecie          | kobietę              | kobietą                  | kobiecie               | kobieto           |
-| mężczyzna (man)   | mężczyzna              | mężczyzny             | mężczyźnie        | mężczyznę            | mężczyzną                | mężczyźnie             | mężczyzno         |
-| dziecko (child)   | dziecko                | dziecka               | dziecku           | dziecko              | dzieckiem                | dziecku                | dziecko           |
+| Nominative (Mianownik) | Accusative (Biernik) | Genitive (Dopełniacz) | Dative (Celownik) | Locative (Miejscownik) | Instrumental (Narzędnik) | Vocative (Wołacz) |
+| dom (house)            | dom                  | domu                  | domowi            | domu                   | domem                    | domie             |
+| człowiek (person)      | człowieka            | człowieka             | człowiekowi       | człowieku              | człowiekiem              | człowieku         |
+| czas (time)            | czas                 | czasu                 | czasowi           | czasie                 | czasem                   | czasie            |
+| dzień (day)            | dzień                | dnia                  | dniu              | dniu                   | dniem                    | dniu              |
+| życie (life)           | życie                | życia                 | życiu             | życiu                  | życiem                   | życie             |
+| świat (world)          | świat                | świata                | światu            | świecie                | światem                  | świecie           |
+| miłość (love)          | miłość               | miłości               | miłości           | miłości                | miłością                 | miłości           |
+| praca (work)           | pracę                | pracy                 | pracy             | pracy                  | pracą                    | praco             |
+| kobieta (woman)        | kobietę              | kobiety               | kobiecie          | kobiecie               | kobietą                  | kobieto           |
+| mężczyzna (man)        | mężczyznę            | mężczyzny             | mężczyźnie        | mężczyźnie             | mężczyzną                | mężczyzno         |
+| dziecko (child)        | dziecko              | dziecka               | dziecku           | dziecku                | dzieckiem                | dziecko           |
