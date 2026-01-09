@@ -239,6 +239,7 @@ Declension Forms
         * Dziecko, uważaj! (Child, be careful!)  
         <br>  
 
+
 ### Declension Patterns Summary
 
 1. Feminine nouns ending in **-a** (regular pattern).
@@ -340,6 +341,26 @@ declension patterns:
     * **Vocative (Wołacz)**: Same as Nominative (pieniądze)  
 <br>
 
+Here is a table showing the seven declined forms of Polish nouns. I'll start 
+with a smaller set to illustrate the declensions. Each row includes a noun with 
+its declined forms across cases in Polish: Nominative, Genitive, Dative, 
+Accusative, Instrumental, Locative, and Vocative.
+
+| Nominative (Mianownik) | Accusative (Biernik) | Genitive (Dopełniacz) | Dative (Celownik) | Locative (Miejscownik) | Instrumental (Narzędnik) | Vocative (Wołacz) |
+| dom (house)            | dom                  | domu                  | domowi            | domu                   | domem                    | domie             |
+| człowiek (person)      | człowieka            | człowieka             | człowiekowi       | człowieku              | człowiekiem              | człowieku         |
+| czas (time)            | czas                 | czasu                 | czasowi           | czasie                 | czasem                   | czasie            |
+| dzień (day)            | dzień                | dnia                  | dniu              | dniu                   | dniem                    | dniu              |
+| życie (life)           | życie                | życia                 | życiu             | życiu                  | życiem                   | życie             |
+| świat (world)          | świat                | świata                | światu            | świecie                | światem                  | świecie           |
+| miłość (love)          | miłość               | miłości               | miłości           | miłości                | miłością                 | miłości           |
+| praca (work)           | pracę                | pracy                 | pracy             | pracy                  | pracą                    | praco             |
+| kobieta (woman)        | kobietę              | kobiety               | kobiecie          | kobiecie               | kobietą                  | kobieto           |
+| mężczyzna (man)        | mężczyznę            | mężczyzny             | mężczyźnie        | mężczyźnie             | mężczyzną                | mężczyzno         |
+| dziecko (child)        | dziecko              | dziecka               | dziecku           | dziecku                | dzieckiem                | dziecko           |
+
+
+## Pronous
 ### Personal Pronouns
 The following are the most common personal Pronouns and their declined forms:
 
@@ -388,20 +409,3 @@ The following are the most common personal Pronouns and their declined forms:
 | Locative     | kim       | czym      | którym               | której              | którym               |
 | Vocative     | —         | —         | —                    | —                   | —                    |
 
-Here is a table showing the seven declined forms of Polish nouns. I'll start 
-with a smaller set to illustrate the declensions. Each row includes a noun with 
-its declined forms across cases in Polish: Nominative, Genitive, Dative, 
-Accusative, Instrumental, Locative, and Vocative.
-
-| Nominative (Mianownik) | Accusative (Biernik) | Genitive (Dopełniacz) | Dative (Celownik) | Locative (Miejscownik) | Instrumental (Narzędnik) | Vocative (Wołacz) |
-| dom (house)            | dom                  | domu                  | domowi            | domu                   | domem                    | domie             |
-| człowiek (person)      | człowieka            | człowieka             | człowiekowi       | człowieku              | człowiekiem              | człowieku         |
-| czas (time)            | czas                 | czasu                 | czasowi           | czasie                 | czasem                   | czasie            |
-| dzień (day)            | dzień                | dnia                  | dniu              | dniu                   | dniem                    | dniu              |
-| życie (life)           | życie                | życia                 | życiu             | życiu                  | życiem                   | życie             |
-| świat (world)          | świat                | świata                | światu            | świecie                | światem                  | świecie           |
-| miłość (love)          | miłość               | miłości               | miłości           | miłości                | miłością                 | miłości           |
-| praca (work)           | pracę                | pracy                 | pracy             | pracy                  | pracą                    | praco             |
-| kobieta (woman)        | kobietę              | kobiety               | kobiecie          | kobiecie               | kobietą                  | kobieto           |
-| mężczyzna (man)        | mężczyznę            | mężczyzny             | mężczyźnie        | mężczyźnie             | mężczyzną                | mężczyzno         |
-| dziecko (child)        | dziecko              | dziecka               | dziecku           | dziecku                | dzieckiem                | dziecko           |
