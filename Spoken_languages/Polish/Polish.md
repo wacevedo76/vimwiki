@@ -156,19 +156,20 @@ Person	Perfective Future
 ## Nouns
 ### Noun Declension (cases)
 
-### Declension Summary Table
+#### Declension Summary Table
 
-| Case         | Case in Polish | Purpose                       | Example Sentence                                        |
-| :--:         | -------        | -------                       | ----------------                                        |
-| Nominative   | Mianownik      | Subject of a sentence         | Dom jest duży. (The house is big.)                      |
-| Accusative   | Biernik        | Direct object (whom/what)     | Widzę dom. (I see a house.)                             |
-| Genitive     | Dopełniacz     | Possesion, absence            | Nie ma domu. (There is no house.)                       |
-| Dative       | Celownik       | Indirect object (to/for whome | Daję książkę dziecku. (I’m giving a book to the child.) |
-| Locative     | Miejscownik    | Location (about what/whom)    | Mieszkam w domu. (I live in a house.)                   |
-| Instrumental | Narzędnik      | Means/instrument, "with"      | Piszę długopisem. (I’m writing with a pen.)             |
-| Vocative     | Wołacz         | Direct address                | Cześć, przyjacielu! (Hi, friend!)                       |
+| Case         | Case in Polish | Purpose                       | Prompt Question        | Example Sentence                                        |
+| :--:         | :-----:        | -------                       | ----------------       | ----------------                                        |
+| Nominative   | Mianownik      | Subject of a sentence         | Kto?, Co?              | Dom jest duży. (The house is big.)                      |
+| Accusative   | Biernik        | Direct object (whom/what)     | Kogo?, Co Vidze?       | Widzę dom. (I see a house.)                             |
+| Genitive     | Dopełniacz     | Possesion, absence            | Kogo?, Czego?, Nie ma? | Nie ma domu. (There is no house.)                       |
+| Dative       | Celownik       | Indirect object (to/for whome | Komu?, Czemu?          | Daję książkę dziecku. (I’m giving a book to the child.) |
+| Locative     | Miejscownik    | Location (about what/whom)    | (o) kim?, (o) czym?    | Mieszkam w domu. (I live in a house.)                   |
+| Instrumental | Narzędnik      | Means/instrument, "with"      | Kim?, Czym?            | Piszę długopisem. (I’m writing with a pen.)             |
+| Vocative     | Wołacz         | Direct address                |                        | Cześć, przyjacielu! (Hi, friend!)                       |
 
-Declension Forms
+#### Declension Forms
+
 1. **Nominative (Mianownik)**
     * **Purpose**: Used for the subject of a sentence (who/what performs the action).
     * **Key Question**: Kto? Co? (Who? What?)
@@ -177,8 +178,31 @@ Declension Forms
         * Dom jest duży. (The house is big.)
         * Kobieta czyta książkę. (The woman is reading a book.)
         * Dziecko się bawi. (The child is playing.)  
+
+    The most typical Endings for nouns in the nominative singular are:
+      For masculine nouns:
+      * a consonant
+      * -a
+      * -o
+      For feminine nouns:
+      * -a
+      * - a consonant
+      * - i
+      For neuter nouns:
+      * -o, e, ę
+      * -um
         <br>
-  
+
+4. **Accusative (Biernik)**
+    * **Purpose**: Used for the direct object (what is being acted upon). Also after verbs of motion with prepositions.
+    * **Key Question**: Kogo? Co? (Whom? What?)
+    
+      * Example:
+        * Widzę dom. (I see a house.)
+        * Kupuję książkę. (I’m buying a book.)
+        * Idę do szkoły. (I’m going to school.)  
+        <br>  
+
 2. **Genitive (Dopełniacz)**
     * **Purpose**: Used to show possession, absence, or relationships. Often follows words like nie ma (there is no), or prepositions like do (to), z (from).
     * **Key Question**: Kogo? Czego? (Whose? Of whom? Of what?)
@@ -199,26 +223,6 @@ Declension Forms
         * Pies daje radość ludziom. (The dog brings joy to people.)  
         <br>  
 
-4. **Accusative (Biernik)**
-    * **Purpose**: Used for the direct object (what is being acted upon). Also after verbs of motion with prepositions.
-    * **Key Question**: Kogo? Co? (Whom? What?)
-    
-      * Example:
-        * Widzę dom. (I see a house.)
-        * Kupuję książkę. (I’m buying a book.)
-        * Idę do szkoły. (I’m going to school.)  
-        <br>  
-
-5. **Instrumental (Narzędnik)**
-    * **Purpose**: Indicates the means or instrument of an action. Also used after certain prepositions like z (with).
-    * **Key Question**: Z kim? Z czym? (With whom? With what?)
-    
-      * Example:
-        * Idę z przyjacielem. (I’m going with a friend.)
-        * Piszę długopisem. (I’m writing with a pen.)
-        * Kobieta jest nauczycielką. (The woman is a teacher.)  
-        <br>  
-
 6. **Locative (Miejscownik)**
     * **Purpose**: Used with specific prepositions to indicate location or about what something is.
     * **Key Question**: O kim? O czym? (About whom? About what?)
@@ -227,6 +231,16 @@ Declension Forms
         * Mieszkam w domu. (I live in a house.)
         * Myślę o książce. (I’m thinking about the book.)
         * Rozmawiam o pracy. (I’m talking about work.)  
+        <br>  
+
+5. **Instrumental (Narzędnik)**
+    * **Purpose**: Indicates the means or instrument of an action, means to an end, means of transportation, accompaniment, 'being' or 'becoming'. Also used after certain prepositions like z (with).
+    * **Key Question**: Z kim? Z czym? (With whom? With what?)
+    
+      * Example:
+        * Idę z przyjacielem. (I’m going with a friend.)
+        * Piszę długopisem. (I’m writing with a pen.)
+        * Kobieta jest nauczycielką. (The woman is a teacher.)  
         <br>  
 
 7. **Vocative (Wołacz)**
@@ -341,6 +355,7 @@ declension patterns:
     * **Vocative (Wołacz)**: Same as Nominative (pieniądze)  
 <br>
 
+### Example Polish Declension Table
 Here is a table showing the seven declined forms of Polish nouns. I'll start 
 with a smaller set to illustrate the declensions. Each row includes a noun with 
 its declined forms across cases in Polish: Nominative, Genitive, Dative, 
