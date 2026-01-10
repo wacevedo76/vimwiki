@@ -704,11 +704,12 @@ v	Effect synchronizes with **everything** - Runs on **every render** (usually ba
 ### The Rules of Hoods
 1. **Only call hooks at the top level**
     * 👉 Do **not** call hooks inside **conditionals**, **loops**, **nested functions**, or after an **early return**
+    * 👉 This is necessary to ensure that hoks are always called in the **same order** (hooks rely on this)
 2. **Only call Hooks from React functions**
     * 👉 Only call hooks inside a **function component** or a **custom hook**  
 👋 *These rules are **automatically enforced** by React's ESLint rules*
 
-### Hooks Rely on Call order
+### Hooks Rely on **Call order**
 * React creates a tree called the **REACT Element Tree** (virtual DOM)
 * On the initial render, React creates a Fiber Tree out of the virtual DOM where each element is a Fiber.
 * Each of these Fibers receives many things, including props, a list of work and a link list of all the hooks which were used in the component instance.

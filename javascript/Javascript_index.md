@@ -83,6 +83,7 @@ const updatedBook = {
 ```
 const bookName = `The tile of the book is ${book.title}`
 ````
+
 * To create a **Template Literal**, you wrap the string in backtics instead of commas.
 * The interpolation happens when you wrap the variable or expression between a dollar sign and curly brackes ( ${variable or expression} )
 
@@ -113,7 +114,7 @@ Some logical operators operate on short-circuit rules, meaning that one value wi
 ```
 (false && "some String");
 ```
-* The same is true with a false statement, if the first expression returns false, the second experssion will **not** be evaluated and the first value will be returned.
+* The same is true with a false statement, if the first expression returns false, the second expression will **not** be evaluated and the first value will be returned.
 * This behavior will also work with "truthy" and "falsey" values.
 
 #### `||` operator
@@ -122,36 +123,43 @@ Similar Short-Circuiting behavior applies to the `||` (or) operator.
 * It will return the second value if the first is false, **which may lead to unexpected Behavior**
 
 #### `??` operator (Nullish coalescing Operator)
-* It works similarly to the `||` operator but does short-circuit for falsy values, and will only execute the right value with `null` or `undefined`
+* It works similarly to the `||` operator but does short-circuit for falsey values, and will only execute the right value with `null` or `undefined`
 
 ### Optional Chaining
 In JavaScript, Optional Chaining (`?.`) is a safe and concise way to access nested properties of an object
-without having to explicitly validate that each reference in the chain is not null or undefined. In other words, if a nested property os an object does not exist, it will return an `undefined` instead of throwing an error.
+without having to explicitly validate that each reference in the chain is not null or undefined. In other words, if a nested property and an object does not exist, it will return an `undefined` instead of throwing an error.
+
 ```
 const street = user?.details?.address?.street;
 ```
-* If any value within the object chain, including user, does not exist, the value of street will be `undefined`
+
+* If any value within the object chain, including user, does not exist, the value of street will be "undefined"
 
 * This can be used in conjunction with `??` the Nullish coalescing operator:
+
 ```
 const books_read = data.books.booksReadTotalCount? ?? "No data Available"
 ```
+
 * if `||` or was used and the value of `data.books.booksReadTotalCount` returned `0`, it would have used "no data Available" instead of returning the `0`.
 
 ### Functional Array Methods
 #### The Array Map Method
+
 ```JavaScript
 const x = [1, 2, 3, 4, 5].map((el) => el * 2); // -> "el" is a temporary variable 
-                                               that represents a single element 
-                                               in the array, which can be used 
-                                               to perform an operation
+                                               // that represents a single element 
+                                               // in the array, which can be used 
+                                               // to perform an operation
 
 x;   // -> [ 2, 4, 6, 8, 10 ]
 ```
+
 * The Map array function returns the performs an operation on each element in the array, and returns an array with the newly modified elements
 
 #### The Array Filter Method
 The Array Filter Method used to filter elements of an object based on criteria defined in a callback function you define as the Filter's parameter.
+
 ```JavaScript
 const longBooks = books.filter((book) => book.pages > 500);
 ```
@@ -174,35 +182,43 @@ In this example:
 * the itteration ends and then next begins, all sub-objects are processed
 
 #### The Array Sort Method
-```
+
+```JavaScript
 const arr = [3, 4, 1, 9, 6]
 
 cost sorted = arr.sort((a, b) => a - b);
 ```
+
 This method actually mutates the array, so a common pattern is the run to `sort` method on a copy of the array.
-```
+
+```JavaScript
 const arr = [3, 4, 1, 9, 6]
 
 cost sorted = arr.slice().sort((a, b) => a - b);
 ```
+
 A practical Example:
-```
+
+```JavaScript
 const sortedByPages = books.slice().sort((a,b), b.pages - a.pages)
 ```
 
 ### Working with Immutable Arrays
 #### Add elements to an array
-````
+
+````JavaScript
 const updatedObject = [...objects, newObject];
 ````
 
 #### Delete an object from an array
-```
+
+```JavaScript
 const updatedObject = object.filter(ob => ob.id !== 3) // removes object by id 3 (includes all object except 3)
 ```
 
 #### Update an object
-```
+
+```JavaScript
 const updatedObject = object.map((obj) =>
   object.id === 1 ? {...obj, propertyToUpdate : update} : obj // use the ternary operator to find object
 ```
@@ -216,6 +232,7 @@ const updatedObject = object.map((obj) =>
   .then(data) => console.log(data))`
 
 #### Async / Await
+
 ```JavaScript
 async function getTodos() {
   const res = await fetch(url);
