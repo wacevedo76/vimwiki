@@ -18,3 +18,4 @@ Linux Sys Admin and Certification Training
 * [Centos](Linux/centos8|Centos8)
 * [General Administration](Linux/General_administration)
 * [Linux General Notes](Linux/Linux_General_Notes)
+* [Hyprland](./Linux/hyprland.md)
