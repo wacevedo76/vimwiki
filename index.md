@@ -71,7 +71,7 @@
 * [proxmox](proxmox)
 * [nvm](nvm)
 
- ## Adminitration 
+ ## Administration 
 * [Linux SysAd](linux_sysad)
 * [Windows](Windows)
 
