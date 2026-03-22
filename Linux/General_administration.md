@@ -1,4 +1,25 @@
 # General Linux Administration
+
+## Systemd related commands
+✦ To display all currently running systemd services, you can use the following command:
+
+   1 systemctl list-units --type=service --state=running
+
+  Breakdown of the command:
+   * list-units: The default command to list units that systemd has loaded into memory.
+   * --type=service: Filters the list to only show service units (ignoring sockets, targets, etc.).
+   * --state=running: Filters the list to only show services that are currently active and running.
+
+  Other useful variations:
+   * To see all services (including those that are stopped or failed):
+   1     systemctl list-units --type=service
+   * To see a simplified list of all installed services and their enabled/disabled status:
+
+   1     systemctl list-unit-files --type=service
+   * To see the system hierarchy of services in a tree format:
+
+   1     systemctl status
+
 ## xdg-utils
   The `xdg-utils` package commonly used to to control the applications, files, or directories that are set as default applications set by the user or the desktop enviornment.  
   
