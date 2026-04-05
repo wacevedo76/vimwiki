@@ -1,21 +1,23 @@
 --------------------------------------------------------------------------------
 Linux Sys Admin and Certification Training
 --------------------------------------------------------------------------------
-* [Arch Linux Commands](arch_linux)
-* [Debina Linux common settings](debian_linux)
-* [[Atos Linux Administration]]
-* [[Linux +]]
-* [[SUSE Linux Enterprise Servier 15]]
-* [[RHCSA]]
-* [Linux Bootcamp](linuxbootcamp)
-* [Common Commands](linuxGeneralConcepts/commonCommands)
-* [New Commands](linuxGeneralConcepts/new_commands)
-* [lightdm](linuxGeneralConcepts/lightdm)
-* [iptables](linuxGeneralConcepts/iptables)
-* [firewalld](linuxGeneralConcepts/firewalld)
-* [Systemd](linuxGeneralConcepts/systemd)
-* [Package Management](Linux/package_management)
-* [Centos](Linux/centos8|Centos8)
-* [General Administration](Linux/General_administration)
-* [Linux General Notes](Linux/Linux_General_Notes)
-* [Hyprland](./Linux/hyprland.md)
+* [Arch Linux Commands](../03_Distributions/arch_linux.md)
+* [Debian Linux common settings](../03_Distributions/debian_linux.md)
+* [Atos Linux Administration](./atos_linux_administration.md)
+* [Linux+ Certification Notes](../01_General/linux_plus.md)
+* [SUSE Linux Enterprise Server 15](../03_Distributions/suse_linux_enterprise_server_15.md)
+* [RHCSA Certification] (Note: RHCSA.md not found in reorganization)
+* [Linux Bootcamp](../05_Certifications_Courses/linuxbootcamp.md)
+* [Common Commands](../04_Tools_Applications/basic_commands.md)
+* [Systemd Guide](./systemd.md)
+* [Firewall Management](./firewalls.md)
+* [Package Management](../04_Tools_Applications/package_management.md)
+* [CentOS 8](../03_Distributions/centos8.md)
+* [General Administration](./General_administration.md)
+* [Linux General Notes](../01_General/Linux_General_Notes.md)
+* [Hyprland Window Manager](../04_Tools_Applications/hyprland.md)
+* [LightDM Display Manager](../04_Tools_Applications/lightdm.md)
+* [sed Text Processing](../04_Tools_Applications/sed.md)
+* [Filesystem Hierarchy Standard](../01_General/fhs.md)
+* [Executing Linux Commands in Python](../04_Tools_Applications/Executing_Linux_commands_in_Python.md)
+* [LXC Container Course](../05_Certifications_Courses/lxc-syllabus.md)

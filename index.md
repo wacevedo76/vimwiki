@@ -49,7 +49,7 @@
 * [Software Architecture](programmingConcepts/Software_Architecture)
 
  ## Linux General Concept 
-* [File System Hierarchy](linuxGeneralConcepts/fhs)
+* [File System Hierarchy](Linux/01_General/fhs)
 
  ## Tooling 
 * [Git](git/git_index)
@@ -109,4 +109,4 @@
 * [The C Programming Language](Courses/C/index)
 * [The Python Programming Language](Courses/Python/index)
 * [LXC](Courses/Linux/LXC/lxc-syllabus)
-* [sed](Courses/Linux/sed)
+* [sed](Linux/04_Tools_Applications/sed)
