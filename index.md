@@ -73,7 +73,7 @@
 * [nvm](nvm)
 
  ## Administration 
-* [Linux SysAd](linux_sysad)
+* [Linux SysAd](Linux/index)
 * [Windows](Windows)
 
  ## Networking 
