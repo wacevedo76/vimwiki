@@ -1,6 +1,28 @@
 # Bash Programming Language Notes
 * Cheat-Sheet from https://ss64.com/bash/syntax-brackets.html
 ## Quick Notes
+Generating epoch time stamps with Bash:
+✦ To generate a Unix epoch timestamp (the number of seconds since January 1, 1970) in Bash, use
+  the date command with the %s format specifier:
+
+   1 date +%s
+
+  Common Variations:
+
+   * Assign to a variable:
+
+   1     now=$(date +%s)
+   2     echo $now
+
+   * Include milliseconds (if supported by your version of date):
+   1     date +%s%3N
+   
+   * Convert a specific date string to epoch (Linux/GNU):
+   1     date -d "2023-10-01 12:30:00" +%s
+
+   * Convert a specific date string to epoch (macOS/BSD):
+   1     date -j -f "%Y-%m-%d %H:%M:%S" "2023-10-01 12:30:00" "+%s"
+
 
 ### Continue syncing a folder with rsync
 rsync -avh --progress /path/to/source/directory/ /path/to/destination/directory/
